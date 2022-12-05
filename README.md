@@ -1,5 +1,5 @@
 # Analysis3_Notes
-A repo for LaTeXed notes of Real Analysis of Several Variables.
+A repo for $\LaTeX$ed notes of Real Analysis of Several Variables.
 
 ### Get Started
 
