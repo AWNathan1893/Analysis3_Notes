@@ -1,0 +1,40 @@
+name: Compile Latex and put pdfs in asset-pdf branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build-latex.yml"
+      - "**.tex"
+      - "**.sty"
+      - "**.bib"
+      - "**.cls"
+
+jobs:
+  build_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+
+      - name: Compile pdf
+        uses: dante-ev/latex-action@latest
+        with:
+          working_directory: Analysis-3_Notes
+          root_file: ./Analysis-3.tex
+
+      - name: Put PDFs in a single directory
+        run: |
+          mkdir PDFs
+          mv Analysis-3.pdf PDFs/Analysis-3.pdf
+
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: asset-pdf
+          FOLDER: PDFs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_ASSET_PRIVATE_KEY }}
+          MESSAGE: "Update from {sha}.\n{msg}"
