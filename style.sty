@@ -1,0 +1,186 @@
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\setlength{\parindent}{0ex}
+\usepackage{microtype}
+\usepackage{physics}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
+
+% Colours
+\definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
+\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+\definecolor{richlavender}{rgb}{0.67, 0.38, 0.8}
+\definecolor{cosmiclatte}{rgb}{1.0, 0.97, 0.91}
+\definecolor{lavenderblush}{rgb}{1.0, 0.94, 0.96}
+\definecolor{electriclavender}{rgb}{0.96, 0.73, 1.0}
+\definecolor{frenchrose}{rgb}{0.96, 0.29, 0.54}
+\definecolor{nadeshikopink}{rgb}{0.96, 0.68, 0.78}
+\definecolor{lawngreen}{rgb}{0.49, 0.99, 0.0}
+
+\newtcbtheorem[number within=section]{Def}{Definition}{
+  breakable, enhanced,
+  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  fonttitle=\bfseries, 
+  coltitle=black!70!green, 
+  colbacktitle=cosmiclatte,
+  colback=beige,
+  colframe=teal,
+  arc=2.5mm,
+  separator sign={\ $\blacktriangleright$},
+  description delimiters none,
+  description font=\mdseries}{def}
+
+\newtcbtheorem[no counter]{Quote}{}{
+  breakable, enhanced,
+  attach boxed title to bottom right={xshift=-3mm, yshift=3mm, yshifttext=1mm},
+  fonttitle=\bfseries, 
+  coltitle=black, 
+  colbacktitle=cosmiclatte,
+  colback=black!10!white,
+  colframe=black,
+  arc=2.5mm,
+  separator sign none,
+  description delimiters none,
+  description font=\mdseries}{quote}
+
+\newtcbtheorem[number within=section]{Thm}{Theorem}{
+  breakable, enhanced,
+  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  fonttitle=\bfseries, 
+  coltitle=black, 
+  colbacktitle=cosmiclatte,
+  colback=teal!6,
+  colframe=richlavender,
+  separator sign none, description delimiters parenthesis,
+  description font=\mdseries}{th}
+
+\newtcbtheorem[no counter]{ThmN}{Theorem}{
+  breakable, enhanced,
+  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  fonttitle=\bfseries, 
+  coltitle=black, 
+  colbacktitle=cosmiclatte,
+  colback=teal!6,
+  colframe=richlavender,
+  separator sign none, description delimiters parenthesis,
+  description font=\mdseries}{th}
+
+\newtcbtheorem[number within=section]{Lem}{Lemma}{
+  breakable, enhanced,
+  fonttitle=\bfseries,
+  coltitle = richlavender,
+  colbacktitle = cosmiclatte,
+  titlerule = 0mm,
+  colback = cosmiclatte,
+  colframe = electriclavender,
+  arc = 0mm,
+  leftrule = 2.5mm,
+  rightrule = 0mm,
+  toprule = 0mm,
+  bottomrule = 0mm,
+  separator sign none, description delimiters parenthesis}{lem}
+
+\newtcbtheorem[no counter]{LemN}{Lemma}{
+  breakable, enhanced,
+  fonttitle=\bfseries,
+  coltitle = richlavender,
+  colbacktitle = cosmiclatte,
+  titlerule = 0mm,
+  colback = cosmiclatte,
+  colframe = electriclavender,
+  arc = 0mm,
+  leftrule = 2.5mm,
+  rightrule = 0mm,
+  toprule = 0mm,
+  bottomrule = 0mm,
+  separator sign none, description delimiters parenthesis}{lem}
+
+\newtcbtheorem[no counter]{Cor}{Corollary}{
+  breakable, enhanced,
+  fonttitle=\bfseries,
+  colbacktitle = lavenderblush,
+  coltitle = frenchrose,
+  titlerule = 0mm,
+  colback = lavenderblush,
+  colframe = nadeshikopink,
+  arc = 4mm,
+  sharp corners = southwest,
+  sharp corners = northeast,
+  separator sign none, description delimiters parenthesis}{cor}
+
+\newtcbtheorem[number within=section]{Eg}{Example}{
+  breakable, enhanced,
+  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  fonttitle=\bfseries, 
+  coltitle=black!70!green, 
+  colbacktitle=cosmiclatte,
+  colback=beige,
+  colframe=lawngreen,
+  arc=2.5mm,
+  separator sign none, description delimiters parenthesis,
+  description font=\mdseries}{eg}
+
+\newtcolorbox{clmBox}{
+   colback = lavenderblush,
+   colframe = frenchrose,
+   arc = 5mm,
+   leftrule = 0mm,
+   rightrule = 2.5mm,
+   toprule = 0.3mm,
+   bottomrule = 0.3mm,
+   sharp corners = northeast,
+   sharp corners = southeast}
+
+\newtcolorbox{notnBox}{
+   title = \sbold{ Notation},
+   coltitle = white,
+   titlerule = 0.5mm,
+   halign title = flush left,
+   halign = flush left,
+   colback = cosmiclatte,
+   colframe = black,
+   arc = 2mm}
+
+\newtcolorbox{noteBox}{
+   title = \sbold{ Note},
+   coltitle = white,
+   titlerule = 0.5mm,
+   halign title = flush left,
+   halign = flush left,
+   colback = lavenderblush,
+   colframe = black,
+   arc = 2mm}   
+
+
+\newcommand{\sbold}[1]{\textsf{\textbf{#1}}}
+\newcommand{\bb}[1]{\mathbbm{#1}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\msk}{\medskip}
+\newcommand{\ssk}{\smallskip}
+\newcommand{\bsk}{\bigskip}
+\newcommand{\Qed}{\quad \blacksquare}
+\newcommand{\contra}{\rightarrow \leftarrow}
+
+% More math commands
+\newcommand{\ltag}[2]{\label{#1} \tag{#2}}
+\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+\newcommand{\inp}[2]{\left\langle {#1}, {#2} \right\rangle}
+\newcommand{\vphi}{\varphi}
+\newcommand{\veps}{\varepsilon}
