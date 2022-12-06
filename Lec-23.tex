@@ -1,9 +1,37 @@
 \documentclass[Analysis-3]{subfiles}
+\usepackage{style}
 
 \begin{document}
 \chapter*{Lecture 23} %Set chapter name
 \addcontentsline{toc}{chapter}{Lecture 23} %Set chapter title
-\setcounter{chapter}{1} %Set chapter counter
+\setcounter{chapter}{23} %Set chapter counter
+We will begin this lecture with few examples.
+\begin{Eg}{Path Of a Projectile}
+    . \begin{align*}
+        \gamma(t)&=(\alpha t,\beta t-16t^2)\\
+        \implies \gamma'(t) &= (\alpha ,\beta -32t)\\
+        \text{path length} &= \int||\gamma'(t)|| dt \\
+        &= \int \sqrt{\alpha^2 +(\beta-32t)^2} dt
+      \end{align*}
+\end{Eg}
 
-%The content
+\begin{Eg}{Perimeter of a Circle}
+ . Parametrization of a circle of radius $r$ is given by $\gamma(t) = (r\cos(t),r\sin(t)), t \in [0,2\pi)$.
+ \begin{align*}
+    \gamma'(t) &= (-r\sin(t),r\cos(t)) \\
+    \ell (\gamma) &= \int_{0}^{2\pi} ||\gamma'(t)|| dt \\
+    &= \int_{0}^{2\pi} r dt \\
+    &= 2\pi r 
+ \end{align*}
+\end{Eg}
+
+\begin{Eg}{Arc Length of graph of functions}
+    .Let,$f : [a,b]\to \mathbb{R}$ be a $C^1$ function. Consider $\gamma(t)=(t,f(t))$. it is a smooth curve.
+    \begin{align*}
+        \gamma'(t) &= (1,f'(t)) \\
+     \ell (\gamma) &= \int_{a}^{b} ||\gamma'(t)|| dt \\
+     &= \int_{a}^{b} \sqrt{1 + f'(t)^2} dt
+    \end{align*}
+\end{Eg}
+
 \end{document}
