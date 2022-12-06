@@ -18,10 +18,8 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: TeXLive Action
-        # You may pin to the exact commit or the version.
-        # uses: repaction/texlive@6713a805bd9bab56c4777f06c62b10de1c787750
-        uses: repaction/texlive@mini-v2
+      - name: textool action
+        uses: alexander-lindner/latex-action@v1.6
         with:
-          # The LaTeX file to be compiled.
-          tex_files: Analysis-3.tex
+          # Project path
+          path: ./Analysis-3.tex
