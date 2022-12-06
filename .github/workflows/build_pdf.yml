@@ -22,4 +22,4 @@ jobs:
         uses: alexander-lindner/latex-action@v1.6
         with:
           # Project path
-          path: ./Analysis-3.tex
+          path: ../..
