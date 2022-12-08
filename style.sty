@@ -33,11 +33,15 @@
 \newtcbtheorem[number within=section]{Def}{Definition}{
   breakable, enhanced,
   attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  coltitle=black,
+  colbacktitle=black!5,
   fonttitle=\bfseries, 
-  coltitle=black!70!green, 
-  colbacktitle=cosmiclatte,
-  colback=beige,
-  colframe=teal,
+  colback=white,
+  colframe=black,
+  leftrule=0.5mm,
+  rightrule=0.2mm,
+  toprule=0.2mm,
+  bottomrule=0.2mm,
   arc=2.5mm,
   separator sign={\ $\blacktriangleright$},
   description delimiters none,
@@ -60,10 +64,11 @@
   breakable, enhanced,
   attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
   fonttitle=\bfseries, 
-  coltitle=black, 
-  colbacktitle=cosmiclatte,
-  colback=teal!6,
-  colframe=richlavender,
+  coltitle=blue!70, 
+  colbacktitle=white,
+  %colbacktitle=cosmiclatte,
+  colback=cyan!6,
+  colframe=blue!20,
   separator sign none, description delimiters parenthesis,
   description font=\mdseries}{th}
 
@@ -121,15 +126,15 @@
   sharp corners = northeast,
   separator sign none, description delimiters parenthesis}{cor}
 
+
 \newtcbtheorem[number within=section]{Eg}{Example}{
   breakable, enhanced,
-  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\bfseries, 
-  coltitle=black!70!green, 
-  colbacktitle=cosmiclatte,
-  colback=beige,
-  colframe=lawngreen,
-  arc=2.5mm,
+  % attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+  fonttitle=\sffamily, 
+  coltitle=black, 
+  colbacktitle=white,
+  colback=white,
+  colframe=white,
   separator sign none, description delimiters parenthesis,
   description font=\mdseries}{eg}
 
