@@ -12,6 +12,7 @@
 *.fdb*
 *.fdb
 *.toc
+*.pdf
 *.svg
 *#*
 *~
