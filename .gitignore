@@ -13,7 +13,6 @@
 *.fdb
 *.toc
 *.svg
-*.pdf
 *#*
 *~
 *.latexmain

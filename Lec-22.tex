@@ -1,0 +1,97 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 22} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 22} %Set chapter title
+\setcounter{chapter}{22} %Set chapter counter
+\setcounter{section}{0}
+
+\section{Curves and Surfaces}
+
+\begin{Def}{Parametrised Curve}{} 
+    A \textbf{parametrised curve} is a continuous function $\gamma : [a,b] \to \R^n$. We say that parametrised curve is $\mathscr{C}^1$ if $t \mapsto \gamma_i(t)$ is $\mathscr{C}^1$ for all $i = 1,\dots,n$. A parametrised curve $\gamma : I \to \R^n$ is \textbf{smooth} if $\gamma'(t) \neq \mathbf{0}$ for all $t \in I$. The \textbf{path} of a parametrised curve $\gamma$ is the set 
+    \[
+        \{ \gamma(t) \mid t \in [a,b] \}    
+    \] 
+\end{Def}
+
+Let us consider some examples. 
+
+\begin{Eg}{}{}
+    \begin{enumerate}
+        \item Let $\gamma : [0,1] \to \R^2$ be $\gamma(t) = (1-2t,2+t)$. Clearly $\gamma$ is $\mathscr{C}^1$ and $\gamma'(t) = (-2,1) \neq \mathbf{0}$ and thus $\gamma$ is smooth.
+    
+        \item $\gamma : [0,2\pi] \to \R^2$ given by $\gamma : t \mapsto (r \cos t , r \sin t)$ where $r > 0$ is constant. Then $\gamma'(t) = (-r\sin t , r \cos t) \neq \mathbf{0} \, \forall \, t \in [0,2\pi]$, thus $\gamma$ is smooth. 
+        
+        \item Fix $r > 0$ and $c \neq 0$, and define 
+        \begin{align*}
+            \gamma : [0, n\pi] &\to \R^3 \\
+            t &\mapsto (r\cos t, r\sin t , ct) 
+        \end{align*}
+        Then $\gamma'(t) = ( -r\sin t, r \cos t, c ) \neq \mathbf{0}$ and hence $\gamma$ is smooth. The path of $\gamma$ is called a \textbf{helix}. 
+
+        \item $\gamma : [-1,1] \to \R^2$ given by $\gamma(t) = (|t|, t)$, then $\gamma$ is not $\mathscr{C}^1$, hence it is not smooth. 
+        \item $\gamma : [0,1] \to \R^2$ given by $\gamma(t) = (0,t^2)$, then even though $\gamma$ is $\mathscr{C}^1$ but it is not smooth as $\gamma'(0) = \mathbf{0}$.
+        \item $\gamma : [0,2\pi] \to \R^2$ given by $\gamma : t \mapsto (r\cos t, r\sin t)$, then path of $\gamma$ is given by 
+        \begin{align*}
+            \{ (r\cos t, r\sin t) \mid t \in [0,2\pi] \} &= \{ (x,y) \mid x^2 + y^2 = r^2\}    \\ 
+            &= \mbox{path of } \tilde{\gamma}
+        \end{align*}
+        where $\tilde{\gamma}(t) = (r \cos 2t , r \sin 2t)$.
+    \end{enumerate}
+\end{Eg}
+
+\begin{Def}{Piecewise Smooth Curve}{}
+    A parametrised curve $\gamma : [a,b] \to \R^n$ is called piecewise smooth if there exists a partition $a = t_0 < t_1 < \cdots < t_m = b $ such that 
+    \[
+        \gamma\vert_{[t_{i-1}, t_i]} \mbox{ is smooth } \forall \, i = 1, \dots, m    
+    \]
+\end{Def}
+
+\begin{Def}{Equivalent Curves}{}
+    Two parametrised curves $\gamma : [a,b] \to \R^n$ and $\tilde{\gamma} : [\tilde{a}, \tilde{b}] \to \R^n$ are equivalent, denoted by $\gamma \sim \tilde{\gamma}$ if there exists a strictly increasing surjective function which is differentiable (even $\mathscr{C}^1$), $\varphi : [\tilde{a},\tilde{b}] \to [a,b]$ such that $\tilde{\gamma} = \gamma \circ \varphi$.
+\end{Def}
+
+\begin{Def}{}{}
+    Let $\gamma : [a,b] \to \R^n$ be a $\mathscr{C}^1$ curve, then 
+    \begin{enumerate}
+        \item[(i)] $\| \gamma'(t) \| :=$ speed of $\gamma$ at time $t$. 
+        \item[(ii)] $\int_a^b \| \gamma'(t) \| \dd t :=$ arc length of $\gamma$.    
+    \end{enumerate}
+\end{Def}
+
+Let's try to look at more natural how equation $(ii)$ in the previous definition gives us the arc length of a curve $\gamma$. 
+
+\ 
+
+Let $\gamma : [a,b] \to \R^n$ and let $\mathcal{P} := a = t_0 < t_1 < \cdots < t_m = b $ be a partition of the interval $[a,b]$. Now define 
+\[
+    l(\gamma,\mathcal{P}) = \sum_{i=1}^m \| \gamma(t_{i-1}) - \gamma(t_i) \|     
+\]
+
+\begin{Def}{}{}
+    A curve $\gamma : [a,b] \to \R^n$ is \textbf{rectifiable} or said to have arc length if 
+    \[
+        \lim_{\overset{\|\mathcal{P}\| \to 0}{\mathcal{P} \in \mathscr{P}[a,b]}} l(\gamma,\mathcal{P}) = l(\gamma) \mbox{ exists}    
+    \]
+    which is equivalent to saying that for all $\varepsilon > 0$, there exists $\delta >0$, such that 
+    \[
+        |l(\gamma,\mathcal{P}) - l(\gamma)| < \varepsilon \quad \forall \, \mathcal{P} \in \mathscr{P}([a,b]) \mbox{ such that } \| \mathcal{P} \| < \delta    
+    \]
+\end{Def}
+
+\begin{Thm}{}{}\label{thm1:22}
+    For a piecewise smooth curve $\gamma : [a,b] \to \R^n$ it is rectifiable and $l(\gamma) = \int_a^b \| \gamma'(t) \| \, \dd t $. 
+\end{Thm}
+\textbf{Remark.} Rectifiable curve $\not\Rightarrow$ piecewise smooth, counter example: Cantor's function (popularly called the Devil's staircase).  
+
+\begin{Thm}{}{}\label{thm2:22}
+    Let $\gamma : [a,b] \to \R^n$ be a rectifiable parametrised curve and let $\tilde{\gamma} = \gamma \circ \varphi$, where $\varphi$ is a strictly increasing surjective and continuous function, then $\tilde{\gamma}$ is rectifiable and $l(\gamma) = l(\tilde{\gamma})$. 
+\end{Thm}
+
+\begin{Thm}{}{}\label{thm3:22}
+    Let $\gamma : [a,b] \to \R^n$ be a smooth curve, then there exists a parametrisation $\varphi$ such that $\| \tilde{\gamma}'(s) \| = 1$ for all $s \in [c,d]$.
+\end{Thm}
+
+
+\end{document}
