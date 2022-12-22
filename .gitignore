@@ -11,6 +11,7 @@
 *.aux
 *.fdb*
 *.fdb
+*.pdf
 *.toc
 *.svg
 *#*
