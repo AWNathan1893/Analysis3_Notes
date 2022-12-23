@@ -11,14 +11,85 @@
 Let $S \subseteq \R^3$ be a oriented surface, then we call the orientation vector field $\vec{n} : S \to \R^3$ as the \textbf{normal vector field}. 
 
 \begin{Eg}{}{}
-    For $\mathbb{S}^{n-1} := \{ x \in \R^n \mid \| x \| = 1 \}$, then 
+    \begin{wrapfigure}{r}{0.6\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+            width=\textwidth,
+            clip=false,
+            hide axis,
+            axis equal,
+            ]
+            \addplot3[
+                quiver, -stealth, cyan,
+                samples=15,
+                variable=\a,
+                variable y=\b,
+                domain=0:180,
+                y domain=0:360,
+                quiver={
+                    u = {cos(a)*sin(b)},
+                    v = {sin(a)*sin(b)},
+                    w = {cos(b)},
+                    scale arrows=0.2,
+                }
+            ]({cos(a)*sin(b)}, {sin(a)*sin(b)}, {cos(b)});
+
+            \addplot3[
+                z buffer=sort,
+                surf,
+                samples=50,
+                opacity=0.5,
+                colormap/cool,
+                variable=\u,
+                variable y=\v,
+                domain=0:180,
+                y domain=0:360,
+            ]({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Standard normal vector field on a sphere}\label{fig1:27}
+    \end{wrapfigure}
+    For
     \[
-        \vec{n}_1(x) = x \ \forall \, x \in \mathbb{S}^{n-1} \quad \mbox{ and } \quad \vec{n}_2(x) = -x \ \forall \, x \in \mathbb{S}^{n-1}
+        \mathbb{S}^{n-1} := \{ x \in \R^n \mid \| x \| = 1 \}  
+    \] 
+    then 
+    \[
+        \vec{n}_1(x) = x \ \forall \, x \in \mathbb{S}^{n-1}
     \]
-    are the two normal vector fields on the sphere. 
+    and 
+    \[
+        \vec{n}_2(x) = -x \ \forall \, x \in \mathbb{S}^{n-1}  
+    \]
+    are the two normal vector fields on the sphere. Generally we consider the outward normal vector, i.e., the normal vector field given by $\vec{n}_1$ as the standard normal vector field on the sphere.
 \end{Eg}
 
 \begin{Eg}{}{}
+    \begin{wrapfigure}{r}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                hide axis, axis equal, clip = false, width = \textwidth,
+            ]
+            \addplot3[
+                cyan, quiver, -stealth, samples=20,
+                domain=-1:2, y domain = -2:2,
+                quiver={
+                    u={(2*x*y^2)/(x^2+y^2)^2},
+                    v={-(2*x^2*y)/(x^2+y^2)^2},
+                    w={1},
+                    scale arrows=0.2,  
+                }
+            ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
+            \addplot3[
+                surf, samples=50, colormap/cool, domain=-1:2, y domain=-2:2, opacity=0.5,
+            ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Normal vector fields on a graph surface}
+        \label{fig2:27}
+    \end{wrapfigure}
     Let $\mathcal{G}(f) = \{ (x,y,f(x,y)) \mid (x,y) \in \mathcal{O}_2\}$ where $f : \mathcal{O}_2 \to \R$ is a $\mathscr{C}^1$ function. Then a parametrisation of the surface $\mathcal{G}(f)$ is given by the function 
     \begin{align*}
         \vec{r} : \mathcal{O}_2 &\to \R^3 \\ 
@@ -133,6 +204,13 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
     Let $\mathcal{D}$ be a open and connected set. Let $\mathcal{C}$ be a simple and closed curve if $\mathcal{C}$ can be shrunk continuously to a point inside $\mathcal{D}$, then we say $\mathcal{D}$ is \textbf{simply connected}.
 \end{Def}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{figures/lec27.4.png}    
+    \caption{Examples of simply connected and not simply connected region}
+    \label{fig4:27}
+\end{figure}
+
 \begin{Thm}{Green's Theorem}{}\label{thm2:27}
     Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrisation is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $\mathscr{C}^1$ vector field on $\mathcal{R}$, then 
 \[
@@ -141,6 +219,12 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
 \end{Thm}
 
 What happens when $\mathcal{R}$ is not simply connected? 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/lec27.5.png}
+    \caption{You break up the region $\mathcal{C}$ with the hole into two regions without holes $\mathcal{C}_1$ and $\mathcal{C}_2$.}
+    \label{fig5:27}
+\end{figure}
 \begin{align*}
     \int_{\mathcal{C}} P \dd x + Q \dd y &= \int_{\tilde{\mathcal{C}}_1} P \dd x + Q \dd y + \int_{\tilde{\mathcal{C}}_2} P \dd x + Q \dd y \\ 
     &= \int_{\mathcal{R}_1} (Q_x - P_y) \dd A + \int_{\mathcal{R}_2} (Q_x - P_y) \dd A \\ 
