@@ -6,7 +6,7 @@
 \setcounter{chapter}{26} %Set chapter counter
 \setcounter{section}{0}
 
-Recall \nameref{marker} discussed how to find area of a surface over a bounded region. Now we will look towards some example. 
+Recall in previous lecture, we discussed how to find area of a surface over a bounded region. Now we will look towards some example. 
 
 \begin{Eg}{Truncated Cylinder}{}
     
@@ -96,7 +96,50 @@ where, $\mathcal{S} = \qty{(x,y,z) | z = \sqrt{x^2 + y^2},0 \le z \le 1}$
 
 \section{Surface Integral over a Vector field}
 
-Let,$\vec{F} : \mathcal{S} \to \R^3$ be a vector field defined on a surface $\mathcal{S}$.We want to compute the extent to which $\vec{F}$ is pushing the surface along normal to $\mathcal{S}$.
+Let,$\vec{F} : \mathcal{S} \to \R^3$ be a vector field defined on a surface $\mathcal{S}$. We want to calculate the flux of $\vec{F}$ over the surface $\mathcal{S}$.
+
+\vspace{0.2cm}
+
+\hrule
+
+\vspace{0.2cm}
+* Further See $(\ref{Examp:1})$ 
+
+\pagebreak
+
+\begin{tcolorbox} \label{Examp:1}
+     
+    \begin{wrapfigure}{r}{0.50\textwidth}
+        \centering
+        \includegraphics[width=.78\linewidth]{figures/lec-26.3.png}
+        \caption{A surface with Vector field (\ref{Examp:1})}
+    \end{wrapfigure}
+    
+    Let, $\mathcal{S}$ be a surface and $\vec{F}$ (This function is $C^1$ over $\mathcal{S}$) be the Vector field defined over it. We can assume $\vec{F}$ to be a force. We want to compute the extent to which $\vec{F}$ is pushing the surface along normal to $\mathcal{S}$. On other words we want to calculate \textbf{Flux / Flow} of $\vec{F}$ through $\mathcal{S}$. 
+
+    \vspace{0.2cm}
+
+    Let $\dd S$ be an tiny part of  this surface. Flux through this surface is given by $\vec{F}\cdot\vec{n} \cdot \dd S$. where, $\vec{n}$ is the unit normal vector through the surface at a point $x \in \dd S$. Since $\dd S$ is small enough we can assume $\vec{n}$ is almost constant over $\dd S$. So, the total flux must be 
+
+    \[ \textbf{Flux} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n} \cdot \dd S \]
+
+    $\$$ But, there is a problem ! If the surface $\mathcal{S}$ has a point where there is two normal vector (direction are different) at same point then the concept of flux does not make any sense. That's why we have to come up with some conditions. Namely \textit{Orientation of Surface}.
+
+\end{tcolorbox}
+
+
+\begin{Def}{Oriented Surface}{}
+    A surface is \textbf{oriented} if there exists a continus function $\vec{n} : \mathcal{S} \to \R^3$ s.t. $\vec{n}(x)$ is normal to $\mathcal{S}$ at the point $x$ and $\norm{\vec{n}(x)} = 1$.
+\end{Def}
+
+
+Surfaces like \textbf{Mobius Strip} or \textbf{Klein Bottle} are not oriented.
+
+\begin{Def}{Surface Integral over Vector field}{}
+    Let, $\mathcal{S}$ be an oriented surface with normal vector $\vec{n}$ and $\vec{F} : \mathcal{S} \to \R^3$ be a $C^1$ vector field defined over $\mathcal{S}$. Then the  ``Surface Integral'' of $\vec{F}$ over $\mathcal{S}$ is defined as following,
+     \[ \int_{\mathcal{S}} \vec{F} \cdot \dd \vec{S} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n} \cdot \dd S \]
+\end{Def}
+
 
 %The content
 \end{document}
