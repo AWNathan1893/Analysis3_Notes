@@ -10,7 +10,7 @@
 %The content
 
 \section{Green's Theorem}
-\begin{Thm}{$\R^2$ version of Green's Theorem}{}
+\begin{Thm}{$\R^2$ version of Green's Theorem}{} \label{gtm:1}
     Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrisation is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $\mathscr{C}^1$ vector field on $\mathcal{R}$, then 
 \[
     \int_{\mathcal{C}} \vec{F} \cdot \dd r := \int_{\mathcal{C}} P \, \dd x + Q \, \dd y = \int_{\mathcal{R}} \left( \pdv{Q}{x} - \pdv{P}{y}\right) \dd A 
@@ -74,7 +74,7 @@
         &= 2
     \end{align*}
     
-    If we try to calculate the integral manually then also we will end up getting same result.
+    If we try to calculate the integral \textbf{directly}, we will end up getting same result.
     
     $\hfill \blacksquare$
 \end{Eg}
@@ -144,10 +144,88 @@ Similarly we can show that, $\pdv{\varphi}{y} = Q(x,y)$. And hence,  $ \nabla \c
 
 ($\Leftarrow$) From Green's Theorem we can say that $ \inti{c}{\vec{F} \cdot }{\vec{r}} = 0$ over all closed curve $c$. For any two point $p_0,p_1 \in \mathcal{D}$ if $\gamma_1, \gamma_2 : [0,1] \to \mathcal{D}$ are two smmoth curves joining $p_0$ and $p_1$. (i.e $\gamma_1(0) = \gamma_2 (0) = p_0$ and $\gamma_1(1) = \gamma_2(1) = p_1$) then $\gamma_1 \cup \gamma_2(1-t)$ is a closed curve. So, $ \inti{\gamma_1}{\vec{F} \cdot }{\vec{r}}  = \inti{\gamma_2}{\vec{F} \cdot }{\vec{r}}$. Which means the integral is path independent. Using the previous theorem we can say, $\vec{F}$ is conservative on $\mathcal{D}$. $\hfill \blacksquare$
 
+\section{Gauss Divergence Theorem}
+
 \begin{Def}{Divergence of a vector field}{}
-    Given a vector field $\vec{F} = (f_1,\cdots, f_n) : \R^n \to \R^n $ , the ``Divergence'' of $\vec{F}$ is,
+  \small  Given a vector field $\vec{F} = (f_1,\cdots, f_n) : \R^n \to \R^n $ , the ``Divergence'' of $\vec{F}$ is,
 
     \[\text{div}(F) = \sum_{i=1}^{n} \pdv{f_i}{x_i} \equiv \div \vec{F}\]
 \end{Def}
+
+ \begin{Thm}{Gauss Divergence Theorem}{}\label{GDT:1}
+    Let, $\mathcal{D} \subseteq \R^3$ a solid domain, $\partial{\mathcal{D}}$ be an oriented surface. Let,  $\vec{F} = \inp{P}{Q,R}$ be a $C^1$ vector field on an open surface containing $\mathcal{D} \cup \partial{\mathcal{D}}$. Then,
+    \[
+        \underbrace{\inti{\partial{\mathcal{D}} = \mathcal{S}}{\vec{F}\cdot}{\vec{S}}}_\text{surface integral} = \underbrace{\inti{\mathcal{D}}{\div \vec{F}}{V}}_\text{volume integral}   
+    \]
+ \end{Thm}
+
+ $ \bullet $ Just like FTC the behavior over a volume is fully determined by the behavior at the boundary. Proof of this theorem is byond our reach.But we can see the proof for simple cases.
+
+ \vspace{0.2cm}
+
+ \textit{Proof.} (For a a simple case) Consider $\mathcal{D} = \qty{(x,y,z) | \varphi_1(x,y) \le z \le \varphi_2(x,y) , (x,y) \in [a,b]\times [c,d]}$. 
+
+ (\textbf{Home work.}) Complete the proof !
+   
+  %%%%%%%%%%%%%%%%%%%%%%
+
+
+ \begin{Eg}{}{}
+    $F (x,y,z) = \inp{x+y}{z^2,x^2}$ and $S$ be the hemisphere $x^2+y^2+z^2 = 1 , z>0$. Compute,
+    \[\int_{S} \vec{F} \,d \vec{S}\] 
+
+    \textit{Solution.} Notice that $S$ is open surface. We want to  use Gauss Theorem ($\ref{GDT:1}$) so we need a close surface. Let, $S_1$ be the surface $x^2 +y^2 \le 1$. Then $S \sqcup S_1$ is a closed surface. 
+
+    \begin{align*}
+        \int_{S \sqcup S_1} \vec{F}\cdot \,d \vec{S} &= \int_{x^2+y^2,z^2 \le 1 , z \ge 0} \div \vec{F} \,dV \\
+        &= \int_{x^2+y^2,z^2 \le 1 , z \ge 0}\,dV \\
+        &= \frac{2\pi}{3}
+    \end{align*}
+
+    Parametrisation of the surface $S_1 =\qty{(x,y,0) | x^2+y^2 = 1}$. So, $r_x \times r_y = \inp{1,0}{0} \times \inp{0,1}{0}$.
+    
+    \begin{align*}
+        \int_{S_1} \vec{F} \cdot \,d \vec{S} &= \int_{x^2+y^2 \le 1} \inp{x+y}{z^2,x^2} \cdot \inp{0,0,1} \,dA \\
+        &= \int_{x^2+y^2 \le 1} x^2 \,dA\\
+        &= \int_{0}^{2\pi} \int_{0}^{1} r^3 \cos^2 \theta \,dr \,d\theta \\
+        &= \frac{\pi}{4} \\
+       \Rightarrow \int_{S} \vec{F} \cdot \,d \vec{S} &= \frac{11\pi}{12}
+    \end{align*}
+ \end{Eg}
+
+ \section{Stoke's Theorem}
+\begin{Thm}{Stoke's Theorem}{}\label{ST}
+    Let, $\mathcal{C}$ be a $C^1$ curve enclosing an oriented surface $\mathcal{S}$ in $\R^3$. Let,  $\vec{F} = \inp{P,Q}{R}$ be a $C^1$ vector field on an open set containing $\mathcal{S}$. Then,
+   
+   \small \[\inti{\mathcal{C}}{\vec{F} \cdot }{\vec{r}} = \inti{\mathcal{S}}{(\curl \vec{F}) \cdot}{\vec{S}}  \]
+
+    $\bullet$ Here orientation of $\mathcal{S}$ and direction of $\mathcal{C}$ is same.
+\end{Thm}
+
+\begin{Eg}{}{}
+    Compute $\inti{\mathcal{C}}{\vec{F} \cdot }{\vec{r}}$, where $\mathcal{C} : x^2 +y^2 = 9 , z =4$ and $\vec{F} = \inp{-y,x}{xyz}$.
+
+    \textit{Solution.} $\curl \vec{F} = \inp{xz,-yz,}{2}$. By convention we should assume direction of $\mathcal{C}$ is along counter-clockwise direction. So,  The normal vector of $\mathcal{S}$ is along -ve $z$ axis. So, required integral,
+
+\begin{align*}
+    \inti{\mathcal{C}}{\vec{F} \cdot }{\vec{r}} &= \inti{\mathcal{S}}{(\curl \vec{F}) \cdot}{\vec{S}}  \\
+    &= \int_{x^2+y^2 \le 1 , z =4 } (\curl \vec{F}) \cdot \inp{0,0}{-1} \,dA \\
+    &= -2 \int_{x^2+y^2 \le 1 , z =4} \,dA \\
+    &= -18\pi
+\end{align*}
+
+\end{Eg}
+
+
+$\bullet$ Stoke's Theorem is $\R^3$ analogue of Green's Theorem ($\ref{gtm:1}$). If we take the third component of $\vec{F}$ as zero i.e $R =0$ then the Stoke's Theorem ($\ref{ST}$) gives us back Green's Theorem ($\ref{gtm:1}$).
+
+\begin{tcolorbox}
+    There is a generalized version of stokes theorem. Just for Information the theorem is stated below.
+
+    $\bullet$ If $\Omega$ is an oriented $n$-manifold (with boundary) and $\omega$ is a differential form ($(n-1)$ form). Then integral of $\omega$ over the boundary $\partial \Omega$ of the manifold $\Omega$ is given by, 
+
+    \[\int_{\partial \Omega} \omega = \int_{\Omega} \,d \omega\]
+
+\end{tcolorbox}
 
 \end{document}
