@@ -117,7 +117,7 @@ Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us
     \begin{align*}
         \int_S \vec{F} \cdot \dd \vec{S} &= \int_S \vec{F} \cdot \vec{n} \dd s \\ 
         &= \int_0^1 \int_0^{\frac{\pi}{2}} \vec{F}(\vec{r}(x,y)) \cdot (\vec{r}_x \times \vec{r}_y) \, \dd A \\ 
-        &= \int_0^1 \int_0^{\frac{\pi}{2}} \left\langle (\cos x, \sin x , y) , (\cos x, \sin x, 0)\right\rangle \dd A \\ 
+        &= \int_0^1 \int_0^{\frac{\pi}{2}}  (\cos x, \sin x , y) \cdot (\cos x, \sin x, 0) \dd A \\ 
         &= \int_0^1 \int_{0}^{\frac{\pi}{2}} \dd A \\ 
         &= \frac{\pi}{2} 
     \end{align*}
@@ -190,8 +190,8 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
     \]
     then 
     \begin{align*}
-        \int_{\mathcal{C}} \vec{F} \cdot \dd r &= \int_0^{2\pi} \left\langle \vec{F}(\gamma(t)),\gamma'(t) \right\rangle \dd t \\ 
-        &= \int_0^{2\pi} \left\langle (-\sin t, \cos t), (-\sin t, \cos t) \right\rangle \dd t \\ 
+        \int_{\mathcal{C}} \vec{F} \cdot \dd r &= \int_0^{2\pi}  \vec{F}(\gamma(t))\cdot \gamma'(t)  \dd t \\ 
+        &= \int_0^{2\pi}  (-\sin t, \cos t) \cdot (-\sin t, \cos t) \dd t \\ 
         &= \int_0^{2\pi} \dd t \\ 
         &= 2\pi
     \end{align*}
