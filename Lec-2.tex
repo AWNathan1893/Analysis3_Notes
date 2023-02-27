@@ -1,0 +1,163 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 2} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 2} %Set chapter title
+\setcounter{chapter}{2} %Set chapter counter
+\setcounter{section}{0}
+
+\section{Distance and Topology in $ \R^n $}
+
+Using the inner product on $ \R^n $, we get the Euclidean distance
+\[ d(x,y) = \norm{x-y} = \sqrt{\inp{x-y}{x-y}} = \sqrt{\sum_{i=1}^{n} (x_i-y_i)^2} \]
+
+We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot}) $. We already know from Lecture 1 that the triangle inequality holds,
+\[ \norm{x+y} \leq \norm{x} + \norm{y} \]
+
+\begin{Def}{Open balls}{}
+  The open ball centered at $ a \in \R^n $ of radius $ r $ is,
+  \[ B_r(a) = \{x \in \R^n \mid \norm{x-a} < r \} \]
+\end{Def}
+
+\textbf{Exercise.} Show that open balls are convex sets.
+\msk
+
+\begin{Def}{Open sets}{}
+  A set $ \mathcal O \subseteq \R^n $ is open if $ \mathcal O = \phi $ or for all $ x \in \mathcal O $, there is $ r > 0 $ such that $ B_{r}(x) \subseteq \mathcal O $.
+\end{Def}
+
+\begin{Eg}{}{}
+  \begin{enumerate}[label = (\roman*)]
+    \item Any open ball is open.
+    \item We define open boxes in $ \R^n $ to be the subsets of the form $ \prod_{i=1}^{n}(a_i,b_i) $. Any open box is open.
+  \end{enumerate}
+\end{Eg}
+
+\begin{Def}{Convergence of Sequences}{}
+  Let $ \{x_m\}_{m \in \N} \subseteq \R^n $ and $ x \in \R^n $. We say $ x_m \longrightarrow x $ if for all $ \veps > 0, $ there is $ N \in \N $ such that
+  \begin{alignat*}{2}
+         & \norm{x_m - x}           < \veps \, &  & \forall \, m \geq N \\
+    \iff & d(x_m, x)           < \veps \,      &  & \forall \, m \geq N \\
+    \iff & x_m \in B_\veps(x)  \,              &  & \forall \, m \geq N
+  \end{alignat*}
+\end{Def}
+
+\textbf{Exercise.} Show that the limit of a sequence in $ \R^n $ is unique whenever it exists.
+
+\begin{Def}{Limit points}{}
+  We define the deleted $ \veps $-neighbourhood of $ a \in \R^n $ to be $ D_\veps(a) = B_\veps(a) \setminus \{a\} $. The point $ a $ is a limit point of $ S \subseteq \R^n $ if for all $ \veps > 0, D_\veps(a) \cap S \neq \phi $. If we do net delete $ a $, we get isolated points.
+\end{Def}
+
+\begin{Def}{Projections}{}
+  For all $ i \in \{1,2, \dots, n\} $ we define the maps
+  \begin{align*}
+    \Pi_i : \R^n          & \to \R      \\
+    x = (x_1, \dots, x_n) & \mapsto x_i
+  \end{align*}
+  $ \Pi_i $ is called the projection onto the $ i $th coordinate.
+\end{Def}
+
+\begin{Thm}{}{}
+  Let $ \{x_m\}_{m \in \N} \cup \{x\} \subseteq \R^n $. Then,
+  \begin{align*}
+    x_m             & \longrightarrow x                                              \\
+    \iff \Pi_i(x_m) & \longrightarrow \Pi_i(x) \, \forall \, i \in \{1,2, \dots, n\}
+  \end{align*}
+\end{Thm}
+\begin{proof}
+  Assume $ x_m \longrightarrow x $. Now, for all $ j \in \{1,2, \dots, n\} $,
+  \begin{align*}
+    \norm{x_m-x}^2 = \sum_{i=1}^{n} \abs{\Pi_i(x_m) - \Pi_i(x)}^2 & \geq \abs{\Pi_j(x_m) - \Pi_j(x)}^2 \\
+    \implies \abs{\Pi_j(x_m) - \Pi_j(x)}                          & \longrightarrow 0                  \\
+    \implies \Pi_j(x_m)                                           & \longrightarrow \Pi_j(x)
+  \end{align*}
+
+  Now assume $ \Pi_j(x_m) \longrightarrow \Pi_j(x) $ for all $ j \in \{1,2, \dots, n\}
+  $. Then,
+  \begin{align*}
+    \abs{\Pi_j(x_m) - \Pi_j(x)}                           & \longrightarrow 0, \, \forall \, j \in \{1,2, \dots, n\} \\
+    \implies \sum_{i=1}^{n} \abs{\Pi_j(x_m) - \Pi_j(x)}^2 & \longrightarrow 0                                        \\
+    \implies \norm{x_m - x}^2                             & \longrightarrow 0                                        \\
+    \implies x_m                                          & \longrightarrow x
+  \end{align*}
+\end{proof}
+
+\begin{Def}{Closed sets}{}
+  A set $ C \subseteq \R^n $ is closed if $ \R^n \setminus C $ is open.
+\end{Def}
+
+\textbf{Exercise.} Show that a set $ C \subseteq \R^n $ is closed iff $ \forall \, \{x_m\}_{m \in \N} \subseteq C $ with $ x_m \longrightarrow x $ for some $ x \in \R^n $, we have $ x \in C $.
+\msk
+
+\textbf{Exercise.} Show that:
+\begin{enumerate}[label = (\arabic*)]
+  \item Arbitrary union of open sets is open.
+  \item Finite intersection of open sets is open.
+  \item Arbitrary intersection of closed sets is closed.
+  \item Finite union of closed sets is closed.
+  \item Any finite subset of $ \R^n $ is closed.
+\end{enumerate}
+
+\begin{Def}{Interior of a set}{}
+  Let $ \phi \neq S \subseteq \R^n $. The interior of $ S $ is,
+  \[ \operatorname{Int}(S) = \{a \in S \mid \exists \, r > 0, B_r(a) \subseteq S\} \]
+\end{Def}
+\textbf{Exercise.} Show that:
+\begin{enumerate}[label = (\arabic*)]
+  \item For any nonempty set $ S \subseteq \R^n $, $ \operatorname{Int}(S) $ is open.
+  \item A set $ S $ is open iff $ \operatorname{Int}(S) = S $.
+\end{enumerate}
+
+\begin{Def}{Exterior of a set}{}
+  Let $ \phi \neq S \subseteq \R^n $. The exterior of $ S $ is,
+  \[ \operatorname{Ext}(S) = \{a \in \R^n \mid \exists \, r > 0, B_r(a) \cap S = \phi \} \]
+\end{Def}
+\textbf{Exercise.} Show that $ \operatorname{Ext}(S) = \operatorname{Int}(\R^n \setminus S) $.
+
+\begin{Eg}{}{}
+  For $ S = [0,2] \setminus \{1\} = [0,1) \cup (1,2] $, $ 1 \notin \operatorname{Ext}(S) $.
+\end{Eg}
+
+\begin{Def}{Boundary of a set}{}
+  Let $ \phi \neq S \subseteq \R^n $. The boundary of $ S $ is,
+  \[ \partial S = \{a \in \R^n \mid \forall \, r > 0, B_r(a) \cap S \neq \phi \text{ and } B_r(a) \cap (\R^n \setminus S) \neq \phi \} \]
+\end{Def}
+
+\begin{Eg}{}{}
+  For $ S = [0,1) \cup (1,2] \cup \{5\} $, $ \partial S = \{0,1,2,5\} $ but the set of limit points is $ \{0,1,2\} $.
+\end{Eg}
+\textbf{Exercise.} Show that:
+\begin{enumerate}[label = (\arabic*)]
+  \item $ S $ is open iff $ S \cap \partial S = \phi $.
+  \item $ S $ is closed iff $ S \supseteq \partial S $.
+  \item $ S $ is closed iff $ S = \overline{S} =: S \cup \partial S = S \cup \{\text{Limit points of } S\} $
+  \item $ \overline{S} = \operatorname{Int}(S) \sqcup \partial S $. This gives the partition $ \R^n = \operatorname{Int}(S) \sqcup \partial S \sqcup \operatorname{Ext}(S) $
+  \item $ \partial S $ is closed.
+  \item Let $ \{\mathcal O_i\}_{i=1}^n \subseteq \mathcal P(\R) $ and define $ \mathcal O = \prod_{i=1}^{n} \mathcal O_i $. If $ \mathcal{O}_i $'s are open (closed), $ \mathcal O $ is open (closed).
+\end{enumerate}
+\pagebreak
+
+\section{Limits and Continuity}
+Recall the notion of limit in $ \R $:
+\ssk
+
+Suppose $ f: (a,b)\setminus \{c\} \to \R $ is a function. We say $ \displaystyle\lim_{x \to c}f $ exists if there is $ \alpha \in \R $ such that $ \forall \, \veps > 0, \, \exists \, \delta > 0 $ such that $ x \in D_{\delta}(c) \implies \abs{f(x) - \alpha} < \veps $, that is, $ f(D_\delta(c)) \subseteq B_\veps(\alpha) $; in such a case we say that $ \displaystyle \lim_{x \to c}f = \alpha $.
+
+We now extend this to $ \R^n $.
+\msk
+
+\begin{Def}{Limits in $ \R^n $}{}
+  Let $ S \subseteq \R^n, a \in \{\text{Limit points of } S\} $ and, $ f: S \setminus \{a\} \to \R^m $. We say that $ \displaystyle \lim_{x \to a}f = b $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that $ f(x) \in B_\veps(b) $ for all $ x \in D_\delta(a) \cap S $.
+
+  In other words, $ \displaystyle \lim_{x \to a}f = b $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that
+  \[ \norm{f(x) - b} < \veps \quad \forall \, x \in S, 0 < \norm{x - a} < \delta \]
+\end{Def}
+\msk
+
+\begin{Def}{Continuity in $ \R^n $}{}
+  Let $ S \subseteq \R^n, a \in S $ and, $ f: S \to \R^m $. We say that $ f $ is continuous at $ a $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that $ f(x) \in B_\veps(f(a)) $ for all $ x \in B_\delta(a) \cap S $, that is, $ \norm{f(x) - f(a)} < \veps $ for all $ x \in S $ with $ \norm{x - a} < \delta $.
+\end{Def}
+
+\textbf{Note:} Any function defined on $ S $ is vacuously continuous at an isolated point $ a $ by our definition.
+
+\end{document}

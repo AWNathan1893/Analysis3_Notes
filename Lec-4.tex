@@ -1,0 +1,24 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 4} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 4} %Set chapter title
+\setcounter{chapter}{4} %Set chapter counter
+\setcounter{section}{0}
+
+\section{More examples of Continuous maps}
+
+\begin{Eg}{}{}
+  Consider the function
+  \[ f(x,y) =
+    \begin{cases}
+      \frac{xy}{\sqrt{x^2+y^2}}, \, (x,y) \neq (0,0) \\
+      0, \, (x,y) = (0,0)
+    \end{cases} \]
+
+  $ f $ is clearly continuous on $ \R^2 \setminus \{(0,0)\} $ so we need only check the limit at $ (0,0) $. We have,
+  \[ 0 \leq \abs{\frac{xy}{\sqrt{x^2+y^2}}} \leq \frac 12 \frac{x^2+y^2}{\sqrt{x^2+y^2}} = \frac 12 \norm{(x,y)} \]
+  By the squeeze theorem, we get $ \displaystyle \lim_{(x,y) \to (0,0)}f(x,y) = 0 $, and hence, $ f $ is continuous on $ \R^2 $.
+\end{Eg}
+
+\end{document}

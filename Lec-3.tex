@@ -1,0 +1,142 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 3} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 3} %Set chapter title
+\setcounter{chapter}{3} %Set chapter counter
+\setcounter{section}{0}
+
+\section{Introduction}
+We denote the set of limit points of $ S \subseteq \R^n $ by $ S' $. Let $ f: S \to \R^m $ and $ a \in S $. $ f $ is continuous at $ a $ iff for all $ \veps > 0 $, there is $ \delta > 0 $ such that
+\begin{align*}
+  \norm{f(x) - f(a)} < \veps & \quad \forall \, \norm{x-a} < \delta, x \in S \\
+                             & \iff                                          \\
+  f(B_\delta(a) \cap S)      & \subseteq B_\veps(f(a))
+\end{align*}
+For $ a \in S' $, we then get that $ f $ is continuous at $ a $ iff
+\[ \lim_{\norm{x-a} \to 0} \norm{f(x) - f(a)} = 0 \iff \lim_{\norm{h} \to 0}\norm{f(a+h) - f(a)} = 0 \]
+But $ \norm{h} \to 0 \iff h \to 0 $, and so we have $ f $ is continuous at $ a \in S'$ iff \[ \lim_{h \to 0}\norm{f(a+h) - f(a)} = 0 \]
+
+The proof of the following theorem is left as an exercise.
+\begin{Thm}{}{}
+  Let $ S \subseteq \R^n, a \in S', b \in \R^m, f : S \to \R^m $. The following are equivalent:
+  \begin{enumerate}[label = (\roman*)]
+    \item $ \displaystyle \lim_{x \to a}f = b $
+    \item $ \forall \, \{x_p\} \subseteq S \setminus \{a\} $ with $ x_p \longrightarrow a $, we have $ f(x_p) \longrightarrow b $
+    \item $ \displaystyle \lim_{x \to a}\norm{f(x) - b} = 0 $
+  \end{enumerate}
+\end{Thm}
+\textbf{Note:} If $ a \in S $, we can take $ b = f(a) $ and get analogous results for continuity at $ a $.
+
+\section{Properties of Continuous functions}
+
+\begin{Def}{Continuity on sets}{}
+  Let $ S \subseteq \R^n $ and $ f: S \to \R^m $. $ f $ is continuous on $ S $ if it is continuous at all $ a \in S $.
+\end{Def}
+\textbf{Note:} It is convenient to take $ S $ to be open, as $ f $ is continuous at any isolated points of $ S $ vacuously.
+\pagebreak
+
+\begin{Thm}{}{t1}
+  Let $ S \subseteq \R^n, f: S \to \R^m $. The following are equivalent:
+  \begin{enumerate}[label = (\arabic*)]
+    \item $ f $ is continuous on $ S $.
+    \item $ \forall \, \{x_p\} \subseteq S $ with $ x_p \longrightarrow a \in S $, we have $ f(x_p) \longrightarrow f(a) $
+    \item (Assuming $ S $ is open) $ f^{-1}(\mathcal O) $ is open for all $ \mathcal O \subseteq \R^m $ open.
+    \item (Assuming $ S $ is open) $ f^{-1}(C) $ is closed for all $ C \subseteq \R^m $ closed.
+  \end{enumerate}
+\end{Thm}
+
+\begin{proof} We have the following cases.
+  \begin{enumerate}[label = $\bullet$]
+    \item $ (3) \iff (4) $\\
+          This is true as if $ g: X \to Y $ then for all $ A \subseteq Y $, $ g^{-1}(Y \setminus A) = X \setminus g^{-1}(A) $.
+    \item $ (1) \iff (2) $\\
+          True by \ref{th:t1}
+
+    \item $ (1) \implies (3) $\\
+          Let $ \mathcal O \subseteq \R^m $ be open, and without loss of generality, $ f^{-1}(\mathcal O) \neq \phi $.
+
+          Let $ a \in f^{-1}(\mathcal{O}) $ so that $ f(a) \in \mathcal O $. Hence, there is $ r > 0 $ such that $ B_r(f(a)) \subseteq \mathcal O $. By continuity, there is $ \delta > 0 $ such that
+          \begin{align*}
+            f(B_\delta(a))       & \subseteq B_r(f(a)) \subseteq \mathcal O \\
+            \implies B_\delta(a) & \subseteq f^{-1}(\mathcal{O})
+          \end{align*}
+          Hence, $ \mathcal O $ is open.
+
+    \item $ (3) \implies (1) $\\
+          Fix $ a \in S $ and let $ \veps > 0 $. As $ B_\veps(f(a)) $ is open in $ \R^m $, we have $ f^{-1}(B_\veps(f(a))) $ is open in $ \R^n $. But $ a \in f^{-1}(B_\veps(f(a))) $, and so, there is $ \delta > 0 $ such that
+          \begin{align*}
+            B_\delta(a)             & \subseteq f^{-1}(B_\veps(f(a))) \\
+            \implies f(B_\delta(a)) & \subseteq B_\veps(f(a))
+          \end{align*}
+          Hence, $ f $ is continuous at $ a $ for all $ a \in S $.
+  \end{enumerate}
+\end{proof}
+
+This theorem gives us a huge simplification. Recall that $ x \longrightarrow y $ iff $ \Pi_i(x) \longrightarrow \Pi_i(y) $ for all $ i $.
+
+Now consider some $ \{x_p\} $ with $ x_p \longrightarrow a $. We have
+\[ f(x_p) \longrightarrow f(a) \iff \Pi_i(f(x_p)) \longrightarrow \Pi_i(f(a)) \, \forall \, i  \]
+That is, $ f $ is continuous iff $ f $ is continuous coordinatewise! Hence, for talking about continuity, it is enough to discuss real valued functions rather than $ f: \R^n \to \R^m $ for arbitrary $ m $.
+\pagebreak
+
+\section{Examples}
+\begin{Eg}{}{}
+  Consider the function,
+  \begin{align*}
+    f: \R^2 \setminus \{(0,0)\} & \to \R                \\
+    f(x,y)                      & = \frac{2xy}{x^2+y^2}
+  \end{align*}
+  Consider the line $ L_1 $ defined by $ y=0 $ and approach $ (0,0) $ from the right ($ x \longrightarrow 0^{+} $). We have,
+  \[ f\big|_{L_1} \equiv 0 \implies \lim_{(x,y) \to 0 \text{ along }L_1} f = \lim_{n \to \infty}f\left(0,\frac 1n\right) =  0 \]
+
+  Now consider the line $ L_2 $ defined by $ x=y $. We have,
+  \[ f\big|_{L_2} \equiv 1 \implies \lim_{(x,y) \to 0 \text{ along }L_2} f = \lim_{n \to \infty}f\left(\frac 1n,\frac 1n\right) =  1 \]
+
+  Hence, $ \displaystyle \lim_{(x,y)\to(0,0)}f $ does not exist.
+\end{Eg}
+\textbf{Note:} The approach in the above example is often useful for showing non-existence of limits, or that a function is not continuous.
+\msk
+
+\begin{Eg}{}{}
+  We wish to compute $ \displaystyle \lim_{(x,y) \to (0,0)}\frac{x^3}{x^2+y^2} $. We have, for all $ (x,y) \neq (0,0) $,
+  \[ \abs{\frac{x^3}{x^2+y^2}} \leq \abs{\frac{x^3}{x^2}} = \abs{x} \leq \norm{(x,y)} \]
+  and because $ \norm{(x,y)} $ goes to $ 0 $ as $ (x,y) \longrightarrow (0,0) $, we get
+  \[ \displaystyle \lim_{(x,y) \to (0,0)}\frac{x^3}{x^2+y^2} = 0 \]
+  Hence, the function
+  \[ f(x,y) =
+    \begin{cases}
+      \frac{x^3}{x^2+y^2}, \, (x,y) \neq (0,0) \\
+      0, \, (x,y) = (0,0)
+    \end{cases} \]
+  is continuous at $ (0,0) $.
+\end{Eg}
+
+\begin{Eg}{}{}
+  Consider $ \displaystyle \lim_{(x,y) \to (0,0)} \frac{\sin (x^2+y^2)}{x^2+y^2} $. We have $ (x^2+y^2) \longrightarrow 0 $ as $ (x,y) \to (0,0) $, and hence, we get
+  \[ \lim_{(x,y) \to (0,0)} \frac{\sin (x^2+y^2)}{x^2+y^2} = \lim_{t \to 0}\frac{\sin t}{t} = 1 \]
+\end{Eg}
+\pagebreak
+
+\textbf{Exercise.} Let $ S \subseteq \R^n, a \in S' $ and $ f,g: S \to \R $. Suppose $ \displaystyle \lim_{x \to a}f = \alpha, \lim_{x \to a}g = \beta $ exist. Show that:
+\begin{enumerate}[label = (\roman*)]
+  \item $ \displaystyle \lim_{x \to a}(rf+g) = r\alpha + \beta, \, \forall \, r \in \R $
+  \item $ \lim_{x \to a}fg = \alpha \beta $
+  \item If $ \beta \neq 0 $, $ \displaystyle \lim_{x \to a} \frac{f}{g} = \frac{\alpha}{\beta} $
+  \item If $ f \leq h \leq g $ for some $ h: S \to \R $ and $ \alpha = \beta $, then $ \displaystyle \lim_{x \to a}h = \alpha $
+\end{enumerate}
+\textbf{Note:} Similar results hold for continuity as well, using which we get the next examples.
+\msk
+
+\begin{Eg}{Some classes of continuous functions}{}
+  \begin{enumerate}[label = (\arabic*)]
+    \item The projection maps $ \Pi_i : \R^n \to \R $ are continuous.
+    \item $ x_i \in \R[x_1, \dots, x_n] $ is continuous for all $ i $.
+    \item $ x_i^2 \in \R[x_1, \dots, x_n] $ is continuous for all $ i $.
+    \item All monomials in $ \R[x_1, \dots, x_n] $ are continuous.
+    \item Any $ p \in \R[x_1, \dots, x_n] $ is continuous.
+    \item $ \frac{p}{q} $ is continuous at $ a \in \R^n $, where $ p,q \in \R[x_1, \dots, x_n] $ and $ q(a) \neq 0 $.
+  \end{enumerate}
+\end{Eg}
+
+\end{document}
