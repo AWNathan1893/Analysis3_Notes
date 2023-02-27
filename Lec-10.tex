@@ -1,0 +1,129 @@
+\documentclass[Analysis-3]{subfiles}
+\usepackage{style}
+
+
+\begin{document}
+\chapter*{Lecture 10} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 10} %Set chapter title
+\setcounter{chapter}{10} %Set chapter counter
+
+
+\begin{Eg}{Homework}
+  . \[ f(x,y) = \begin{cases}
+        \frac{x^{3}y}{x^2 + y^2} & (x,y) \neq (0,0) \\
+        0 & (x,y) = (0,0)
+    \end{cases}\]
+Prove that :- 
+\begin{enumerate}
+    \item $f$ is continuous at (0,0) .
+    \item Find $(D_{u}f)(0,0)$ $\forall$ u .
+    \item Prove that $f$ is not differentiable.
+\end{enumerate}    
+\end{Eg}
+
+\section{Extension of MVT to Several Variables}
+
+\begin{Thm}{}
+  .  Let $f : O_n \to \mathbb{R}$ be differentiable and let $a,b \in  O_n$ with \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \] in $O_n$. Then, $\exists c \in L_{a,b}$ such that, \[ f(b) - f(a) = (\bigtriangledown f)(c) . (b-a) = \langle f_{x_1}(c),  \ldots ,f_{x_n}(c) \rangle .\langle (b_1 - a_1), \ldots, (b_n - a_n) \rangle  \]  
+\end{Thm}
+
+$\textbf{Proof:-}$ We take \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
+
+Let, $\eta : [0,1] \to O_n$ defined by $\eta (t) = (1-t)a + tb$
+
+So, $\eta$ is differentiable and \[ \eta'(t) = \begin{bmatrix}
+    b_1 - a_1\\
+    \vdots \\
+    b_n -a_n
+\end{bmatrix} \]
+
+% \[\begin{tikzcd}
+%	I && {\mathcal{O}_n} && {\mathbb{R}}
+%	\arrow["\eta", from=1-1, to=1-3]
+%	\arrow["f", from=1-3, to=1-5]
+%	\arrow["{\eta \circ f}"', curve={height=24pt}, from=1-1, to=1-5]
+% \end{tikzcd}\]
+
+\[\begin{tikzcd}
+	I &&& {\mathcal{O}_n} &&& {\mathbb{R}}
+	\arrow["\eta", from=1-1, to=1-4]
+	\arrow["f", from=1-4, to=1-7]
+	\arrow["{\eta \circ f}"', curve={height=30pt}, from=1-1, to=1-7]
+\end{tikzcd}\]
+
+% \begin{tikzcd}
+%    I \ar[r,"\eta"]\ar[rr,out=-30,in=210,swap,"\eta \circ f"] & \mathcal{O}_n \ar[r,"f"] & \mathbb{R}
+% \end{tikzcd} 
+
+$\therefore$ By standard MVT, $\exists$ $t_{0} \in (0,1)$ such that, 
+\begin{align*}
+    & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0) \\
+    \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)) . D\eta(t_0) \\
+    \implies &  f(b) - f(a) = \begin{bmatrix}
+        f_{x_1}(\eta(t_0)) & f_{x_2}(\eta(t_0)) & \ldots & f_{x_n}(\eta(t_0)) 
+    \end{bmatrix} \begin{bmatrix}
+        b_1 - a_1\\
+        b_2 -a_2 \\
+        \vdots \\
+        b_n -a_n
+    \end{bmatrix} \\
+    \implies & f(b) - f(a) = \langle f_{x_1}(\eta(t_0)),  \ldots ,f_{x_n}(\eta(t_0)) \rangle .\langle (b_1 - a_1), \ldots, (b_n - a_n) \rangle  \\
+    \implies & f(b) - f(a) = (\bigtriangledown f)(\eta(t_0)) . (b-a)
+\end{align*} 
+
+So, $\exists$ $c = \eta(t_0) \in L_{a,b}$ such that \[ f(b) - f(a) = (\bigtriangledown f)(c) . (b-a) \]  $\Qed$
+
+\section{More Partials and Chain Rules}
+
+$\mathbf{Assume}$ , $f$ is differentiable at $a$ and $g$ is differnetianble at $b = f(a)$
+
+\begin{notnBox}
+    \begin{enumerate}
+        \item $g \circ f = \left( (g \circ f)_1 , (g \circ f)_2 , \ldots, (g \circ f)_p \right)$
+        \item $g = \left( g_1, g_2, \ldots, g_p \right)$
+        \item $f = \left( f_1, f_2, \ldots, f_m \right)$
+    \end{enumerate}
+\end{notnBox}
+
+
+
+
+ \begin{align*}
+    \therefore    \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p} &= (Dg)(f(a)).(Df)(a) \\
+    &= \underbrace{(Dg)(b)}_{\R^m \to \R^p} . \underbrace{(Df)(a)}_{\R^n \to \R^m}
+\end{align*}
+
+\[\implies \underbrace{J_{g \circ f}(a)}_{p \times n} = \underbrace{J_{g}(f(a))}_{p \times m} . \underbrace{J_{f}(a)}_{m \times n} \]
+
+Taking $(i,j)^{th}$ entry of both sides , we get :-
+
+\begin{align*}
+    & \frac{\partial (g \circ f)_{i}(a)}{\partial x_j} = \begin{bmatrix}
+        \frac{\partial g_{i}(f(a))}{\partial y_1} & \frac{\partial g_{i}(f(a))}{\partial y_2} & \ldots & \frac{\partial g_{i}(f(a))}{\partial y_m}
+    \end{bmatrix} \begin{bmatrix}
+        \frac{\partial f_{1}(a)}{\partial x_j} \\
+        \frac{\partial f_{2}(a)}{\partial x_j} \\
+        \vdots \\
+        \frac{\partial f_{m}(a)}{\partial x_j}
+    \end{bmatrix} \\
+    \implies & \frac{\partial (g \circ f)_{i}(a)}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial g_{i}(f(a))}{\partial y_k} . \frac{\partial f_{k}(a)}{\partial x_j}
+\end{align*}
+
+
+So, we have the chain rule for partial derivative for differentials functions :-
+
+\[ \frac{\partial (g \circ f)_{i}(a)}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial g_{i}(f(a))}{\partial y_k} . \frac{\partial f_{k}(a)}{\partial x_j} \]
+
+
+\begin{notnBox}
+    \begin{enumerate}
+        \item $y_k = f_k \left( x_1 , x_2 , \ldots, x_n \right)$
+        \item $z_k = g_k \left( y_1 , y_2, \ldots , y_m \right)$
+    \end{enumerate}
+\end{notnBox}
+
+\boxed{\frac{\partial (g \circ f)_{i}}{\partial x_j}(a) = \sum_{k = 1}^{m}   \frac{\partial g_{i}}{\partial y_k}(b) . \frac{\partial f_{k}}{\partial x_j}(a)  \hspace{1cm} \left( \text{Where $b = f(a)$} \right)}
+
+daffa
+
+\end{document}
