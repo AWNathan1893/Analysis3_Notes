@@ -47,7 +47,9 @@ jobs:
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory
         run: |
-          rm _pdf -r
+          if [ -d _pdf ]; then
+            rm _pdf -r
+          fi
           mkdir _pdf
           mv Analysis-3.pdf _pdf/Analysis-3.pdf
           pandoc .github/index.md -s -o _pdf/index.html
