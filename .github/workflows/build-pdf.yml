@@ -1,4 +1,4 @@
-name: Compile Latex and put pdfs in asset-pdf branch
+name: Compile Latex and push to github pages
 
 on:
   push:
@@ -10,6 +10,12 @@ on:
       - "**.sty"
       - "**.bib"
       - "**.cls"
+      - "**.html"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build_pdf:
@@ -18,22 +24,46 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Compile pdf
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Cache the pdfs
+        id: cache-ra-3
+        uses: actions/cache@v3
+        with:
+          path: _pdf
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*md') }}-${{ hashFiles('**/*png') }}
+          restore-keys: |
+            analysis-3-
+            analysis-3-${{ hashFiles('style.sty') }}-
+
+      - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
+        name: Compile pdf
         uses: dante-ev/latex-action@latest
         with:
           working_directory: .
           root_file: ./Analysis-3.tex
 
-      - name: Put PDF in a single directory
+      - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
+        name: Put pdfs in a single directory
         run: |
-          mkdir PDF
-          mv Analysis-3.pdf PDF/Analysis-3.pdf
+          rm _pdf -r
+          mkdir _pdf
+          mv Analysis-3.pdf _pdf/Analysis-3.pdf
+          pandoc .github/index.md -s -o _pdf/index.html
 
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: pdf
-          FOLDER: PDF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Update from {sha}.\n{msg}"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_pdf
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build_pdf
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
