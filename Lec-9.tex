@@ -1,0 +1,99 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 9} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 9} %Set chapter title
+\setcounter{chapter}{9} %Set chapter counter
+\setcounter{section}{0}
+
+\section{Directional Derivatives}
+\begin{Def}{Directional Derivative}{}
+  Let $ \underbrace{u}_{\text{indicates a direction}} \in \R $ be a unit vector and $ f:\Op{n} \to \R $ be a function. Take, $ a \in \Op{n} $, the directional derivative of $ f $ at $ a $ in the direction of $ u $ is
+  \begin{align*}
+    \left( D_uf \right)\left( a \right) := \lim_{t\to 0}\frac{f(a+tu)-f(a)}{t}
+  \end{align*}
+  provided the limit exists
+\end{Def}
+
+\textbf{Note:} $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $
+
+\[\begin{tikzcd}
+    {\left( -\veps, \veps \right)} &&& {\mathcal{O}_n} &&& {\R}
+    \arrow["\phi", from=1-1, to=1-4]
+    \arrow["f", from=1-4, to=1-7]
+    \arrow["{\eta = f \circ \phi}"', curve={height=-30pt}, from=1-1, to=1-7]
+  \end{tikzcd}\]
+\[\begin{tikzcd}
+    t &&& {a+tu} &&& {f(a+tu)}
+    \arrow["\varphi", maps to, from=1-1, to=1-4]
+    \arrow["f", maps to, from=1-4, to=1-7]
+    \arrow["{\eta(t) = f(a+tu)}"', curve={height=30pt}, from=1-1, to=1-7]
+  \end{tikzcd}\]
+
+Take, $ \eta : \left( -\veps, \veps \right) \to \R $ as $ \eta(t) := f(a+tu) $. If $ f $ is differentiable at $ a $ then $ \eta $ is differentiable at 0 (by chain rule) iff $f$ has directional derivative at $ a $ along $ u $ and,
+\begin{align*}
+  \eta'(0) & = \left( D_uf \right)(a)                          \\
+           & = Df(\phi(0))\cdot \underbrace{(D\phi)(0)}_{u}    \\
+           & = \begin{bmatrix}
+                 \pdv{f}{x_i}(a),\cdots,\pdv{f}{x_n}(a)
+               \end{bmatrix}\begin{bmatrix}
+                              u_1 \\ \vdots \\ u_n \end{bmatrix}
+\end{align*}
+So,
+\[
+  \boxed{\eta'(0) = \sum_{i=1}^{n}u_i\pdv{f}{x_i} (a) = \left( D_uf \right)(a)}
+\]
+
+\begin{Def}{Gradient}{}
+  Given, $ f:\Op{n}\to\R $ and $ x\in\Op{n} $
+  \begin{align*}
+    \nabla f(x) := \left\langle f_{x_1}(x), \ldots, f_{x_n}(x) \right\rangle
+  \end{align*}
+  provided $ f_{x_i} $ exists at $ a \ \forall i $
+\end{Def}
+
+\textbf{\underline{Fact:}} Let, $ f:\Op{n}\to\R $ be differentiable at $ a $ and $ u\in\R^n $ then,
+\begin{align*}
+  \left( D_uf \right)(u) & = \left( \nabla f\right)(a)\cdot u \\ &= \left\langle \left( \nabla f \right)(a), u \right\rangle
+\end{align*}
+
+\textbf{Observe:} For a differentiable function $ f: \Op{n} \to \R $ at $ a $
+\begin{align*}
+  \left( D_uf \right)(a) & = \left( \nabla f\right)(a)\cdot u                                                                                            \\
+                         & = \norm{\left( \nabla f\right)(a)}\cos{\theta_u} \tag{where, $\theta_u$ is angle between $\left( \nabla f\right)(a)$ and $u$}
+\end{align*}
+which tells us, The steepest slope is achieved when $ \theta_u \in \{0, \pi\} $, i.e., when $ u $ points along or opposite to the direction of $ \left( \nabla f\right)(a) $
+that means $ \max \left( D_uf \right)(a) $ is attained at $ \underbrace{u = \frac{\left( \nabla f\right)(a)}{\norm{\left( \nabla f\right)(a)}}}_{\text{provided } \norm{\left( \nabla f\right)(a)} \not=0 } $ (direction of the steepest slope)
+so we get the following theorem,
+\begin{Thm}{}{}
+  Let $ f: \Op{n} \to \R $ be a differentiable function at $ a \in \Op{n} $ and suppose $ \left( \nabla f\right)(a) \not= 0 $ then the vector $\left( \nabla f\right)(a)$ points in the direction of the greatest increment of $ f $ at $ a $ with the greatest rate $ \norm{\left( \nabla f\right)(a)} $
+\end{Thm}
+
+\begin{Eg}{}{}
+  Find the directional derivative of $ f(x,y,z) = x^2yz $ along $ \langle 1,1,-1 \rangle $ at $ a = (1,1,0) $.
+
+  \textit{Sol.} We have the unit vector $ u = \frac{\langle 1,1,-1 \rangle}{\norm{\langle 1,1,-1 \rangle}} = \left\langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}} \right\rangle $. So,
+  \begin{align*}
+    \left( D_uf \right)(a) & = \left( \nabla f\right)(a)\cdot u                                                                             \\
+                           & = \begin{bmatrix} 2xyz & x^2z & x^2y \end{bmatrix}
+    \begin{bmatrix} \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}} \end{bmatrix} \\
+  \end{align*}
+  Therefore, $ \left( D_uf \right)(1,1,0) = -\frac{1}{\sqrt{3}} $ and hence maximum value of $ \left( D_uf \right)(1,1,0) $ is $ \norm{\left( \nabla f\right)(1,1,0)} $ along the unit vector $ \langle 0,0,1 \rangle $.
+\end{Eg}
+
+\begin{Eg}{}{}
+  Take,
+  \[ f(x,y) = \begin{cases}
+      \frac{x^2y}{x^2+y^2} & (x,y) = (0,0)     \\
+      0                    & (x,y) \not= (0,0)
+    \end{cases} \]
+  then $ \left| f(x,y) - f(0,0) \right| = \left| \frac{x^2y}{x^2+y^2} \right| \leq |y| \leq \norm{(x,y)} \implies f $ is continuous at $ (0,0) $. Now, fix $ u = \langle u_1, u_2 \rangle $ with $ \norm{u} = 1 $. We get,
+  \begin{align*}
+    \left( D_uf \right)(0,0) & = \lim_{t\to 0} \frac{f(tu)- 0}{t}                        \\
+                             & =\lim_{t\to 0} \frac{1}{t}\cdot\frac{tu_1^2u_2}{1}        \\
+                             & = u_1^2u_2 \not= 0 \tag{Because, $ u $ is an unit vector}
+  \end{align*}
+  If we assume $ f $ to be differentiable then $ \left( \nabla f \right)(0,0) \cdot \begin{bmatrix} u_1 \\ u_2  \end{bmatrix} = 0 \not= u_1^2u_2 $ which contradicts the differentiability of $ f $.
+\end{Eg}
+
+So, we can conclude that, even if $ f $ is continuous, has both partial and directional derivative, it may not be differentiable!

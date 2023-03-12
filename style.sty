@@ -24,10 +24,13 @@
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{hyperref}
+\usepackage{titlesec}
+
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
+
 % Colours
 \definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
 \definecolor{beige}{rgb}{0.96, 0.96, 0.86}
@@ -39,12 +42,15 @@
 \definecolor{nadeshikopink}{rgb}{0.96, 0.68, 0.78}
 \definecolor{lawngreen}{rgb}{0.49, 0.99, 0.0}
 
+\titleformat{\chapter}[display]{\normalfont\sffamily\Large\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
+\titleformat{\section}{\normalfont\sffamily\Large\bfseries}{\thesection}{1em}{}
+
 \newtcbtheorem[number within=section]{Def}{Definition}{
   breakable, enhanced,
   attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
   coltitle=black,
   colbacktitle=black!5,
-  fonttitle=\bfseries, 
+  fonttitle=\sffamily,
   colback=white,
   colframe=black,
   leftrule=0.5mm,
@@ -59,8 +65,8 @@
 \newtcbtheorem[no counter]{Quote}{}{
   breakable, enhanced,
   attach boxed title to bottom right={xshift=-3mm, yshift=3mm, yshifttext=1mm},
-  fonttitle=\bfseries, 
-  coltitle=black, 
+  fonttitle=\sffamily,
+  coltitle=black,
   colbacktitle=cosmiclatte,
   colback=black!10!white,
   colframe=black,
@@ -72,8 +78,8 @@
 \newtcbtheorem[number within=section]{Thm}{Theorem}{
   breakable, enhanced,
   attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\bfseries, 
-  coltitle=blue!70, 
+  fonttitle=\sffamily,
+  coltitle=blue!70,
   colbacktitle=white,
   %colbacktitle=cosmiclatte,
   colback=cyan!6,
@@ -84,8 +90,8 @@
 \newtcbtheorem[no counter]{ThmN}{Theorem}{
   breakable, enhanced,
   attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\bfseries, 
-  coltitle=black, 
+  fonttitle=\sffamily,
+  coltitle=black,
   colbacktitle=cosmiclatte,
   colback=teal!6,
   colframe=richlavender,
@@ -94,7 +100,7 @@
 
 \newtcbtheorem[number within=section]{Lem}{Lemma}{
   breakable, enhanced,
-  fonttitle=\bfseries,
+  fonttitle=\sffamily,
   coltitle = richlavender,
   colbacktitle = cosmiclatte,
   titlerule = 0mm,
@@ -109,7 +115,7 @@
 
 \newtcbtheorem[no counter]{LemN}{Lemma}{
   breakable, enhanced,
-  fonttitle=\bfseries,
+  fonttitle=\sffamily,
   coltitle = richlavender,
   colbacktitle = cosmiclatte,
   titlerule = 0mm,
@@ -124,7 +130,7 @@
 
 \newtcbtheorem[no counter]{Cor}{Corollary}{
   breakable, enhanced,
-  fonttitle=\bfseries,
+  fonttitle=\sffamily,
   colbacktitle = lavenderblush,
   coltitle = frenchrose,
   titlerule = 0mm,
@@ -139,8 +145,8 @@
 \newtcbtheorem[number within=section]{Eg}{\textbf{Example}}{
   breakable, enhanced,
   % attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\sffamily, 
-  coltitle=black, 
+  fonttitle=\sffamily,
+  coltitle=black,
   colbacktitle=white,
   colback=white,
   colframe=white,
@@ -148,35 +154,35 @@
   description font=\mdseries}{eg}
 
 \newtcolorbox{clmBox}{
-   colback = lavenderblush,
-   colframe = frenchrose,
-   arc = 5mm,
-   leftrule = 0mm,
-   rightrule = 2.5mm,
-   toprule = 0.3mm,
-   bottomrule = 0.3mm,
-   sharp corners = northeast,
-   sharp corners = southeast}
+  colback = lavenderblush,
+  colframe = frenchrose,
+  arc = 5mm,
+  leftrule = 0mm,
+  rightrule = 2.5mm,
+  toprule = 0.3mm,
+  bottomrule = 0.3mm,
+  sharp corners = northeast,
+  sharp corners = southeast}
 
 \newtcolorbox{notnBox}{
-   title = \sbold{ Notation},
-   coltitle = white,
-   titlerule = 0.5mm,
-   halign title = flush left,
-   halign = flush left,
-   colback = cosmiclatte,
-   colframe = black,
-   arc = 2mm}
+  title = \sbold{ Notation},
+  coltitle = white,
+  titlerule = 0.5mm,
+  halign title = flush left,
+  halign = flush left,
+  colback = cosmiclatte,
+  colframe = black,
+  arc = 2mm}
 
 \newtcolorbox{noteBox}{
-   title = \sbold{ Note},
-   coltitle = white,
-   titlerule = 0.5mm,
-   halign title = flush left,
-   halign = flush left,
-   colback = lavenderblush,
-   colframe = black,
-   arc = 2mm}   
+  title = \sbold{ Note},
+  coltitle = white,
+  titlerule = 0.5mm,
+  halign title = flush left,
+  halign = flush left,
+  colback = lavenderblush,
+  colframe = black,
+  arc = 2mm}
 
 
 \newcommand{\sbold}[1]{\textsf{\textbf{#1}}}
@@ -186,6 +192,7 @@
 \newcommand{\Q}{\bb{Q}}
 \newcommand{\R}{\bb{R}}
 \newcommand{\C}{\bb{C}}
+\newcommand{\Op}[1]{\mathcal{O}_{#1}}
 \newcommand{\msk}{\medskip}
 \newcommand{\ssk}{\smallskip}
 \newcommand{\bsk}{\bigskip}
@@ -204,12 +211,12 @@
 
 % for commutative diagrams 
 \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
-    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-    .. (\tikztotarget)\tikztonodes}},
-    settings/.code={\tikzset{quiver/.cd,#1}
-        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
-    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+          .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+          and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+          .. (\tikztotarget)\tikztonodes}},
+  settings/.code={\tikzset{quiver/.cd,#1}
+      \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+  quiver/.cd,pos/.initial=0.35,height/.initial=0}
 
 % TikZ arrowhead/tail styles.
 \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
