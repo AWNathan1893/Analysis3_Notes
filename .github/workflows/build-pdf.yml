@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - ".github/workflows/build-pdf.yml"
+      - ".github/workflows/**.yml"
+      - ".github/**.md"
       - "**.tex"
       - "**.sty"
       - "**.bib"
       - "**.cls"
-      - "**.html"
 
 permissions:
   contents: read
@@ -32,10 +32,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: _pdf
-          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*md') }}-${{ hashFiles('**/*png') }}
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*png') }}
           restore-keys: |
             analysis-3-
             analysis-3-${{ hashFiles('style.sty') }}-
+            analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-
+            analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile pdf

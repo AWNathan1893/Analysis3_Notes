@@ -168,6 +168,9 @@ acs-*.bib
 *.ilg
 *.ind
 
+# latexindent
+__latexindent*
+
 # minitoc
 *.maf
 *.mlf
