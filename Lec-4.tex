@@ -21,4 +21,62 @@
   By the squeeze theorem, we get $ \displaystyle \lim_{(x,y) \to (0,0)}f(x,y) = 0 $, and hence, $ f $ is continuous on $ \R^2 $.
 \end{Eg}
 
+\textbf{Exercise.} Show that any linear map is continuous. (Hint: Use that the norm is continuous.)
+
+\begin{Eg}{}{}
+  Let $ D = \{(x,y) \in \R^2 \mid y \neq 0\} = \Pi_2^{-1}(\R \setminus \{0\})$. Consider the function
+  \begin{align*}
+    f : D  & \to \R            \\
+    f(x,y) & = x \sin \frac 1y
+  \end{align*}
+  Clearly $ f $ is continuous on $ D $. We also have,
+  \[ 0 \leq \abs{x \sin \frac 1y} \leq \norm{(x,y)} \]
+  and hence, by the Squeeze theorem, $ \displaystyle \lim_{(x,y) \to (0,0)}f(x,y) = 0 $
+
+  So, we can extend $ f $ to $ (0,0) $ continuously by defining it to be 0.
+\end{Eg}
+
+\section{Uniform Continuity}
+
+\begin{Def}{Uniform Continuity}{}
+  Let $ f : \mathcal{O}_n \to \R^m $, where $ \mathcal{O}_n $ is open in $ \R^n $. $ f $ is uniformly continuous if for all $ \veps > 0 $, there is $ \delta > 0 $ such that
+  \begin{alignat*}{2}
+    f(x) \in B_\veps(f(a))     & \quad            &  & \forall \, x \in B_\delta(a) \cap \cal O, \quad \forall \, a \in \cal O \\
+                               & \Big\Updownarrow                                                                              \\
+    \norm{f(x) - f(a)} < \veps & \quad            &  & \forall \, \norm{x - a} < \delta, \, a,x \in \cal O
+  \end{alignat*}
+\end{Def}
+
+\textbf{Exercise.} Show that uniform continuity implies continuity.
+
+\section{Derivatives}
+
+\begin{notnBox}{}{}
+  \begin{enumerate}[label = (\arabic*)]
+    \item $ {\cal O}_n $ denotes an open set in $ \R^n $, and we omit the $ n $ if it is clear from context.
+    \item A function $ f:\R^n \to \R^m $ has components $ f = (f_1, f_2, \dots, f_m) $
+  \end{enumerate}
+\end{notnBox}
+\ssk
+
+Recall the notion of derivative in $ \R $: \\
+Let $ f : {\cal O}_1 \to \R $ be a function and $ a \in {\cal O}_1 $. Then $ f $ is differentiable at $ a $ if there is a real number $ \alpha (= f'(a)) $ such that
+\[ \lim_{h \to 0}\frac{f(a+h)-f(a)}{h} = \alpha \label{star}\tag{1} \]
+
+This clearly cannot be carried over verbatim to functions of several variables; we can't divide by a vector! To get a reasonable definition, we note that \eqref{star} is equivalent to,
+\[ \lim_{h \to 0}\frac{f(a+h)-f(a)-\alpha h}{h} = 0 \]
+
+Now, $ h \mapsto \alpha h $ is a linear map and we already know $ \{\text{linear maps on } \R\} \longleftrightarrow \R $. So the derivative $ f'(a) $ is really a linear map! This leads to the following definition.
+
+\begin{Def}{Derivative in several variables}{}
+  Let $ f : {\cal O}_n \to \R^m $ and $ a \in {\cal O}_n $. $ f $ is differentiable at $ a $ if there is a linear map $ L : \R^n \to \R^m $ such that
+  \begin{alignat*}{2}
+    \lim_{h \to 0} & \frac{f(a+h)-f(a)-Lh}{\norm{h}}            &  & = 0 \\
+                   & \qquad \qquad \,\,\Big \Updownarrow                 \\
+    \lim_{h \to 0} & \frac{\norm{f(a+h)-f(a)-Lh}}{\norm{h}}     &  & = 0 \\
+                   & \qquad \qquad \,\, \Big \Updownarrow                \\
+    \lim_{x \to a} & \frac{\norm{f(x)-f(a)-L(x-a)}}{\norm{x-a}} &  & = 0 \\
+  \end{alignat*}
+\end{Def}
+
 \end{document}
