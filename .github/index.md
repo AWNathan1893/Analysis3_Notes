@@ -1,6 +1,11 @@
 ---
 title: Analysis of Several Variables
-author: BMath 2021-'24 batch
+author:
+  - Trishan Mondal
+  - Soumya Dasgupta
+  - Aaratrick Basu
+  - Priyatosh Jana
+  - Bikram Halder
 header-includes: |
   <style>
     body {
