@@ -1,0 +1,45 @@
+\documentclass[Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 8} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 8} %Set chapter title
+\setcounter{chapter}{8} %Set chapter counter
+\setcounter{section}{0}
+
+\section{A kind of converse of the [above theorem]}
+
+\begin{Thm}{Final Reduction}{}
+  Let $ f :\Op{n} \to \R^m $ and $ a \in \Op{n} $. Suppose, $ \pdv{f_i}{x_j} $ exists on $ \Op{n} $ and continuous at $ a \in \Op{n} $ for all $ i,j $. Then,
+  \begin{align*}
+    \begin{bmatrix}
+      Df(a)
+    \end{bmatrix} = J_{f}(a)
+  \end{align*}
+\end{Thm}
+
+\begin{proof}
+  Without loss of generality, $ a = (0,\ldots,0) \in \Op{n} $ and $ m = 1 $.
+
+    [
+      \textbf{Back Calculation:}
+
+      We already ``know", $ L = \begin{bmatrix}
+          f_{x_1}(0) & \cdots & f_{x_n}(0)
+        \end{bmatrix} $ and $ Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \, \forall\, h \in \R^n $
+    ]
+
+  \begin{clmBox}
+    \begin{align*}
+      \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| \to 0 \text{ as } h \to 0
+    \end{align*}
+  \end{clmBox}
+
+  \begin{proof}
+    Clearly, $ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| = \frac{1}{\norm{h}}\left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right| \ \forall i \in [n]$. Define, $ \hat{h}_i = \left(h_1, \ldots, h_i, \underbrace{0,\ldots,0}_{n-r} \right) $ and $ \hat{h}_0  = 0 $. Then,
+    \begin{align*}
+      f(h)-f(0) & = \left( f\left(\hat{h}_1\right) - f\left(\hat{h}_0\right) \right) + \left( f\left(\hat{h}_2\right) - f\left(\hat{h}_1\right) \right) + \cdots + \left( f\left(\hat{h}_{n}\right) - f\left(\hat{h}_{n-1}\right) \right) \\
+                & =\sum_{i=1}^{n} \left[ f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) \right]
+    \end{align*}
+    For a fixed $ h $
+  \end{proof}
+\end{proof}
