@@ -1,4 +1,4 @@
-\documentclass[Analysis-3]{subfiles}
+\documentclass[../Analysis-3]{subfiles}
 \usepackage{style}
 
 \begin{document}
@@ -16,26 +16,26 @@
 
 \begin{wrapfigure}{r}{0.25\textwidth}
     \centering
-    \includegraphics[width=.78\linewidth]{figures/lec-24.1.png}
+    \includegraphics[width=.78\linewidth]{../figures/lec-24.1.png}
     \caption{paths from A to B}
 \end{wrapfigure}
 
 Evaluating the LHS gives,
 \begin{align*}
-    \int_c \vec{\nabla}f\cdot d\vec{r} & \overset{\mathrm{(1)}}{=} \int_a^b \nabla f(r(t)) \cdot r'(t) dt \\
-    &= \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
-    &=\int_a^b \dv{t}(f(r(t))) dt\\
-    &= f(r(b)) - f(r(a)) \\
-    &= f(B) - f(A)
+    \int_c \vec{\nabla}f\cdot d\vec{r} & \overset{\mathrm{(1)}}{=} \int_a^b \nabla f(r(t)) \cdot r'(t) dt      \\
+                                       & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
+                                       & =\int_a^b \dv{t}(f(r(t))) dt                                          \\
+                                       & = f(r(b)) - f(r(a))                                                   \\
+                                       & = f(B) - f(A)
 \end{align*}
 \begin{center}
     (1) follows from \ref{eq:3}.
 \end{center}
 
 
-$\bullet$ This result has an important consequence that we often use in Physics. 
+$\bullet$ This result has an important consequence that we often use in Physics.
 
- "Workdone by a conservative force always depends on the \textcolor{violet}{starting point} and the \textcolor{violet}{end point}, not on the path followed by the particle." 
+"Workdone by a conservative force always depends on the \textcolor{violet}{starting point} and the \textcolor{violet}{end point}, not on the path followed by the particle."
 \vspace*{0.2cm}
 
 $\bullet$ We know, if the force is conservative then we can define potential energy $U$ as $ \vec{F} = -\vec{\nabla }U$. Workdone by the force is simply the change of potential.
@@ -53,12 +53,12 @@ $$ := \{\vec{P_0} + \vec{P} | \vec{P}\cdot \vec{N} = 0\} = \{\vec{r} | (\vec{r}-
 \underline{\textbf{Equation of the plane}:} Consider an  arbitary point $\vec{P} = \langle x,y,z\rangle$ on the plane then, $$\langle x-x_0,y-y_0,z-z_0\rangle \cdot \langle a,b,c \rangle = 0$$
 So, equation of the plane is $a(x-x_0)+b(y-y_0) +c(z-z_0)= 0 \cdots \label{eq:4} (\ref{eq:4})$
 
-  \vspace{1cm}
+\vspace{1cm}
 
-Let $\vec{Q_1},\vec{Q_2}$ be independent in $\R^3$ and also satisfying $\vec{Q_i} \cdot \vec{N} = 0$. clearly, $\vec{Q_1}\times \vec{Q_2} \neq \vec{0}$. We can see $(\vec{Q_1}\times \vec{Q_2}) \cdot \vec{Q_i} = 0$ .i.e $\{\vec{Q_1},\vec{Q_2},\vec{Q_1}\times \vec{Q_2}\}$ form a basis of $\R^3$. 
+Let $\vec{Q_1},\vec{Q_2}$ be independent in $\R^3$ and also satisfying $\vec{Q_i} \cdot \vec{N} = 0$. clearly, $\vec{Q_1}\times \vec{Q_2} \neq \vec{0}$. We can see $(\vec{Q_1}\times \vec{Q_2}) \cdot \vec{Q_i} = 0$ .i.e $\{\vec{Q_1},\vec{Q_2},\vec{Q_1}\times \vec{Q_2}\}$ form a basis of $\R^3$.
 
 $$\therefore \hspace{0.2cm}\vec{Q_1}\times \vec{Q_2} = c \vec{N}$$
-So, $\{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} | r_1,r_2 \in \R \}$ describes the same plane as \ref{eq:4}. 
+So, $\{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} | r_1,r_2 \in \R \}$ describes the same plane as \ref{eq:4}.
 
 \section{Surface and Surface Integrals}
 \begin{Def}{Region}{}
@@ -67,19 +67,19 @@ So, $\{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} | r_1,r_2 \in \R \}$ describes 
 
 \begin{Def}{Parametrized Surface}{}\label{def:ps}
     $\mathcal{L}$et $\mathcal{R} \subseteq \R^2$ be a region. $\mathcal{A}$ $C^1$ function $r:\mathcal{R} \to \R^3$ said to be a \enquote{Parametrized Surface} if :
-  \begin{itemize}
-    \item The component functions $r_i$ have a bounded partials
-    \item $r$ is $1-1$ function
-    \item $\pdv{\vec{r}}{u} \times \pdv{\vec{r}}{v} \neq \vec{0}$ for all $(u,v) \in \R^2$. This menas total derivative of $r$ has rank $2$.
-  \end{itemize}
- $\$$ We will call range of $r$ as a \textbf{Surface}, $ \mathcal{S} = \text{ran}(r)$.
+    \begin{itemize}
+        \item The component functions $r_i$ have a bounded partials
+        \item $r$ is $1-1$ function
+        \item $\pdv{\vec{r}}{u} \times \pdv{\vec{r}}{v} \neq \vec{0}$ for all $(u,v) \in \R^2$. This menas total derivative of $r$ has rank $2$.
+    \end{itemize}
+    $\$$ We will call range of $r$ as a \textbf{Surface}, $ \mathcal{S} = \text{ran}(r)$.
 \end{Def}
 
 Let, $\eta$ be a map defined on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\eta}{\mapsto} r(u_o=0 + t,v_0)$. Clearly, $\eta$ defines smooth curve on $\mathcal{S}$. Similarly we can defne $\tilde{\eta}$ on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\tilde{\eta}}{\mapsto} r(u_0,v_0+t)$.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
-    \includegraphics[width=.78\linewidth]{figures/lec-24.2.png}
+    \includegraphics[width=.78\linewidth]{../figures/lec-24.2.png}
     \caption{\label{fig24:1}}
 \end{wrapfigure}
 
@@ -100,13 +100,13 @@ Since $r$ is $C^1$, both $\vec{r_u}$ and $\vec{r_v}$ are continuous and hence $\
 
 \vspace{0.2cm}
 
-$\#$ The above statement follows form the previous section. 
+$\#$ The above statement follows form the previous section.
 
 Now we will move towards a very important defination.
 
 \begin{Def}{Tangent Plane}{}
-    For a Parametrized Surface $r$, let $\text{ran}(r)=\mathcal{S}$ and $r(u_0,v_0)=P$, then the plane generated by $r_u(u_0,v_0)$ and $r_v(u_0,v_0)$ through $r(u_0,v_0)$ is called the \textbf{Tangent Plane} of $\mathcal{S}$ through $P$. 
-    
+    For a Parametrized Surface $r$, let $\text{ran}(r)=\mathcal{S}$ and $r(u_0,v_0)=P$, then the plane generated by $r_u(u_0,v_0)$ and $r_v(u_0,v_0)$ through $r(u_0,v_0)$ is called the \textbf{Tangent Plane} of $\mathcal{S}$ through $P$.
+
     \vspace{0.2cm}
 
     $\$$ We denote it by $T_P\mathcal{S}$.
@@ -121,12 +121,12 @@ $\bullet$ It can be shown that $T_P\mathcal{S}$ is independent of $\mathcal{S}$'
 We will go through some exmples.
 
 \begin{Eg}{Graph of Function}{}\label{eg:grp}
-  
-    Let $f : \mathcal{O}_2 \to \R$ be a $c^1$ function then the graph of $f$ is $\mathcal{G}(f) = \{ (x,y,f(x,y)) : (x,y)\in \mathcal{O}_2\}$. Under the conditions $\mathcal{O}_2$ is bounded and partial derivatives of $f$ is bounded , we want to find a parametrization of this Surface $\mathcal{G}(f)$. 
-      
+
+    Let $f : \mathcal{O}_2 \to \R$ be a $c^1$ function then the graph of $f$ is $\mathcal{G}(f) = \{ (x,y,f(x,y)) : (x,y)\in \mathcal{O}_2\}$. Under the conditions $\mathcal{O}_2$ is bounded and partial derivatives of $f$ is bounded , we want to find a parametrization of this Surface $\mathcal{G}(f)$.
+
     \vspace{0.2cm}
 
-    \textit{Ans.} Here, we use the trivial parametrization $r : \mathcal{O}_2 \to \R^3$ that is $ r(x,y) = (x,y,f(x,y))$. Clearly, $r$ is one - one. Now, $r_u(u,v) = (1,0,f_u)$ and $r_v(u,v) = (0,1,f_v)$. 
+    \textit{Ans.} Here, we use the trivial parametrization $r : \mathcal{O}_2 \to \R^3$ that is $ r(x,y) = (x,y,f(x,y))$. Clearly, $r$ is one - one. Now, $r_u(u,v) = (1,0,f_u)$ and $r_v(u,v) = (0,1,f_v)$.
 
     \vspace{0.2cm}
 
@@ -134,22 +134,22 @@ We will go through some exmples.
 \end{Eg}
 
 \begin{Eg}{Torus}{}
-    
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\textwidth]{figures/lec-24.3.png}
+        \includegraphics[width=0.5\textwidth]{../figures/lec-24.3.png}
         \caption{Torus.}
     \end{figure}
 
     parametrization is given by, ($0<r<R$)
     \begin{align*} \label{eq:5}
-        r(\theta , \varphi) &= ((R+r\cos \theta)\cos \varphi,(R+r\cos \theta)\sin \varphi , r \sin \theta) ; 0\le \theta , \varphi \le 2\pi \cdots 
+        r(\theta , \varphi) & = ((R+r\cos \theta)\cos \varphi,(R+r\cos \theta)\sin \varphi , r \sin \theta) ; 0\le \theta , \varphi \le 2\pi \cdots
     \end{align*} $\hfill \blacksquare$
 \end{Eg}
 
 \begin{Eg}{Surface of Revolution}{}
-   Let,$f,g$ be $c^1$ functions on $[0,b]$. Consider the curve $t \mapsto (0,f(t),g(t))$ is a $c^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by ,
-   \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \hspace{0.2cm}; u \in [0,b] , v \in [0,2\pi] \]
+    Let,$f,g$ be $c^1$ functions on $[0,b]$. Consider the curve $t \mapsto (0,f(t),g(t))$ is a $c^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by ,
+    \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \hspace{0.2cm}; u \in [0,b] , v \in [0,2\pi] \]
 \end{Eg}
 
 \hspace*{0.5cm} \textbf{Exercise.} Find the Parametrization of a sphere of radius $R$.
