@@ -29,7 +29,7 @@ This may be written in a slightly more suggestive sense:
 % \[\begin{tikzcd}
 %	{\frac{\partial (g \circ f)_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \pdv{g_i}{y_k} . \frac{\partial y_{k}}{\partial x_j}} \\
 %	{} \\
-%	{y_k = f_k \left( x_1 , x_2 , \ldots, x_n \right) \\ z_k = g_k \left( y_1 , y_2, \ldots , y_m \right)} && {} & {\boxed{\frac{\partial z_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial z_{i}}{\partial y_k} . \frac{\partial y_{k}}{\partial x_j}}} \\
+%	{y_k = f_k \left( x_1, x_2, \ldots, x_n \right) \\ z_k = g_k \left( y_1, y_2, \ldots, y_m \right)} && {} & {\boxed{\frac{\partial z_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial z_{i}}{\partial y_k} . \frac{\partial y_{k}}{\partial x_j}}} \\
 %	&&& {}
 %	\arrow[shift right=5, curve={height=30pt}, from=3-1, to=1-1]
 %	\arrow[from=3-1, to=3-4]
@@ -49,10 +49,10 @@ This may be written in a slightly more suggestive sense:
 	\end{align*}
 
 	Also, \begin{align*}
-		\dv{f}{t} & = \pdv{f}{x} \frac{dx}{dt} + \pdv{f}{y} \frac{dy}{dt} + \pdv{f}{z} \frac{dz}{dt} \\
-		          & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                                      \\
-		          & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                                         \\
-		          & = e^{2t}(1+t+2t+2t^2+t)                                                          \\
+		\dv{f}{t} & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
+		          & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
+		          & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
+		          & = e^{2t}(1+t+2t+2t^2+t)                                              \\
 		          & = (2t^2+4t+1)e^{2t}
 	\end{align*}
 \end{Eg}
@@ -108,7 +108,7 @@ Hence, we can show that,
 		\therefore \hspace{1cm} & \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x}                                                                                                                                                                                                  \\
 		\implies                & \pdv{z}{x} = 2xy \pdv{z}{u} + 3 \pdv{z}{v}                                                                                                                                                                                                                  \\
 		\implies                & \pdv[2]{z}{x} = \pdv{}{x} \left[ 2xy \pdv{z}{u} + 3 \pdv{z}{v} \right]                                                                                                                                                                                      \\
-		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                                                                                                                                 \\
+		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                                                                                                                                 \\a
 		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv{}{u} \left[\pdv{z}{u}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{u}\right] \pdv{v}{x}\right)  + 3\left( \pdv{}{u} \left[\pdv{z}{v}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{v}\right] \pdv{v}{x} \right) \\
 		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv[2]{z}{u} \pdv{u}{x} + \pdv{z}{v}{u} \pdv{v}{x}\right)  + 3\left( \pdv{z}{u}{v} \pdv{u}{x} + \pdv[2]{z}{v} \pdv{v}{x}\right)                                                                                  \\
 		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(2xy \pdv[2]{z}{u}  + 3 \pdv{z}{v}{u}\right)  + 3\left( \frac{1}{2xy}\cdot\pdv{z}{u}{v}  + 3\pdv[2]{z}{v}\right)                                                                                                   \\
@@ -117,17 +117,17 @@ Hence, we can show that,
 
 \end{Eg}
 
-$\textbf{Exercise.}$ Find $z_{yy} , z_{yx} , z_{xy}$ and check if $z_{xy} = z_{yx}$.
+\textbf{Exercise.} Find $z_{yy}, z_{yx}, z_{xy}$ and check if $z_{xy} = z_{yx}$.
 
 \section{Extrema}
 
 \begin{Def}{Extrema}{}
-	Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function. $f$ attains a local maximum at $a$ if $\exists a \in \Op{n} \subseteq S$ such that $f(a) \geq f(x) \quad \forall x \in \Op{n}$. Similarly, $f$ attains a local minimum at $a$ if $\exists a \in \Op{n} \subseteq S$ such that $f(a) \leq f(x) \quad \forall x \in \Op{n}$. Now, either local maximum or local minimum is called \textbf{Extremum} (In plural \textbf{Extrema}).
+	Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function. $f$ attains a local maximum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \geq f(x)\ \forall\ x \in \Op{n}$. Similarly, $f$ attains a local minimum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \leq f(x)\ \forall\ x \in \Op{n}$. Now, either local maximum or local minimum is called \textbf{Extremum} (Plural: \textbf{Extrema}).
 \end{Def}
 
-\begin{Def}{Critical Point / Stationary Point}{}
+\begin{Def}{Critical Point or Stationary Point}{}
 	Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
-	If \[ \left(\nabla f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{X_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
+	If \[ \left(\nabla f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{x_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
 \end{Def}
 
 \begin{Thm}{}{}
@@ -141,8 +141,10 @@ $\textbf{Exercise.}$ Find $z_{yy} , z_{yx} , z_{xy}$ and check if $z_{xy} = z_{y
 		$f_{x_i}(a) = 0$
 	\end{clmBox}
 
-	Set, $\phi_i : (a_i - \epsilon, a_i + \epsilon) \to \R$ defined by $\phi_i(t) = f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_n)$. Then, \[ \frac{d \phi_i}{dt}(a_i) = f_{X_i}(a) \]
-	And, $a_i$ is a local extremum of $\phi_i$. So, \[ \frac{d \phi_i}{dt}(a_i) = 0 \quad \implies \quad f_{X_i}(a) = 0 \]
+	\begin{proof}
+		Set, $\phi_i : (a_i - \epsilon, a_i + \epsilon) \to \R$ defined by $\phi_i(t) = f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_n)$. Then, \[ \dv{\phi_i}{t}(a_i) = f_{x_i}(a) \]
+		And, $a_i$ is a local extremum of $\phi_i$. So, \[ \dv{\phi_i}{t}(a_i) = 0 \quad \implies \quad f_{x_i}(a) = 0 \]
+	\end{proof}
 \end{proof}
 
 
@@ -152,28 +154,3 @@ $\textbf{Exercise.}$ Find $z_{yy} , z_{yx} , z_{xy}$ and check if $z_{xy} = z_{y
 
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

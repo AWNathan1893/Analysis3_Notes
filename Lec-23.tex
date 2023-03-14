@@ -6,45 +6,46 @@
 \addcontentsline{toc}{chapter}{Lecture 23} %Set chapter title
 \setcounter{chapter}{23} %Set chapter counter
 \setcounter{section}{0}
+
 We will begin this lecture with few examples.
 \begin{Eg}{Path Of a Projectile}{}
-    . \begin{align*}
-        \gamma(t)           & =(\alpha t,\beta t-16t^2)                \\
-        \implies \gamma'(t) & = (\alpha ,\beta -32t)                   \\
-        \text{path length}  & = \int||\gamma'(t)|| dt                  \\
+    \begin{align*}
+        \gamma(t)           & =(\alpha t, \beta t-16t^2)               \\
+        \implies \gamma'(t) & = (\alpha, \beta -32t)                   \\
+        \text{path length}  & = \int \norm{\gamma'(t)}\dd{t}           \\
                             & = \int \sqrt{\alpha^2 +(\beta-32t)^2} dt
     \end{align*}
 \end{Eg}
 
 \begin{Eg}{Perimeter of a Circle}{}
-    . Parametrization of a circle of radius $r$ is given by $\gamma(t) = (r\cos(t),r\sin(t)), t \in [0,2\pi)$.
+    Parametrization of a circle of radius $r$ is given by $\gamma(t) = (r\cos(t),r\sin(t)), t \in [0,2\pi)$.
     \begin{align*}
-        \gamma'(t)    & = (-r\sin(t),r\cos(t))              \\
-        \ell (\gamma) & = \int_{0}^{2\pi} ||\gamma'(t)|| dt \\
-                      & = \int_{0}^{2\pi} r dt              \\
+        \gamma'(t)    & = (-r\sin(t),r\cos(t))                    \\
+        \ell (\gamma) & = \int_{0}^{2\pi} \norm{\gamma'(t)}\dd{t} \\
+                      & = \int_{0}^{2\pi} r dt                    \\
                       & = 2\pi r
     \end{align*}
 \end{Eg}
 
 \begin{Eg}{Arc Length of graph of functions}{}
-    .Let,$f : [a,b]\to \mathbb{R}$ be a $C^1$ function. Consider $\gamma(t)=(t,f(t))$. It is a smooth curve.
+    Let, $f : [a,b]\to \R$ be a $C^1$ function. Consider $\gamma(t)=(t, f(t))$. It is a smooth curve.
     \begin{align*}
-        \gamma'(t)    & = (1,f'(t))                          \\
-        \ell (\gamma) & = \int_{a}^{b} ||\gamma'(t)|| dt     \\
+        \gamma'(t)    & = (1,f'(t))                            \\
+        \ell (\gamma) & = \int_{a}^{b} \norm{\gamma'(t)}\dd{t} \\
                       & = \int_{a}^{b} \sqrt{1 + f'(t)^2} dt
     \end{align*}
 \end{Eg}
 
 \section{Line Integrals}
-To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scaler Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \mathcal{O}_n \to \R$ be a differentiable function, then $\nabla f$ is a vector field.)
+To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scalar Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \Op{n} \to \R$ be a differentiable function, then $\nabla f$ is a vector field.)
 
-\textbf{Question :} Given a scalar field $f : \mathcal{O}_n \to \R$ and $\gamma \equiv c$ be a curve, we want to define $\int_c f$ . But exactly how we can do this?
+\textbf{Question.} Given a scalar field $f : \Op{n} \to \R$ and $\gamma \equiv c$ be a curve, we want to define $\int_c f$ . But exactly how we can do this?
 
-\textbf{Answer :} $c$ is a curve, so it is bounded subset of $\R^n$. How about thinking of \textbf{Riemann Integration}? For $n \ge 2$, $c$ is \textbf{content zero} in $\R^n$. This does not make nay sense ! The right way is as following.
+\textbf{Ans.} $c$ is a curve, so it is bounded subset of $\R^n$. How about thinking of \textbf{Riemann Integration}? For $n \ge 2$, $c$ is \textbf{content zero} in $\R^n$. This does not make any sense! The right way is as following.
 
 \vspace*{0.5cm}
 
-Let, $\gamma :[a,b]\to \R^n$ be a \textbf{Smooth curve}(Or Piecewise Smooth) and $c:= \text{ran}(\gamma)$( on other words path of $\gamma$). Let, $f \in \mathscr{B}(c)$. Given $\mathcal{P} \in \mathscr{P}[a,b]$, $\mathcal{P} : a = t_0<t_1<\cdots <t_m = b$.
+Let, $\gamma :[a,b]\to \R^n$ be a \textbf{Smooth curve}(Or Piecewise Smooth) and $c:= \text{ran}(\gamma)$(on other words path of $\gamma$). Let, $f \in \mathscr{B}(c)$. Given $\mathcal{P} \in \mathscr{P}[a,b]$, $\mathcal{P} : a = t_0<t_1<\cdots <t_m = b$.
 
 \vspace{0.2cm}
 
@@ -61,13 +62,13 @@ Since,$\gamma$ is smooth there is nice correspondence between $I_i$ and $c_i$. A
 \end{align*}
 The above expressions are same as upper and
 \vspace{0.05cm}
-lower Riemann sum respectively. This opens up "\textcolor{violet}{The Pandora's box !}".
+lower Riemann sum respectively. This opens up ``\textcolor{violet}{The Pandora's box!}''.
 \vspace{0.3cm}
 
 $\bullet$ We can now use all the theory we used for the standard Riemann Integrals. We say $f$ is line integrable over $\gamma$ if,
 \[\inf_{\mathcal{P} \in \mathscr{P}[a,b]} U(f,\mathcal{P}) = \sup_{\mathcal{P} \in \mathscr{P}[a,b]} L(f,\mathcal{P})\]
 
-More over we will write the common value of the above equality as $\int_c f$ and call this "The Line Integral over curve $c$".
+More over we will write the common value of the above equality as $\int_c f$ and call this ``The Line Integral over curve $c$''.
 
 \# \textbf{$\mathscr{R}(c)=$} set of all Riemann integrable functions over $c$. Now we can invoke all theory we derived for 1 variable integration!
 
@@ -87,7 +88,7 @@ More over we will write the common value of the above equality as $\int_c f$ and
 
 \vspace{0.2cm}
 
-In the above theorem equation in \ref{eq:1} is also independent of choice of Parametrization of $\gamma$. Because any other smooth parametrized curve $\tilde{\gamma} = \gamma \circ \varphi$ where, $\varphi$ is a onto continus function.
+In the above theorem equation in \ref{eq:1} is also independent of choice of Parametrization of $\gamma$. Because any other smooth parametrized curve $\tilde{\gamma} = \gamma \circ \varphi$ where, $\varphi$ is an onto continuous function.
 
 \vspace{1cm}
 
@@ -106,7 +107,7 @@ We have resolved the problems for Scalar field.\textbf{ What about vector fields
     \includegraphics[width=0.5\textwidth]{figures/lec-23.2.png}
     \caption{Work done by a constant Force}
 \end{figure}
-Suppose a particle moves a distance $d$ under a constant force $F$, then work done by the force is $Fd\cos \theta = \vec{F}.\vec{d}$.
+Suppose a particle moves a distance $d$ under a constant force $F$, then work done by the force is $Fd\cos{\theta} = \vec{F}\cdot\vec{d}$.
 
 
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -135,10 +136,12 @@ Now we will look into some examples.
     \large \underline{\textbf{Line Integration of a Vector Field} }
 \end{center}
 
-$F:\mathcal{O}_n \to \R^n$ be a vector field and $\gamma:[a,b] \to \mathcal{O}_n$ be a curve. We consider a partition $\mathcal{P}: a =t_0<t_1<\cdots < t_m=b$, Let $c_i = \gamma|_{[t_{i-1},t_i]}$ and $\gamma_i = \gamma(t_i)$, $\Delta r_i = \gamma_{i} - \gamma_{i-1}$.
+$F:\Op{n} \to \R^n$ be a vector field and $\gamma:[a,b] \to \Op{n}$ be a curve. We consider a partition $\mathcal{P}: a =t_0<t_1<\cdots < t_m=b$, Let $c_i = \gamma|_{[t_{i-1},t_i]}$ and $\gamma_i = \gamma(t_i)$, $\Delta r_i = \gamma_{i} - \gamma_{i-1}$.
 \[R(F;\mathcal{P})= \sum_{i=1}^m F(\gamma_i)\cdot \Delta r_i\]
-\[\int_c \vec{F}\cdot d\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \hspace{0.2cm}(\text{if the limit exist})\]
-Just like the scalar field, if $\gamma$ is $c^1$ and smooth, then
+\begin{align*}
+    \int_c \vec{F}\cdot d\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \tag{if the limit exists}
+\end{align*}
+Just like the scalar field, if $\gamma$ is $C^1$ and smooth, then
 \[\int_c \vec{F}\cdot d\vec{r} = \int_a^b F(\gamma(t))\cdot \gamma'(t) dt \label{eq:3} \cdots (\ref{eq:3})\]
 
 
