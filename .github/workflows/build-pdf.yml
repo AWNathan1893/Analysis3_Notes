@@ -34,12 +34,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: _pdf
-          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*png') }}
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}
           restore-keys: |
-            analysis-3-
-            analysis-3-${{ hashFiles('style.sty') }}-
             analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-
-            analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}
+            analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile pdf
