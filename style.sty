@@ -25,11 +25,19 @@
 \usepackage{mathtools}
 \usepackage{hyperref}
 \usepackage{titlesec}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{transparent}
 
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{2.5in}
+  \import{../figures/#1}{#1.pdf_tex}
+}
 
 % Colours
 \definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}

@@ -319,3 +319,8 @@ TSWLatexianTemp*
 
 ## Cover
 !cover*.pdf
+
+## pdf_tex
+!*.pdf_tex
+!figures/*/*.pdf
+!figures/*/*.svg
