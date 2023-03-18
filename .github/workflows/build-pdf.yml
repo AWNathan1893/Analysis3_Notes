@@ -13,6 +13,7 @@ on:
       - "**.bib"
       - "**.cls"
       - "**.pdf"
+      - "**.sh"
 
 permissions:
   contents: read
@@ -34,27 +35,30 @@ jobs:
         uses: actions/cache@v3
         with:
           path: _pdf
-          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}-${{ hashFiles('**/*sh') }}
           restore-keys: |
             analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-
             analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile pdf
-        uses: dante-ev/latex-action@latest
+        uses: xu-cheng/latex-action@v2
         with:
           working_directory: .
           root_file: ./Analysis-3.tex
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
+        name: Compile all pdfs
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: ./lectures
+          root_file: "*.tex"
+          glob_root_file: true
+          compiler: pdflatex
+
+      - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory
-        run: |
-          if [ -d _pdf ]; then
-            rm _pdf -r
-          fi
-          mkdir _pdf
-          mv Analysis-3.pdf _pdf/Analysis-3.pdf
-          pandoc .github/index.md -s -o _pdf/index.html
+        run: bash _pdf.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
