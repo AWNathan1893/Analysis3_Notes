@@ -77,6 +77,36 @@ Now, $ h \mapsto \alpha h $ is a linear map and we already know $ \{\text{linear
                    & \qquad \qquad \,\, \Big \Updownarrow                \\
     \lim_{x \to a} & \frac{\norm{f(x)-f(a)-L(x-a)}}{\norm{x-a}} &  & = 0 \\
   \end{alignat*}
+
+  If $ f $ is differentiable at $ a \in {\cal O}_n $, its derivative is denoted as $ Df(a) $. We say $ f $ is differentiable on $ {\cal O}_n $ if it is differentiable at all $ a \in {\cal O}_n $.
 \end{Def}
+
+\begin{Thm}{}{}
+  Let $ f: {\cal O}_n \to \R^m $ be differentiable at $ a \in {\cal O}_n $. The derivative $ Df(a) $ is unique.
+\end{Thm}
+\begin{proof}
+  Let $ L = Df(a) $ and $ L_1 $ be any linear map from $ \R^n $ to $ \R^m $ such that
+  \[ \lim_{h \to 0} \frac{\norm{f(a+h)-f(a)-L_1h}}{\norm{h}} = 0 \]
+  Suppose $ L_1 \neq L $. Then, there is $ h_0 \in \R^n $ such that $ \norm{h_0} = 1 $ and $ Lh_0 \neq L_1h_0 $. Consider the map $ h: \R \to \R^n $ given by $ h(t) = th_0 $. Then, by the triangle inequality,
+  \[ \frac{\norm{L(h(t))-L_1(h(t))}}{\abs{t}} \leq \frac{\norm{f(a+h)-f(a)-L(h(t))}}{\norm{h(t)}} + \frac{\norm{f(a+h)-f(a)-L_1(h(t))}}{\norm{h(t)}} \]
+  Taking the limit as $ t \to 0 $, both terms on the right go to 0 by definition, and hence
+  \[ \lim_{t \to 0} \frac{\norm{L(h(t))-L_1(h(t))}}{\abs{t}} = 0 \implies \lim_{t \to 0} \frac{\abs{t}\norm{Lh_0-L_1h_0}}{\abs{t}} = 0 \implies Lh_0 = L_1h_1\]
+  which clearly contradicts the assumption. So, the derivative $ Df(a) $ is unique.
+\end{proof}
+
+\section{Examples}
+\begin{Eg}{}{}
+  Consider $ f: {\cal O}_n \to\R^m $ defined by $ f(x) = c $. For any $ a \in {\cal O}_n $,
+  \[ \lim_{h \to 0} \frac{f(a+h)-f(a)-Oh}{\norm{h}} = 0 \]
+  where $ O $ denotes the zero linear map. Hence, $ f $ is differentiable on $ {\cal O}_n $ and $ Df(a) = O $ for any $ a \in {\cal O}_n $.
+\end{Eg}
+
+\begin{Eg}{}{}
+  Consider a linear map $ L:\R^n \to \R^m $. For all $ a \in \R^n $,
+  \[ \lim_{h \to 0} \frac{L(a+h)-La-Lh}{\norm{h}} = 0 \]
+  Hence, $ L $ is differentiable everywhere and $ DL(a) = L $ for all $ a \in \R^n $. This is as expected, as the best linear approximation of a linear map is itself.
+\end{Eg}
+
+At this point, we are faced with the problem of actually computing derivatives of non-trivial maps. A priori, it is not even clear if functions that are made of various differentiable functions of one variable, say $ f(x,y,z) = (x^2e^yz, y^3\sin (xy) \cos z) $, are differentiable! We will perform a series of reductions that will answer such basic questions about differentiability of functions and even provide techniques to compute the derivatives.
 
 \end{document}

@@ -1,0 +1,122 @@
+\documentclass[../Analysis-3]{subfiles}
+
+\begin{document}
+\chapter*{Lecture 5} %Set chapter name
+\addcontentsline{toc}{chapter}{Lecture 5} %Set chapter title
+\setcounter{chapter}{5} %Set chapter counter
+\setcounter{section}{0}
+
+We have figured out that the reasonable definition of the derivative of a map $ f: {\cal O}_n \to \R^m $ at a point $ a \in {\cal O}_n $ is $ Df(a) = L $ where
+\[ \lim_{h \to 0}  \frac{f(a+h)-f(a)-Lh}{\norm{h}} = 0 \]
+We now proceed to perform a series of reductions that will actually answer the question of \\ 
+differentiability of functions and also provide techniques to compute the derivative.
+
+\section{Matrix representation of the derivative}
+
+\begin{Thm}{}{}
+  Let $ f: {\cal O}_n \to \R^m $ and $ a \in {\cal O}_n $. Then, $ f $ is differentiable at $ a $ iff $ f_i $ is differentiable at $ a $ for all $ i $. In that case, we have
+  \[ Df(a) =
+    \begin{bmatrix}
+      Df_1(a) \\
+      Df_2(a) \\
+      \vdots  \\
+      Df_m(a)
+    \end{bmatrix} \]
+\end{Thm}
+
+\begin{proof}
+  Assume that $ f $ is differentiable at $ a $ and let $ L = Df(a) $. For all $ i = 1,2,\dots,m $ we set $ L_i = \Pi_i \circ L $. Further, let $ \tilde{f}_i(h) = f_i(a+h)-f_i(a)-L_ih $, so that
+  \[ f(a+h)-f(a)-Lh = (\tilde{f}_1(h), \tilde{f}_2(h), \dots, \tilde{f}_m(h)) \]
+  But then, $ \abs{\tilde{f}_i(h)} \leq \norm{f(a+h)-f(a)-Lh} $ which proves that $ f_i $ is differentiable at $ a $ and has derivative $ Df_i(a) = L_i $, for all $ i $.
+  \msk
+  
+  Assume that $ f_i $ is differentiable at $ a $ for all $ i $ and define
+  \[ L =
+    \begin{bmatrix}
+      Df_1(a) \\
+      Df_2(a) \\
+      \vdots  \\
+      Df_m(a)
+    \end{bmatrix} \]
+  Let $ \Pi_i(f(a+h)-f(a)-Lh) = f_i(a+h)-f_i(a)-Df_i(a)h =  \tilde{f}_i(h) $, so that
+  \begin{align*}
+    \lim_{h \to 0} \frac{\tilde{f}_i(h)}{\norm{h}}          & = 0 \quad \forall \, i \\
+    \implies \lim_{h \to 0} \frac{f(a+h)-f(a)-Lh}{\norm{h}} & = 0
+  \end{align*}
+  which proves that $ f $ is differentiable at $ a $ and has derivative $ Df(a) = L $.
+\end{proof}
+
+\begin{noteBox}
+  \begin{enumerate}[label = $\bullet$]
+    \item Because of this theorem, it is enough to study differentiability of maps $ f: {\cal O}_n \to \R $.
+    \item Let $ \gamma: {\cal O}_1 \to \R^n $. Then, $ \gamma $ is differentiable at $ a \in {\cal O}_1 $ iff $ \gamma_i $ is differentiable at $ a $ for all $ i $ and in that case,
+          \[ D\gamma(a) = \gamma'(a) =
+            \begin{bmatrix}
+              \gamma_1'(a) \\
+              \gamma_2'(a) \\
+              \vdots       \\
+              \gamma_n'(a)
+            \end{bmatrix} \]
+          This is the notion of velocity vector of a curve in $ \R^n $ from elementary calculus.
+  \end{enumerate}
+\end{noteBox}
+
+\section{Further properties of differentiable functions}
+\begin{Thm}{Differentiability implies continuity}{}
+  Let $ f: {\cal O}_n \to \R^m $. If $ f $ is differentiable at $ a \in {\cal O}_n $, $ f $ is continuous at $ a $.
+\end{Thm}
+
+\begin{proof}
+  Let $ f $ be differentiable at $ a $. Then, for all $ x \in {\cal O}_n $,
+  \[ 0 \leq \norm{f(x) - f(a)} \leq \norm{f(x) - f(a) - Df(a)(x-a)} + \norm{Df(a)(x-a)} \]
+  Taking the limit as $ x \to a $, the first term on the right goes to 0 by the definition of $ Df(a) $ and the second term goes to zero as any linear map is continuous. Hence, by the squeeze theorem,
+  \[ \lim_{x \to a}\norm{f(x)-f(a)} = 0  \]
+  which proves that $ f $ is continuous at $ a $.
+\end{proof}
+
+\begin{Thm}{Chain rule}{}
+  Consider maps $ f,g $ such that
+  \[\begin{tikzcd}
+      {{\cal O}_n} &&& {{\cal O}_m} &&& {\R^p}
+      \arrow["f", from=1-1, to=1-4]
+      \arrow["g", from=1-4, to=1-7]
+      \arrow["{g \circ f}"', curve={height=30pt}, from=1-1, to=1-7]
+    \end{tikzcd}\]
+  Assume that $ f $ is differentiable at $ a \in {\cal O}_n $ and $ g $ is differentiable at $ f(a) \in {\cal O}_m $. Then $ g \circ f $ is differentiable at $ a $ and further
+  \[ \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p} = \underbrace{Dg(f(a))}_{\R^m \to \R^p} \cdot \underbrace{Df(a)}_{\R^n \to \R^m} \]
+\end{Thm}
+
+\begin{proof}
+  Let $ A = Df(a) $ and $ B = Dg(b) $ where $ b = f(a) $. For $ x,y $ in sufficiently small neighbourhoods of $ a,b $ respectively, we consider the maps
+  \begin{align*}
+    r_f(x) & = f(x) - f(a) - A(x-a)      \\
+    r_g(y) & = g(y) - g(b) - B(y-b)      \\
+    r(x)   & = g(f(x)) - g(b) - BA(x-a)
+  \end{align*}
+  By definition of the derivative,
+  \[ \lim_{x \to a}\frac{r_f(x)}{\norm{x-a}}=0 \qquad \lim_{y \to b}\frac{r_g(y)}{\norm{y-b}}=0\]
+  We wish to prove that
+  \[ \lim_{x \to a}\frac{r(x)}{\norm{x-a}}=0 \]
+  We have,
+  \begin{align*}
+    r(x)          & = g(f(x)) - g(b) - BA(x-a)                \\
+                  & = g(f(x)) - g(b) + B(r_f(x) - f(x)+f(a))  \\
+                  & = Br_f(x) + g(f(x)) - g(b) - B(f(x)-f(a)) \\
+    \implies r(x) & = Br_f(x) + r_g(f(x))
+  \end{align*}
+  Now,
+  \[ \lim_{x \to a}\frac{Br_f(x)}{\norm{x-a}} = B \left(\lim_{x \to a}\frac{Br_f(x)}{\norm{x-a}}\right) = 0 \]\ssk
+  
+  The other term requires some more analysis. Fix $ \veps > 0 $. There is $ \delta > 0 $ such that $ \norm{r_g(y)} < \veps \norm{y-b} $ for all $ y $ with $ 0 < \norm{y-b} < \delta $. By continuity of $ f $ at $ a $, there is $ \delta_1 > 0 $ such that $ \norm{f(x) - f(a)} < \delta $ for all $ x $ with $ 0 < \norm{x-a} < \delta_1 $. Hence,
+  \[ 0 < \norm{x-a} < \delta_1 \implies \norm{r_g(f(x))} < \veps\norm{f(x)-f(a)} \]
+  and so
+  \[ \lim_{x \to a}\frac{r_g(f(x))}{\norm{f(x)-f(a)}} = 0 \]
+  We now note,
+  \[ \norm{f(x)-f(a)} = \norm{r_f(x)+A(x-a)} \leq \norm{r_f(x)} + M_A\norm{x-a} \]
+  where we get $ M_A > 0 $ by Theorem \ref{th:LinLip}. Hence, we finally have
+  \[ \lim_{x \to a}\frac{r(x)}{\norm{x-a}} = \lim_{x \to a}\frac{r_g(f(x))}{\norm{f(x)-f(a)}} \frac{\norm{f(x)-f(a)}}{\norm{x-a}} = 0 \]
+  which completes the proof.
+  
+\end{proof}
+
+\end{document}

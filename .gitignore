@@ -1,10 +1,12 @@
 # Taken from https://github.com/github/gitignore/blob/main/TeX.gitignore
 
 ## Editor auxiliary files
-.vscode
+.vscode/*
 .vs
 *#*
 *~
+!.vscode/settings.json
+_pdf/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -319,3 +321,8 @@ TSWLatexianTemp*
 
 ## Cover
 !cover*.pdf
+
+## pdf_tex
+!*.pdf_tex
+!figures/*/*.pdf
+!figures/*/*.svg
