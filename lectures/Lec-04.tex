@@ -39,11 +39,11 @@
 \section{Uniform Continuity}
 
 \begin{Def}{Uniform Continuity}{}
-  Let $ f : \mathcal{O}_n \to \R^m $, where $ \mathcal{O}_n $ is open in $ \R^n $. $ f $ is uniformly continuous if for all $ \veps > 0 $, there is $ \delta > 0 $ such that
+  Let $ f : \Op{n} \to \R^m $, where $ \Op{n} $ is open in $ \R^n $. $ f $ is uniformly continuous if for all $ \veps > 0 $, there is $ \delta > 0 $ such that
   \begin{alignat*}{2}
-    f(x) \in B_\veps(f(a))     & \quad            &  & \forall \, x \in B_\delta(a) \cap \cal O, \quad \forall \, a \in \cal O \\
-                               & \Big\Updownarrow                                                                              \\
-    \norm{f(x) - f(a)} < \veps & \quad            &  & \forall \, \norm{x - a} < \delta, \, a,x \in \cal O
+    f(x) \in B_\veps(f(a))     & \quad            &  & \forall \, x \in B_\delta(a) \cap  \Op{n}, \quad \forall \, a \in \Op{n} \\
+                               & \Big\Updownarrow                                                                               \\
+    \norm{f(x) - f(a)} < \veps & \quad            &  & \forall \, \norm{x - a} < \delta, \, a,x \in \Op{n}
   \end{alignat*}
 \end{Def}
 
@@ -53,14 +53,14 @@
 
 \begin{notnBox}{}{}
   \begin{enumerate}[label = (\arabic*)]
-    \item $ {\cal O}_n $ denotes an open set in $ \R^n $, and we omit the $ n $ if it is clear from context.
+    \item $ \Op{n} $ denotes an open set in $ \R^n $, and we omit the $ n $ if it is clear from context.
     \item A function $ f:\R^n \to \R^m $ has components $ f = (f_1, f_2, \dots, f_m) $
   \end{enumerate}
 \end{notnBox}
 \ssk
 
 Recall the notion of derivative in $ \R $: \\
-Let $ f : {\cal O}_1 \to \R $ be a function and $ a \in {\cal O}_1 $. Then $ f $ is differentiable at $ a $ if there is a real number $ \alpha (= f'(a)) $ such that
+Let $ f : \Op{1} \to \R $ be a function and $ a \in \Op{1} $. Then $ f $ is differentiable at $ a $ if there is a real number $ \alpha (= f'(a)) $ such that
 \[ \lim_{h \to 0}\frac{f(a+h)-f(a)}{h} = \alpha \label{star}\tag{1} \]
 
 This clearly cannot be carried over verbatim to functions of several variables; we can't divide by a vector! To get a reasonable definition, we note that \eqref{star} is equivalent to,
@@ -69,7 +69,7 @@ This clearly cannot be carried over verbatim to functions of several variables; 
 Now, $ h \mapsto \alpha h $ is a linear map and we already know $ \{\text{linear maps on } \R\} \longleftrightarrow \R $. So the derivative $ f'(a) $ is really a linear map! This leads to the following definition.
 
 \begin{Def}{Derivative in several variables}{}
-  Let $ f : {\cal O}_n \to \R^m $ and $ a \in {\cal O}_n $. $ f $ is differentiable at $ a $ if there is a linear map $ L : \R^n \to \R^m $ such that
+  Let $ f : \Op{n} \to \R^m $ and $ a \in \Op{n} $. $ f $ is differentiable at $ a $ if there is a linear map $ L : \R^n \to \R^m $ such that
   \begin{alignat*}{2}
     \lim_{h \to 0} & \frac{f(a+h)-f(a)-Lh}{\norm{h}}            &  & = 0 \\
                    & \qquad \qquad \,\,\Big \Updownarrow                 \\
@@ -78,11 +78,11 @@ Now, $ h \mapsto \alpha h $ is a linear map and we already know $ \{\text{linear
     \lim_{x \to a} & \frac{\norm{f(x)-f(a)-L(x-a)}}{\norm{x-a}} &  & = 0 \\
   \end{alignat*}
 
-  If $ f $ is differentiable at $ a \in {\cal O}_n $, its derivative is denoted as $ Df(a) $. We say $ f $ is differentiable on $ {\cal O}_n $ if it is differentiable at all $ a \in {\cal O}_n $.
+  If $ f $ is differentiable at $ a \in \Op{n} $, its derivative is denoted as $ Df(a) $. We say $ f $ is differentiable on $ \Op{n} $ if it is differentiable at all $ a \in \Op{n} $.
 \end{Def}
 
 \begin{Thm}{}{}
-  Let $ f: {\cal O}_n \to \R^m $ be differentiable at $ a \in {\cal O}_n $. The derivative $ Df(a) $ is unique.
+  Let $ f: \Op{n} \to \R^m $ be differentiable at $ a \in \Op{n} $. The derivative $ Df(a) $ is unique.
 \end{Thm}
 \begin{proof}
   Let $ L = Df(a) $ and $ L_1 $ be any linear map from $ \R^n $ to $ \R^m $ such that
@@ -96,9 +96,9 @@ Now, $ h \mapsto \alpha h $ is a linear map and we already know $ \{\text{linear
 
 \section{Examples}
 \begin{Eg}{}{}
-  Consider $ f: {\cal O}_n \to\R^m $ defined by $ f(x) = c $. For any $ a \in {\cal O}_n $,
+  Consider $ f: \Op{n} \to\R^m $ defined by $ f(x) = c $. For any $ a \in \Op{n} $,
   \[ \lim_{h \to 0} \frac{f(a+h)-f(a)-Oh}{\norm{h}} = 0 \]
-  where $ O $ denotes the zero linear map. Hence, $ f $ is differentiable on $ {\cal O}_n $ and $ Df(a) = O $ for any $ a \in {\cal O}_n $.
+  where $ O $ denotes the zero linear map. Hence, $ f $ is differentiable on $ \Op{n} $ and $ Df(a) = O $ for any $ a \in \Op{n} $.
 \end{Eg}
 
 \begin{Eg}{}{}

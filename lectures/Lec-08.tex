@@ -19,21 +19,19 @@
 
 \begin{proof}
   Without loss of generality, take $ a = (0,\ldots,0) \in \Op{n} $ and $ m = 1 $.
-
+  
     [
       \textbf{Back Calculation:}
-
+      
       We already ``know", $ L = \begin{bmatrix}
           f_{x_1}(0) & \cdots & f_{x_n}(0)
         \end{bmatrix} $ and $ Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n $
     ]
-
+  
   \begin{clmBox}
-    \begin{align*}
-      \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| \to 0 \text{ as } h \to 0
-    \end{align*}
+    \[ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| \to 0 \text{ as } h \to 0 \]
   \end{clmBox}
-
+  
   \begin{proof}
     Clearly, $ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| = \frac{1}{\norm{h}}\left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right|\ \forall\ i \in [n]$. Define, $ \hat{h}_i = (h_1, \ldots, h_i, \underbrace{0,\ldots,0}_{n-r}) $ and $ \hat{h}_0  = 0 $. Then,
     \begin{align*}
@@ -41,10 +39,10 @@
                 & =\sum_{i=1}^{n} \left( f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) \right)
     \end{align*}
     which implies, \begin{align*}
-      \left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right| & = \left| \sum_{i=1}^{n} \left( f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                \\
+      \left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right| & = \left| \sum_{i=1}^{n} \left( f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                 \\
                                                                              & = \left| \sum_{i=1}^{n} \underbrace{h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right)}_{\text{By MVT, as explained below}} - h_i\pdv{f}{x_i}\left( 0 \right) \right|
     \end{align*}
-
+    
     For a fixed $ h $ fix $ i \in [n] $. Consider the map,
     \[\begin{tikzcd}
         t &&& {\hat{h}_{i-1} + te_i} &&& {f\left( \hat{h}_{i-1} + te_i \right)} \\
@@ -59,7 +57,7 @@
     Clearly, $ \eta_i $ is differentiable on $ (0,h_i) $ and continuous on $ [0,h_i] $. So, MVT gives \begin{align*}
       \left( \eta_i(h_i) - \eta_i(0) \right) = f_{x_i}(c_i)h_i \qquad \Big(=\eta_i'(c_i)h_i \Big) \tag{for some $ c_i\in (0,h_i) $}
     \end{align*}
-
+    
     Now, observe that, as $ h \to 0, \hat{h}_{i-1}+c_ie_i \to 0 $ which in turn yields, $ f_{x_i}\left( \hat{h}_{i-1}+c_ie_i \right) \to f_{x_i}(0) $. Therefore,
     \begin{align*}
       \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| & = \left| \sum_{i=1}^{n} h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - h_i\pdv{f}{x_i}\left( 0 \right) \right|                                          \\
@@ -89,19 +87,19 @@
                0,                                                                   & (x,y) = 0
              \end{cases}
   \end{align*}
-
+  
   Then, \begin{align*}
     \abs{f(x,y) - f(0,0)} & = \abs{x^2+y^2}\abs{\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}} \\
                           & \leq (x^2+y^2) = \norm{(x,y)}^2
   \end{align*}
   $ \implies f $ is continuous at $ (0,0) $.
-
+  
   The partials of $ f $, \begin{align*}
     f_x(x,y) & = 2x\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} - \frac{x}{\sqrt{x^2+y^2}}\cos{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} \\
     f_y(x,y) & = 2y\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} - \frac{y}{\sqrt{x^2+y^2}}\cos{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}
   \end{align*}
   So their limits along the respective axis, \begin{align*}
-    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0 \\
+    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0  \\
     f_y(0,0) & = \lim_{t \to 0} \frac{f(0,t) - f(0,0)}{t} = 0
   \end{align*}
   And, \begin{align*}
