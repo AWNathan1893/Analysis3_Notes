@@ -5,9 +5,8 @@ if [ -d pdfs ]; then
   rm pdfs -r
 fi
 
-echo "Creating pdfs/ and _site/"
+echo "Creating pdfs/"
 mkdir pdfs
-mkdir _site
 
 echo "Moving Analysis-3.pdf"
 mv Analysis-3.pdf pdfs/Analysis-3.pdf
@@ -25,9 +24,3 @@ for file in $tex_files; do
 done
 
 cd ..
-
-echo "Compiling .github/index.md to _site/index.html"
-pandoc --katex .github/index.md -s -o _site/index.html
-
-echo "Copying pdfs to _site/pdfs"
-cp -r pdfs _site/pdfs

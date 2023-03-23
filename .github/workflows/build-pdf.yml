@@ -60,6 +60,9 @@ jobs:
         name: Put pdfs in a single directory
         run: bash _pdf.sh
 
+      - name: Create _site
+        run: bash ./.github/_site.sh
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
