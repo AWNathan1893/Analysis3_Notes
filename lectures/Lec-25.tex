@@ -8,11 +8,11 @@
 %The content
 \section{Tangent Plane Of $\mathcal{G}(f)$}
 
-Let, $f : \mathcal{O}_2 \to \R$ be a $C^1$ function and $r(u,v) = (u,v,f(u,v))$. Here $\text{ran}(r)$ defines a surface $\mathcal{G}(f)$ as we have showed in $\ref{eg:grp}$. We also have calculated $r_v\times r_u = (-f_u,-f_v,1)$. Now using $\ref{eq:4}$ we can write down the equation of \textbf{Tangent space} at a point $P = (a,b,f(a,b))$ on $\mathcal{G}(f)$. Equation of the tangent space $T_P \mathcal{S}$
+Let, $f : \mathcal{O}_2 \to \R$ be a $C^1$ function and $r(u,v) = (u,v,f(u,v))$. Here $\ran(r)$ defines a surface $\mathcal{G}(f)$ as we have showed in $\ref{eg:groffn}$. We also have calculated $r_v\times r_u = (-f_u,-f_v,1)$. Now using $\ref{eq:4}$ we can write down the equation of \textbf{Tangent space} at a point $P = (a,b,f(a,b))$ on $\mathcal{G}(f)$. Equation of the tangent space $T_P \mathcal{S}$
 
-\begin{align}\label{eq:tp}
-    f_u(a,b)(x-a) + f_v(a,b)(y-b)-(z-f(a,b))         & = 0 \\
-    \implies z = f(a,b) + f_u(a,b)(x-a) + f_v(a,b)(y & -b)
+\begin{align}
+    f_u(a,b)(x-a) + f_v(a,b)(y-b)-(z-f(a,b))         & = 0 \nonumber     \\
+    \implies z = f(a,b) + f_u(a,b)(x-a) + f_v(a,b)(y & -b) \label{eq:tp}
 \end{align}
 
 Equation of \textbf{Normal} at the point $P$ on the surface $\mathcal{G}(f)$ is,
@@ -34,7 +34,6 @@ Equation of \textbf{Normal} at the point $P$ on the surface $\mathcal{G}(f)$ is,
 Our next goal is to calculate area of different surfaces. We will start with very basic example, that is area of a plane.
 
 \vfill
-$\hfill \text{P.T.O}$
 
 \pagebreak
 
@@ -64,7 +63,7 @@ Any point inside the parallelogram must look like $\vec{v_0} + t_1 \vec{v_1} +t_
 
 $$ \mathcal{S} = \{ \vec{v_0} + t_1 \vec{v_1} +t_2 \vec{v_2}  |  0 \le t_1,t_2 \le 1\} $$
 
-We know area of $\mathcal{S}$ is $\norm{\vec{v_1}\times \vec{v_2}}$. We can describe this plane differently. If the equation of the plane was $z=ax+by+c$, then the surface of the plane can be described by $\mathcal{S} = \{(x, y, ax+by+c) | (x,y) \in B^2 \}$. Area of $\mathcal{S} = \sqrt{1+a^2+b^2} \times \text{Area}(B^2)$. Now we should move forward to the general case.
+We know area of $\mathcal{S}$ is $\norm{\vec{v_1}\times \vec{v_2}}$. We can describe this plane differently. If the equation of the plane was $z=ax+by+c$, then the surface of the plane can be described by $\mathcal{S} = \{(x, y, ax+by+c) | (x,y) \in B^2 \}$. Area of $\mathcal{S} = \sqrt{1+a^2+b^2} \times \Area(B^2)$. Now we should move forward to the general case.
 
 \begin{wrapfigure}{r}{0.50\textwidth}
     \centering
@@ -73,7 +72,7 @@ We know area of $\mathcal{S}$ is $\norm{\vec{v_1}\times \vec{v_2}}$. We can desc
 \end{wrapfigure}
 
 
-Let, $r : B^2 \to \R^3$ be a function defined as $r(x,y) = (x,y,f(x,y))$ (Here $f$ is $C^1$ function). Let, $\text{ran}(r)$ be the surface $\mathcal{S}$.
+Let, $r : B^2 \to \R^3$ be a function defined as $r(x,y) = (x,y,f(x,y))$ (Here $f$ is $C^1$ function). Let, $\ran(r)$ be the surface $\mathcal{S}$.
 
 \vspace{0.2cm}
 
@@ -90,30 +89,32 @@ For any $\alpha \in \Lambda(\mathcal{P})$ fix $(x_{\alpha},y_{\alpha}) \in B_{\a
 
 So, Area of $T_{r(x_{\alpha},y_{\alpha})} \mathcal{S}$ over $B_{\alpha}^2$ is
 
-$$\sqrt{1 + f_X^2(x_{\alpha},y_{\alpha}) + f_Y^2(x_{\alpha},y_{\alpha})} \times \text{Area}(B_{\alpha})^2$$
+$$\sqrt{1 + f_X^2(x_{\alpha},y_{\alpha}) + f_Y^2(x_{\alpha},y_{\alpha})} \times \Area(B_{\alpha})^2$$
 
-$$ = \norm{r_x \times r_y} \times \text{Area}(B_{\alpha})^2$$
+$$ = \norm{r_x \times r_y} \times \Area(B_{\alpha})^2$$
 
 \pagebreak
 
 Since $f$ is $C^1$ function so is $r$. So the total area of the surface $\mathcal{S}$ is given by,
 
 \begin{align*}
-    \text{Area} (\mathcal{S}) & = \lim_{\norm{\mathcal{P}} \to 0} \norm{r_x \times r_y} \times \text{Area}(B_{\alpha})^2 \\
-                              & = \int_{B^2} \norm{r_x \times r_y} dA                                                    \\
-                              & = \int_{B^2} \sqrt{1 + f_X^2 +f_Y^2} \dd A \hspace{0.2cm}(\text{In this case})
+    \Area (\mathcal{S}) & = \lim_{\norm{\mathcal{P}} \to 0} \norm{r_x \times r_y} \times \Area(B_{\alpha})^2 \\
+                        & = \int_{B^2} \norm{r_x \times r_y} dA                                              \\
+                        & = \int_{B^2} \sqrt{1 + f_X^2 +f_Y^2} \dd A \hspace{0.2cm}(\text{In this case})
 \end{align*}
 
 Will will do the above integration over any bounded set $\Omega$ as we have done in \text{Riemann} integration chapter. Over a bounded set $\Omega$ area of $\mathcal{S}$ is given by,
 
-\[\text{Area} (\mathcal{S}) =  \int_{\Omega} \sqrt{1 + f_X^2 +f_Y^2} \dd A \label{eq:surfa} \cdots  (\ref{eq:surfa})\]
+\begin{equation}
+    \Area (\mathcal{S}) =  \int_{\Omega} \sqrt{1 + f_X^2 +f_Y^2} \dd A \label{eq:surfa}
+\end{equation}
 
 The General method for finding surface area is described by the following theorem.
 
 \begin{Thm}{}{}
     Let $\mathcal{R} \subseteq \R^2$ be a region. $r : \mathcal{R} \to \R^3$ be the parametrization of the surface $\mathcal{S}$. Then,
 
-    \[\text{Area}(\mathcal{S}) = \int_{\mathcal{R}} \norm{r_u \times r_v} \dd A\]
+    \[\Area(\mathcal{S}) = \int_{\mathcal{R}} \norm{r_u \times r_v} \dd A\]
 \end{Thm}
 
 \end{document}

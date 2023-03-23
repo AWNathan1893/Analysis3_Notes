@@ -53,8 +53,8 @@
 
     Hence, by standard MVT, $\exists\ t_{0} \in (0,1)$ such that,
     \begin{align*}
-                 & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                          \\
-        \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)) . D\eta(t_0)                                                                                                  \\
+                 & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                        \\
+        \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)). D\eta(t_0)                                                                                                 \\
         \implies & f(b) - f(a) = \begin{bmatrix}
                                      f_{x_1}(\eta(t_0)) & f_{x_2}(\eta(t_0)) & \cdots & f_{x_n}(\eta(t_0))
                                  \end{bmatrix} \begin{bmatrix}
@@ -62,8 +62,8 @@
                                                    b_2 -a_2  \\
                                                    \vdots    \\
                                                    b_n -a_n
-                                               \end{bmatrix}                                                                   \\
-        \implies & f(b) - f(a) = \left\langle f_{x_1}(\eta(t_0)),  \cdots ,f_{x_n}(\eta(t_0)) \right\rangle .\left\langle (b_1 - a_1), \cdots, (b_n - a_n) \right\rangle \\
+                                               \end{bmatrix}                                                                 \\
+        \implies & f(b) - f(a) = \left\langle f_{x_1}(\eta(t_0)),  \cdots,f_{x_n}(\eta(t_0)) \right\rangle.\left\langle (b_1 - a_1), \cdots, (b_n - a_n) \right\rangle \\
         \implies & f(b) - f(a) = (\nabla f)(\eta(t_0))\cdot(b-a)
     \end{align*}
 
@@ -76,7 +76,7 @@ Assume that, $f$ is differentiable at $a$ and $g$ is differentiable at $b = f(a)
 
 \begin{notnBox}
     \begin{enumerate}
-        \item $g \circ f = \left( (g \circ f)_1 , (g \circ f)_2 , \ldots, (g \circ f)_p \right)$
+        \item $g \circ f = \left( (g \circ f)_1, (g \circ f)_2, \ldots, (g \circ f)_p \right)$
         \item $g = \left( g_1, g_2, \ldots, g_p \right)$
         \item $f = \left( f_1, f_2, \ldots, f_m \right)$
     \end{enumerate}
