@@ -34,11 +34,11 @@ jobs:
         id: cache-ra-3
         uses: actions/cache@v3
         with:
-          path: _pdf
-          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}-${{ hashFiles('**/*sh') }}
+          path: pdfs
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}
           restore-keys: |
+            analysis-3-${{ hashFiles('style.sty') }}-
             analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-
-            analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('.github/index.md') }}-
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile pdf
@@ -63,7 +63,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./_pdf
+          path: ./_site
 
   deploy:
     environment:
