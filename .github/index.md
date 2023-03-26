@@ -1,6 +1,7 @@
 ---
 title: Analysis of Several Variables
 author: Jaydeb Sarkar
+lang: en
 header-includes: |
   <style>
     body {
