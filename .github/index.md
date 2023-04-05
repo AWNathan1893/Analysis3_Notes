@@ -2,22 +2,29 @@
 title: Analysis of Several Variables
 author: Jaydeb Sarkar
 lang: en
+description: "Analysis of Several Variables: A Second Year,Multivariable Analysis course at Indian Statistical Institute, Bangalore by Professor Jaydeb Sarkar"
+colorlinks: yes
 header-includes: |
   <style>
     body {
       font-family: sans-serif;
     }
+    li:not(:last-child) {
+      margin: 0 0 4px 0;
+    }
   </style>
 ---
 
-## $\LaTeX$ed by
+## [$\LaTeX$ed by](https://github.com/AWNathan1893/Analysis3_Notes/graphs/contributors)
 
-- Trishan Mondal
-- Soumya Dasgupta
-- Aaratrick Basu
-- Priyatosh Jana
-- Bikram Halder
-- Sarswata Sensarma
+- [Trishan Mondal](https://github.com/Trishan8)
+- [Soumya Dasgupta](https://github.com/OmegaSD18)
+- [Aaratrick Basu](https://github.com/AWNathan1893)
+- [Priyatosh Jana](https://github.com/iampjsrk)
+- [Bikram Halder](https://github.com/BikramHalder)
+- [Sarswata Sensarma](https://github.com/SaraswataSensarma)
+
+B. Math (2021-'24) Students at [Indian Statistical Institute, Bangalore](https://www.isibang.ac.in)
 
 ## All Notes
 
@@ -53,3 +60,7 @@ Get full [Analysis of Several Variables notes](./pdfs/Analysis-3.pdf) by [Jaydeb
 - [Lecture 26](./pdfs/Lec-26.pdf)
 - [Lecture 27](./pdfs/Lec-27.pdf)
 - [Lecture 28](./pdfs/Lec-28.pdf)
+
+---
+
+$\LaTeX$ Source Code [repository](https://github.com/AWNathan1893/Analysis3_Notes)
