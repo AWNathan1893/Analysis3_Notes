@@ -4,6 +4,7 @@
 \chapter*{Lecture 7} %Set chapter name
 \addcontentsline{toc}{chapter}{Lecture 7} %Set chapter title
 \setcounter{chapter}{7} %Set chapter counter
+\setcounter{section}{0}
 
 
 %The content
@@ -12,7 +13,7 @@
 
 In the previous lecture, we discussed the notion of partial derivatives. In general, the partial derivatives depend on the order of differentiation. However, using Clairaut's Theorem, we found a necessary when $f_{xy} = f_{yx}$. Now, we conclude that discussion by the following result.
 
-\begin{Thm}{Schwarz}{}\label{thm1:7}
+\begin{Thm}{Schwarz}{7:1}
   Let $(a,b) \in \mathcal{O}_2$ and $f:\mathcal{O}_2 \to \R$. Suppose $f_x$, $f_y$, and $f_{xy}$ exist on $\mathcal{O}_2$. If $f_{xy}$ is continuous at $(a,b)$, then $f_{yx}$ exists in a neighbourbood of $(a,b)$ and $f_{xy}(a,b) = f_{yx}(a,b)$.
 \end{Thm}
 
@@ -43,13 +44,13 @@ We will now see that the partial derivatives provide an effective way of proving
   \[J_f(a) = \left( \pdv{f_i}{x_j}\/(a) \right)_{m \times n}\]
 \end{Def}
 
-\begin{Thm}{}{}\label{thm2:7}
+\begin{Thm}{}{7:2}
   Consider a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$ differentiable at $a \in \mathcal{O}_n$. Then all the partial derivatives $\pdv{f_i}{x_j}$ exist at a. In particluar, for $f$ differentiable at $a$, we have:
   \[(Df)(a) = J_f(a) = \left( \pdv{f_i}{x_j} \/ (a)\right)_{m \times n}\]
 \end{Thm}
 
 \begin{proof}
-  Without loss of generality, we take m = 1, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by 
+  Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by 
   \[\eta_i(t) = (a_1, \dots, a_{i-1}, t, a_{t+1}, \dots, a_n) = a + (t-a_i)e_i \]
   As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).\\
   Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and 
