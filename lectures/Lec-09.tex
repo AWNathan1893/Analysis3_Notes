@@ -7,6 +7,8 @@
 \setcounter{section}{0}
 
 \section{Directional Derivatives}
+We now introduce a more general notion of partial derivative, called the Directional Derivative. This will going to be a quite useful tool in analyzing the structure of surfaces, curve, and more generally manifolds.
+
 \begin{Def}{Directional Derivative}{}
   Let $ \underbrace{u}_{\text{indicates a direction}} \in \R $ be a unit vector and $ f:\Op{n} \to \R $ be a function. Take, $ a \in \Op{n} $, the directional derivative of $ f $ at $ a $ in the direction of $ u $ is
   \begin{align*}
@@ -20,12 +22,6 @@
 \end{noteBox}
 
 Now, consider the following
-\[\begin{tikzcd}
-    {\left( -\veps, \veps \right)} &&& {\mathcal{O}_n} &&& {\R}
-    \arrow["\phi", from=1-1, to=1-4]
-    \arrow["f", from=1-4, to=1-7]
-    \arrow["{\eta = f \circ \phi}"', curve={height=-30pt}, from=1-1, to=1-7]
-  \end{tikzcd}\]
 \[\begin{tikzcd}
     t &&& {a+tu} &&& {f(a+tu)}
     \arrow["\varphi", maps to, from=1-1, to=1-4]
@@ -46,6 +42,8 @@ So,
 \[
   \boxed{\eta'(0) = \sum_{i=1}^{n}u_i\pdv{f}{x_i} \left( a \right) = \left( D_uf \right)\left( a \right)}
 \]
+
+\section{Gradient}
 
 \begin{Def}{Gradient}{}
   Given, $ f:\Op{n}\to\R $ and $ x\in\Op{n} $
@@ -71,6 +69,8 @@ Hence, we get the following theorem,
 \begin{Thm}{}{}
   Let $ f: \Op{n} \to \R $ be a differentiable function at $ a \in \Op{n} $ and suppose $ \left( \nabla f\right)\left( a \right) \not= 0 $ then the vector $\left( \nabla f\right)\left( a \right)$ points in the direction of the greatest increment of $ f $ at $ a $ with the greatest rate $ \norm{\left( \nabla f\right)\left( a \right)} $
 \end{Thm}
+
+\section{Examples}
 
 \begin{Eg}{}{}
   Find the directional derivative of $ f(x,y,z) = x^2yz $ along $ \langle 1,1,-1 \rangle $ at $ a = (1,1,0) $.

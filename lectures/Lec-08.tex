@@ -1,4 +1,5 @@
 \documentclass[../Analysis-3]{subfiles}
+\myexternaldocument{Lec-07}
 
 \begin{document}
 \chapter*{Lecture 8} %Set chapter name
@@ -6,10 +7,12 @@
 \setcounter{chapter}{8} %Set chapter counter
 \setcounter{section}{0}
 
-\section{A kind of converse of the [above theorem]}
+\section{A kind of converse of Theorem (\ref{th:7:2})}
 
-\begin{Thm}{Final Reduction}{}\label{thm:finalred}
-  Let $ f :\Op{n} \to \R^m $ and $ a \in \Op{n} $. Suppose, $ \pdv{f_i}{x_j} $ exists on $ \Op{n} $ and continuous at $ a \in \Op{n} $ for all $ i\in [m], j\in [n] $. Then,
+As we have seen in previous lecture, the differentiability of a function gives an explicit expression for derivative with the existence of partials. In this lecture, we will prove a sufficient condition for differentiability based on it's partials, which will be our final reduction for derivatives.
+
+\begin{Thm}{Final Reduction}{finalred}
+  Let $ f :\Op{n} \to \R^m $ and $ a \in \Op{n} $. Suppose, all partial derivatives $ \pdv{f_i}{x_j} $ exists on $ \Op{n} $ and continuous at $ a \in \Op{n} $. Then,
   \begin{align*}
     Df(a) = J_{f}(a) = \begin{bmatrix}
                          \pdv{f_i}{x_j}\left( a \right)
@@ -18,67 +21,69 @@
 \end{Thm}
 
 \begin{proof}
-  Without loss of generality, take $ a = (0,\ldots,0) \in \Op{n} $ and $ m = 1 $.
-  
-    [
-      \textbf{Back Calculation:}
-      
-      We already ``know", $ L = \begin{bmatrix}
-          f_{x_1}(0) & \cdots & f_{x_n}(0)
-        \end{bmatrix} $ and $ Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n $
-    ]
-  
+  Without loss of generality, we take $ a = (0,\ldots,0) \in \Op{n} $ and $ m = 1 $.
+
+  \
+
+  Let's do some back calculation: We already ``know",
+  \[ L = J_f(a) = \begin{bmatrix}
+      f_{x_1}(0) & \cdots & f_{x_n}(0)
+    \end{bmatrix} \text{ and } \boxed{Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n} \] which we use in the following claim,
+
+  \
+
   \begin{clmBox}
     \[ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| \to 0 \text{ as } h \to 0 \]
   \end{clmBox}
-  
+
   \begin{proof}
-    Clearly, $ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| = \frac{1}{\norm{h}}\left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right|\ \forall\ i \in [n]$. Define, $ \hat{h}_i = (h_1, \ldots, h_i, \underbrace{0,\ldots,0}_{n-r}) $ and $ \hat{h}_0  = 0 $. Then,
+    Simply calculating,
+    \[ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| = \frac{1}{\norm{h}}\left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right|\ \]
+    For every $ i $, we define, $ \hat{h}_i = (h_1, \ldots, h_i, \underbrace{0,\ldots,0}_{n-r}) $ and $ \hat{h}_0  = 0 $. Then,
     \begin{align*}
-      f(h)-f(0) & = \left( f\left(\hat{h}_1\right) - f\left(\hat{h}_0\right) \right) + \left( f\left(\hat{h}_2\right) - f\left(\hat{h}_1\right) \right) + \cdots + \left( f\left(\hat{h}_{n}\right) - f\left(\hat{h}_{n-1}\right) \right) \\
-                & =\sum_{i=1}^{n} \left( f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) \right)
+      f(h)-f(0) & = \left( f(\hat{h}_1) - f(\hat{h}_0) \right) + \left( f(\hat{h}_2) - f(\hat{h}_1) \right) + \cdots + \left( f(\hat{h}_{n}) - f(\hat{h}_{n-1}) \right) \\
+                & =\sum_{i=1}^{n} \left( f(\hat{h}_{i}) - f(\hat{h}_{i-1}) \right)
     \end{align*}
-    which implies, \begin{align*}
-      \left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right| & = \left| \sum_{i=1}^{n} \left( f\left(\hat{h}_{i}\right) - f\left(\hat{h}_{i-1}\right) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                 \\
-                                                                             & = \left| \sum_{i=1}^{n} \underbrace{h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right)}_{\text{By MVT, as explained below}} - h_i\pdv{f}{x_i}\left( 0 \right) \right|
+    which implies,
+    \begin{align*}
+      \left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right| & = \left| \sum_{i=1}^{n} \left( f(\hat{h}_{i}) - f(\hat{h}_{i-1}) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                                        \\
+                                                                             & = \left| \sum_{i=1}^{n} \underbrace{h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right)}_{\text{By MVT, as explained below}} - \ h_i\pdv{f}{x_i}\left( 0 \right) \right|
     \end{align*}
-    
-    For a fixed $ h $ fix $ i \in [n] $. Consider the map,
+
+    For a fixed $ h $, we fix $ i \in [n] $. And we consider the map, $\eta_i: (h_i-\epsilon, h_i+\epsilon) \to \R$
     \[\begin{tikzcd}
-        t &&& {\hat{h}_{i-1} + te_i} &&& {f\left( \hat{h}_{i-1} + te_i \right)} \\
-        {(h_i-\epsilon, h_i+\epsilon)} &&& {\R^n} &&& \R
+        t &&& {\hat{h}_{i-1} + te_i} &&& {f( \hat{h}_{i-1} + te_i )}
         \arrow[maps to, from=1-1, to=1-4]
         \arrow[maps to, from=1-4, to=1-7]
         \arrow["{\eta_i}", curve={height=-30pt}, maps to, from=1-1, to=1-7]
-        \arrow[from=2-1, to=2-4]
-        \arrow[from=2-4, to=2-7]
-        \arrow["{\eta_i}"', curve={height=30pt}, from=2-1, to=2-7]
       \end{tikzcd}\]
-    Clearly, $ \eta_i $ is differentiable on $ (0,h_i) $ and continuous on $ [0,h_i] $. So, MVT gives \begin{align*}
-      \left( \eta_i(h_i) - \eta_i(0) \right) = f_{x_i}(c_i)h_i \qquad \Big(=\eta_i'(c_i)h_i \Big) \tag{for some $ c_i\in (0,h_i) $}
-    \end{align*}
-    
-    Now, observe that, as $ h \to 0, \hat{h}_{i-1}+c_ie_i \to 0 $ which in turn yields, $ f_{x_i}\left( \hat{h}_{i-1}+c_ie_i \right) \to f_{x_i}(0) $. Therefore,
+    defined by, $ \eta_i(t) = f( \hat{h}_{i-1} + te_i ) $.
+    Clearly, $ \eta_i $ is differentiable on $ (0,h_i) $ and continuous on $ [0,h_i] $. Then, by Mean Value Theorem,
     \begin{align*}
-      \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| & = \left| \sum_{i=1}^{n} h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - h_i\pdv{f}{x_i}\left( 0 \right) \right|                                          \\
-                                                    & = \frac{1}{\norm{h}}\sum_{i=1}^{n} \left| h_i \right|\left| \pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - \pdv{f}{x_i}\left( 0 \right) \right|            \\
-                                                    & \leq \sum_{i=1}^{n} \left| \pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - \pdv{f}{x_i}\left( 0 \right) \right|  \tag{as $\norm{h} \geq |h_i|\ \forall\ i$} \\
+      \underbrace{\eta_i(h_i)}_{f(\hat{h}_i)} - \underbrace{\eta_i(0)}_{f(\hat{h}_{i-1})} = \eta_i'(c_i)h_i = f_{x_i}(\hat{h}_{i-1} + c_ie_i)h_i  \tag{for some $ c_i\in (0,h_i) $}
+    \end{align*}
+
+    Now, observe that, as $ h \to 0, \hat{h}_{i-1}+c_ie_i \to 0 $ which in turn implies, $ f_{x_i}( \hat{h}_{i-1}+c_ie_i ) \to f_{x_i}(0) $. Therefore,
+    \begin{align*}
+      \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| & = \frac{1}{\norm{h}}\left| \sum_{i=1}^{n} h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - h_i\pdv{f}{x_i}\left( 0 \right) \right|                                          \\
+                                                    & \leq \frac{1}{\norm{h}}\sum_{i=1}^{n} \left| h_i \right|\left| \pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - \pdv{f}{x_i}\left( 0 \right) \right| \tag{Triangle inequality} \\
+                                                    & \leq \sum_{i=1}^{n} \left| \pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right) - \pdv{f}{x_i}\left( 0 \right) \right|  \tag{as $\norm{h} \geq |h_i|\ \forall\ i$}                   \\
                                                     & \longrightarrow 0 \text{ as } h \to 0
     \end{align*}
-    Hence, we get the claim!
   \end{proof}
   And, this completes the proof.
 \end{proof}
 
-\textbf{Remark.}
-\begin{enumerate}
-  \item With Theorem (\ref{thm:finalred}) computation of derivative is much easier when we are in favorable situation.
-  \item We have the following: \begin{enumerate}[label = (\roman*)]
-          \item If $ f $ is differentiable at $ a $ then $ \pdv{f_i}{x_j}\left( a \right) $ exists for all $ i, j $ and $ Df(a) = J_{f}(a) $
-          \item If $ \pdv{f_i}{x_j} $ is continuous at $ a $ then $ f $ is differentiable and $ Df(a) = J_{f}(a) $.
-        \end{enumerate}
-        $ \therefore $ the gap between (i) and (ii) $ \equiv $ Continuity of partials, which is removable.
+With Theorem (\ref{th:finalred}), computation of derivative is much easier when we are in favorable situation. Also, we have the following:
+\begin{enumerate}[label = (\roman*)]
+  \item If $ f $ is differentiable at $ a $ then $ \pdv{f_i}{x_j}\left( a \right) $ exists for all $ i, j $ and $ Df(a) = J_{f}(a) $
+  \item If $ \pdv{f_i}{x_j} $ is continuous at $ a $ then $ f $ is differentiable and $ Df(a) = J_{f}(a) $.
 \end{enumerate}
+The gap between (i) and (ii) is the continuity of partials, which is removable.
+
+
+\section{Examples}
+We conclude the lecture with some instructive examples.
 
 \begin{Eg}{Differentiable but discontinuous}{}
   Take, \begin{align*}
@@ -87,19 +92,19 @@
                0,                                                                   & (x,y) = 0
              \end{cases}
   \end{align*}
-  
+
   Then, \begin{align*}
     \abs{f(x,y) - f(0,0)} & = \abs{x^2+y^2}\abs{\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}} \\
                           & \leq (x^2+y^2) = \norm{(x,y)}^2
   \end{align*}
   $ \implies f $ is continuous at $ (0,0) $.
-  
+
   The partials of $ f $, \begin{align*}
     f_x(x,y) & = 2x\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} - \frac{x}{\sqrt{x^2+y^2}}\cos{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} \\
     f_y(x,y) & = 2y\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} - \frac{y}{\sqrt{x^2+y^2}}\cos{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}
   \end{align*}
   So their limits along the respective axis, \begin{align*}
-    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0  \\
+    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0 \\
     f_y(0,0) & = \lim_{t \to 0} \frac{f(0,t) - f(0,0)}{t} = 0
   \end{align*}
   And, \begin{align*}
@@ -107,6 +112,8 @@
   \end{align*}
   which shows that, $ f $ is differentiable at $ (0,0) $ and $ Df(0,0) = \begin{bmatrix} 0 & 0 \end{bmatrix} $. But, $ f_x $ and $ f_y $ are not continuous at $ (0,0) $!
 \end{Eg}
+
+So, even if a function is differentiable at some point, it's partials may still not be continuous there!
 
 \begin{Eg}{Homework}{}
   Take, \begin{align*}
