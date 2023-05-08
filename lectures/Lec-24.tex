@@ -9,7 +9,7 @@
 
 \begin{Thm}{}{24:1}
     Let, $f: \mathcal{O}_n \to \R$ be a $C^1$ function and $\gamma$ be a piecewise smooth $C^1$ curve on $\mathcal{O}_n$, joining two points $A$ and $B$. Then
-    \[\int_c \vec{\nabla}f\cdot d\vec{r} = f(B)-f(A)\]
+    \[\int_c \grad f\cdot d\vec{r} = f(B)-f(A)\]
     Which means the above line integral is ``independent of parametrization''.
 \end{Thm}
 
@@ -23,33 +23,33 @@
 
 Evaluating the LHS gives,
 \begin{align*}
-    \int_c \vec{\nabla}f\cdot d\vec{r} & \overset{\mathrm{(1)}}{=} \int_a^b \nabla f(r(t)) \cdot r'(t) dt      \\
-                                       & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
-                                       & =\int_a^b \dv{t}(f(r(t))) dt                                          \\
-                                       & = f(r(b)) - f(r(a))                                                   \\
-                                       & = f(B) - f(A)
+    \int_c \grad f\cdot d\vec{r}
+     & \overset{\mathrm{(1)}}{=} \int_a^b \nabla f(r(t)) \cdot r'(t) dt      \\
+     & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
+     & =\int_a^b \dv{t}(f(r(t))) dt                                          \\
+     & = f(r(b)) - f(r(a))                                                   \\
+     & = f(B) - f(A)
 \end{align*}
 \begin{center}
     (1) follows from (\ref{eq:3}).
 \end{center}
 
 
-$\bullet$ This result has an important consequence that we often use in Physics.
+This result has an important consequence that we often use in Physics.
 
 ``Work done by a conservative force always depends on the \textcolor{violet}{starting point} and the \textcolor{violet}{end point}, not on the path followed by the particle.''
 \vspace*{0.2cm}
 
-$\bullet$ We know if the force is conservative then we can define potential energy $U$ as $ \vec{F} = -\vec{\nabla}U$. Work done by the force is simply the change of potential.
+We know if the force is conservative then we can define potential energy $U$ as $ \vec{F} = -\grad U$. Work done by the force is simply the change of potential.
 
-\vspace*{0.2cm}
+\
 
-Now we will recall the basics of the ``Planes and Normals''.
+Now we will recall the basics of the Planes and Normals.
 
-\vspace*{0.2cm}
 
 \section{Planes and Normals}
 Let, $\vec{P_0} = \langle x_0,y_0,z_0 \rangle$ be a fixed vector in $\R^3$. $\vec{N} = \langle a,b,c \rangle \neq \vec{0}$. The plane through $\vec{P_0}$ with $\vec{N}$ as normal to this plane is,
-$$ := \{\vec{P_0} + \vec{P} | \vec{P}\cdot \vec{N} = 0\} = \{\vec{r} | (\vec{r}-\vec{P_0})\cdot \vec{N} = 0 \} $$
+\[ \{\vec{P_0} + \vec{P} | \vec{P}\cdot \vec{N} = 0\} = \{\vec{r} | (\vec{r}-\vec{P_0})\cdot \vec{N} = 0 \} \]
 
 \underline{\textbf{Equation of the plane}:} Consider an arbitrary point $\vec{P} = \langle x,y,z\rangle$ on the plane then, $$\langle x-x_0,y-y_0,z-z_0\rangle \cdot \langle a,b,c \rangle = 0$$
 
@@ -58,7 +58,7 @@ So, equation of the plane is
     a(x-x_0)+b(y-y_0) +c(z-z_0)= 0 \label{eq:4}
 \end{equation}
 
-\vspace{1cm}
+\
 
 Let $\vec{Q_1},\vec{Q_2}$ be independent in $\R^3$ and also satisfying $\vec{Q_i} \cdot \vec{N} = 0$. Clearly, $\vec{Q_1}\times \vec{Q_2} \neq \vec{0}$. We can see $(\vec{Q_1}\times \vec{Q_2}) \cdot \vec{Q_i} = 0$, i.e., $\{\vec{Q_1},\vec{Q_2},\vec{Q_1}\times \vec{Q_2}\}$ form a basis of $\R^3$.
 
@@ -72,13 +72,13 @@ So, $\{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} | r_1,r_2 \in \R \}$ describes 
 \end{Def}
 
 \begin{Def}{Parametrized Surface}{ps}
-    $\mathcal{L}$et $\mathcal{R} \subseteq \R^2$ be a region. $\mathcal{A}$ $C^1$ function $r:\mathcal{R} \to \R^3$ said to be a \enquote{Parametrized Surface} if :
+    Let $\mathcal{R} \subseteq \R^2$ be a region. A $C^1$ function $r:\mathcal{R} \to \R^3$ said to be a \enquote{Parametrized Surface} if :
     \begin{itemize}
         \item The component functions $r_i$ have bounded partials
         \item $r$ is $1-1$ function
         \item $\pdv{\vec{r}}{u} \times \pdv{\vec{r}}{v} \neq \vec{0}$ for all $(u,v) \in \R^2$. This means total derivative of $r$ has rank $2$.
     \end{itemize}
-    $\$$ We will call range of $r$ as a \textbf{Surface}, $ \mathcal{S} = \ran(r)$.
+    We will call range of $r$ as a \textbf{Surface}, $ \mathcal{S} = \ran(r)$.
 \end{Def}
 
 Let, $\eta$ be a map defined on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\eta}{\mapsto} r(u_o=0 + t,v_0)$. Clearly, $\eta$ defines smooth curve on $\mathcal{S}$. Similarly, we can define $\tilde{\eta}$ on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\tilde{\eta}}{\mapsto} r(u_0,v_0+t)$.
@@ -91,27 +91,27 @@ Let, $\eta$ be a map defined on $(-\varepsilon,\varepsilon)$ that maps $t \overs
 
 Thus, $\tilde{\eta}$ also defines a smooth curve on $\mathcal{S}$.
 
-From the figure \ref{fig24:1} we can see $\eta$ and $\tilde{\eta}$ are the curves. $r_u(u_0,v_0)=\dv{\eta}{t}\eval_{t=0}$, which gives the tangent of the curve $\eta$ at point $(u_0,v_0)$ along $x$ axis.
+From the Figure (\ref{fig24:1}) we can see $\eta$ and $\tilde{\eta}$ are the curves. $r_u(u_0,v_0)=\dv{\eta}{t}\eval_{t=0}$, which gives the tangent of the curve $\eta$ at point $(u_0,v_0)$ along $x$ axis.
 
 Similarly, for $\tilde{\eta}$, $r_v(u_0,v_0)$  gives the tangent of $\tilde{\eta}$ along $y$ axis. The vectors $r_u(u_0,v_0),r_v(u_0,v_0)$ spanned together to form a plane. This plane is known as \textbf{Tangent Plane}.
 
-Since $r$ is $C^1$, both $\vec{r_u}$ and $\vec{r_v}$ are continuous and hence $\vec{r_u} \times \vec{r_v}$ is continuous. Also, $\vec{r_u} \times \vec{r_v}$ is along the normal vector of $\mathcal{S}$ at $r(u_0,v_0)$.
+Since $r$ is $C^1$, both $\vec{r_u}$ and $\vec{r_v}$ are continuous and hence $\vec{r_u} \times \vec{r_v}$ is continuous. Also, $\vec{r_u} \times \vec{r_v}$ is along the normal vector of $\mathcal{S}$ at $r(u_0,v_0)$. which follows from the previous section.
 
-$\#$ The above statement follows from the previous section.
+\
 
 Now we will move towards a very important definition.
 
-\begin{Def}{Tangent Plane}{}
+\begin{Def}{Tangent Plane}{tanpl}
     For a Parametrized Surface $r$, let $\ran(r)=\mathcal{S}$ and $r(u_0,v_0)=P$, then the plane generated by $r_u(u_0,v_0)$ and $r_v(u_0,v_0)$ through $r(u_0,v_0)$ is called the \textbf{Tangent Plane} of $\mathcal{S}$ through $P$.
 
-    $\$$ We denote it by $T_P\mathcal{S}$.
+    We denote it by $T_P\mathcal{S}$.
 
-    $\$$ Every element of $T_P\mathcal{S}$ is called \textbf{Tangent Vectors} at $P$ on $\mathcal{S}$.
+    Every element of $T_P\mathcal{S}$ is called \textbf{Tangent Vectors} at $P$ on $\mathcal{S}$.
 \end{Def}
 
-$\bullet$ It can be shown that $T_P\mathcal{S}$ is independent of $\mathcal{S}$'s parametrization. i.e. $T_P\mathcal{S}$ is independent of $r$ (\textbf{Homework}). Actually, for different $\tilde{r}$ of $\mathcal{S}$ the basis for $T_P\mathcal{S}$ will be changed. But they will still generate the same plane.
+It can be shown that $T_P\mathcal{S}$ is independent of parametrization of $\mathcal{S}$, i.e., $T_P\mathcal{S}$ is independent of $r$ (\textbf{Homework}). Actually, for different $\tilde{r}$ of $\mathcal{S}$ the basis for $T_P\mathcal{S}$ will be changed. But they still generate the same plane.
 
-\vspace{0.2cm}
+\section{Examples}
 
 We will go through some examples.
 
@@ -137,9 +137,9 @@ We will go through some examples.
 \end{Eg}
 
 \begin{Eg}{Surface of Revolution}{}
-    Let,$f,g$ be $C^1$ functions on $[0,b]$. Consider the curve $t \mapsto (0,f(t),g(t))$ is a $C^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by,
+    Let $f,g$ be $C^1$ functions on $[0,b]$. Consider the curve $t \mapsto (0,f(t),g(t))$ is a $C^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by,
     \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \hspace{0.2cm}; u \in [0,b], v \in [0,2\pi] \]
 \end{Eg}
 
-\hspace*{0.5cm} \textbf{Exercise.} Find the Parametrization of a sphere of radius $R$.
+\textbf{Exercise.} Find the Parametrization of a sphere of radius $R$.
 \end{document}

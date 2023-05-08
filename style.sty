@@ -29,6 +29,7 @@
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{transparent}
+\usepackage{tocloft}
 
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
 \pgfplotsset{compat=1.18}
@@ -40,7 +41,7 @@
     \subimport{../figures/#1}{#1.pdf_tex}
 }
 
-% Colours (from http://latexcolor.com)
+% Colours (from https://latexcolor.com)
 \definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
 \definecolor{beige}{rgb}{0.96, 0.96, 0.86}
 \definecolor{richlavender}{rgb}{0.67, 0.38, 0.8}
@@ -51,11 +52,17 @@
 \definecolor{nadeshikopink}{rgb}{0.96, 0.68, 0.78}
 \definecolor{lawngreen}{rgb}{0.49, 0.99, 0.0}
 \definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{azure(web)(azuremist)}{rgb}{0.94, 1.0, 1.0}
 
 \titleformat{\chapter}[display]{\normalfont\sffamily\Large\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
 \titleformat{\section}{\normalfont\sffamily\Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalfont\sffamily\large\bfseries}{\thesubsection}{1em}{}
 
+% Font changes to ToC content of sectional units
+\renewcommand{\cftchapfont}{\normalfont\sffamily\bfseries}      % \chapter font in ToC
+\renewcommand{\cftsecfont}{\normalfont\sffamily}        % \section font in ToC
+
+% Custom environments
 \newtcbtheorem[number within=section]{Def}{Definition}{
     breakable, enhanced,
     attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
@@ -166,12 +173,12 @@
 
 \newtcolorbox{clmBox}{
     title = \sbold{Claim},
-    coltitle = black,
+    coltitle = white,
     titlerule = 0.5mm,
     halign title = flush left,
     halign = flush left,
-    colback = lavenderblush,
-    colframe = limegreen,
+    colback = azure(web)(azuremist),
+    colframe = black,
     arc = 2mm
 }
 
@@ -216,7 +223,7 @@
 \newcommand{\N}{\bb{N}}
 \newcommand{\Z}{\bb{Z}}
 \newcommand{\Q}{\bb{Q}}
-\newcommand{\R}{\bb{R}}
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\bb{C}}
 \newcommand{\Op}[1]{\mathcal{O}_{#1}}
 \newcommand{\msk}{\medskip}

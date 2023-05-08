@@ -39,24 +39,23 @@ We will begin this lecture with few examples.
 \section{Line Integrals}
 To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scalar Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \Op{n} \to \R$ be a differentiable function, then $\nabla f$ is a vector field.)
 
-\textbf{Question.} Given a scalar field $f : \Op{n} \to \R$ and $\gamma \equiv c$ be a curve, we want to define $\int_c f$. But exactly how we can do this?
+\textbf{Question.} Given a scalar field $f : \Op{n} \to \R$ and $\gamma \equiv \mathcal{C}$ be a curve, we want to define $\displaystyle\int_{\mathcal{C}} f$. But exactly how we can do this?
 
-\textit{Answer.} $c$ is a curve, so it is bounded subset of $\R^n$. How about thinking of \textbf{Riemann Integration}? For $n \ge 2$, $c$ is \textbf{content zero} in $\R^n$. This does not make any sense! The right way is as following.
+\textit{Answer.} $\mathcal{C}$ is a curve, so it is bounded subset of $\R^n$. How about thinking of \textbf{Riemann Integration}? For $n \ge 2$, $\mathcal{C}$ is \textbf{content zero} in $\R^n$. This does not make any sense! The right way is as following.
 
 \
 
-Let, $\gamma :[a,b]\to \R^n$ be a \textbf{Smooth curve}(Or Piecewise Smooth) and $c:= \ran(\gamma)$(on other words path of $\gamma$). Let, $f \in \mathscr{B}(c)$. Given $\mathcal{P} \in \mathscr{P}[a,b]$, $\mathcal{P} : a = t_0<t_1<\cdots <t_m = b$.
+Let, $\gamma :[a,b]\to \R^n$ be a \textbf{smooth curve} (or piecewise smooth) and $\mathcal{C} := \ran(\gamma)$ (on other words path of $\gamma$). Let, $f \in \mathscr{B}(\mathcal{C})$. Given $\mathcal{P} \in \mathscr{P}[a,b]$, $\mathcal{P} : a = t_0 < t_1 < \cdots < t_m = b$.
 
 \
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
     \includegraphics[width=.98\linewidth]{../figures/lec-23.1.png}
-    \caption{Curve $c$}
+    \caption{Curve $\mathcal{C}$}
 \end{wrapfigure}
 
-Let, $I_i = [t_{i-1},t_i]$ be the sub-intervals and $c_i = \gamma(I_i)$.
-Since,$\gamma$ is smooth there is nice correspondence between $I_i$ and $c_i$. Also denote $s_i$ by $\norm{\gamma(t_i) - \gamma(t_i)}$. As previous, define $m_i = \inf_{c_i}f$ and $M_i = \sup_{c_i}f$.
+Let, $I_i = [t_{i-1},t_i]$ be the sub-intervals and $\mathcal{C}_i = \gamma(I_i)$. Since, $\gamma$ is smooth there is nice correspondence between $I_i$ and $\mathcal{C}_i$. Also denote $s_i$ by $\norm{\gamma(t_i) - \gamma(t_i)}$. As previous, define $m_i = \inf_{\mathcal{C}_i}f$ and $M_i = \sup_{\mathcal{C}_i}f$.
 
 \begin{align*}
     U(f,\mathcal{P}) & = \sum_{i=1}^{m}M_i\cdot s_i \\
@@ -70,18 +69,22 @@ The above expressions are same as upper and lower Riemann sum respectively. This
 We can now use all the theory we used for the standard Riemann Integrals. We say $f$ is line integrable over $\gamma$ if,
 \[\inf_{\mathcal{P} \in \mathscr{P}[a,b]} U(f,\mathcal{P}) = \sup_{\mathcal{P} \in \mathscr{P}[a,b]} L(f,\mathcal{P})\]
 
-More over we will write the common value of the above equality as $\int_c f$ and call this ``The Line Integral over curve $c$''.
+More over we will write the common value of the above equality as $\displaystyle\int_{\mathcal{C}} f$ and call this ``The Line Integral over curve $\mathcal{C}$''.
 
-\# \textbf{$\mathscr{R}(c)=$} set of all Riemann integrable functions over $c$. Now we can invoke all theory we derived for 1 variable integration!
+\begin{notnBox}
+    $\mathscr{R}(\mathcal{C}) = $ set of all Riemann integrable functions over $\mathcal{C}$.
+\end{notnBox}
+
+Now we can invoke all theory we derived for 1 variable integration!
 
 \begin{Thm}{}{23:1}
-    Let, $\gamma$ be a "Rectifiable" smooth(or piecewise smooth) and $c = \ran(\gamma)$ and $f \in \mathscr{B}(c)$. Then,
+    Let, $\gamma$ be a ``Rectifiable'' smooth(or piecewise smooth) and $\mathcal{C} = \ran(\gamma)$ and $f \in \mathscr{B}(\mathcal{C})$. Then,
     \begin{enumerate}
-        \item $f \in \mathscr{C} \implies f \in \mathscr{R}(c)$
-        \item \[ f \in \mathscr{R}(c) \iff \lim_{||\mathcal{P}||\to 0} \sum_{i=1}^{m} f(\zeta_i)s_i \hspace{0.1cm} \text{exist and equal to}\int_c f.\] Here, $\zeta_i$ is tag of the interval $I_i$.
+        \item $f \in C \implies f \in \mathscr{R}(\mathcal{C})$
+        \item \[ f \in \mathscr{R}(\mathcal{C}) \iff \lim_{||\mathcal{P}||\to 0} \sum_{i=1}^{m} f(\zeta_i)s_i \hspace{0.1cm} \text{exist and equal to}\int_{\mathcal{C}} f.\] Here, $\zeta_i$ is tag of the interval $I_i$.
 
-        \item (This requires smoothness) If $\gamma$ is $C^1$ and smooth, $f \in \mathscr{R}(c)$, then
-          \[\int_c f = \int_a^b f(\gamma(t))\norm{\gamma'(t)} \label{eq:1}\]
+        \item (This requires smoothness) If $\gamma$ is $C^1$ and smooth, $f \in \mathscr{R}(\mathcal{C})$, then
+              \[\int_{\mathcal{C}} f = \int_a^b f(\gamma(t))\norm{\gamma'(t)} \label{eq:1}\]
 
     \end{enumerate}
 \end{Thm}
@@ -94,13 +97,13 @@ In the above theorem equation in \ref{eq:1} is also independent of choice of Par
 
 \
 
-\textbf{\underline{Facts:}} $c$ be a piecewise smooth, parametrized curve $\gamma$. $f,g \in \mathscr{R}(c)$ and $r \in \R$,then
+\textbf{\underline{Facts:}} $\mathcal{C}$ be a piecewise smooth, parametrized curve $\gamma$. $f,g \in \mathscr{R}(\mathcal{C})$ and $r \in \R$,then
 \begin{itemize}
-    \item $\int f+rg = \int f + r\int g $
-    \item $f \ge g$ over $c$ then $\int f \ge \int g$
-    \item $\int \abs{f} \ge \abs{\int f}$
+    \item $\displaystyle\int f+rg = \displaystyle\int f + r\displaystyle\int g $
+    \item $f \ge g$ over $\mathcal{C}$ then $\displaystyle\int f \ge \displaystyle\int g$
+    \item $\displaystyle\int \abs{f} \ge \abs{\displaystyle\int f}$
     \item If $a<d<b$, if $\gamma_1 := \gamma |_{[a,d]}$ and $\gamma_2 := \gamma |_{[d,b]}$ then
-      \[\int_c f = \int_{\gamma_1}f + \int_{\gamma_2} f \]
+          \[\int_{\mathcal{C}} f = \int_{\gamma_1}f + \int_{\gamma_2} f \]
 \end{itemize}
 
 We have resolved the problems for Scalar field. \textbf{What about vector fields?}
@@ -119,9 +122,9 @@ Suppose a particle moves a distance $d$ under a constant force $F$, then work do
 \end{wrapfigure}
 
 If the force was not constant throughout the path then how can we calculate work done by that force?
-Consider the case where $F$ is the vector field (Force in this case) defined over a curve (path)$\gamma$. Here, $\gamma : [a,b] \to \R^n$ and $c = \ran(\gamma)$. So, work done throughout the whole path will be,
-\[\int_c \vec{F}\cdot d\vec{r}\]
-Which is equal to, $\int_a^b \vec{F}(\gamma(t))\cdot \nabla \gamma(t) dt$
+Consider the case where $F$ is the vector field (Force in this case) defined over a curve (path)$\gamma$. Here, $\gamma : [a,b] \to \R^n$ and $\mathcal{C} = \ran(\gamma)$. So, work done throughout the whole path will be,
+\[\int_{\mathcal{C}} \vec{F}\cdot d\vec{r}\]
+Which is equal to, $\displaystyle\int_a^b \vec{F}(\gamma(t))\cdot \nabla \gamma(t) dt$
 
 Now we will look into some examples.
 \vspace{0.3cm}
@@ -130,7 +133,8 @@ Now we will look into some examples.
     Find work done by the field $F(x,y,z) = (xy,xz,yz)$ along the curve $\gamma(t) = (t^2,-t^3,t^4),t \in [0,1]$.
 
     \textit{Answer.} \begin{align*}
-        \gamma'(t)               & = (2t,-3t^2,4t^3)                                 \\
+        \gamma'(t)
+                                 & = (2t,-3t^2,4t^3)                                 \\
         \implies \text{workdone} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3) dt \\
                                  & = -\frac{31}{88}
     \end{align*}
@@ -138,17 +142,17 @@ Now we will look into some examples.
 
 \subsection{Line Integration of a Vector Field}
 
-$F:\Op{n} \to \R^n$ be a vector field and $\gamma:[a,b] \to \Op{n}$ be a curve. We consider a partition $\mathcal{P}: a =t_0<t_1<\cdots < t_m=b$, Let $c_i = \gamma|_{[t_{i-1},t_i]}$ and $\gamma_i = \gamma(t_i)$, $\Delta r_i = \gamma_{i} - \gamma_{i-1}$.
+$F:\Op{n} \to \R^n$ be a vector field and $\gamma:[a,b] \to \Op{n}$ be a curve. We consider a partition $\mathcal{P}: a =t_0<t_1<\cdots < t_m=b$, Let $\mathcal{C}_i = \gamma|_{[t_{i-1},t_i]}$ and $\gamma_i = \gamma(t_i)$, $\Delta r_i = \gamma_{i} - \gamma_{i-1}$.
 
 \[R(F;\mathcal{P})= \sum_{i=1}^m F(\gamma_i)\cdot \Delta r_i\]
 
 \begin{align*}
-    \int_c \vec{F}\cdot d\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \tag{if the limit exists}
+    \int_{\mathcal{C}} \vec{F}\cdot d\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \tag{if the limit exists}
 \end{align*}
 
 Just like the scalar field, if $\gamma$ is $C^1$ and smooth, then
 \begin{equation}
-    \int_c \vec{F}\cdot d\vec{r} = \int_a^b F(\gamma(t))\cdot \gamma'(t) \dd t \label{eq:3}
+    \int_{\mathcal{C}} \vec{F}\cdot d\vec{r} = \int_a^b F(\gamma(t))\cdot \gamma'(t) \dd t \label{eq:3}
 \end{equation}
 
 

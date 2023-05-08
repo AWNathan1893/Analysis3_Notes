@@ -150,13 +150,13 @@ We will give a general picture for the most common case, when $n = 3$. Let $\vec
 \end{align}
 Then we can define \textbf{curl} of a vector field
 \[
-    \vec{\nabla} \times \vec{F} := \begin{vmatrix}
+    \curl \vec{F} := \begin{vmatrix}
         \hat{i}   & \hat{j}   & \hat{k}   \\
         \pdv{}{x} & \pdv{}{y} & \pdv{}{z} \\
         P         & Q         & R
     \end{vmatrix}
 \]
-Then expanding this out and using the relations $\ref{eq1:27}$ and others we get that $\vec{\nabla} \times \vec{F} = \mathbf{0}$. Thus we have proved that if $\vec{F}$ is conservative then $\vec{\nabla} \times \vec{F} = \mathbf{0}$.
+Then expanding this out and using the relations $\ref{eq1:27}$ and others we get that $\curl \vec{F} = \mathbf{0}$. Thus we have proved that if $\vec{F}$ is conservative then $\curl \vec{F} = \mathbf{0}$.
 
 \
 
@@ -181,7 +181,7 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
 \end{Eg}
 
 
-\textbf{Remark.} This approach works for all $\vec{F}$ such that $\vec{\nabla} \times \vec{F} = \mathbf{0}$ and the domain is convex.
+\textbf{Remark.} This approach works for all $\vec{F}$ such that $\curl \vec{F} = \mathbf{0}$ and the domain is convex.
 
 \begin{Eg}{}{}
     Let $\vec{F}(x,y) = \left( \frac{-y}{x^2+y^2}, \frac{x}{x^2+y^2} \right) = (P,Q)$ (say) on $\R^2 \setminus \{\mathbf{0}\}$. Then we have $\pdv{P}{y} = \pdv{Q}{x}$, but we will show that $\vec{F}$ is not conservative. Consider the curve

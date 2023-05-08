@@ -52,7 +52,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
 \
 
 \begin{Eg}{}{}
-    Let $f \in \mathscr{C}(\Omega)$ where $\Omega = \left\{ (x,y) \mid 0 \leq x \leq 1 - \frac{y}{2}, \mbox{ and } 0 \leq y \leq 2 \right\}$ then we can write $\Omega$ as a $y$-simple region as
+    Let $f \in C(\Omega)$ where $\Omega = \left\{ (x,y) \mid 0 \leq x \leq 1 - \frac{y}{2}, \mbox{ and } 0 \leq y \leq 2 \right\}$ then we can write $\Omega$ as a $y$-simple region as
     \[
         \Omega = \left\{ (x,y) \mid 0 \leq x \leq 1, \mbox{ and } 0 \leq y \leq 2(1-x) \right\}
     \]
@@ -79,10 +79,11 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
     \]
     Then using theorem $\ref{th:20:1}$ we get that
     \begin{align*}
-        \int_{\Omega} x^2y \, \dd A & = \int_{-1}^1 \left( \int_{x^2}^1 x^2y \, \dd y\right)\dd x               \\
-                                    & = \int_{-1}^1 x^2 \left( \frac{y^2}{2} \right)\bigg\vert_{x^2}^1 \, \dd x \\
-                                    & = \int_{-1}^1 \frac{1}{2} x^2(1-x^2) \, \dd x                             \\
-                                    & = \frac{2}{15}
+        \int_{\Omega} x^2y \, \dd A
+         & = \int_{-1}^1 \left( \int_{x^2}^1 x^2y \, \dd y\right)\dd x               \\
+         & = \int_{-1}^1 x^2 \left( \frac{y^2}{2} \right)\bigg\vert_{x^2}^1 \, \dd x \\
+         & = \int_{-1}^1 \frac{1}{2} x^2(1-x^2) \, \dd x                             \\
+         & = \frac{2}{15}
     \end{align*}
 \end{Eg}
 
@@ -131,7 +132,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
 
 \section{Change of Variable}
 
-Let us revise the change of variable rule for real valued functions on the real line. Let $\varphi : \mathcal{O} \to \R$ be a $C^1$ function where $\mathcal{O} \subseteq \R$, assume $\varphi'(x) \neq 0$ for all $x \in \mathcal{O}$, and let $\mathcal{O} \supseteq [a,b]$, then for all $f \in \mathscr{C}(\varphi[a,b])$, we have
+Let us revise the change of variable rule for real valued functions on the real line. Let $\varphi : \mathcal{O} \to \R$ be a $C^1$ function where $\mathcal{O} \subseteq \R$, assume $\varphi'(x) \neq 0$ for all $x \in \mathcal{O}$, and let $\mathcal{O} \supseteq [a,b]$, then for all $f \in C(\varphi[a,b])$, we have
 \[
     \int_{\varphi(a)}^{\varphi(b)} f = \int_a^b (f \circ \varphi) \varphi'
 \]
