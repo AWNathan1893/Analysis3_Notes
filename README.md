@@ -1,5 +1,6 @@
 # Analysis3_Notes
-A repo for $\LaTeX$ ed notes of Real Analysis of Several Variables.
+
+$\LaTeX$ed notes from the [Analysis of Several Variables](https://www.isibang.ac.in/~adean/infsys/database/Bmath/ASV.html) course taught by [Prof. Jaydeb Sarkar](https://www.isibang.ac.in/~jay/) at the [Indian Statistical Institute, Bangalore](https://www.isibang.ac.in) in autumn 2022.
 
 ### Get Started
 

@@ -53,12 +53,12 @@
   \begin{picture}(1,0.67666667)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{figures/simpleRegion/simpleRegion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{simpleRegion.pdf}}%
     \put(0.98952714,0.11021804){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
     \put(0.98952714,0.11021804){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
     \put(0.33784564,0.65556004){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{y}\end{tabular}}}}%
     \put(0.33784564,0.65556004){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{y}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{figures/simpleRegion/simpleRegion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{simpleRegion.pdf}}%
     \put(0.334762,0.12684805){\color[rgb]{1,1,1}\transparent{0.89999998}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
     \put(0.334762,0.12684805){\color[rgb]{0,0,0}\transparent{0.89999998}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
     \put(0.34807897,0.57687811){\color[rgb]{1,1,1}\transparent{0.89999998}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1\end{tabular}}}}%

@@ -9,65 +9,65 @@
 \section{Recall}
 
 \[\begin{tikzcd}
-		{\Op{n}} &&& {\mathcal{O}_m} &&& {\R^p}
-		\arrow["f"', from=1-1, to=1-4]
-		\arrow["g"', from=1-4, to=1-7]
-		\arrow["{g \circ f}", curve={height=-30pt}, from=1-1, to=1-7]
-	\end{tikzcd}\]
+        {\Op{n}} &&& {\mathcal{O}_m} &&& {\R^p}
+        \arrow["f"', from=1-1, to=1-4]
+        \arrow["g"', from=1-4, to=1-7]
+        \arrow["{g \circ f}", curve={height=-30pt}, from=1-1, to=1-7]
+    \end{tikzcd}\]
 
 Where, $f$ and $g$ are both differentiable functions.
 
-\[ J_{g \circ f}(a) = J_{g}(f(a)) . J_{f}(a) \hspace{1cm} [\text{Chain Rule}]  \]
+\[ J_{g \circ f}(a) = J_{g}(f(a)). J_{f}(a) \hspace{1cm} [\text{Chain Rule}]  \]
 
 Now, comparing the $(i,j)^{\text{th}}$ element, we get,
 \begin{align*}
-	\pdv{(g \circ f)_i}{x_j}(a) & = \sum_{k = 1}^{m} \pdv{g_i}{y_k}(b) \cdot \pdv{f_k}{x_j}(a)	\tag{where, $b = f(a)$}
+    \pdv{(g \circ f)_i}{x_j}(a) & = \sum_{k = 1}^{m} \pdv{g_i}{y_k}(b) \cdot \pdv{f_k}{x_j}(a)	\tag{where, $b = f(a)$}
 \end{align*}
 
 This may be written in a slightly more suggestive sense:
 
 % \[\begin{tikzcd}
-%	{\frac{\partial (g \circ f)_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \pdv{g_i}{y_k} . \frac{\partial y_{k}}{\partial x_j}} \\
+%	{\frac{\partial (g \circ f)_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \pdv{g_i}{y_k}. \frac{\partial y_{k}}{\partial x_j}} \\
 %	{} \\
-%	{y_k = f_k \left( x_1, x_2, \ldots, x_n \right) \\ z_k = g_k \left( y_1, y_2, \ldots, y_m \right)} && {} & {\boxed{\frac{\partial z_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial z_{i}}{\partial y_k} . \frac{\partial y_{k}}{\partial x_j}}} \\
+%	{y_k = f_k \left( x_1, x_2, \ldots, x_n \right) \\ z_k = g_k \left( y_1, y_2, \ldots, y_m \right)} && {} & {\boxed{\frac{\partial z_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial z_{i}}{\partial y_k}. \frac{\partial y_{k}}{\partial x_j}}} \\
 %	&&& {}
 %	\arrow[shift right=5, curve={height=30pt}, from=3-1, to=1-1]
 %	\arrow[from=3-1, to=3-4]
 %\end{tikzcd}\]
 
 \begin{Eg}{}{}
-	Let, $f(x,y,z) = xy^{2}z$ and $x=t, y=e^t, z= 1+t$ \\
-	Then, \begin{align*}
-		f(x,y,z) & = t(e^t)^2(1+t) \\
-		         & = (t+t^2)e^{2t}
-	\end{align*}
+    Let, $f(x,y,z) = xy^{2}z$ and $x=t, y=e^t, z= 1+t$ \\
+    Then, \begin{align*}
+        f(x,y,z) & = t(e^t)^2(1+t) \\
+                 & = (t+t^2)e^{2t}
+    \end{align*}
 
-	Hence, \begin{align*}
-		\dv{f}{t} & = \dv{t}(t+t^2)e^{2t}           \\
-		          & = (1+2t)e^{2t} + 2(t+t^2)e^{2t} \\
-		          & = (2t^2+4t+1)e^{2t}
-	\end{align*}
+    Hence, \begin{align*}
+        \dv{f}{t} & = \dv{t}(t+t^2)e^{2t}           \\
+                  & = (1+2t)e^{2t} + 2(t+t^2)e^{2t} \\
+                  & = (2t^2+4t+1)e^{2t}
+    \end{align*}
 
-	Also, \begin{align*}
-		\dv{f}{t} & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
-		          & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
-		          & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
-		          & = e^{2t}(1+t+2t+2t^2+t)                                              \\
-		          & = (2t^2+4t+1)e^{2t}
-	\end{align*}
+    Also, \begin{align*}
+        \dv{f}{t} & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
+                  & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
+                  & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
+                  & = e^{2t}(1+t+2t+2t^2+t)                                              \\
+                  & = (2t^2+4t+1)e^{2t}
+    \end{align*}
 \end{Eg}
 
 
 \section{Polar Coordinate}
 
 \begin{Def}{Laplacian}{}
-	$f : \Op{n} \to \R$ be a function. Then the Laplacian of f is defined by :- \[ \Delta f = \sum_{i = 1}^{n} \pdv[2]{f}{x_i}   \]
+    $f : \Op{n} \to \R$ be a function. Then the Laplacian of f is defined by :- \[ \Delta f = \sum_{i = 1}^{n} \pdv[2]{f}{x_i}   \]
 \end{Def}
 
 Now, \begin{align*}
-	\Delta f & = \sum_{i=1}^{n} \pdv[2]{f}{x_i}                                                                                               \\
-	         & = \left\langle \pdv{}{x_1}, \ldots, \pdv{}{x_n}  \right\rangle. \left\langle \pdv{f}{x_1}, \ldots, \pdv{f}{x_n}  \right\rangle \\
-	         & = \nabla\cdot\nabla f
+    \Delta f & = \sum_{i=1}^{n} \pdv[2]{f}{x_i}                                                                                               \\
+             & = \left\langle \pdv{}{x_1}, \ldots, \pdv{}{x_n}  \right\rangle. \left\langle \pdv{f}{x_1}, \ldots, \pdv{f}{x_n}  \right\rangle \\
+             & = \nabla\cdot\nabla f
 \end{align*}
 
 Hence, \[\boxed{\Delta f = \nabla\cdot\nabla f}\]
@@ -76,19 +76,19 @@ Let, $x = r\cos{\theta}$ and $y= r\sin{\theta}$ and $f : \R^2 \to \R \qquad ( f 
 
 Hence,
 \[\begin{matrix}
-		\pdv{x}{r} = \cos{\theta}, & \pdv{x}{\theta} = -r\sin{\theta} \\
-		\pdv{y}{r} = \sin{\theta}, & \pdv{y}{\theta} = r\cos{\theta}
-	\end{matrix}\]
+        \pdv{x}{r} = \cos{\theta}, & \pdv{x}{\theta} = -r\sin{\theta} \\
+        \pdv{y}{r} = \sin{\theta}, & \pdv{y}{\theta} = r\cos{\theta}
+    \end{matrix}\]
 
 \begin{align*}
-	\therefore & \pdv{f}{r} = \pdv{f}{x} \pdv{x}{r} + \pdv{f}{y}\pdv{y}{r}                                                                                                                               \\
-	\implies   & \pdv{f}{r} = \pdv{f}{x} \cos{\theta} + \pdv{f}{y}\sin{\theta}                                                                                                                           \\
-	\implies   & \pdv[2]{f}{r} = \pdv{}{r} \left[\pdv{f}{x} \cos{\theta} + \pdv{f}{y} \sin{\theta} \right]                                                                                               \\
-	\implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv{}{r} \pdv{f}{x}\right] + \sin{\theta} \left[\pdv{}{r} \pdv{f}{y} \right]                                                                        \\
-	\implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \pdv{x}{r} + \pdv{f}{y}{x} \pdv{y}{r} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \pdv{x}{r} + \pdv[2]{f}{y} \pdv{y}{r} \right]         \\
-	\implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \cos{\theta} + \pdv{f}{y}{x} \sin{\theta} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \cos{\theta} + \pdv[2]{f}{y} \sin{\theta} \right] \\
-	\implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\cos{\theta} f_{xx} + \sin{\theta} f_{xy} \right] + \sin{\theta} \left[\cos{\theta} f_{xy} + \sin{\theta} f_{y} \right]                              \\
-	\implies   & \boxed{\pdv[2]{f}{r} = \cos^2 \theta f_{xx} + \sin^2 \theta f_{y} + \sin 2 \theta f_{xy}}
+    \therefore & \pdv{f}{r} = \pdv{f}{x} \pdv{x}{r} + \pdv{f}{y}\pdv{y}{r}                                                                                                                               \\
+    \implies   & \pdv{f}{r} = \pdv{f}{x} \cos{\theta} + \pdv{f}{y}\sin{\theta}                                                                                                                           \\
+    \implies   & \pdv[2]{f}{r} = \pdv{}{r} \left[\pdv{f}{x} \cos{\theta} + \pdv{f}{y} \sin{\theta} \right]                                                                                               \\
+    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv{}{r} \pdv{f}{x}\right] + \sin{\theta} \left[\pdv{}{r} \pdv{f}{y} \right]                                                                        \\
+    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \pdv{x}{r} + \pdv{f}{y}{x} \pdv{y}{r} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \pdv{x}{r} + \pdv[2]{f}{y} \pdv{y}{r} \right]         \\
+    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \cos{\theta} + \pdv{f}{y}{x} \sin{\theta} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \cos{\theta} + \pdv[2]{f}{y} \sin{\theta} \right] \\
+    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\cos{\theta} f_{xx} + \sin{\theta} f_{xy} \right] + \sin{\theta} \left[\cos{\theta} f_{xy} + \sin{\theta} f_{y} \right]                              \\
+    \implies   & \boxed{\pdv[2]{f}{r} = \cos^2 \theta f_{xx} + \sin^2 \theta f_{y} + \sin 2 \theta f_{xy}}
 \end{align*}
 
 
@@ -98,22 +98,22 @@ Hence, we can show that,
 \[ \boxed{\Delta f = f_{xx} + f_{yy} = \pdv[2]{f}{r} + \frac{1}{r}\cdot\pdv{f}{r} + \frac{1}{r^2}\cdot\pdv[2]{f}{\theta}} \]
 
 \begin{Eg}{}{}
-	Let, $z = z(u,v)$ where, \[ u(x,y) = x^2y \text{ and } v(x,y) = 3x + 2y \]
-	Hence, \[\begin{matrix}
-			\pdv{u}{x} = 2xy & \pdv{u}{y} = x^2    \\
-			\pdv{v}{x} = 3   & \pdv{v}{\theta} = 2
-		\end{matrix}\]
+    Let, $z = z(u,v)$ where, \[ u(x,y) = x^2y \text{ and } v(x,y) = 3x + 2y \]
+    Hence, \[\begin{matrix}
+            \pdv{u}{x} = 2xy & \pdv{u}{y} = x^2    \\
+            \pdv{v}{x} = 3   & \pdv{v}{\theta} = 2
+        \end{matrix}\]
 
-	\begin{align*}
-		\therefore \hspace{1cm} & \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x}                                                                                                                                                                                                  \\
-		\implies                & \pdv{z}{x} = 2xy \pdv{z}{u} + 3 \pdv{z}{v}                                                                                                                                                                                                                  \\
-		\implies                & \pdv[2]{z}{x} = \pdv{}{x} \left[ 2xy \pdv{z}{u} + 3 \pdv{z}{v} \right]                                                                                                                                                                                      \\
-		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                                                                                                                                 \\a
-		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv{}{u} \left[\pdv{z}{u}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{u}\right] \pdv{v}{x}\right)  + 3\left( \pdv{}{u} \left[\pdv{z}{v}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{v}\right] \pdv{v}{x} \right) \\
-		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv[2]{z}{u} \pdv{u}{x} + \pdv{z}{v}{u} \pdv{v}{x}\right)  + 3\left( \pdv{z}{u}{v} \pdv{u}{x} + \pdv[2]{z}{v} \pdv{v}{x}\right)                                                                                  \\
-		\implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(2xy \pdv[2]{z}{u}  + 3 \pdv{z}{v}{u}\right)  + 3\left( \frac{1}{2xy}\cdot\pdv{z}{u}{v}  + 3\pdv[2]{z}{v}\right)                                                                                                   \\
-		\implies                & \boxed{\pdv[2]{z}{x} = 2y z_u + 4x^2y^2z_{uu}+ 6xy z_{uv} + 6xy z_{vu} + 9z_{vv}}
-	\end{align*}
+    \begin{align*}
+        \therefore \hspace{1cm} & \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x}                                                                                                                                                                                                  \\
+        \implies                & \pdv{z}{x} = 2xy \pdv{z}{u} + 3 \pdv{z}{v}                                                                                                                                                                                                                  \\
+        \implies                & \pdv[2]{z}{x} = \pdv{}{x} \left[ 2xy \pdv{z}{u} + 3 \pdv{z}{v} \right]                                                                                                                                                                                      \\
+        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                                                                                                                                 \\a
+        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv{}{u} \left[\pdv{z}{u}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{u}\right] \pdv{v}{x}\right)  + 3\left( \pdv{}{u} \left[\pdv{z}{v}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{v}\right] \pdv{v}{x} \right) \\
+        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv[2]{z}{u} \pdv{u}{x} + \pdv{z}{v}{u} \pdv{v}{x}\right)  + 3\left( \pdv{z}{u}{v} \pdv{u}{x} + \pdv[2]{z}{v} \pdv{v}{x}\right)                                                                                  \\
+        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(2xy \pdv[2]{z}{u}  + 3 \pdv{z}{v}{u}\right)  + 3\left( \frac{1}{2xy}\cdot\pdv{z}{u}{v}  + 3\pdv[2]{z}{v}\right)                                                                                                   \\
+        \implies                & \boxed{\pdv[2]{z}{x} = 2y z_u + 4x^2y^2z_{uu}+ 6xy z_{uv} + 6xy z_{vu} + 9z_{vv}}
+    \end{align*}
 
 \end{Eg}
 
@@ -122,34 +122,34 @@ Hence, we can show that,
 \section{Extrema}
 
 \begin{Def}{Extrema}{}
-	Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function. $f$ attains a local maximum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \geq f(x)\ \forall\ x \in \Op{n}$. Similarly, $f$ attains a local minimum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \leq f(x)\ \forall\ x \in \Op{n}$. Now, either local maximum or local minimum is called \textbf{Extremum} (Plural: \textbf{Extrema}).
+    Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function. $f$ attains a local maximum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \geq f(x)\ \forall\ x \in \Op{n}$. Similarly, $f$ attains a local minimum at $a$ if $\exists\ a \in \Op{n} \subseteq S$ such that $f(a) \leq f(x)\ \forall\ x \in \Op{n}$. Now, either local maximum or local minimum is called \textbf{Extremum} (Plural: \textbf{Extrema}).
 \end{Def}
 
 \begin{Def}{Critical Point or Stationary Point}{}
-	Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
-	If \[ \left(\nabla f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{x_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
+    Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
+    If \[ \left(\nabla f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{x_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
 \end{Def}
 
 \begin{Thm}{}{}
-	Let, $f: \Op{n} \to \R$ is differentiable at $a \in \Op{n}$. If $a$ is a local extremum, then \[ \left(\nabla f\right)(a) = 0 \]
+    Let, $f: \Op{n} \to \R$ is differentiable at $a \in \Op{n}$. If $a$ is a local extremum, then \[ \left(\nabla f\right)(a) = 0 \]
 \end{Thm}
 
 \begin{proof}
-	Fix $i \in \{1,2, \ldots, n\}$
+    Fix $i \in \{1,2, \ldots, n\}$
 
-	\begin{clmBox}
-		$f_{x_i}(a) = 0$
-	\end{clmBox}
+    \begin{clmBox}
+        $f_{x_i}(a) = 0$
+    \end{clmBox}
 
-	\begin{proof}
-		Set, $\phi_i : (a_i - \epsilon, a_i + \epsilon) \to \R$ defined by $\phi_i(t) = f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_n)$. Then, \[ \dv{\phi_i}{t}(a_i) = f_{x_i}(a) \]
-		And, $a_i$ is a local extremum of $\phi_i$. So, \[ \dv{\phi_i}{t}(a_i) = 0 \quad \implies \quad f_{x_i}(a) = 0 \]
-	\end{proof}
+    \begin{proof}
+        Set, $\phi_i : (a_i - \epsilon, a_i + \epsilon) \to \R$ defined by $\phi_i(t) = f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_n)$. Then, \[ \dv{\phi_i}{t}(a_i) = f_{x_i}(a) \]
+        And, $a_i$ is a local extremum of $\phi_i$. So, \[ \dv{\phi_i}{t}(a_i) = 0 \quad \implies \quad f_{x_i}(a) = 0 \]
+    \end{proof}
 \end{proof}
 
 
 \textbf{Question.} What is 2nd order total derivative? \\
-\textbf{Ans.} Hessian Matrix.
+\textit{Answer.} Hessian Matrix.
 
 
 

@@ -24,12 +24,162 @@ And take, $f(x) - p_{a,k}(x) = r_{a,k}(x)$
 \begin{Thm}{Taylor's Theorem}{}
     Let $ f: \Op{1} \to \R $ be $C^{k+1}$
     \[ f(x) = p_{a,k}(x) + r_{a,k}(x) \]
-    where, \[r_{a,k} = \frac{f^{k+1}(c)}{(k+1)!} (x-a)^{k+1} \ \text{for some $c$ in between $a$ and $x \in \Op{1}$ }\]
+    where, \[r_{a,k} = \frac{f^{k+1}(c)}{(k+1)!} (x-a)^{k+1} \hspace{5mm} \text{for some $c$ in between $a$ and $x \in \Op{1}$ }\]
 \end{Thm}
 
+\
+
+\begin{notnBox}{}{}
+    
+\begin{itemize}
+  \item  $\alpha = ( \alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{+}^{n}$ \\
+  \item $ |\alpha| = \sum_{i = 1}^{n} \alpha_i $ \\
+  \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ \\
+  \item $ \partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}$ \\
+  \item $ h^{\alpha} = {h_1}^{\alpha_1} \cdots {h_n}^{\alpha_n}$
+
+\end{itemize}
+
+
+
+\end{notnBox}
+
 \begin{Thm}{Taylor's Theorem in Multivariate Case}{}
-    Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function (Assume, $\Op{n}$ is convex). If
+    Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function (Assume, $\Op{n}$ is convex). If $h, a + h \in \Op{n} $ , then 
+    \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h)   \] 
+    where, \[ r_{a,k} (h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a + c h) h^{\alpha} \hspace{5mm} \text{for some $c \in (0,1)$} \]
+    
 \end{Thm}
+
+\begin{proof}
+
+\[\begin{tikzcd}
+        {[0,1]} &&& {\mathcal{O}_n} &&& {\mathbb{Z}} \\
+        t &&& {a+th} &&& {f(a+th)}
+        \arrow[from=1-1, to=1-4]
+        \arrow["f", from=1-4, to=1-7]
+        \arrow[from=2-1, to=2-4]
+        \arrow[from=2-4, to=2-7]
+        \arrow["\large{\eta}"', curve={height=30pt}, from=2-1, to=2-7]
+\end{tikzcd}\]
+
+$\therefore$ $\eta$ is a $C^{k+1}$ at $0$ .
+
+$\eta (t) = f(a+th) \hspace{3mm} \forall t \in [0,1]$
+
+\begin{align*}
+    \therefore \eta'(t) &= \nabla f (a+th) . h \\
+     &= (\nabla . h) f(a+th)  \hspace{1cm} \text{where $\nabla . h = \sum_{i=1}^n \frac{\partial}{\partial x_i} h_i$}
+\end{align*}
+
+\begin{clmBox}{}
+    $\eta^{(m)}(t) = (\nabla . h)^m f (a+th) \hspace{1cm} \forall 0 \leq m \leq k+1 \hspace{1cm}$   
+    
+    \
+    
+    where, \[(\nabla . h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}\]
+\end{clmBox} 
+
+\begin{align*}
+    \eta'(t) &= \nabla f (a+th) . h \\
+    &= \sum_{i=1}^n f_{X_i} (a+th) h_i
+\end{align*}
+
+\begin{align*}
+    \implies \eta''(t) &= \frac{d}{dt}\left(\sum_{i=1}^n f_{X_i} (a+th) h_i\right) \\
+    &= \sum_{i=1}^n \left[\frac{d}{dt}\left( f_{X_i} (a+th) h_i\right)\right] \\
+    &= \sum_{i=1}^n h_i \sum_{j=1}^n f_{X_i X_j} (a+th) h_j \\
+    &= \sum_{i,j=1}^n h_i h_jf_{X_i X_j} (a+th) \\
+    &= (\nabla . h)^2 f (a+th)
+\end{align*}
+
+So, by induction, $\eta^{(m)}(t) = (\nabla . h)^m f (a+th) \hspace{1cm} 0 \leq m \leq k+1 $
+
+\
+
+where, \[(\nabla . h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}\]
+
+By One variable Taylor's Theorem, 
+\[ \eta(1) = p_{0,k}(1) + r_{0,k} (c) \hspace{1cm} \text{for some  } c \in (0,1) \]
+
+Now, \[ p_{0,k}(1) = \eta(0) + \frac{\eta '(0)}{1!} + \ldots + \frac{\eta^{(k)}(0)}{k!}\]
+\[ r_{0,k} (c) = \frac{\eta^{(k+1)}(c)}{(k+1)!} \]
+
+By substituting $\eta^{(m)}(t)$ in this , we can prove that :-
+\[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h) \]
+\end{proof}
+
+\begin{Eg}{For $n=2$}{}
+ $f : \mathcal{O}_2 \to \R$ be a $C^2$ function.
+ \[ f(a+h) = f(a) + \left(\nabla f(a)\right).h + \frac{1}{2}h^t H_f(a+ch)h \label{eq_pj} \tag{*} \]
+
+ where, \[ H_f =  \begin{bmatrix}
+    f_{X X}(a) & f_{X Y}(a) \\
+    f_{X Y}(a) & f_{Y Y}(a)
+ \end{bmatrix} \]
+\end{Eg}
+
+\begin{Thm}{Extremum}{}
+Let $f : \mathcal{O}_2 \to \R$ be a $C^2$ function on $\mathcal{O}_2$ \\ 
+Let $Df(a) = 0$ , write \[ H_f =  \begin{bmatrix}
+    f_{X X}(a) & f_{X Y}(a) \\
+    f_{X Y}(a) & f_{Y Y}(a)
+ \end{bmatrix} \] \\ 
+ Then, \begin{enumerate}
+    \item $f(a)$ is a local maximum if $f_{X X} (a) < 0$ and $|H_f(a)| > 0$ \\
+    \item $f(a)$ is a local minimum if $f_{X X} (a) > 0$ and $|H_f(a)| > 0$ \\
+    \item $a$ is a saddle point if $|H_f(a)| < 0$
+ \end{enumerate}
+\end{Thm}
+
+\begin{proof} \vspace{3mm}
+    $\exists r > 0 $ such that $a+h \in B_r(a) \subseteq \mathcal{O}_2$ \\ 
+    By $\eqref{eq_pj}$ , \[ f(a+h) - f(a) = \left(\nabla f(a)\right).h + \frac{1}{2}h^t H_f(a+ch)h \] 
+
+\underline{To prove No (2) :-}
+
+\
+
+Assumptions $\implies$ $H_f(a)$ is positive definite
+
+Hence, by the lemma , $H_f(x)$ is positive definite $\forall x \in$ nbd of $a$
+
+$\implies h^t H_f(x) h > 0 \hspace{1cm} \forall h \neq 0$
+
+$\implies f(x) - f(a) >0 \hspace{1cm} \forall x$ in a nbd of $a$
+
+$\implies$ $f(a)$ is a local minimum.
+
+\end{proof}
+
+\begin{Eg}{}{}
+    Find the critical Points and discuss the nature of the function \[ f(x,y) = x^3 - 6x^2 - 8y^2 \]
+
+ \textbf{Solution :-}  
+ \begin{align*}
+    & \nabla f = 0 \\
+    \implies & f_X = 3x^2 - 12x = 0 \text{  and  } f_Y = -16y = 0 \\
+    \implies x = 0 , 4 \text{  and  } y = 0
+ \end{align*}
+
+$\therefore  (0,0) , (4,0)  $ are stationary points.
+
+Also, \[ f_{X X} = 6x - 12 \text{  and  } f_{Y Y} = -16 \]
+
+\[ |H_f(0,0)| =  \begin{vmatrix}
+    -12 & 0 \\
+    0 & -16
+ \end{vmatrix} > 0 \text{  and  } f_{X X}(0,0) = -12 < 0\]
+
+Hence, $(0,0)$ is a local maximum.
+
+\[ |H_f(4,0)| =  \begin{vmatrix}
+        12 & 0 \\
+        0 & -16
+ \end{vmatrix} < 0 \]    
+
+ Hence, $(4,0)$ is a saddle point.
+\end{Eg}
 
 
 

@@ -8,7 +8,7 @@
 
 \section{Conservative Vector Fields}
 
-Let $S \subseteq \R^3$ be a oriented surface, then we call the orientation vector field $\vec{n} : S \to \R^3$ as the \textbf{normal vector field}.
+Let $S \subseteq \R^3$ be an oriented surface, then we call the orientation vector field $\vec{n} : S \to \R^3$ as the \textbf{normal vector field}.
 
 \begin{Eg}{}{}
     \begin{wrapfigure}{r}{0.6\textwidth}
@@ -90,7 +90,7 @@ Let $S \subseteq \R^3$ be a oriented surface, then we call the orientation vecto
         \caption{Normal vector fields on a graph surface}
         \label{fig2:27}
     \end{wrapfigure}
-    Let $\mathcal{G}(f) = \{ (x,y,f(x,y)) \mid (x,y) \in \mathcal{O}_2\}$ where $f : \mathcal{O}_2 \to \R$ is a $\mathscr{C}^1$ function. Then a parametrisation of the surface $\mathcal{G}(f)$ is given by the function
+    Let $\mathcal{G}(f) = \{ (x,y,f(x,y)) \mid (x,y) \in \mathcal{O}_2\}$ where $f : \mathcal{O}_2 \to \R$ is a $C^1$ function. Then a parametrization of the surface $\mathcal{G}(f)$ is given by the function
     \begin{align*}
         \vec{r} : \mathcal{O}_2 & \to \R^3             \\
         (x,y)                   & \mapsto (x,y,f(x,y))
@@ -106,7 +106,7 @@ Let $S \subseteq \R^3$ be a oriented surface, then we call the orientation vecto
     Unless otherwise mentioned this will be our standard orientation of the normal vector field.
 \end{Eg}
 
-Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us look at some exmaples to gain more familiarity.
+Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us look at some examples to gain more familiarity.
 
 \begin{Eg}{}{}
     Consider the vector field $\vec{F}(x,y,z) = (x,y,z)$ on $S = \mathrm{im} \, r$, where
@@ -117,7 +117,7 @@ Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us
     \begin{align*}
         \int_S \vec{F} \cdot \dd \vec{S} & = \int_S \vec{F} \cdot \vec{n} \dd s                                                                \\
                                          & = \int_0^1 \int_0^{\frac{\pi}{2}} \vec{F}(\vec{r}(x,y)) \cdot (\vec{r}_x \times \vec{r}_y) \, \dd A \\
-                                         & = \int_0^1 \int_0^{\frac{\pi}{2}}  (\cos x, \sin x , y) \cdot (\cos x, \sin x, 0) \dd A             \\
+                                         & = \int_0^1 \int_0^{\frac{\pi}{2}}  (\cos x, \sin x, y) \cdot (\cos x, \sin x, 0) \dd A              \\
                                          & = \int_0^1 \int_{0}^{\frac{\pi}{2}} \dd A                                                           \\
                                          & = \frac{\pi}{2}
     \end{align*}
@@ -125,13 +125,13 @@ Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us
 
 We already know that $\int_{\mathcal{C}} \nabla f \cdot \dd r = f(B) - f(A)$, now a natural question that arises is
 
-\textbf{Question:} Given $\vec{F}$ does there exists $f$ a scalar field such that $\nabla f = \vec{F}$ ?
+\textbf{Question:} Given $\vec{F}$ does there exist $f$ a scalar field such that $\nabla f = \vec{F}$ ?
 
 \begin{Def}{Conservative Vector Field}{}
-    A vector field $\vec{F}$ on $\mathcal{O}_n$ is called \textbf{conservative} if there exists a scalar field $f \in \mathscr{C}^1(\mathcal{O}_n)$ such that $\nabla f = \vec{F}$, then $f$ is called the \textbf{potential function}.
+    A vector field $\vec{F}$ on $\mathcal{O}_n$ is called \textbf{conservative} if there exists a scalar field $f \in C^1(\mathcal{O}_n)$ such that $\nabla f = \vec{F}$, then $f$ is called the \textbf{potential function}.
 \end{Def}
 
-\begin{Thm}{}{}\label{thm1:27}
+\begin{Thm}{}{27:1}
     Let $\vec{F}$ be a vector field over $\mathcal{O}_n$, the following are equivalent:
     \begin{enumerate}
         \item $\vec{F}$ is conservative.
@@ -150,17 +150,17 @@ We will give a general picture for the most common case, when $n = 3$. Let $\vec
 \end{align}
 Then we can define \textbf{curl} of a vector field
 \[
-    \vec{\nabla} \times \vec{F} := \begin{vmatrix}
+    \curl \vec{F} := \begin{vmatrix}
         \hat{i}   & \hat{j}   & \hat{k}   \\
         \pdv{}{x} & \pdv{}{y} & \pdv{}{z} \\
         P         & Q         & R
     \end{vmatrix}
 \]
-Then expanding this out and using the relations $\ref{eq1:27}$ and others we get that $\vec{\nabla} \times \vec{F} = \mathbf{0}$. Thus we have proved that if $\vec{F}$ is conservative then $\vec{\nabla} \times \vec{F} = \mathbf{0}$.
+Then expanding this out and using the relations $\ref{eq1:27}$ and others we get that $\curl \vec{F} = \mathbf{0}$. Thus we have proved that if $\vec{F}$ is conservative then $\curl \vec{F} = \mathbf{0}$.
 
 \
 
-\textbf{Remark.} Thus a necessary condition for a vector field to be conservative is that, its curl should be the zero vector field.
+\textbf{Remark.} Thus, a necessary condition for a vector field to be conservative is that, its curl should be the zero vector field.
 
 \
 
@@ -181,7 +181,7 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
 \end{Eg}
 
 
-\textbf{Remark.} This approach works for all $\vec{F}$ such that $\vec{\nabla} \times \vec{F} = \mathbf{0}$ and the domain is convex.
+\textbf{Remark.} This approach works for all $\vec{F}$ such that $\curl \vec{F} = \mathbf{0}$ and the domain is convex.
 
 \begin{Eg}{}{}
     Let $\vec{F}(x,y) = \left( \frac{-y}{x^2+y^2}, \frac{x}{x^2+y^2} \right) = (P,Q)$ (say) on $\R^2 \setminus \{\mathbf{0}\}$. Then we have $\pdv{P}{y} = \pdv{Q}{x}$, but we will show that $\vec{F}$ is not conservative. Consider the curve
@@ -195,13 +195,13 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
                                                & = \int_0^{2\pi} \dd t                                            \\
                                                & = 2\pi
     \end{align*}
-    But $\mathcal{C}$ is clearly a closed curve, hence by theorem $\ref{thm1:27}$ we must have $\int_{\mathcal{C}} \vec{F} \cdot \dd r = 0$. (Contradiction!)
+    But $\mathcal{C}$ is clearly a closed curve, hence by theorem $\ref{th:27:1}$ we must have $\int_{\mathcal{C}} \vec{F} \cdot \dd r = 0$. (Contradiction!)
 \end{Eg}
 
 \section{Green's Theorem}
 
 \begin{Def}{Simply Connected Domain}{}
-    Let $\mathcal{D}$ be a open and connected set. Let $\mathcal{C}$ be a simple and closed curve if $\mathcal{C}$ can be shrunk continuously to a point inside $\mathcal{D}$, then we say $\mathcal{D}$ is \textbf{simply connected}.
+    Let $\mathcal{D}$ be an open and connected set. Let $\mathcal{C}$ be a simple and closed curve if $\mathcal{C}$ can be shrunk continuously to a point inside $\mathcal{D}$, then we say $\mathcal{D}$ is \textbf{simply connected}.
 \end{Def}
 
 \begin{figure}[h]
@@ -211,8 +211,8 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
     \label{fig4:27}
 \end{figure}
 
-\begin{Thm}{Green's Theorem}{}\label{thm2:27}
-    Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrisation is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $\mathscr{C}^1$ vector field on $\mathcal{R}$, then
+\begin{Thm}{Green's Theorem}{green}
+    Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrization is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $C^1$ vector field on $\mathcal{R}$, then
     \[
         \int_{\mathcal{C}} \vec{F} \cdot \dd r := \int_{\mathcal{C}} P \, \dd x + Q \, \dd y = \int_{\mathcal{R}} \left( \pdv{Q}{x} - \pdv{P}{y}\right) \dd A
     \]

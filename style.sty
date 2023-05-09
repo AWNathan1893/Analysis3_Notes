@@ -4,6 +4,7 @@
 \usepackage{physics}
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
+\usepackage{accents}
 \usepackage{pdfpages}
 \usepackage{wrapfig}
 \usepackage{amsmath}
@@ -28,18 +29,19 @@
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{transparent}
+\usepackage{tocloft}
 
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
 
-\newcommand{\incfig}[1]{%
-  \def\svgwidth{2.5in}
-  \import{../figures/#1}{#1.pdf_tex}
+\newcommand{\subincfig}[1]{%
+    \def\svgwidth{2.5in}
+    \subimport{../figures/#1}{#1.pdf_tex}
 }
 
-% Colours
+% Colours (from https://latexcolor.com)
 \definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
 \definecolor{beige}{rgb}{0.96, 0.96, 0.86}
 \definecolor{richlavender}{rgb}{0.67, 0.38, 0.8}
@@ -49,157 +51,179 @@
 \definecolor{frenchrose}{rgb}{0.96, 0.29, 0.54}
 \definecolor{nadeshikopink}{rgb}{0.96, 0.68, 0.78}
 \definecolor{lawngreen}{rgb}{0.49, 0.99, 0.0}
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{azure(web)(azuremist)}{rgb}{0.94, 1.0, 1.0}
 
 \titleformat{\chapter}[display]{\normalfont\sffamily\Large\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
 \titleformat{\section}{\normalfont\sffamily\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\sffamily\large\bfseries}{\thesubsection}{1em}{}
 
+% Font changes to ToC content of sectional units
+\renewcommand{\cftchapfont}{\normalfont\sffamily\bfseries}      % \chapter font in ToC
+\renewcommand{\cftsecfont}{\normalfont\sffamily}        % \section font in ToC
+
+% Custom environments
 \newtcbtheorem[number within=section]{Def}{Definition}{
-  breakable, enhanced,
-  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  coltitle=black,
-  colbacktitle=black!5,
-  fonttitle=\sffamily,
-  colback=white,
-  colframe=black,
-  leftrule=0.5mm,
-  rightrule=0.2mm,
-  toprule=0.2mm,
-  bottomrule=0.2mm,
-  arc=2.5mm,
-  separator sign={\ $\blacktriangleright$},
-  description delimiters none,
-  description font=\mdseries}{def}
+    breakable, enhanced,
+    attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+    coltitle=black,
+    colbacktitle=black!5,
+    fonttitle=\sffamily,
+    colback=white,
+    colframe=black,
+    leftrule=0.5mm,
+    rightrule=0.2mm,
+    toprule=0.2mm,
+    bottomrule=0.2mm,
+    arc=2.5mm,
+    separator sign={\ $\blacktriangleright$},
+    description delimiters none,
+    description font=\mdseries}{def}
 
 \newtcbtheorem[no counter]{Quote}{}{
-  breakable, enhanced,
-  attach boxed title to bottom right={xshift=-3mm, yshift=3mm, yshifttext=1mm},
-  fonttitle=\sffamily,
-  coltitle=black,
-  colbacktitle=cosmiclatte,
-  colback=black!10!white,
-  colframe=black,
-  arc=2.5mm,
-  separator sign none,
-  description delimiters none,
-  description font=\mdseries}{quote}
+    breakable, enhanced,
+    attach boxed title to bottom right={xshift=-3mm, yshift=3mm, yshifttext=1mm},
+    fonttitle=\sffamily,
+    coltitle=black,
+    colbacktitle=cosmiclatte,
+    colback=black!10!white,
+    colframe=black,
+    arc=2.5mm,
+    separator sign none,
+    description delimiters none,
+    description font=\mdseries}{quote}
 
 \newtcbtheorem[number within=section]{Thm}{Theorem}{
-  breakable, enhanced,
-  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\sffamily,
-  coltitle=blue!70,
-  colbacktitle=white,
-  %colbacktitle=cosmiclatte,
-  colback=cyan!6,
-  colframe=blue!20,
-  separator sign none, description delimiters parenthesis,
-  description font=\mdseries}{th}
+    breakable, enhanced,
+    attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+    fonttitle=\sffamily,
+    coltitle=blue!70,
+    colbacktitle=white,
+    %colbacktitle=cosmiclatte,
+    colback=cyan!6,
+    colframe=blue!20,
+    separator sign none, description delimiters parenthesis,
+    description font=\mdseries}{th}
 
 \newtcbtheorem[no counter]{ThmN}{Theorem}{
-  breakable, enhanced,
-  attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\sffamily,
-  coltitle=black,
-  colbacktitle=cosmiclatte,
-  colback=teal!6,
-  colframe=richlavender,
-  separator sign none, description delimiters parenthesis,
-  description font=\mdseries}{th}
+    breakable, enhanced,
+    attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+    fonttitle=\sffamily,
+    coltitle=black,
+    colbacktitle=cosmiclatte,
+    colback=teal!6,
+    colframe=richlavender,
+    separator sign none, description delimiters parenthesis,
+    description font=\mdseries}{th}
 
 \newtcbtheorem[number within=section]{Lem}{Lemma}{
-  breakable, enhanced,
-  fonttitle=\sffamily,
-  coltitle = richlavender,
-  colbacktitle = cosmiclatte,
-  titlerule = 0mm,
-  colback = cosmiclatte,
-  colframe = electriclavender,
-  arc = 0mm,
-  leftrule = 2.5mm,
-  rightrule = 0mm,
-  toprule = 0mm,
-  bottomrule = 0mm,
-  separator sign none, description delimiters parenthesis}{lem}
+    breakable, enhanced,
+    fonttitle=\sffamily,
+    coltitle = richlavender,
+    colbacktitle = cosmiclatte,
+    titlerule = 0mm,
+    colback = cosmiclatte,
+    colframe = electriclavender,
+    arc = 0mm,
+    leftrule = 2.5mm,
+    rightrule = 0mm,
+    toprule = 0mm,
+    bottomrule = 0mm,
+    separator sign none, description delimiters parenthesis}{lem}
 
 \newtcbtheorem[no counter]{LemN}{Lemma}{
-  breakable, enhanced,
-  fonttitle=\sffamily,
-  coltitle = richlavender,
-  colbacktitle = cosmiclatte,
-  titlerule = 0mm,
-  colback = cosmiclatte,
-  colframe = electriclavender,
-  arc = 0mm,
-  leftrule = 2.5mm,
-  rightrule = 0mm,
-  toprule = 0mm,
-  bottomrule = 0mm,
-  separator sign none, description delimiters parenthesis}{lem}
+    breakable, enhanced,
+    fonttitle=\sffamily,
+    coltitle = richlavender,
+    colbacktitle = cosmiclatte,
+    titlerule = 0mm,
+    colback = cosmiclatte,
+    colframe = electriclavender,
+    arc = 0mm,
+    leftrule = 2.5mm,
+    rightrule = 0mm,
+    toprule = 0mm,
+    bottomrule = 0mm,
+    separator sign none, description delimiters parenthesis}{lem}
 
 \newtcbtheorem[no counter]{Cor}{Corollary}{
-  breakable, enhanced,
-  fonttitle=\sffamily,
-  colbacktitle = lavenderblush,
-  coltitle = frenchrose,
-  titlerule = 0mm,
-  colback = lavenderblush,
-  colframe = nadeshikopink,
-  arc = 4mm,
-  sharp corners = southwest,
-  sharp corners = northeast,
-  separator sign none, description delimiters parenthesis}{cor}
+    breakable, enhanced,
+    fonttitle=\sffamily,
+    colbacktitle = lavenderblush,
+    coltitle = frenchrose,
+    titlerule = 0mm,
+    colback = lavenderblush,
+    colframe = nadeshikopink,
+    arc = 4mm,
+    sharp corners = southwest,
+    sharp corners = northeast,
+    separator sign none, description delimiters parenthesis}{cor}
 
 
 \newtcbtheorem[number within=section]{Eg}{\textbf{Example}}{
-  breakable, enhanced,
-  % attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
-  fonttitle=\sffamily,
-  coltitle=black,
-  colbacktitle=white,
-  colback=white,
-  colframe=white,
-  separator sign none, description delimiters parenthesis,
-  description font=\mdseries}{eg}
+    breakable, enhanced,
+    % attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+    fonttitle=\sffamily,
+    coltitle=black,
+    colbacktitle=white,
+    colback=white,
+    colframe=white,
+    separator sign none, description delimiters parenthesis,
+    description font=\mdseries}{eg}
 
 \newtcolorbox{clmBox}{
-  title = \sbold{ Claim},
-  colback = lavenderblush,
-  colframe = frenchrose,
-  arc = 5mm,
-  leftrule = 0mm,
-  rightrule = 2.5mm,
-  toprule = 0.3mm,
-  bottomrule = 0.3mm,
-  sharp corners = northeast,
-  sharp corners = southeast}
+    title = \sbold{Claim},
+    coltitle = white,
+    titlerule = 0.5mm,
+    halign title = flush left,
+    halign = flush left,
+    colback = azure(web)(azuremist),
+    colframe = black,
+    arc = 2mm
+}
 
 \newtcolorbox{notnBox}{
-  title = \sbold{ Notation},
-  coltitle = white,
-  titlerule = 0.5mm,
-  halign title = flush left,
-  halign = flush left,
-  colback = cosmiclatte,
-  colframe = black,
-  arc = 2mm}
+    title = \sbold{ Notation},
+    coltitle = white,
+    titlerule = 0.5mm,
+    halign title = flush left,
+    halign = flush left,
+    colback = cosmiclatte,
+    colframe = black,
+    arc = 2mm}
 
 \newtcolorbox{noteBox}{
-  title = \sbold{ Note},
-  coltitle = white,
-  titlerule = 0.5mm,
-  halign title = flush left,
-  halign = flush left,
-  colback = lavenderblush,
-  colframe = black,
-  arc = 2mm}
+    title = \sbold{ Note},
+    coltitle = white,
+    titlerule = 0.5mm,
+    halign title = flush left,
+    halign = flush left,
+    colback = lavenderblush,
+    colframe = black,
+    arc = 2mm}
 
+\newenvironment{proofFig}[3][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    {\noindent\textit{#1}\@addpunct{.}\hspace{\the\labelsep}}%
+    \begin{wrapfigure}{r}{.5\textwidth}
+        \centering
+        #2
+        \caption{#3}
+    \end{wrapfigure}%
+    \ignorespaces
+}{%
+    \popQED\@endpefalse
+    \par
+    \vspace*{\the\parsep}
+}
 
 \newcommand{\sbold}[1]{\textsf{\textbf{#1}}}
 \newcommand{\bb}[1]{\mathbbm{#1}}
 \newcommand{\N}{\bb{N}}
 \newcommand{\Z}{\bb{Z}}
 \newcommand{\Q}{\bb{Q}}
-\newcommand{\R}{\bb{R}}
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\bb{C}}
 \newcommand{\Op}[1]{\mathcal{O}_{#1}}
 \newcommand{\msk}{\medskip}
@@ -216,16 +240,18 @@
 \newcommand{\vphi}{\varphi}
 \newcommand{\veps}{\varepsilon}
 \newcommand{\pdot}[2]{{#1} \cdot {#2}}
+\newcommand{\Area}{\operatorname{Area}}
+\newcommand{\ran}{\operatorname{ran}}
 
 
 % for commutative diagrams 
 \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
-          .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-          and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
-          .. (\tikztotarget)\tikztonodes}},
-  settings/.code={\tikzset{quiver/.cd,#1}
-      \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
-  quiver/.cd,pos/.initial=0.35,height/.initial=0}
+                    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+                    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+                    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+            \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
 
 % TikZ arrowhead/tail styles.
 \tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
@@ -234,4 +260,35 @@
 % TikZ arrow styles.
 \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
 % taken from quiver
+
+
+
+%----Helper code for dealing with external references----
+% (by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
+
+\usepackage{xr}
+\makeatletter
+
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+    \typeout{(#1)}% latexmk will find this if $recorder=0
+    % however, in that case, it will ignore #1 if it is a .aux or 
+    % .pdf file etc and it exists! If it doesn't exist, it will appear 
+    % in the list of dependents regardless)
+    %
+    % Write the following if you want it to appear in \listfiles 
+    % --- although not really necessary and latexmk doesn't use this
+    %
+    \@addtofilelist{#1}
+    %
+    % latexmk will find this message if #1 doesn't exist (yet)
+    \IfFileExists{#1}{}{\typeout{No file #1.}}
+}\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+%------------End of helper code--------------
+
 \endinput

@@ -53,14 +53,14 @@
   \begin{picture}(1,1)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{figures/ysimpleRegion/ysimpleRegion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{ysimpleRegion.pdf}}%
     \put(0.9625,0.22067238){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
     \put(0.9625,0.22067238){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{x}\end{tabular}}}}%
     \put(0.16019065,0.9275){\color[rgb]{1,1,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{y}\end{tabular}}}}%
     \put(0.16019065,0.9275){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{y}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{figures/ysimpleRegion/ysimpleRegion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{ysimpleRegion.pdf}}%
     \put(0.15109375,0.268778){\color[rgb]{1,1,1}\transparent{0.89999998}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
     \put(0.15109375,0.268778){\color[rgb]{0,0,0}\transparent{0.89999998}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{figures/ysimpleRegion/ysimpleRegion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{ysimpleRegion.pdf}}%
   \end{picture}%
 \endgroup%

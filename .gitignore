@@ -1,10 +1,13 @@
 # Taken from https://github.com/github/gitignore/blob/main/TeX.gitignore
 
 ## Editor auxiliary files
-.vscode
+.vscode/*
 .vs
 *#*
 *~
+!.vscode/settings.json
+_site/
+pdfs/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
