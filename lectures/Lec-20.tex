@@ -56,7 +56,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
     \[
         \Omega = \left\{ (x,y) \mid 0 \leq x \leq 1, \mbox{ and } 0 \leq y \leq 2(1-x) \right\}
     \]
-    then using theorem $\ref{th:20:1}$ we get that
+    then using Theorem \ref{th:20:1} we get that
     \begin{align*}
         \int_{\Omega} f \, \dd A & = \int_0^2 \left( \int_0^{1-\frac{y}{2}} f(x,y) \, \dd x\right) \dd y \\
                                  & = \int_0^1 \left( \int_0^{2(1-x)} f(x,y) \, \dd y\right) \dd x
@@ -77,7 +77,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
     \[
         \Omega = \{ (x,y) \mid -1 \leq x \leq 1, \mbox{ and } x^2 \leq y \leq 1 \}
     \]
-    Then using theorem $\ref{th:20:1}$ we get that
+    Then using Theorem \ref{th:20:1} we get that
     \begin{align*}
         \int_{\Omega} x^2y \, \dd A
          & = \int_{-1}^1 \left( \int_{x^2}^1 x^2y \, \dd y\right)\dd x               \\
@@ -102,7 +102,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
     \[
         \int_{[0,1]^2} f \, \dd A = \int_{\Omega_1} f \, \dd A + \int_{\Omega_2} f \, \dd A
     \]
-    then using theorem $\ref{th:20:1}$ we get that
+    then using Theorem \ref{th:20:1} we get that
     \[
         \int_{\Omega_1} f \, \dd A = \int_0^1 \left( \int_0^{x^2} x \, \dd y \right)\ \dd x = \frac{1}{4}
     \]
@@ -121,7 +121,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
     \[
         \Omega = \left\{ (x,y) \mid 0 \leq y \leq \frac{\pi}{2}, \, 0 \leq x \leq y \right\}
     \]
-    and hence using theorem $\ref{th:20:1}$ we get
+    and hence using Theorem \ref{th:20:1} we get
     \begin{align*}
         \int_{\Omega} \frac{\sin y}{y} \, \dd A & = \int_{0}^{\frac{\pi}{2}} \int_x^{\frac{\pi}{2}} \frac{\sin y}{y} \, \dd y \, \dd x \\
                                                 & = \int_0^{\frac{\pi}{2}} \int_0^y \frac{\sin y}{y} \, \dd x \, \dd y                 \\
@@ -145,5 +145,5 @@ Taking idea from this result we have the following theorem
         \int_{\varphi(\Omega)} f \, \dd V = \int_{\Omega} (f \circ \varphi) |\det J_{\varphi}|
     \]
 \end{Thm}
-We won't be going over the proof of theorem $\ref{th:chovar}$, but for the proof you refer to page 67 of \textit{Calculus on Manifolds} by Michael Spivak.
+We won't be going over the proof of Theorem \ref{th:chovar}, but for the proof you refer to page 67 of \textit{Calculus on Manifolds} by Michael Spivak.
 \end{document}

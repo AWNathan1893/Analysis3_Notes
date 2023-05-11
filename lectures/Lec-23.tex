@@ -37,7 +37,7 @@ We will begin this lecture with few examples.
 \end{Eg}
 
 \section{Line Integrals}
-To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scalar Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \Op{n} \to \R$ be a differentiable function, then $\nabla f$ is a vector field.)
+To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scalar Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \Op{n} \to \R$ be a differentiable function, then $\grad f$ is a vector field.)
 
 \textbf{Question.} Given a scalar field $f : \Op{n} \to \R$ and $\gamma \equiv \mathcal{C}$ be a curve, we want to define $\displaystyle\int_{\mathcal{C}} f$. But exactly how we can do this?
 
@@ -124,7 +124,7 @@ Suppose a particle moves a distance $d$ under a constant force $F$, then work do
 If the force was not constant throughout the path then how can we calculate work done by that force?
 Consider the case where $F$ is the vector field (Force in this case) defined over a curve (path)$\gamma$. Here, $\gamma : [a,b] \to \R^n$ and $\mathcal{C} = \ran(\gamma)$. So, work done throughout the whole path will be,
 \[\int_{\mathcal{C}} \vec{F}\cdot d\vec{r}\]
-Which is equal to, $\displaystyle\int_a^b \vec{F}(\gamma(t))\cdot \nabla \gamma(t) dt$
+Which is equal to, $\displaystyle\int_a^b \vec{F}(\gamma(t))\cdot \grad \gamma(t) dt$
 
 Now we will look into some examples.
 \vspace{0.3cm}
@@ -134,9 +134,9 @@ Now we will look into some examples.
 
     \textit{Answer.} \begin{align*}
         \gamma'(t)
-                                 & = (2t,-3t^2,4t^3)                                 \\
-        \implies \text{workdone} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3) dt \\
-                                 & = -\frac{31}{88}
+                                  & = (2t,-3t^2,4t^3)                                 \\
+        \implies \text{Work done} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3) dt \\
+                                  & = -\frac{31}{88}
     \end{align*}
 \end{Eg}
 

@@ -67,10 +67,10 @@ This may be written in a slightly more suggestive sense:
 Now, \begin{align*}
     \Delta f & = \sum_{i=1}^{n} \pdv[2]{f}{x_i}                                                                                               \\
              & = \left\langle \pdv{}{x_1}, \ldots, \pdv{}{x_n}  \right\rangle. \left\langle \pdv{f}{x_1}, \ldots, \pdv{f}{x_n}  \right\rangle \\
-             & = \nabla\cdot\nabla f
+             & = \div\grad f
 \end{align*}
 
-Hence, \[\boxed{\Delta f = \nabla\cdot\nabla f}\]
+Hence, \[\boxed{\Delta f = \div\grad f}\]
 
 Let, $x = r\cos{\theta}$ and $y= r\sin{\theta}$ and $f : \R^2 \to \R \qquad ( f \in C^2) $
 
@@ -127,11 +127,11 @@ Hence, we can show that,
 
 \begin{Def}{Critical Point or Stationary Point}{}
     Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
-    If \[ \left(\nabla f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{x_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
+    If \[ \left(\grad f\right)(a) = 0 \hspace{5mm} \Leftrightarrow f_{x_i}(a) = 0 \hspace{3mm} \forall i \in [n] \]
 \end{Def}
 
 \begin{Thm}{}{}
-    Let, $f: \Op{n} \to \R$ is differentiable at $a \in \Op{n}$. If $a$ is a local extremum, then \[ \left(\nabla f\right)(a) = 0 \]
+    Let, $f: \Op{n} \to \R$ is differentiable at $a \in \Op{n}$. If $a$ is a local extremum, then \[ \left(\grad f\right)(a) = 0 \]
 \end{Thm}
 
 \begin{proof}

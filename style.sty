@@ -53,6 +53,10 @@
 \definecolor{lawngreen}{rgb}{0.49, 0.99, 0.0}
 \definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
 \definecolor{azure(web)(azuremist)}{rgb}{0.94, 1.0, 1.0}
+\definecolor{aliceblue}{rgb}{0.94, 0.97, 1.0}
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+
+\setcounter{tocdepth}{1}
 
 \titleformat{\chapter}[display]{\normalfont\sffamily\Large\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
 \titleformat{\section}{\normalfont\sffamily\Large\bfseries}{\thesection}{1em}{}
@@ -61,6 +65,7 @@
 % Font changes to ToC content of sectional units
 \renewcommand{\cftchapfont}{\normalfont\sffamily\bfseries}      % \chapter font in ToC
 \renewcommand{\cftsecfont}{\normalfont\sffamily}        % \section font in ToC
+\renewcommand{\cftsubsecfont}{\normalfont\sffamily}        % \section font in ToC
 
 % Custom environments
 \newtcbtheorem[number within=section]{Def}{Definition}{
@@ -119,13 +124,13 @@
 \newtcbtheorem[number within=section]{Lem}{Lemma}{
     breakable, enhanced,
     fonttitle=\sffamily,
-    coltitle = richlavender,
-    colbacktitle = cosmiclatte,
+    coltitle = black,
+    colbacktitle = black!5,
     titlerule = 0mm,
-    colback = cosmiclatte,
-    colframe = electriclavender,
+    colback = black!5,
+    colframe = black,
     arc = 0mm,
-    leftrule = 2.5mm,
+    leftrule = 1.5mm,
     rightrule = 0mm,
     toprule = 0mm,
     bottomrule = 0mm,
@@ -134,13 +139,13 @@
 \newtcbtheorem[no counter]{LemN}{Lemma}{
     breakable, enhanced,
     fonttitle=\sffamily,
-    coltitle = richlavender,
-    colbacktitle = cosmiclatte,
+    coltitle = black,
+    colbacktitle = black!5,
     titlerule = 0mm,
-    colback = cosmiclatte,
-    colframe = electriclavender,
+    colback = black!5,
+    colframe = black,
     arc = 0mm,
-    leftrule = 2.5mm,
+    leftrule = 1.5mm,
     rightrule = 0mm,
     toprule = 0mm,
     bottomrule = 0mm,
@@ -178,29 +183,31 @@
     halign title = flush left,
     halign = flush left,
     colback = azure(web)(azuremist),
-    colframe = black,
+    colframe = black!70,
     arc = 2mm
 }
 
 \newtcolorbox{notnBox}{
-    title = \sbold{ Notation},
-    coltitle = white,
+    breakable, enhanced,
+    title = \sffamily{Now we introduce some notation},
+    coltitle = black,
+    colbacktitle = white,
     titlerule = 0.5mm,
     halign title = flush left,
     halign = flush left,
-    colback = cosmiclatte,
-    colframe = black,
-    arc = 2mm}
+    colback = white,
+    colframe = white,
+    arc = 0mm}
 
 \newtcolorbox{noteBox}{
-    title = \sbold{ Note},
-    coltitle = white,
+    title = \sbold{Note},
+    coltitle = black,
     titlerule = 0.5mm,
     halign title = flush left,
     halign = flush left,
-    colback = lavenderblush,
-    colframe = black,
-    arc = 2mm}
+    colback = anti-flashwhite,
+    colframe = white,
+    arc = 0mm}
 
 \newenvironment{proofFig}[3][\proofname]{\par
     \pushQED{\qed}%

@@ -68,8 +68,6 @@
     \end{align*}
 
     If we try to calculate the integral \textbf{directly}, we will end up getting same result.
-
-    $\hfill \blacksquare$
 \end{Eg}
 
 \begin{tcolorbox}
@@ -83,7 +81,6 @@
 
     \textit{Solution.} Parametrization of ellipse $x = a \cos t, y = b \sin t$ where $t \in [0,2\pi)$. Using the above application of Green's Theorem we can write,
     \[\Area = \int_{\mathcal{C}} x \dd y = ab \int_{0}^{2\pi} \cos^2t \dd t = \pi ab \]
-    $\hfill \blacksquare$
 \end{Eg}
 
 \begin{Thm}{Independence of path}{}
@@ -157,7 +154,7 @@
 
 Just like FTC, the behavior over a volume is fully determined by the behavior at the boundary. Proof of this theorem is beyond our reach. But we can see the proof for simple cases.
 
-\vspace{0.2cm}
+\
 
 \begin{proof}
     (For a simple case) Consider $\mathcal{D} = \qty{(x,y,z) | \varphi_1(x,y) \le z \le \varphi_2(x,y), (x,y) \in [a,b]\times [c,d]}$.
@@ -165,18 +162,16 @@ Just like FTC, the behavior over a volume is fully determined by the behavior at
     (\textbf{Exercise.}) Complete the proof!
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%
-
 
 \begin{Eg}{}{}
     $F (x,y,z) = \inp{x+y}{z^2,x^2}$ and $S$ be the hemisphere $x^2+y^2+z^2 = 1, z>0$. Compute,
     \[\int_{S} \vec{F} \dd \vec{S}\]
 
-    \textit{Solution.} Notice that $S$ is open surface. We want to  use Gauss Theorem ($\ref{th:gdt}$) so we need a close surface. Let, $S_1$ be the surface $x^2 +y^2 \le 1$. Then $S \sqcup S_1$ is a closed surface.
+    \textit{Solution.} Notice that $S$ is open surface. We want to  use Gauss Theorem \ref{th:gdt} so we need a close surface. Let, $S_1$ be the surface $x^2 +y^2 \le 1$. Then $S \sqcup S_1$ is a closed surface.
 
     \begin{align*}
         \int_{S \sqcup S_1} \vec{F}\cdot \dd \vec{S} & = \int_{x^2+y^2,z^2 \le 1, z \ge 0} \div \vec{F} \dd{V} \\
-                                                     & = \int_{x^2+y^2,z^2 \le 1, z \ge 0}\,\dd{V}           \\
+                                                     & = \int_{x^2+y^2,z^2 \le 1, z \ge 0}\,\dd{V}             \\
                                                      & = \frac{2\pi}{3}
     \end{align*}
 
@@ -213,7 +208,7 @@ Just like FTC, the behavior over a volume is fully determined by the behavior at
 \end{Eg}
 
 
-Stoke's Theorem is $\R^3-$analogue of Green's Theorem ($\ref{th:gtm}$). If we take the third component of $\vec{F}$ as zero, i.e., $R =0$ then Stoke's Theorem ($\ref{th:st}$) gives us back Green's Theorem ($\ref{th:gtm}$).
+Stoke's Theorem is $\R^3-$analogue of Green's Theorem \ref{th:gtm}. If we take the third component of $\vec{F}$ as zero, i.e., $R = 0$ then Stoke's Theorem \ref{th:st} gives us back Green's Theorem \ref{th:gtm}.
 
 \begin{tcolorbox}
     There is a generalized version of stokes theorem. Just for information the theorem is stated below.

@@ -7,24 +7,31 @@
 \setcounter{section}{0}
 
 \section{Directional Derivatives}
-We now introduce a more general notion of partial derivative, called the Directional Derivative. This will going to be a quite useful tool in analyzing the structure of surfaces, curve, and more generally manifolds.
+We now introduce another extension of one-dimensional derivative, called the Directional Derivative.
 
 \begin{Def}{Directional Derivative}{}
-  Let $ \underbrace{u}_{\text{indicates a direction}} \in \R $ be a unit vector and $ f:\Op{n} \to \R $ be a function. Take, $ a \in \Op{n} $, the directional derivative of $ f $ at $ a $ in the direction of $ u $ is
+  Let $ u \in \R^n $ (indicates a direction) be an unit vector and $ f:\Op{n} \to \R $ be a scalar-valued function. Take, $ a \in \Op{n} $, the directional derivative of $ f $ at $ a $ in the direction of $ u $ is defined as
   \begin{align*}
     \left( D_uf \right)\left( a \right) := \lim_{t\to 0}\frac{f(a+tu)-f\left( a \right)}{t}
   \end{align*}
-  provided the limit exists
+  the rate of change of $ f $ at $ a $ in the direction of $ u $, provided the limit exists.
 \end{Def}
 
 \begin{noteBox}
-  $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $
+  $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $, i.e., the partial derivatives are directional derivatives along the standard basis vectors.
 \end{noteBox}
 
+\begin{wrapfigure}[12]{r}{0.50\textwidth}
+  \centering
+  \subincfig{directional_derivative}
+  \caption{$ t \mapsto a + tu $}
+\end{wrapfigure}
+
 Now, consider the following
+
 \[\begin{tikzcd}
     t &&& {a+tu} &&& {f(a+tu)}
-    \arrow["\varphi", maps to, from=1-1, to=1-4]
+    \arrow["\phi", maps to, from=1-1, to=1-4]
     \arrow["f", maps to, from=1-4, to=1-7]
     \arrow["{\eta(t) = f(a+tu)}"', maps to, curve={height=30pt}, from=1-1, to=1-7]
   \end{tikzcd}\]
@@ -43,31 +50,36 @@ So,
   \boxed{\eta'(0) = \sum_{i=1}^{n}u_i\pdv{f}{x_i} \left( a \right) = \left( D_uf \right)\left( a \right)}
 \]
 
+
+
 \section{Gradient}
 
 \begin{Def}{Gradient}{}
-  Given, $ f:\Op{n}\to\R $ and $ x\in\Op{n} $
-  \begin{align*}
-    \nabla f(x) := \left\langle f_{x_1}(x), \ldots, f_{x_n}(x) \right\rangle
-  \end{align*}
-  provided $ f_{x_i} $ exists at $ a \ \forall i $
+  Given a scalar-valued function (a.k.a., scalar field) $ f:\Op{n}\to\R $ and $ x\in\Op{n} $, the Gradient of $ f $ at $ x $ is defined as
+  \[
+    \grad f(x) := \left\langle f_{x_1}(x), \ldots, f_{x_n}(x) \right\rangle
+  \]
+  the dual of the total derivative, i.e., $ Df(x)^t $, provided that all the partials $ f_{x_i} $ exists at $ x $.
 \end{Def}
 
-\textbf{\underline{Fact:}} Let, $ f:\Op{n}\to\R $ be differentiable at $ a $ and $ u\in\R^n $ then,
-\begin{align*}
-  \left( D_uf \right)(u) & = \left( \nabla f\right)\left( a \right)\cdot u \\ &= \left\langle \left( \nabla f \right)\left( a \right), u \right\rangle
-\end{align*}
+\begin{noteBox}
+  Let, $ f:\Op{n}\to\R $ be differentiable at $ a $ and $ u\in\R^n $ then,
+  \[
+    \left( D_uf \right)(a) = \left( \grad f\right)\left( a \right)\cdot u  = \left\langle \left( \grad f \right)\left( a \right), u \right\rangle  \tag{Standard inner product}
+  \]
+\end{noteBox}
 
-\textbf{Observe:} For a differentiable function $ f: \Op{n} \to \R $ at $ a $
+Observe that, for a differentiable function $ f: \Op{n} \to \R $ at $ a $
 \begin{align*}
-  \left( D_uf \right)\left( a \right) & = \left( \nabla f\right)\left( a \right)\cdot u                                                                                                         \\
-                                      & = \norm{\left( \nabla f\right)\left( a \right)}\cos{\theta_u} \tag{where, $\theta_u$ is angle between $\left( \nabla f\right)\left( a \right)$ and $u$}
+  \left( D_uf \right)\left( a \right)
+   & = \left( \grad f\right)\left( a \right)\cdot u                                                                                                        \\
+   & = \norm{\left( \grad f\right)\left( a \right)}\cos{\theta_u} \tag{where, $\theta_u$ is angle between $\left( \grad f\right)\left( a \right)$ and $u$}
 \end{align*}
-which tells us, The steepest slope is achieved when $ \theta_u \in \{0, \pi\} $, i.e., when $ u $ points along or opposite to the direction of $ \left( \nabla f\right)\left( a \right) $
-that means $ \max \left( D_uf \right)\left( a \right) $ is attained at $ \underbrace{u = \frac{\left( \nabla f\right)\left( a \right)}{\norm{\left( \nabla f\right)\left( a \right)}}}_{\text{provided } \norm{\left( \nabla f\right)\left( a \right)} \not=0 } $ (direction of the steepest slope).
+which tells us, The steepest slope is achieved when $ \theta_u \in \{0, \pi\} $, i.e., when $ u $ points along or opposite to the direction of $ \left( \grad f\right)\left( a \right) $
+that means $ \max \left( D_uf \right)\left( a \right) $ is attained at $ \underbrace{u = \frac{\left( \grad f\right)\left( a \right)}{\norm{\left( \grad f\right)\left( a \right)}}}_{\text{provided } \norm{\left( \grad f\right)\left( a \right)} \not=0 } $ (direction of the steepest slope).
 Hence, we get the following theorem,
 \begin{Thm}{}{}
-  Let $ f: \Op{n} \to \R $ be a differentiable function at $ a \in \Op{n} $ and suppose $ \left( \nabla f\right)\left( a \right) \not= 0 $ then the vector $\left( \nabla f\right)\left( a \right)$ points in the direction of the greatest increment of $ f $ at $ a $ with the greatest rate $ \norm{\left( \nabla f\right)\left( a \right)} $
+  Let $ f: \Op{n} \to \R $ be a differentiable function at $ a \in \Op{n} $ and suppose $ \left( \grad f\right)\left( a \right) \not= 0 $ then the vector $\left( \grad f\right)\left( a \right)$ points in the direction of the greatest increment of $ f $ at $ a $ with the greatest rate $ \norm{\left( \grad f\right)\left( a \right)} $
 \end{Thm}
 
 \section{Examples}
@@ -75,30 +87,32 @@ Hence, we get the following theorem,
 \begin{Eg}{}{}
   Find the directional derivative of $ f(x,y,z) = x^2yz $ along $ \langle 1,1,-1 \rangle $ at $ a = (1,1,0) $.
 
-  \textit{Sol.} We have the unit vector $ u = \frac{\langle 1,1,-1 \rangle}{\norm{\langle 1,1,-1 \rangle}} = \left\langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}} \right\rangle $. So,
+  \textit{Solution.} We have the unit vector $ u = \frac{\langle 1,1,-1 \rangle}{\norm{\langle 1,1,-1 \rangle}} = \left\langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}} \right\rangle $. So,
   \begin{align*}
-    \left( D_uf \right)\left( a \right) & = \left( \nabla f\right)\left( a \right)\cdot u                                                   \\
-                                        & = \begin{bmatrix} 2xyz & x^2z & x^2y \end{bmatrix}
+    \left( D_uf \right)\left( a \right)
+     & = \left( \grad f\right)\left( a \right)\cdot u                                                                                       \\
+     & = \begin{bmatrix} 2xyz & x^2z & x^2y \end{bmatrix}
     \begin{bmatrix} \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}} \end{bmatrix} \\
   \end{align*}
-  Therefore, $ \left( D_uf \right)(1,1,0) = -\frac{1}{\sqrt{3}} $ and hence maximum value of $ \left( D_uf \right)(1,1,0) $ is $ \norm{\left( \nabla f\right)(1,1,0)} $ along the unit vector $ \langle 0,0,1 \rangle $.
+  Therefore, $ \left( D_uf \right)(1,1,0) = -\frac{1}{\sqrt{3}} $ and hence maximum value of $ \left( D_uf \right)(1,1,0) $ is $ \norm{\left( \grad f\right)(1,1,0)} $ along the unit vector $ \langle 0,0,1 \rangle $.
 \end{Eg}
 
-\begin{Eg}{}{}
+\begin{Eg}{}{cts:pde:ndiff}
   Take,
   \[ f(x,y) = \begin{cases}
       \frac{x^2y}{x^2+y^2} & (x,y) = (0,0)     \\
       0                    & (x,y) \not= (0,0)
     \end{cases} \]
-  then $ \left| f(x,y) - f(0,0) \right| = \left| \frac{x^2y}{x^2+y^2} \right| \leq |y| \leq \norm{(x,y)} \implies f $ is continuous at $ (0,0) $. Now, fix $ u = \langle u_1, u_2 \rangle $ with $ \norm{u} = 1 $. We get,
+  then $ \left| f(x,y) - f(0,0) \right| = \left| \frac{x^2y}{x^2+y^2} \right| \leq |y| \leq \norm{(x,y)} $ implies that $ f $ is continuous at $ (0,0) $. Now, fix $ u = \langle u_1, u_2 \rangle $ with $ \norm{u} = 1 $. We get,
   \begin{align*}
-    \left( D_uf \right)(0,0) & = \lim_{t\to 0} \frac{f(tu)- 0}{t}                        \\
-                             & =\lim_{t\to 0} \frac{1}{t}\cdot\frac{tu_1^2u_2}{1}        \\
-                             & = u_1^2u_2 \not= 0 \tag{Because, $ u $ is an unit vector}
+    \left( D_uf \right)(0,0)
+     & = \lim_{t\to 0} \frac{f(tu)- 0}{t}                        \\
+     & =\lim_{t\to 0} \frac{1}{t}\cdot\frac{tu_1^2u_2}{1}        \\
+     & = u_1^2u_2 \not= 0 \tag{Because, $ u $ is an unit vector}
   \end{align*}
-  If we assume $ f $ to be differentiable then $ \left( \nabla f \right)(0,0) \cdot \begin{bmatrix} u_1 \\ u_2  \end{bmatrix} = 0 \not= u_1^2u_2 $ which contradicts the differentiability of $ f $.
+  If we assume $ f $ to be differentiable then $ \left( \grad f \right)(0,0) \cdot \begin{bmatrix} u_1 \\ u_2  \end{bmatrix} = 0 \not= u_1^2u_2 $ which is a contradiction!
 \end{Eg}
 
-So, we can conclude that, even if $ f $ is continuous, has both partial and directional derivative, it may still not be differentiable!
+Example \ref{eg:cts:pde:ndiff} shows that, the existence of all partial and directional derivatives at a point fails to imply differentiability at that point.
 
 \end{document}

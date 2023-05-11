@@ -24,7 +24,7 @@
 Evaluating the LHS gives,
 \begin{align*}
     \int_c \grad f\cdot d\vec{r}
-     & \overset{\mathrm{(1)}}{=} \int_a^b \nabla f(r(t)) \cdot r'(t) dt      \\
+     & \overset{\mathrm{(1)}}{=} \int_a^b \grad f(r(t)) \cdot r'(t) dt       \\
      & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
      & =\int_a^b \dv{t}(f(r(t))) dt                                          \\
      & = f(r(b)) - f(r(a))                                                   \\

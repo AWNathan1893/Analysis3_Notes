@@ -1,4 +1,5 @@
 \documentclass[../Analysis-3]{subfiles}
+\myexternaldocument{Lec-12}
 
 \begin{document}
 \chapter*{Lecture 13} %Set chapter name
@@ -6,190 +7,146 @@
 \setcounter{chapter}{13} %Set chapter counter
 \setcounter{section}{0}
 
-\section{Recall (Taylor's Theorem for one variable)}
-
-Let, $ f : \Op{n} \to \R $ be $C^k \ (k \in \N)$
-
-\begin{Def}{Taylor's Polynomial}{}
+\section{Taylor's Theorem}
+Recall, Taylor's theorem for one variable.
+\begin{Def}{Taylor's Polynomial}{1:taylor:poly}
+    Let, $ f : \Op{n} \to \R $ be $C^k \ (k \in \N)$. Then
     \[ p_{a,k}(a+h) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} h^{n} \ \forall\ a+h \in \Op{1} \]
     is called the \textbf{Taylor's Polynomial} of $f$ around $a$.
 \end{Def}
 
-\textbf{Question.} ``$f(x) \thickapprox  p_{a,k}(x);\ x$ close to $a$''?
-\begin{align*}
-    p_{a,k}(x) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} (x-a)^{n}
-\end{align*}
-And take, $f(x) - p_{a,k}(x) = r_{a,k}(x)$
+\textbf{Question.} ``Is $f(x) \thickapprox  p_{a,k}(x)$, for $x$ close to $a$''?
 
-\begin{Thm}{Taylor's Theorem}{}
-    Let $ f: \Op{1} \to \R $ be $C^{k+1}$
-    \[ f(x) = p_{a,k}(x) + r_{a,k}(x) \]
-    where, \[r_{a,k} = \frac{f^{k+1}(c)}{(k+1)!} (x-a)^{k+1} \hspace{5mm} \text{for some $c$ in between $a$ and $x \in \Op{1}$ }\]
+We have,
+\[  p_{a,k}(x) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} (x-a)^{n} \]
+Take, $f(x) - p_{a,k}(x) = r_{a,k}(x)$
+
+\begin{Thm}{Taylor's Theorem}{taylor}
+    Let $ f: \Op{1} \to \R $ be $C^{k+1}$. Then, $f(x) = p_{a,k}(x) + r_{a,k}(x)$ where,
+    \[r_{a,k} = \frac{f^{k+1}(c)}{(k+1)!} (x-a)^{k+1}\]
+    for some $c$ in between $a$ and $x \in \Op{1}$.
 \end{Thm}
 
-\
+We will use the following notation in the context of multivariable Taylor expansion.
 
 \begin{notnBox}{}{}
-    
-\begin{itemize}
-  \item  $\alpha = ( \alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{+}^{n}$ \\
-  \item $ |\alpha| = \sum_{i = 1}^{n} \alpha_i $ \\
-  \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ \\
-  \item $ \partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}$ \\
-  \item $ h^{\alpha} = {h_1}^{\alpha_1} \cdots {h_n}^{\alpha_n}$
+    We take, $\alpha = (\alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{\geq 0}^{n}$ and denote
+    \begin{itemize}
+        \item $|\alpha| = \sum_{i = 1}^{n} \alpha_i = \alpha\bb{1}$
+        \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ (product of coordinate-wise factorials)
+    \end{itemize}
+    We will denote the $ \alpha^{\text{th}} $ derivative as, $\displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}$
 
-\end{itemize}
-
-
-
+    and $ \alpha^{\text{th}} $ power of $ h $ as the product of coordinate-wise powers, $h^{\alpha} = {h_1}^{\alpha_1} \cdots {h_n}^{\alpha_n}$
+    \begin{itemize}
+        \item $\displaystyle\div h = \sum_{i=1}^n h_i\frac{\partial}{\partial x_i}$
+        \item $\displaystyle(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}$
+    \end{itemize}
 \end{notnBox}
 
-\begin{Thm}{Taylor's Theorem in Multivariate Case}{}
-    Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function (Assume, $\Op{n}$ is convex). If $h, a + h \in \Op{n} $ , then 
-    \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h)   \] 
+
+\begin{Thm}{Taylor's Theorem in Multivariate Case}{taylor:multi}
+    Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function (Assume, $\Op{n}$ is convex). If $h, a + h \in \Op{n} $, then
+    \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h) \]
     where, \[ r_{a,k} (h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a + c h) h^{\alpha} \hspace{5mm} \text{for some $c \in (0,1)$} \]
-    
 \end{Thm}
 
 \begin{proof}
+    Define, $ \eta:[0,1] \to \R $ as $ \eta(t) = f(a+th) $
+    \[\begin{tikzcd}
+            t &&& {a+th} &&& {f(a+th)}
+            \arrow[from=1-1, to=1-4]
+            \arrow[from=1-4, to=1-7]
+            \arrow["\large{\eta}"', curve={height=30pt}, from=1-1, to=1-7]
+        \end{tikzcd}\]
 
-\[\begin{tikzcd}
-        {[0,1]} &&& {\mathcal{O}_n} &&& {\mathbb{Z}} \\
-        t &&& {a+th} &&& {f(a+th)}
-        \arrow[from=1-1, to=1-4]
-        \arrow["f", from=1-4, to=1-7]
-        \arrow[from=2-1, to=2-4]
-        \arrow[from=2-4, to=2-7]
-        \arrow["\large{\eta}"', curve={height=30pt}, from=2-1, to=2-7]
-\end{tikzcd}\]
+    which implies $\eta$ is a $C^{k+1}$ function around $0$.
 
-$\therefore$ $\eta$ is a $C^{k+1}$ at $0$ .
+    \[  \therefore \eta'(t) = \grad f(a+th)\cdot h = (\div h)f(a+th)   \]
 
-$\eta (t) = f(a+th) \hspace{3mm} \forall t \in [0,1]$
+    \begin{clmBox}{}
+        \[ \eta^{(m)}(t) = (\div h)^m f (a+th) \ \forall\ m \in \qty{0,1,\ldots,k+1} \]
+        where, \[(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha} \tag{as notation} \]
+    \end{clmBox}
+    \begin{proof}
+        The first derivative of $\eta$,
+        \[  \eta'(t) = \grad f (a+th) \cdot h = \sum_{i=1}^n f_{x_i} (a+th) h_i \]
+        which we use to compute the second derivative,
+        \begin{align*}
+            \eta''(t)
+             & = \dv{t}\left(\sum_{i=1}^n f_{x_i} (a+th) h_i\right)                               \\
+             & = \sum_{i=1}^n \dv{t}\left( f_{x_i} (a+th) h_i\right)                              \\
+             & = \sum_{i=1}^n h_i \sum_{j=1}^n f_{x_ix_j} (a+th) h_j \tag{Chain rule of partials} \\
+             & = \sum_{i,j=1}^n h_i h_jf_{x_ix_j} (a+th)                                          \\
+             & = (\div h)^2 f (a+th)
+        \end{align*}
+        Proceeding with induction on the order of the derivative, we get $\eta^{(m)}(t) = (\div h)^m f (a+th)$ for all $0 \leq m \leq k+1$ which is our claim.
+    \end{proof}
+    By one-variable Taylor's Theorem,
+    \begin{equation}\label{eq:taythmineta}
+        \eta(1) = p_{0,k}(1) + r_{0,k} (c) \text{   for some $c \in (0,1)$}
+    \end{equation}
 
-\begin{align*}
-    \therefore \eta'(t) &= \nabla f (a+th) . h \\
-     &= (\nabla . h) f(a+th)  \hspace{1cm} \text{where $\nabla . h = \sum_{i=1}^n \frac{\partial}{\partial x_i} h_i$}
-\end{align*}
+    with \begin{equation}
+        p_{0,k}(1) = \eta(0) + \frac{\eta '(0)}{1!} + \cdots + \frac{\eta^{(k)}(0)}{k!}
+    \end{equation} and
+    \begin{equation}
+        r_{0,k} (c) = \frac{\eta^{(k+1)}(c)}{(k+1)!}
+    \end{equation}
 
-\begin{clmBox}{}
-    $\eta^{(m)}(t) = (\nabla . h)^m f (a+th) \hspace{1cm} \forall 0 \leq m \leq k+1 \hspace{1cm}$   
-    
-    \
-    
-    where, \[(\nabla . h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}\]
-\end{clmBox} 
-
-\begin{align*}
-    \eta'(t) &= \nabla f (a+th) . h \\
-    &= \sum_{i=1}^n f_{X_i} (a+th) h_i
-\end{align*}
-
-\begin{align*}
-    \implies \eta''(t) &= \frac{d}{dt}\left(\sum_{i=1}^n f_{X_i} (a+th) h_i\right) \\
-    &= \sum_{i=1}^n \left[\frac{d}{dt}\left( f_{X_i} (a+th) h_i\right)\right] \\
-    &= \sum_{i=1}^n h_i \sum_{j=1}^n f_{X_i X_j} (a+th) h_j \\
-    &= \sum_{i,j=1}^n h_i h_jf_{X_i X_j} (a+th) \\
-    &= (\nabla . h)^2 f (a+th)
-\end{align*}
-
-So, by induction, $\eta^{(m)}(t) = (\nabla . h)^m f (a+th) \hspace{1cm} 0 \leq m \leq k+1 $
-
-\
-
-where, \[(\nabla . h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}\]
-
-By One variable Taylor's Theorem, 
-\[ \eta(1) = p_{0,k}(1) + r_{0,k} (c) \hspace{1cm} \text{for some  } c \in (0,1) \]
-
-Now, \[ p_{0,k}(1) = \eta(0) + \frac{\eta '(0)}{1!} + \ldots + \frac{\eta^{(k)}(0)}{k!}\]
-\[ r_{0,k} (c) = \frac{\eta^{(k+1)}(c)}{(k+1)!} \]
-
-By substituting $\eta^{(m)}(t)$ in this , we can prove that :-
-\[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h) \]
+    Substituting $\eta^{(m)}(t)$ s in (\ref{eq:taythmineta}), we have,
+    \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^{\alpha} f ) (a) h^{\alpha} + r_{a,k} (h) \]
 \end{proof}
 
-\begin{Eg}{For $n=2$}{}
- $f : \mathcal{O}_2 \to \R$ be a $C^2$ function.
- \[ f(a+h) = f(a) + \left(\nabla f(a)\right).h + \frac{1}{2}h^t H_f(a+ch)h \label{eq_pj} \tag{*} \]
-
- where, \[ H_f =  \begin{bmatrix}
-    f_{X X}(a) & f_{X Y}(a) \\
-    f_{X Y}(a) & f_{Y Y}(a)
- \end{bmatrix} \]
-\end{Eg}
+\begin{noteBox}
+    ($n=2$ case) Let $f : \Op{2} \to \R$ be a $C^2$ function. Then,
+    \begin{equation}\label{eq:pj:n2:tp}
+        f(a+h) = f(a) + \grad f(a)\cdot h + \frac{1}{2}h^t H_f(a+ch)h
+    \end{equation} where,
+    \[ H_f(a) = \begin{bmatrix}
+            f_{xx}(a) & f_{xy}(a) \\
+            f_{xy}(a) & f_{yy}(a)
+        \end{bmatrix} \]
+\end{noteBox}
 
 \begin{Thm}{Extremum}{}
-Let $f : \mathcal{O}_2 \to \R$ be a $C^2$ function on $\mathcal{O}_2$ \\ 
-Let $Df(a) = 0$ , write \[ H_f =  \begin{bmatrix}
-    f_{X X}(a) & f_{X Y}(a) \\
-    f_{X Y}(a) & f_{Y Y}(a)
- \end{bmatrix} \] \\ 
- Then, \begin{enumerate}
-    \item $f(a)$ is a local maximum if $f_{X X} (a) < 0$ and $|H_f(a)| > 0$ \\
-    \item $f(a)$ is a local minimum if $f_{X X} (a) > 0$ and $|H_f(a)| > 0$ \\
-    \item $a$ is a saddle point if $|H_f(a)| < 0$
- \end{enumerate}
+    Let $f : \Op{2} \to \R$ be a $C^2$ function such that $Df(a) = 0$. We write \[ H_f(a) =  \begin{bmatrix}
+            f_{xx}(a) & f_{xy}(a) \\
+            f_{xy}(a) & f_{yy}(a)
+        \end{bmatrix} \]
+    Then, \begin{enumerate}[label=(\roman*)]
+        \item $f(a)$ is a local maximum if $f_{xx} (a) < 0$ and $|H_f(a)| > 0$
+        \item $f(a)$ is a local minimum if $f_{xx} (a) > 0$ and $|H_f(a)| > 0$ \label{extremum:2}
+        \item $a$ is a saddle point if $|H_f(a)| < 0$
+    \end{enumerate}
 \end{Thm}
 
-\begin{proof} \vspace{3mm}
-    $\exists r > 0 $ such that $a+h \in B_r(a) \subseteq \mathcal{O}_2$ \\ 
-    By $\eqref{eq_pj}$ , \[ f(a+h) - f(a) = \left(\nabla f(a)\right).h + \frac{1}{2}h^t H_f(a+ch)h \] 
+\begin{proof}
+    As $ a $ is an interior point of $ \Op{2} $ we can get an $ r > 0 $ such that $ a, a+h \in B_r(a) \subseteq \Op{2}$. By $\eqref{eq:pj:n2:tp}$, \[ f(a+h) - f(a) = \grad f(a) \cdot h + \frac{1}{2}h^t H_f(a+ch)h \]
 
-\underline{To prove No (2) :-}
-
-\
-
-Assumptions $\implies$ $H_f(a)$ is positive definite
-
-Hence, by the lemma , $H_f(x)$ is positive definite $\forall x \in$ nbd of $a$
-
-$\implies h^t H_f(x) h > 0 \hspace{1cm} \forall h \neq 0$
-
-$\implies f(x) - f(a) >0 \hspace{1cm} \forall x$ in a nbd of $a$
-
-$\implies$ $f(a)$ is a local minimum.
+    \ref{extremum:2}: Our assumptions tell that $H_f(a)$ is positive definite. Hence, by the Lemma \ref{lem:hessian:nbd}, there exist $ \epsilon > 0 $ such that $H_f(x)$ is positive definite $\forall\ x \in B_{\epsilon}(a)$. So for every $ x \in B_{\epsilon}(a) $ the quadratic form $ h^t H_f(x) h > 0 $ with $ h \neq 0 $ which implies $ f(x) - f(a) > 0 $ in $ B_{\epsilon}(a) $ that means $a$ is a point of local minimum.
 
 \end{proof}
 
 \begin{Eg}{}{}
-    Find the critical Points and discuss the nature of the function \[ f(x,y) = x^3 - 6x^2 - 8y^2 \]
+    Find the critical points and discuss the nature of the function \[ f(x,y) = x^3 - 6x^2 - 8y^2 \]
+    \textit{Solution.} Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations
+    \[ 3x^2 - 12x = 0 \text{  and  }  -16y = 0\]
+    whose solution set is $ \qty{(0,0),(4,0)} $ implying that $(0,0), (4,0)$ are critical points.
 
- \textbf{Solution :-}  
- \begin{align*}
-    & \nabla f = 0 \\
-    \implies & f_X = 3x^2 - 12x = 0 \text{  and  } f_Y = -16y = 0 \\
-    \implies x = 0 , 4 \text{  and  } y = 0
- \end{align*}
-
-$\therefore  (0,0) , (4,0)  $ are stationary points.
-
-Also, \[ f_{X X} = 6x - 12 \text{  and  } f_{Y Y} = -16 \]
-
-\[ |H_f(0,0)| =  \begin{vmatrix}
-    -12 & 0 \\
-    0 & -16
- \end{vmatrix} > 0 \text{  and  } f_{X X}(0,0) = -12 < 0\]
-
-Hence, $(0,0)$ is a local maximum.
-
-\[ |H_f(4,0)| =  \begin{vmatrix}
-        12 & 0 \\
-        0 & -16
- \end{vmatrix} < 0 \]    
-
- Hence, $(4,0)$ is a saddle point.
+    The 2nd derivatives are, \[ f_{xx}(x,y) = 6x - 12,\ f_{yy}(x,y) = -16 \text{ and } f_{xy}(x,y) = 0 \]
+    Now, we compute the determinant of the hessian at these points to tell their nature. For $(0,0)$,
+    \[ |H_f(0,0)| =  \begin{vmatrix}
+            -12   & \ \ 0 \\
+            \ \ 0 & -16
+        \end{vmatrix} > 0 \text{  and  } f_{xx}(0,0) = -12 < 0\]
+    So, $f$ has a local maximum at $(0,0)$. And at $(4,0)$,
+    \[ |H_f(4,0)| =  \begin{vmatrix}
+            12 & \ \ 0 \\
+            0  & -16
+        \end{vmatrix} < 0 \]
+    which shows that $(4,0)$ is a saddle point.
 \end{Eg}
-
-
-
-
-
-
-
-
-
-
 
 
 \end{document}

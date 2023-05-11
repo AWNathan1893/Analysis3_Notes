@@ -123,12 +123,12 @@ Usually computation of $\int_S \vec{F} \cdot \dd \vec{S}$ is complicated, let us
     \end{align*}
 \end{Eg}
 
-We already know that $\int_{\mathcal{C}} \nabla f \cdot \dd r = f(B) - f(A)$, now a natural question that arises is
+We already know that $\int_{\mathcal{C}} \grad f \cdot \dd r = f(B) - f(A)$, now a natural question that arises is
 
-\textbf{Question:} Given $\vec{F}$ does there exist $f$ a scalar field such that $\nabla f = \vec{F}$ ?
+\textbf{Question:} Given $\vec{F}$ does there exist $f$ a scalar field such that $\grad f = \vec{F}$ ?
 
 \begin{Def}{Conservative Vector Field}{}
-    A vector field $\vec{F}$ on $\mathcal{O}_n$ is called \textbf{conservative} if there exists a scalar field $f \in C^1(\mathcal{O}_n)$ such that $\nabla f = \vec{F}$, then $f$ is called the \textbf{potential function}.
+    A vector field $\vec{F}$ on $\mathcal{O}_n$ is called \textbf{conservative} if there exists a scalar field $f \in C^1(\mathcal{O}_n)$ such that $\grad f = \vec{F}$, then $f$ is called the \textbf{potential function}.
 \end{Def}
 
 \begin{Thm}{}{27:1}
@@ -142,7 +142,7 @@ We already know that $\int_{\mathcal{C}} \nabla f \cdot \dd r = f(B) - f(A)$, no
 
 \textbf{Question:} Given a vector field $\vec{F}$, can we conclude $\vec{F}$ is conservative? (NO!)
 
-We will give a general picture for the most common case, when $n = 3$. Let $\vec{F} = (P,Q,R)$ where $P,Q,R$ are scalar fields. Now if $\vec{F} = \nabla f$ for some scalar field $f$, then we would have
+We will give a general picture for the most common case, when $n = 3$. Let $\vec{F} = (P,Q,R)$ where $P,Q,R$ are scalar fields. Now if $\vec{F} = \grad f$ for some scalar field $f$, then we would have
 \begin{align}\label{eq1:27}
      & f_x \equiv \pdv{f}{x} = P \\
      & f_y \equiv \pdv{f}{y} = Q \\
@@ -195,7 +195,7 @@ Then expanding this out and using the relations $\ref{eq1:27}$ and others we get
                                                & = \int_0^{2\pi} \dd t                                            \\
                                                & = 2\pi
     \end{align*}
-    But $\mathcal{C}$ is clearly a closed curve, hence by theorem $\ref{th:27:1}$ we must have $\int_{\mathcal{C}} \vec{F} \cdot \dd r = 0$. (Contradiction!)
+    But $\mathcal{C}$ is clearly a closed curve, hence by Theorem \ref{th:27:1} we must have $\int_{\mathcal{C}} \vec{F} \cdot \dd r = 0$. (Contradiction!)
 \end{Eg}
 
 \section{Green's Theorem}

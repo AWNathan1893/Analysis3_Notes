@@ -32,7 +32,7 @@ Now let's look at some examples of change of variables.
             \sin\theta & r\cos\theta
         \end{bmatrix} \Rightarrow \det(J_{\varphi}(r,\theta)) = r
     \]
-    Thus $\det(J_{\varphi}(r,\theta)) \neq 0 \Leftrightarrow r \neq 0$. So consider $\mathcal{O}_2 := (0,\infty) \times (0,2\pi)$. Then $\varphi\vert_{\mathcal{O}_2} : \mathcal{O}_2 \to \R^2$ is $C^1$ and injective function and $\det(J_{\varphi}(r,\theta)) \neq 0 $ on $\mathcal{O}_2$. Now given $0 < r_1 < r_2$ and $0 < \theta_1 < \theta_2 < 2\pi$, set $\Omega = (r_1, r_2) \times (\theta_1, \theta_2)$, then clearly $\partial \Omega$ is of content zero (since it is union of finitely many line segments). Thus using theorem $\ref{th:21:1}$ we get that, for $f \in \mathscr{R}(\varphi(\Omega))$ we have
+    Thus $\det(J_{\varphi}(r,\theta)) \neq 0 \Leftrightarrow r \neq 0$. So consider $\mathcal{O}_2 := (0,\infty) \times (0,2\pi)$. Then $\varphi\vert_{\mathcal{O}_2} : \mathcal{O}_2 \to \R^2$ is $C^1$ and injective function and $\det(J_{\varphi}(r,\theta)) \neq 0 $ on $\mathcal{O}_2$. Now given $0 < r_1 < r_2$ and $0 < \theta_1 < \theta_2 < 2\pi$, set $\Omega = (r_1, r_2) \times (\theta_1, \theta_2)$, then clearly $\partial \Omega$ is of content zero (since it is union of finitely many line segments). Thus using Theorem \ref{th:21:1} we get that, for $f \in \mathscr{R}(\varphi(\Omega))$ we have
     \begin{align*}
         \int_{\varphi(\Omega)} f & = \int_{\Omega} (f \circ \varphi) |\det (J_{\varphi}(r,\theta))|                                 \\
                                  & = \int_{\Omega} r f(r\cos\theta, r\sin\theta)                                                    \\
@@ -120,7 +120,7 @@ Next up, we look at another very commonly used trick, changing to spherical coor
     \]
 
 
-    And hence $\det(J_{\varphi}(r,\phi,\theta)) = r^2 \sin \phi$, thus in the given domain $\det(J_{\varphi}(r,\phi,\theta)) \neq 0$, and hence since $\varphi$ is injective and $C^1$ function, we can use theorem $\ref{th:21:1}$ to transform from Cartesian to spherical coordinates. For clarity let's look at an application of spherical coordinates.
+    And hence $\det(J_{\varphi}(r,\phi,\theta)) = r^2 \sin \phi$, thus in the given domain $\det(J_{\varphi}(r,\phi,\theta)) \neq 0$, and hence since $\varphi$ is injective and $C^1$ function, we can use Theorem \ref{th:21:1} to transform from Cartesian to spherical coordinates. For clarity let's look at an application of spherical coordinates.
 
     \
 
