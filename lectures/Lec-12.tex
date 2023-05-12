@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 12} %Set chapter name
@@ -9,106 +9,106 @@
 \section{Hessian Matrix}
 
 \begin{Def}{Hessian}{}
-    Suppose $f : \Op{n} \to \R$ is $C^2$ at $a \in \Op{n} $. The $\textbf{Hessian of $f$ at $a$}$ is defined by, \[ H_f(a) = \left[ \pdv{f}{x_i}{x_j}\left( a \right) \right]_{n \times n} \]
+  Suppose $f : \Op{n} \to \R$ is $C^2$ at $a \in \Op{n} $. The $\textbf{Hessian of $f$ at $a$}$ is defined by, \[ H_f(a) = \left[ \pdv{f}{x_i}{x_j}\left( a \right) \right]_{n \times n} \]
 \end{Def}
 
 \[ H_{f} = \begin{bmatrix}
-        \pdv[2]{f}{x_1}   & \pdv{f}{x_1}{x_2} & \ldots & \pdv{f}{x_1}{x_n} \\
-        \pdv{f}{x_2}{x_1} & \pdv[2]{f}{x_2}   & \ldots & \pdv{f}{x_2}{x_n} \\
-        \vdots            & \vdots            & \ddots & \vdots            \\
-        \pdv{f}{x_n}{x_1} & \pdv{f}{x_n}{x_2} & \ldots & \pdv[2]{f}{x_n}
-    \end{bmatrix} \]
+    \pdv[2]{f}{x_1}   & \pdv{f}{x_1}{x_2} & \ldots & \pdv{f}{x_1}{x_n} \\
+    \pdv{f}{x_2}{x_1} & \pdv[2]{f}{x_2}   & \ldots & \pdv{f}{x_2}{x_n} \\
+    \vdots            & \vdots            & \ddots & \vdots            \\
+    \pdv{f}{x_n}{x_1} & \pdv{f}{x_n}{x_2} & \ldots & \pdv[2]{f}{x_n}
+  \end{bmatrix} \]
 
 \begin{noteBox}
-    For any $ f \in C^n $, its hessian is a symmetric matrix, i.e., $H_f = {H_f}^t$
+  For any $ f \in C^n $, its hessian is a symmetric matrix, i.e., $H_f = {H_f}^t$
 \end{noteBox}
 
 \begin{Eg}{}{}
-    Let, $f : \R^2 \to \R$ be a function defined by $f(x,y) = \sin^2 x + x^2y + y^2$. Then,
-    \[Df = \begin{bmatrix}
-            \sin2x + 2xy & x^2 + 2y
-        \end{bmatrix} :  \R^2 \to \R \quad \text{is linear.} \]
-    Gradient, \[\grad f = \left\langle \sin2x + 2xy, x^2 + 2y \right\rangle \in \R^2 \]
+  Let, $f : \R^2 \to \R$ be a function defined by $f(x,y) = \sin^2 x + x^2y + y^2$. Then,
+  \[Df = \begin{bmatrix}
+      \sin2x + 2xy & x^2 + 2y
+    \end{bmatrix} :  \R^2 \to \R \quad \text{is linear.} \]
+  Gradient, \[\grad f = \left\langle \sin2x + 2xy, x^2 + 2y \right\rangle \in \R^2 \]
 
-    \[ H_f = \begin{bmatrix}
-            f_{xx} & f_{xy} \\
-            f_{xy} & f_{yy}
-        \end{bmatrix} = \begin{bmatrix}
-            2( \cos2x + y) & 2x \\
-            2x             & 2
-        \end{bmatrix} \quad [ \because  f \in C^2] \]
+  \[ H_f = \begin{bmatrix}
+      f_{xx} & f_{xy} \\
+      f_{xy} & f_{yy}
+    \end{bmatrix} = \begin{bmatrix}
+      2( \cos2x + y) & 2x \\
+      2x             & 2
+    \end{bmatrix} \quad [ \because  f \in C^2] \]
 
 \end{Eg}
 
 \begin{notnBox}
-    Given $A = \left( a_{ij} \right)_{n\times n} \in M_n(\R)$ and $ x \in \R^n $ we denote $ Q_A(x) $  by,
-    \[ Q_A(x) = x^tAx = {\left\langle Ax, x \right\rangle}_{\R^n} = {\begin{bmatrix}
-            x_1 & x_2 & \ldots & x_n
-        \end{bmatrix} \begin{bmatrix}
-             &        & \\
-             & a_{ij} & \\
-             &        &
-        \end{bmatrix} \begin{bmatrix}
-            x_1    \\
-            x_2    \\
-            \vdots \\
-            x_n
-        \end{bmatrix}} \]
-    i.e.,   \[ Q_A(x) = \sum_{i,j = 1}^{n} a_{ij} x_i x_j  \]
+  Given $A = \left( a_{ij} \right)_{n\times n} \in M_n(\R)$ and $ x \in \R^n $ we denote $ Q_A(x) $  by,
+  \[ Q_A(x) = x^tAx = {\left\langle Ax, x \right\rangle}_{\R^n} = {\begin{bmatrix}
+      x_1 & x_2 & \ldots & x_n
+    \end{bmatrix} \begin{bmatrix}
+       &        & \\
+       & a_{ij} & \\
+       &        &
+    \end{bmatrix} \begin{bmatrix}
+      x_1    \\
+      x_2    \\
+      \vdots \\
+      x_n
+    \end{bmatrix}} \]
+  i.e.,   \[ Q_A(x) = \sum_{i,j = 1}^{n} a_{ij} x_i x_j  \]
 \end{notnBox}
 
 
 \begin{Def}{Quadratic Form}{quadform}
-    A function $f : \R^n \to \R$ is called a $\textbf{Quadratic Form}$ if $f(x) = Q_A(x) \ \forall\ x $ and for some symmetric $A \in M_n(\R)$
+  A function $f : \R^n \to \R$ is called a $\textbf{Quadratic Form}$ if $f(x) = Q_A(x) \ \forall\ x $ and for some symmetric $A \in M_n(\R)$
 \end{Def}
 
 A Quadratic Form is a homogeneous polynomial of degree 2.
 
 If $p(x,y) = a_1 x^2 + a_2 y^2 + a_{12} xy$
 is a bivariate homogeneous polynomial of degree 2 then taking, $A = \begin{bmatrix}
-        a_1                & \frac{1}{2} a_{12} \\
-        \frac{1}{2} a_{12} & a_2
-    \end{bmatrix}$ we get $p = Q_A$.
+    a_1                & \frac{1}{2} a_{12} \\
+    \frac{1}{2} a_{12} & a_2
+  \end{bmatrix}$ we get $p = Q_A$.
 
 \begin{Def}{Positive Definite, Negative Definite, Semi Definite}{}
-    \begin{itemize}
-        \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Positive Definite} if \[ \left\langle Ax, x \right\rangle > 0 \ \forall\ x \in \R^n \backslash \{0\} \]
-        \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Negative Definite} if \[ \left\langle Ax, x \right\rangle < 0 \ \forall\ x \in \R^n \backslash \{0\} \]
-        \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Semi Definite} if \[ \left\langle Ax, x \right\rangle \geq 0 \ \forall\ x \in \R^n \backslash \{0\} \]
-    \end{itemize}
+  \begin{itemize}
+    \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Positive Definite} if \[ \left\langle Ax, x \right\rangle > 0 \ \forall\ x \in \R^n \backslash \{0\} \]
+    \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Negative Definite} if \[ \left\langle Ax, x \right\rangle < 0 \ \forall\ x \in \R^n \backslash \{0\} \]
+    \item A symmetric matrix $A \in M_n(\R)$ is called \textbf{Semi Definite} if \[ \left\langle Ax, x \right\rangle \geq 0 \ \forall\ x \in \R^n \backslash \{0\} \]
+  \end{itemize}
 \end{Def}
 
 \begin{Eg}{}{}
-    \begin{enumerate}
-        \item  $I_n$ is positive definite as $\left\langle I_nx, x \right\rangle = {\|x \|}^2 > 0 \quad \forall\ x \in \R^n \backslash \{0\}$
-        \item $A = B^tB$ for some $B \in M_n{\R}$
-              \begin{align*}
-                  \left\langle Ax,x \right\rangle & = \left\langle B^tBx,x \right\rangle                                    \\
-                                                  & = x^tB^tBx                                                              \\
-                                                  & = {(Bx)}^t Bx = {\| Bx \|}^2 \quad \forall\ x \in \R^n \backslash \{0\}
-              \end{align*}
-              Hence, \[ \left\langle Ax,x \right\rangle \geq 0 \]
+  \begin{enumerate}
+    \item  $I_n$ is positive definite as $\left\langle I_nx, x \right\rangle = {\|x \|}^2 > 0 \quad \forall\ x \in \R^n \backslash \{0\}$
+    \item $A = B^tB$ for some $B \in M_n{\R}$
+          \begin{align*}
+            \left\langle Ax,x \right\rangle & = \left\langle B^tBx,x \right\rangle                                    \\
+                                            & = x^tB^tBx                                                              \\
+                                            & = {(Bx)}^t Bx = {\| Bx \|}^2 \quad \forall\ x \in \R^n \backslash \{0\}
+          \end{align*}
+          Hence, \[ \left\langle Ax,x \right\rangle \geq 0 \]
 
-              Now, if $ \left\langle Ax,x \right\rangle = 0 $, then  $x$ is kernel of $B$. \\
-              Now, if $A$ is positive definite, there is no such $x$, hence, columns of $B$ are linearly independent. \\
-              In general, $A$ is \textbf{Positive Semi Definite} (``$\Longleftarrow$'' also holds)
+          Now, if $ \left\langle Ax,x \right\rangle = 0 $, then  $x$ is kernel of $B$. \\
+          Now, if $A$ is positive definite, there is no such $x$, hence, columns of $B$ are linearly independent. \\
+          In general, $A$ is \textbf{Positive Semi Definite} (``$\Longleftarrow$'' also holds)
 
-        \item $\begin{bmatrix}
-                      1 & 0  \\
-                      0 & -1
-                  \end{bmatrix} \longrightarrow Q_A = {x_1}^2 - {x_2}^2 \longrightarrow $, i.e., \textbf{indefinite}
-        \item  $\begin{bmatrix}
-                      1 & 0 \\
-                      0 & 0
-                  \end{bmatrix} \longrightarrow Q_A = {x_1}^2 \geq 0 \longrightarrow $, i.e., \textbf{Positive Semi Definite}
+    \item $\begin{bmatrix}
+              1 & 0  \\
+              0 & -1
+            \end{bmatrix} \longrightarrow Q_A = {x_1}^2 - {x_2}^2 \longrightarrow $, i.e., \textbf{indefinite}
+    \item  $\begin{bmatrix}
+              1 & 0 \\
+              0 & 0
+            \end{bmatrix} \longrightarrow Q_A = {x_1}^2 \geq 0 \longrightarrow $, i.e., \textbf{Positive Semi Definite}
 
-    \end{enumerate}
+  \end{enumerate}
 \end{Eg}
 
 For a positive definite matrix $ A $,
 \begin{align*}
-     & \left\langle Ah, h \right\rangle = \norm{Ah}\norm{h}\cos{\theta} > 0 \\
-     & \implies \boxed{0 \leq \theta \leq \frac{\pi}{2}}
+   & \left\langle Ah, h \right\rangle = \norm{Ah}\norm{h}\cos{\theta} > 0 \\
+   & \implies \boxed{0 \leq \theta \leq \frac{\pi}{2}}
 \end{align*}
 
 \
@@ -116,60 +116,60 @@ For a positive definite matrix $ A $,
 In general, it is difficult to classify positive definite $n \times n$ matrices. But not for $n = 2$.
 
 \begin{Thm}{}{}
-    Let $A = \begin{bmatrix}
-            a & b \\
-            b & c
-        \end{bmatrix} \in M_2(\R) $ be symmetric. Then,
-    \begin{enumerate}[label=(\roman*)]
-        \item $A$ is \textbf{Positive Definite} $ \Longleftrightarrow a > 0 \text{ and } ac -b^2 >0 $ \label{charpd}
-        \item $A$ is \textbf{Negative Definite} $ \Longleftrightarrow a < 0 \text{ and } ac -b^2 >0 $ \label{charnd}
-        \item $A$ is \textbf{Indefinite} $ \Longleftrightarrow ac -b^2 <0 $ \label{charind}
-    \end{enumerate}
+  Let $A = \begin{bmatrix}
+      a & b \\
+      b & c
+    \end{bmatrix} \in M_2(\R) $ be symmetric. Then,
+  \begin{enumerate}[label=(\roman*)]
+    \item $A$ is \textbf{Positive Definite} $ \Longleftrightarrow a > 0 \text{ and } ac -b^2 >0 $ \label{charpd}
+    \item $A$ is \textbf{Negative Definite} $ \Longleftrightarrow a < 0 \text{ and } ac -b^2 >0 $ \label{charnd}
+    \item $A$ is \textbf{Indefinite} $ \Longleftrightarrow ac -b^2 <0 $ \label{charind}
+  \end{enumerate}
 \end{Thm}
 
 \begin{proof}
-    We have, \[ \left\langle A, h \right\rangle = h^tAh \]
-    Now, scaling $h$ is okay as sign would not be changed. So, pick ${\bf x} = (x_1, x_2) \in \R^2 \backslash \{(0,0)\} $ with $x_2 \neq 0$.
-    Without loss of generality, take ${\bf x} = (x,1) \ x \in \R$ (Scaling) \\
-    \[ \therefore \left\langle A\bf{x}, \bf{x} \right\rangle = ax^2 + 2bx + c > 0 \ \forall\ x \in \R \]
-    Now, if $x_2 = 0$ again, Without loss of generality assume ${\bf x} = \begin{bmatrix}
-            1 \\
-            0
-        \end{bmatrix}$ (Scaling). Then, \[ \left\langle A\bf{x}, \bf{x} \right\rangle = a \]
-    So,
-    \begin{align*}
-                            & \ A \text{ is Positive Definite}                         \\
-        \Longleftrightarrow & \ a > 0 \text{ and } ax^2 + bx+c > 0 \ \forall\ x \in \R \\
-        \Longleftrightarrow & \ a > 0 \text{ and } (2b)^2 - 4ac < 0                    \\
-        \Longleftrightarrow & \ a > 0 \text{ and } ac - b^2 > 0
-    \end{align*}
+  We have, \[ \left\langle A, h \right\rangle = h^tAh \]
+  Now, scaling $h$ is okay as sign would not be changed. So, pick ${\bf x} = (x_1, x_2) \in \R^2 \backslash \{(0,0)\} $ with $x_2 \neq 0$.
+  Without loss of generality, take ${\bf x} = (x,1) \ x \in \R$ (Scaling) \\
+  \[ \therefore \left\langle A\bf{x}, \bf{x} \right\rangle = ax^2 + 2bx + c > 0 \ \forall\ x \in \R \]
+  Now, if $x_2 = 0$ again, Without loss of generality assume ${\bf x} = \begin{bmatrix}
+      1 \\
+      0
+    \end{bmatrix}$ (Scaling). Then, \[ \left\langle A\bf{x}, \bf{x} \right\rangle = a \]
+  So,
+  \begin{align*}
+                        & \ A \text{ is Positive Definite}                         \\
+    \Longleftrightarrow & \ a > 0 \text{ and } ax^2 + bx+c > 0 \ \forall\ x \in \R \\
+    \Longleftrightarrow & \ a > 0 \text{ and } (2b)^2 - 4ac < 0                    \\
+    \Longleftrightarrow & \ a > 0 \text{ and } ac - b^2 > 0
+  \end{align*}
 
-    Similarly,
-    \begin{align*}
-                            & \ A \text{ is Negative Definite}                         \\
-        \Longleftrightarrow & \ a < 0 \text{ and } ax^2 + bx+c < 0 \ \forall\ x \in \R \\
-        \Longleftrightarrow & \ a < 0 \text{ and } (2b)^2 - 4ac < 0                    \\
-        \Longleftrightarrow & \ a < 0 \text{ and } ac - b^2 > 0
-    \end{align*}
+  Similarly,
+  \begin{align*}
+                        & \ A \text{ is Negative Definite}                         \\
+    \Longleftrightarrow & \ a < 0 \text{ and } ax^2 + bx+c < 0 \ \forall\ x \in \R \\
+    \Longleftrightarrow & \ a < 0 \text{ and } (2b)^2 - 4ac < 0                    \\
+    \Longleftrightarrow & \ a < 0 \text{ and } ac - b^2 > 0
+  \end{align*}
 
-    And,
-    \begin{align*}
-                            & \ A \text{ is Indefinite}                                                                              \\
-        \Longleftrightarrow & \ ax^2 + bx+c < 0 \ \text{for some } x \in \R \text{ and } ax^2 + bx+c > 0 \ \text{for some } x \in \R \\
-        \Longleftrightarrow & \ (2b)^2 - 4ac > 0                                                                                     \\
-        \Longleftrightarrow & \ ac - b^2 < 0
-    \end{align*}
+  And,
+  \begin{align*}
+                        & \ A \text{ is Indefinite}                                                                              \\
+    \Longleftrightarrow & \ ax^2 + bx+c < 0 \ \text{for some } x \in \R \text{ and } ax^2 + bx+c > 0 \ \text{for some } x \in \R \\
+    \Longleftrightarrow & \ (2b)^2 - 4ac > 0                                                                                     \\
+    \Longleftrightarrow & \ ac - b^2 < 0
+  \end{align*}
 \end{proof}
 
 \begin{Lem}{}{hessian:nbd}
-    Let, $a \in \Op{n},\ A(x) = \begin{bmatrix}
-            a_1(x) & a_2(x) \\
-            a_2(x) & a_3(x)
-        \end{bmatrix}$. Suppose, $A$ is continuous at $a \ \forall\ x \in \Op{n}$ (i.e., $a_i$'s are continuous at $a$). Then, $A$ is Positive Definite at $a \implies A$ is Positive Definite in a neighborhood of $a$.
+  Let, $a \in \Op{n},\ A(x) = \begin{bmatrix}
+      a_1(x) & a_2(x) \\
+      a_2(x) & a_3(x)
+    \end{bmatrix}$. Suppose, $A$ is continuous at $a \ \forall\ x \in \Op{n}$ (i.e., $a_i$'s are continuous at $a$). Then, $A$ is Positive Definite at $a \implies A$ is Positive Definite in a neighborhood of $a$.
 \end{Lem}
 
 \begin{proof}
-    $ A(a) $ is Positive Definite, i.e., $ a_1(a) > 0 $ and $ a_1(a) a_3(a) - {a_2}^2(a) > 0 $. As $ a_1(x) $ and $ a_1(x)a_3(x) - a_2^2(x) $ are polynomial of continuous functions, we can find an $ \epsilon > 0 $ such that both are positive in $ B_{\epsilon}(a) $.
+  $ A(a) $ is Positive Definite, i.e., $ a_1(a) > 0 $ and $ a_1(a) a_3(a) - {a_2}^2(a) > 0 $. As $ a_1(x) $ and $ a_1(x)a_3(x) - a_2^2(x) $ are polynomial of continuous functions, we can find an $ \epsilon > 0 $ such that both are positive in $ B_{\epsilon}(a) $.
 \end{proof}
 
 

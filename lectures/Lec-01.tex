@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 1} %Set chapter name
@@ -9,10 +9,10 @@
 \section{Introduction}
 We will talk about $ n $-variable calculus, that is, calculus on $ \R^n $. Recall the the following:
 \begin{enumerate}[label = $\bullet$]
-      \item The setting is,
-            \[ \R^n = \underbrace{\R \times \R \cdots \times \R}_{n \text{ times}} = \{x = (x_1, \dots, x_n) \mid x_i \in \R \, \forall \, i = 1,2, \dots, n\} \]
-      \item Analysis on $ \R $ consisted of ideas like open sets, compact sets, convergence, limits, differentiability, integrability etc.
-      \item $ \R^n $ is a $ n $-dimensional inner product space over $ \R $, with the standard orthonormal basis $ \{e_j\}_{j=1}^n $
+  \item The setting is,
+        \[ \R^n = \underbrace{\R \times \R \cdots \times \R}_{n \text{ times}} = \{x = (x_1, \dots, x_n) \mid x_i \in \R \, \forall \, i = 1,2, \dots, n\} \]
+  \item Analysis on $ \R $ consisted of ideas like open sets, compact sets, convergence, limits, differentiability, integrability etc.
+  \item $ \R^n $ is a $ n $-dimensional inner product space over $ \R $, with the standard orthonormal basis $ \{e_j\}_{j=1}^n $
 \end{enumerate}
 
 Extending the analytic ideas to $ \R^n $ exploiting the algebraic structure is the matter of this course, which further gives way to differential geometry.
@@ -20,14 +20,14 @@ Extending the analytic ideas to $ \R^n $ exploiting the algebraic structure is t
 \section{Review: $ \R^n $ as a vector space}
 
 \begin{enumerate}[label = (\roman*)]
-      \item The standard orthonormal basis of $ \R^n $ is $ \{e_i\}_{i=1}^n $.
-      \item For all $ x \in \R^n $, there is a unique representation
-            \[ x = \sum_{i=1}^n x_i e_i, \, x_i \in \R \]
-            Thus we identify $ x $ with the \textit{coordinates} $ (x_1,x_2, \dots, x_n) $.
-      \item Euclidean inner product on $ \R^n $:
+  \item The standard orthonormal basis of $ \R^n $ is $ \{e_i\}_{i=1}^n $.
+  \item For all $ x \in \R^n $, there is a unique representation
+        \[ x = \sum_{i=1}^n x_i e_i, \, x_i \in \R \]
+        Thus we identify $ x $ with the \textit{coordinates} $ (x_1,x_2, \dots, x_n) $.
+  \item Euclidean inner product on $ \R^n $:
 
-            For $ x = (x_1, \dots, x_n), y = (y_1, \dots, y_n) \in \R^n $, we define
-            \[ \inp xy = \sum_{i=1}^{n} x_iy_i \]
+        For $ x = (x_1, \dots, x_n), y = (y_1, \dots, y_n) \in \R^n $, we define
+        \[ \inp xy = \sum_{i=1}^{n} x_iy_i \]
 \end{enumerate}
 
 \section{Linear Functions}
@@ -36,15 +36,15 @@ In doing analysis on $ \R $, the main motive was to study functions $ f: \R \to 
 
 Two easy examples of such functions are:
 \begin{enumerate}[label = (\roman*)]
-      \item Constant maps
-            \begin{align*}
-                  f: \R^n                     & \to \R^m           \\
-                  \forall \, x \in \R^n, f(x) & = a, \, a \in \R^m
-            \end{align*}
+  \item Constant maps
+        \begin{align*}
+          f: \R^n                     & \to \R^m           \\
+          \forall \, x \in \R^n, f(x) & = a, \, a \in \R^m
+        \end{align*}
 
-      \item Linear maps
+  \item Linear maps
 
-            A function $ L: \R^n \to \R^m $ is linear if for all $ \alpha \in \R, x,y \in \R^n $, $ L(\alpha x + y) = \alpha L(x) + L(y) $.
+        A function $ L: \R^n \to \R^m $ is linear if for all $ \alpha \in \R, x,y \in \R^n $, $ L(\alpha x + y) = \alpha L(x) + L(y) $.
 \end{enumerate}
 
 It turns out that linear maps are useful in understanding most other `\textit{nice}' functions, and so we now look at these in more detail.
@@ -76,14 +76,14 @@ This induces the metric given as,
 \[ d(x,y) = \norm{x-y} = \left(\sum_{i=1}^{n}(x_i-y_i)^2\right)^{\frac 12} \quad \forall \, x,y \in \R^n \]
 
 \begin{Thm}{Cauchy-Schwarz Inequality}{}
-      For all $ x,y \in \R^n $, \[ \inp xy \leq \norm{x} \norm{y} \]
+  For all $ x,y \in \R^n $, \[ \inp xy \leq \norm{x} \norm{y} \]
 \end{Thm}
 \begin{proof}
-      Consider $ x,y \in \R^n $. We have,
-      \[ \sum_{i=1}^{n}\sum_{j=1}^{n} (x_iy_j - x_jy_i)^2 \geq 0 \]
-      But the left hand side is, after expanding,
-      \[ \sum_{i,j = 1}^{n} x_i^2y_j^2 + \sum_{i,j = 1}^{n} x_j^2y_i^2 - 2 \sum_{i,j=1}^{n} x_ix_j y_iy_j = 2 \norm{x}^2\norm{y}^2 - 2\inp xy^2 \]
-      which gives the desired inequality.
+  Consider $ x,y \in \R^n $. We have,
+  \[ \sum_{i=1}^{n}\sum_{j=1}^{n} (x_iy_j - x_jy_i)^2 \geq 0 \]
+  But the left hand side is, after expanding,
+  \[ \sum_{i,j = 1}^{n} x_i^2y_j^2 + \sum_{i,j = 1}^{n} x_j^2y_i^2 - 2 \sum_{i,j=1}^{n} x_ix_j y_iy_j = 2 \norm{x}^2\norm{y}^2 - 2\inp xy^2 \]
+  which gives the desired inequality.
 \end{proof}
 
 \textbf{Note:} The proof shows that equality holds only if there is $ \lambda \in \R $ such that for all $ i $, either $ x_i = \lambda y_i $ or $ y_i = \lambda x_i $.
@@ -93,18 +93,18 @@ Recall the triangle inequality for $ \R $, for all $ x,y \in \R $
 \[ \abs{x+y} \leq \abs{x} + \abs{y} \]
 
 \begin{Thm}{Triangle inequality for $ \R^n $}{}
-      For all $ x,y \in \R^n $,
-      \[ \norm{x+y} \leq \norm{x} + \norm{y} \]
+  For all $ x,y \in \R^n $,
+  \[ \norm{x+y} \leq \norm{x} + \norm{y} \]
 \end{Thm}
 \begin{proof}
-      We have,
-      \begin{align*}
-            \norm{x+y}^2 & = \inp{x+y}{x+y}                                                                 \\
-                         & = \norm{x}^2 + 2\inp xy + \norm{y}^2                                             \\
-                         & \leq \norm{x}^2 + \norm{y}^2 +2 \norm{x}\norm{y} \tag{Cauchy Schwarz inequality} \\
-            \implies \norm{x+y} \leq \norm{x} + \norm{y}
-      \end{align*}
-      which is the desired inequality.
+  We have,
+  \begin{align*}
+    \norm{x+y}^2 & = \inp{x+y}{x+y}                                                                 \\
+                 & = \norm{x}^2 + 2\inp xy + \norm{y}^2                                             \\
+                 & \leq \norm{x}^2 + \norm{y}^2 +2 \norm{x}\norm{y} \tag{Cauchy Schwarz inequality} \\
+    \implies \norm{x+y} \leq \norm{x} + \norm{y}
+  \end{align*}
+  which is the desired inequality.
 \end{proof}
 \msk
 
@@ -112,17 +112,17 @@ The following is a technical result, which can be thought of as an analogue of t
 \ssk
 
 \begin{Thm}{}{LinLip}
-      Let $ L: \R^n \to \R^m $ be a linear map. There is $ M > 0 $ such that
-      \[ \norm{Lx} \leq M \norm{x} \quad \forall \, x \in \R^n \]
+  Let $ L: \R^n \to \R^m $ be a linear map. There is $ M > 0 $ such that
+  \[ \norm{Lx} \leq M \norm{x} \quad \forall \, x \in \R^n \]
 \end{Thm}
 \begin{proof}
-      We have, for $ x = \sum_{i=1}^{n}x_ie_i $,
-      \begin{align*}
-            \norm{Lx}          & = \norm{\sum_{i=1}^{n} x_i Le_i}                                                                  \\
-                               & \leq \sum_{i=1}^{n} |x_i| \norm{Le_i} \tag{Triangle inequality}                                   \\
-            \implies \norm{Lx} & \leq \norm{x} \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} \tag{Cauchy Schwarz inequality}
-      \end{align*}
-      Taking $ M = \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} $, we get the result.
+  We have, for $ x = \sum_{i=1}^{n}x_ie_i $,
+  \begin{align*}
+    \norm{Lx}          & = \norm{\sum_{i=1}^{n} x_i Le_i}                                                                  \\
+                       & \leq \sum_{i=1}^{n} |x_i| \norm{Le_i} \tag{Triangle inequality}                                   \\
+    \implies \norm{Lx} & \leq \norm{x} \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} \tag{Cauchy Schwarz inequality}
+  \end{align*}
+  Taking $ M = \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} $, we get the result.
 \end{proof}
 
 \end{document}

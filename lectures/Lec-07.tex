@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 7} %Set chapter name
@@ -50,13 +50,13 @@ We will now see that the partial derivatives provide an effective way of proving
 \end{Thm}
 
 \begin{proof}
-  Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by 
+  Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by
   \[\eta_i(t) = (a_1, \dots, a_{i-1}, t, a_{t+1}, \dots, a_n) = a + (t-a_i)e_i \]
   As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).\\
-  Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and 
+  Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and
   \begin{align*}
-      D(f\circ\eta_i)(a_i) &= Df(\eta_i(a_i)) \cdot D\eta_i (a_i)\\
-      \implies f_{x_i} (a) &= Df(a) \cdot e_i^t = [Df(a)]_i
+    D(f\circ\eta_i)(a_i) & = Df(\eta_i(a_i)) \cdot D\eta_i (a_i) \\
+    \implies f_{x_i} (a) & = Df(a) \cdot e_i^t = [Df(a)]_i
   \end{align*}
   As the index $i$ was arbitrary to begin with, this completes the proof.
 

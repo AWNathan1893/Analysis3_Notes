@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 10} %Set chapter name
@@ -7,67 +7,67 @@
 
 
 \begin{Eg}{Homework}{}
-    Take, \[ f(x,y) = \begin{cases}
-            \frac{x^{3}y}{x^2 + y^2} & (x,y) \neq (0,0) \\
-            0                        & (x,y) = (0,0)
-        \end{cases}\]
-    Then,
-    \begin{enumerate}
-        \item Prove that, $f$ is continuous at $(0,0)$.
-        \item Find $(D_{u}f)(0,0)\ \forall\ u$.
-        \item Prove that, $f$ is not differentiable.
-    \end{enumerate}
+  Take, \[ f(x,y) = \begin{cases}
+      \frac{x^{3}y}{x^2 + y^2} & (x,y) \neq (0,0) \\
+      0                        & (x,y) = (0,0)
+    \end{cases}\]
+  Then,
+  \begin{enumerate}
+    \item Prove that, $f$ is continuous at $(0,0)$.
+    \item Find $(D_{u}f)(0,0)\ \forall\ u$.
+    \item Prove that, $f$ is not differentiable.
+  \end{enumerate}
 \end{Eg}
 
 \section{Extension of MVT to Several Variables}
 
 \begin{Thm}{}{}
-    Let $ \Op{n} \subseteq \R^n $ be open and convex. Let $f : \Op{n} \to \R$ be differentiable and $a,b \in \Op{n}$ with \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \] in $\Op{n}$. Then, $\exists c \in L_{a,b}$ such that, \[ f(b) - f(a) = (\grad f)(c)\cdot (b-a) = \left\langle f_{x_1}(c), \ldots, f_{x_n}(c) \right\rangle\cdot\left\langle (b_1 - a_1), \ldots, (b_n - a_n) \right\rangle  \]
+  Let $ \Op{n} \subseteq \R^n $ be open and convex. Let $f : \Op{n} \to \R$ be differentiable and $a,b \in \Op{n}$ with \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \] in $\Op{n}$. Then, $\exists c \in L_{a,b}$ such that, \[ f(b) - f(a) = (\grad f)(c)\cdot (b-a) = \left\langle f_{x_1}(c), \ldots, f_{x_n}(c) \right\rangle\cdot\left\langle (b_1 - a_1), \ldots, (b_n - a_n) \right\rangle  \]
 \end{Thm}
 
 \begin{proof}
-    We take \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
-    Let, $\eta : [0,1] \to \Op{n}$ defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and \[ \eta'(t) = \begin{bmatrix}
-            b_1 - a_1 \\
-            \vdots    \\
-            b_n -a_n
-        \end{bmatrix} \]
+  We take \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
+  Let, $\eta : [0,1] \to \Op{n}$ defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and \[ \eta'(t) = \begin{bmatrix}
+      b_1 - a_1 \\
+      \vdots    \\
+      b_n -a_n
+    \end{bmatrix} \]
 
-    % \[\begin{tikzcd}
-    %	I && {\mathcal{O}_n} && {\R}
-    %	\arrow["\eta", from=1-1, to=1-3]
-    %	\arrow["f", from=1-3, to=1-5]
-    %	\arrow["{\eta \circ f}"', curve={height=24pt}, from=1-1, to=1-5]
-    % \end{tikzcd}\]
+  % \[\begin{tikzcd}
+  %	I && {\mathcal{O}_n} && {\R}
+  %	\arrow["\eta", from=1-1, to=1-3]
+  %	\arrow["f", from=1-3, to=1-5]
+  %	\arrow["{\eta \circ f}"', curve={height=24pt}, from=1-1, to=1-5]
+  % \end{tikzcd}\]
 
-    \[\begin{tikzcd}
-            I &&& {\mathcal{O}_n} &&& {\R}
-            \arrow["\eta", from=1-1, to=1-4]
-            \arrow["f", from=1-4, to=1-7]
-            \arrow["{f \circ \eta}"', curve={height=30pt}, from=1-1, to=1-7]
-        \end{tikzcd}\]
+  \[\begin{tikzcd}
+      I &&& {\mathcal{O}_n} &&& {\R}
+      \arrow["\eta", from=1-1, to=1-4]
+      \arrow["f", from=1-4, to=1-7]
+      \arrow["{f \circ \eta}"', curve={height=30pt}, from=1-1, to=1-7]
+    \end{tikzcd}\]
 
-    % \begin{tikzcd}
-    %    I \ar[r,"\eta"]\ar[rr,out=-30,in=210,swap,"\eta \circ f"] & \mathcal{O}_n \ar[r,"f"] & \R
-    % \end{tikzcd} 
+  % \begin{tikzcd}
+  %    I \ar[r,"\eta"]\ar[rr,out=-30,in=210,swap,"\eta \circ f"] & \mathcal{O}_n \ar[r,"f"] & \R
+  % \end{tikzcd} 
 
-    Hence, by standard MVT, $\exists\ t_{0} \in (0,1)$ such that,
-    \begin{align*}
-                 & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                        \\
-        \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)). D\eta(t_0)                                                                                                 \\
-        \implies & f(b) - f(a) = \begin{bmatrix}
-                                     f_{x_1}(\eta(t_0)) & f_{x_2}(\eta(t_0)) & \cdots & f_{x_n}(\eta(t_0))
-                                 \end{bmatrix} \begin{bmatrix}
-                                                   b_1 - a_1 \\
-                                                   b_2 -a_2  \\
-                                                   \vdots    \\
-                                                   b_n -a_n
-                                               \end{bmatrix}                                                                 \\
-        \implies & f(b) - f(a) = \left\langle f_{x_1}(\eta(t_0)),  \cdots,f_{x_n}(\eta(t_0)) \right\rangle.\left\langle (b_1 - a_1), \cdots, (b_n - a_n) \right\rangle \\
-        \implies & f(b) - f(a) = (\grad f)(\eta(t_0))\cdot(b-a)
-    \end{align*}
+  Hence, by standard MVT, $\exists\ t_{0} \in (0,1)$ such that,
+  \begin{align*}
+             & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                        \\
+    \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)). D\eta(t_0)                                                                                                 \\
+    \implies & f(b) - f(a) = \begin{bmatrix}
+                               f_{x_1}(\eta(t_0)) & f_{x_2}(\eta(t_0)) & \cdots & f_{x_n}(\eta(t_0))
+                             \end{bmatrix} \begin{bmatrix}
+                                             b_1 - a_1 \\
+                                             b_2 -a_2  \\
+                                             \vdots    \\
+                                             b_n -a_n
+                                           \end{bmatrix}                                                                 \\
+    \implies & f(b) - f(a) = \left\langle f_{x_1}(\eta(t_0)),  \cdots,f_{x_n}(\eta(t_0)) \right\rangle.\left\langle (b_1 - a_1), \cdots, (b_n - a_n) \right\rangle \\
+    \implies & f(b) - f(a) = (\grad f)(\eta(t_0))\cdot(b-a)
+  \end{align*}
 
-    So, $\exists\ c = \eta(t_0) \in L_{a,b}$ such that \[ f(b) - f(a) = (\grad f)(c)\cdot(b-a) \]
+  So, $\exists\ c = \eta(t_0) \in L_{a,b}$ such that \[ f(b) - f(a) = (\grad f)(c)\cdot(b-a) \]
 \end{proof}
 
 \section{More Partials and Chain Rules}
@@ -75,47 +75,47 @@
 Assume that, $f$ is differentiable at $a$ and $g$ is differentiable at $b = f(a)$.
 
 \begin{notnBox}
-    \begin{enumerate}
-        \item $g \circ f = \left( (g \circ f)_1, (g \circ f)_2, \ldots, (g \circ f)_p \right)$
-        \item $g = \left( g_1, g_2, \ldots, g_p \right)$
-        \item $f = \left( f_1, f_2, \ldots, f_m \right)$
-    \end{enumerate}
+  \begin{enumerate}
+    \item $g \circ f = \left( (g \circ f)_1, (g \circ f)_2, \ldots, (g \circ f)_p \right)$
+    \item $g = \left( g_1, g_2, \ldots, g_p \right)$
+    \item $f = \left( f_1, f_2, \ldots, f_m \right)$
+  \end{enumerate}
 \end{notnBox}
 
 \begin{align*}
-    \therefore    \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p} & = (Dg)(f(a))\cdot (Df)(a)                                                        \\
-                                                               & = \underbrace{(Dg)(b)}_{\R^m \to \R^p}\cdot \underbrace{(Df)(a)}_{\R^n \to \R^m}
+  \therefore    \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p} & = (Dg)(f(a))\cdot (Df)(a)                                                        \\
+                                                             & = \underbrace{(Dg)(b)}_{\R^m \to \R^p}\cdot \underbrace{(Df)(a)}_{\R^n \to \R^m}
 \end{align*}
 
 \[\implies \underbrace{J_{g \circ f}(a)}_{p \times n} = \underbrace{J_{g}(f(a))}_{p \times m}\cdot \underbrace{J_{f}(a)}_{m \times n} \]
 
 Taking $(i,j)^{th}$ entry of both sides, we get,
 \begin{align*}
-             & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{bmatrix}
-                                                               \pdv{g_i}{y_1}f(a) & \pdv{g_i}{y_2}f(a) & \cdots & \pdv{g_i}{y_m}f(a)
-                                                           \end{bmatrix} \begin{bmatrix}
-                                                                             \pdv{f_1}{x_j}\left( a \right) \\
-                                                                             \pdv{f_2}{x_j}\left( a \right) \\
-                                                                             \vdots                         \\
-                                                                             \pdv{f_m}{x_j}\left( a \right)
-                                                                         \end{bmatrix}  \\
-    \implies & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right)
+           & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{bmatrix}
+                                                           \pdv{g_i}{y_1}f(a) & \pdv{g_i}{y_2}f(a) & \cdots & \pdv{g_i}{y_m}f(a)
+                                                         \end{bmatrix} \begin{bmatrix}
+                                                                         \pdv{f_1}{x_j}\left( a \right) \\
+                                                                         \pdv{f_2}{x_j}\left( a \right) \\
+                                                                         \vdots                         \\
+                                                                         \pdv{f_m}{x_j}\left( a \right)
+                                                                       \end{bmatrix}  \\
+  \implies & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right)
 \end{align*}
 
 So, we have the chain rule for partial derivative for differentials functions,
 \[ \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right) \]
 
 \begin{notnBox}
-    \begin{enumerate}
-        \item $y_k = f_k \left( x_1, x_2, \ldots, x_n \right)$
-        \item $z_k = g_k \left( y_1, y_2, \ldots, y_m \right)$
-    \end{enumerate}
+  \begin{enumerate}
+    \item $y_k = f_k \left( x_1, x_2, \ldots, x_n \right)$
+    \item $z_k = g_k \left( y_1, y_2, \ldots, y_m \right)$
+  \end{enumerate}
 \end{notnBox}
 
 \begin{align*}
-    \boxed{
-        \pdv{\left( g\circ f \right)_i}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}\left( b \right)\cdot\pdv{f_k}{x_j}\left( a \right)
-    } \tag{where, $b = f(a)$}
+  \boxed{
+    \pdv{\left( g\circ f \right)_i}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}\left( b \right)\cdot\pdv{f_k}{x_j}\left( a \right)
+  } \tag{where, $b = f(a)$}
 \end{align*}
 
 daffa
