@@ -27,10 +27,10 @@ Now let's look at some examples of change of variables.
   While solving some problems, it's sometimes better to work with polar coordinates than to use Cartesian coordinates, this example illustrates how we can go to polar coordinates from Cartesian coordinates.
   Consider $\varphi : \R^2 \to \R^2$ as follows $\varphi(r,\theta) = (r \cos\theta, r \sin\theta)$. Then Jacobian of $\varphi$ is given by
   \[
-    J_{\varphi}(r,\theta) = \begin{bmatrix}
+    J_{\varphi}(r,\theta) = \begin{pmatrix}
       \cos\theta & -r\sin\theta \\
       \sin\theta & r\cos\theta
-    \end{bmatrix} \Rightarrow \det(J_{\varphi}(r,\theta)) = r
+    \end{pmatrix} \Rightarrow \det(J_{\varphi}(r,\theta)) = r
   \]
   Thus $\det(J_{\varphi}(r,\theta)) \neq 0 \Leftrightarrow r \neq 0$. So consider $\mathcal{O}_2 := (0,\infty) \times (0,2\pi)$. Then $\varphi\vert_{\mathcal{O}_2} : \mathcal{O}_2 \to \R^2$ is $C^1$ and injective function and $\det(J_{\varphi}(r,\theta)) \neq 0 $ on $\mathcal{O}_2$. Now given $0 < r_1 < r_2$ and $0 < \theta_1 < \theta_2 < 2\pi$, set $\Omega = (r_1, r_2) \times (\theta_1, \theta_2)$, then clearly $\partial \Omega$ is of content zero (since it is union of finitely many line segments). Thus using Theorem \ref{th:21:1} we get that, for $f \in \mathscr{R}(\varphi(\Omega))$ we have
   \begin{align*}
@@ -112,11 +112,11 @@ Next up, we look at another very commonly used trick, changing to spherical coor
   \end{align*}
   Then we get
   \[
-    J_{\varphi}(r,\phi,\theta) = \begin{bmatrix}
+    J_{\varphi}(r,\phi,\theta) = \begin{pmatrix}
       \sin\phi\cos\theta & r\cos\phi\cos\theta & -r\sin\phi\sin\theta \\
       \sin\phi\sin\theta & r\cos\phi\sin\theta & r\sin\phi\cos\theta  \\
       \cos\phi           & -r\sin\phi          & 0
-    \end{bmatrix}
+    \end{pmatrix}
   \]
 
 

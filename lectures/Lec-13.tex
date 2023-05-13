@@ -8,9 +8,9 @@
 \setcounter{section}{0}
 
 \section{Taylor's Theorem}
-Recall, Taylor's theorem for one variable. 
+Recall, Taylor's theorem for one variable.
 \begin{Def}{Taylor's Polynomial}{1:taylor:poly}
-  Let, $ f : \Op{1} \to \R $ be $C^k \ (k \in \N)$. Then for all $h$ such that $a+h \in \Op{1}$, 
+  Let, $ f : \Op{1} \to \R $ be $C^k \ (k \in \N)$. Then for all $h$ such that $a+h \in \Op{1}$,
   \[ p_{a,k}(a+h) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} h^{n}\]
   is called the \textbf{Taylor's Polynomial} of $f$ around $a$.
 \end{Def}
@@ -27,45 +27,38 @@ Take, $f(x) - p_{a,k}(x) = r_{a,k}(x)$
   for some $c$ in between $a$ and $x \in \Op{1}$.
 \end{Thm}
 
-We will use the following notation in the context of multivariable Taylor expansion.
-
-\begin{notnBox}{}{}
-  We take, $\alpha = (\alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{\geq 0}^{n}$ and denote
-  \begin{itemize}
-    \item $|\alpha| = \sum_{i = 1}^{n} \alpha_i = \alpha$
-    \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ (product of coordinate-wise factorials)
-  \end{itemize}
-  We will denote the $ \alpha^{\text{th}} $ derivative as, $\displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}$
-
-  and $ \alpha^{\text{th}} $ power of $ h $ as the product of coordinate-wise powers, $h^{\alpha} = {h_1}^{\alpha_1} \cdots {h_n}^{\alpha_n}$
-  \begin{itemize}
-    \item $\displaystyle\div h = \sum_{i=1}^n h_i\frac{\partial}{\partial x_i}$
-    \item $\displaystyle(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}$
-  \end{itemize}
-\end{notnBox}
+We introduce the following notation for the sake of clarity in the multivariate Taylor expansion. Let \( \alpha = (\alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{\geq 0}^{n} \), and define
+\begin{itemize}
+  \item $|\alpha| = \sum_{i = 1}^{n} \alpha_i$
+  \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ \, (product of coordinate-wise factorials)
+  \item \( \displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}} \) \, (\( \alpha^{\text{th}} \) derivative)
+  \item $\displaystyle\div h = \sum_{i=1}^n h_i\frac{\partial}{\partial x_i}$
+\end{itemize}
+The last definition when iterated gives,
+\[\displaystyle(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}\]
 
 
 \begin{Thm}{Taylor's Theorem in Multivariate Case}{taylor:multi}
-  Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function (Assume, $\Op{n}$ is convex). If $h, a + h \in \Op{n} $, then
-  \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a) h^{\alpha} + r_{a,k} (h) \]
-  where, \[ r_{a,k} (h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^2 f ) (a + c h) h^{\alpha} \hspace{5mm} \text{for some $c \in (0,1)$} \]
+  Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function and assume $\Op{n}$ is convex. If $h, a + h \in \Op{n} $, then
+  \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a) h^{\alpha} + r_{a,k} (h) \]
+  where, \[ r_{a,k} (h) = \sum_{| \alpha | = k+1 } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a + c h) h^{\alpha} \hspace{5mm} \text{for some $c \in (0,1)$} \]
 \end{Thm}
 
 \begin{proof}
   Define, $ \eta:[0,1] \to \R $ as $ \eta(t) = f(a+th) $
   \[\begin{tikzcd}
-    t & {a+th} & {f(a+th)}
-    \arrow[maps to, from=1-1, to=1-2]
-    \arrow[maps to, from=1-2, to=1-3]
-    \arrow["\eta"', curve={height=18pt}, shorten <=6pt, from=1-1, to=1-3]
-  \end{tikzcd}\]
+      t & {a+th} & {f(a+th)}
+      \arrow[maps to, from=1-1, to=1-2]
+      \arrow[maps to, from=1-2, to=1-3]
+      \arrow["\eta"', curve={height=18pt}, shorten <=6pt, from=1-1, to=1-3]
+    \end{tikzcd}\]
   which implies $\eta$ is a $C^{k+1}$ function around $0$.
 
   \[  \therefore \eta'(t) = \grad f(a+th)\cdot h = (\div h)f(a+th)   \]
 
   \begin{clmBox}{}
     \[ \eta^{(m)}(t) = (\div h)^m f (a+th) \ \forall\ m \in \qty{0,1,\ldots,k+1} \]
-    where, \[(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha} \tag{as notation} \]
+    % where, \[(\div h)^m = \sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha} \tag{as notation} \]
   \end{clmBox}
   \begin{proof}
     The first derivative of $\eta$,
@@ -93,20 +86,19 @@ We will use the following notation in the context of multivariable Taylor expans
     r_{0,k} (c) = \frac{\eta^{(k+1)}(c)}{(k+1)!}
   \end{equation}
 
-  Substituting $\eta^{(m)}(t)$ s in (\ref{eq:taythmineta}), we have,
+  Substituting $\eta^{(m)}(t)$ in (\ref{eq:taythmineta}) we have,
   \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^{\alpha} f ) (a) h^{\alpha} + r_{a,k} (h) \]
 \end{proof}
 
-\begin{noteBox}
-  ($n=2$ case) Let $f : \Op{2} \to \R$ be a $C^2$ function. Then,
-  \begin{equation}\label{eq:pj:n2:tp}
-    f(a+h) = f(a) + \grad f(a)\cdot h + \frac{1}{2}h^t H_f(a+ch)h
-  \end{equation} where,
-  \[ H_f(a) = \begin{pmatrix}
-      f_{xx}(a) & f_{xy}(a) \\
-      f_{xy}(a) & f_{yy}(a)
-    \end{pmatrix} \]
-\end{noteBox}
+We note that, in particular, if \( f: \Op{2} \to \R \) is a \( C^2 \) function then we have,
+\begin{equation}\label{eq:pj:n2:tp}
+  f(a+h) = f(a) + \grad f(a)\cdot h + \frac{1}{2}h^t H_f(a+ch)h
+\end{equation} where,
+\[ H_f(a) = \begin{pmatrix}
+    f_{xx}(a) & f_{xy}(a) \\
+    f_{xy}(a) & f_{yy}(a)
+  \end{pmatrix} \]
+and \( c \in (0,1) \).
 
 \begin{Thm}{Extremum}{}
   Let $f : \Op{2} \to \R$ be a $C^2$ function such that $Df(a) = 0$. We write \[ H_f(a) =  \begin{pmatrix}
@@ -127,8 +119,8 @@ We will use the following notation in the context of multivariable Taylor expans
 \end{proof}
 
 \begin{Eg}{Finding Critical points of a function and their nature}{}
-  \textbf{Find the critical points and discuss the nature of the function} 
-  
+  \textbf{Find the critical points and discuss the nature of the function}
+
   $$\mathbf{f(x,y) = x^3 - 6x^2 - 8y^2}$$
 
   \textbf{\textit{Solution. }}  Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations

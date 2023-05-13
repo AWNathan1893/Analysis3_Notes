@@ -13,15 +13,13 @@
 \end{Def}
 
 \[ H_{f} = \begin{pmatrix}
-    \pdv[2]{f}{x_1}   & \pdv{f}{x_1}{x_2} & \ldots & \pdv{f}{x_1}{x_n} \\
+    \pdv[2]{f}{x_1}   & \pdv{f}{x_1}{x_2} & \ldots & \pdv{f}{x_1}{x_n} \\[5pt]
     \pdv{f}{x_2}{x_1} & \pdv[2]{f}{x_2}   & \ldots & \pdv{f}{x_2}{x_n} \\
     \vdots            & \vdots            & \ddots & \vdots            \\
     \pdv{f}{x_n}{x_1} & \pdv{f}{x_n}{x_2} & \ldots & \pdv[2]{f}{x_n}
   \end{pmatrix} \]
 
-\begin{noteBox}
-  For any $ f \in C^n $, its hessian is a symmetric matrix, i.e., $H_f = {H_f}^t$
-\end{noteBox}
+Note that for any $ f \in C^n $, its Hessian is a symmetric matrix, i.e., $H_f = {H_f}^t$.
 
 \begin{Eg}{}{}
   Let, $f : \R^2 \to \R$ be a function defined by $f(x,y) = \sin^2 x + x^2y + y^2$. Then,
@@ -42,19 +40,19 @@
 
 \textbf{Now we will introduce some notation.} Given $A = \left( a_{ij} \right)_{n\times n} \in M_n(\R)$ and $ x \in \R^n $ we denote $ Q_A(x) $  by,
 
-  \begin{align*}
-    Q_A(x) = x^tAx = {\left\langle Ax,x \right\rangle}_{\R^n} &= \begin{pmatrix}
-      x_1 & x_2 & \ldots & x_n
-    \end{pmatrix} \begin{pmatrix}
-       &        & \\
-       & A & \\
-       &        &
-    \end{pmatrix} \begin{pmatrix}
-      x_1 & x_2 & \ldots & x_n
-    \end{pmatrix} ^t  \\
-    Q_A(x) &= \sum_{i,j = 1}^{n} a_{ij} x_i x_j 
+\begin{align*}
+  Q_A(x) = x^tAx = {\left\langle Ax,x \right\rangle}_{\R^n} & = \begin{pmatrix}
+                                                                  x_1 & x_2 & \ldots & x_n
+                                                                \end{pmatrix} \begin{pmatrix}
+                                                                                 &   & \\
+                                                                                 & A & \\
+                                                                                 &   &
+                                                                              \end{pmatrix} \begin{pmatrix}
+                                                                                              x_1 & x_2 & \ldots & x_n
+                                                                                            \end{pmatrix} ^t \\
+  Q_A(x)                                                    & = \sum_{i,j = 1}^{n} a_{ij} x_i x_j
 \end{align*}
-  
+
 
 
 \begin{Def}{Quadratic Form}{quadform}

@@ -16,12 +16,12 @@ differentiability of functions and also provide techniques to compute the deriva
 \begin{Thm}{}{}
   Let $ f: \Op{n} \to \R^m $ and $ a \in \Op{n} $. Then, $ f $ is differentiable at $ a $ iff $ f_i $ is differentiable at $ a $ for all $ i $. In that case, we have
   \[ Df(a) =
-    \begin{bmatrix}
+    \begin{pmatrix}
       Df_1(a) \\
       Df_2(a) \\
       \vdots  \\
       Df_m(a)
-    \end{bmatrix} \]
+    \end{pmatrix} \]
 \end{Thm}
 
 \begin{proof}
@@ -32,12 +32,12 @@ differentiability of functions and also provide techniques to compute the deriva
   
   Assume that $ f_i $ is differentiable at $ a $ for all $ i $ and define
   \[ L =
-    \begin{bmatrix}
+    \begin{pmatrix}
       Df_1(a) \\
       Df_2(a) \\
       \vdots  \\
       Df_m(a)
-    \end{bmatrix} \]
+    \end{pmatrix} \]
   Let $ \Pi_i(f(a+h)-f(a)-Lh) = f_i(a+h)-f_i(a)-Df_i(a)h =  \tilde{f}_i(h) $, so that
   \begin{align*}
     \lim_{h \to 0} \frac{\tilde{f}_i(h)}{\norm{h}}          & = 0 \quad \forall \, i \\
@@ -46,20 +46,19 @@ differentiability of functions and also provide techniques to compute the deriva
   which proves that $ f $ is differentiable at $ a $ and has derivative $ Df(a) = L $.
 \end{proof}
 
-\begin{noteBox}
-  \begin{enumerate}[label = $\bullet$]
-    \item Because of this theorem, it is enough to study differentiability of maps $ f: \Op{n} \to \R $.
-    \item Let $ \gamma: \Op{1} \to \R^n $. Then, $ \gamma $ is differentiable at $ a \in \Op{1} $ iff $ \gamma_i $ is differentiable at $ a $ for all $ i $ and in that case,
-          \[ D\gamma(a) = \gamma'(a) =
-            \begin{bmatrix}
-              \gamma_1'(a) \\
-              \gamma_2'(a) \\
-              \vdots       \\
-              \gamma_n'(a)
-            \end{bmatrix} \]
-          This is the notion of velocity vector of a curve in $ \R^n $ from elementary calculus.
-  \end{enumerate}
-\end{noteBox}
+Note the following:
+\begin{enumerate}[label = $\bullet$]
+  \item Because of this theorem, it is enough to study differentiability of maps $ f: \Op{n} \to \R $.
+  \item Let $ \gamma: \Op{1} \to \R^n $. Then, $ \gamma $ is differentiable at $ a \in \Op{1} $ iff $ \gamma_i $ is differentiable at $ a $ for all $ i $ and in that case,
+        \[ D\gamma(a) = \gamma'(a) =
+          \begin{pmatrix}
+            \gamma_1'(a) \\
+            \gamma_2'(a) \\
+            \vdots       \\
+            \gamma_n'(a)
+          \end{pmatrix} \]
+        This is the notion of velocity vector of a curve in $ \R^n $ from elementary calculus.
+\end{enumerate}
 
 \section{Further properties of differentiable functions}
 \begin{Thm}{Differentiability implies continuity}{}

@@ -27,11 +27,11 @@
 
 \begin{proof}
   We take \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
-  Let, $\eta : [0,1] \to \Op{n}$ defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and \[ \eta'(t) = \begin{bmatrix}
+  Let, $\eta : [0,1] \to \Op{n}$ defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and \[ \eta'(t) = \begin{pmatrix}
       b_1 - a_1 \\
       \vdots    \\
       b_n -a_n
-    \end{bmatrix} \]
+    \end{pmatrix} \]
 
   % \[\begin{tikzcd}
   %	I && {\mathcal{O}_n} && {\R}
@@ -55,14 +55,14 @@
   \begin{align*}
              & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                        \\
     \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)). D\eta(t_0)                                                                                                 \\
-    \implies & f(b) - f(a) = \begin{bmatrix}
+    \implies & f(b) - f(a) = \begin{pmatrix}
                                f_{x_1}(\eta(t_0)) & f_{x_2}(\eta(t_0)) & \cdots & f_{x_n}(\eta(t_0))
-                             \end{bmatrix} \begin{bmatrix}
+                             \end{pmatrix} \begin{pmatrix}
                                              b_1 - a_1 \\
                                              b_2 -a_2  \\
                                              \vdots    \\
                                              b_n -a_n
-                                           \end{bmatrix}                                                                 \\
+                                           \end{pmatrix}                                                                 \\
     \implies & f(b) - f(a) = \left\langle f_{x_1}(\eta(t_0)),  \cdots,f_{x_n}(\eta(t_0)) \right\rangle.\left\langle (b_1 - a_1), \cdots, (b_n - a_n) \right\rangle \\
     \implies & f(b) - f(a) = (\grad f)(\eta(t_0))\cdot(b-a)
   \end{align*}
@@ -91,14 +91,14 @@ Assume that, $f$ is differentiable at $a$ and $g$ is differentiable at $b = f(a)
 
 Taking $(i,j)^{th}$ entry of both sides, we get,
 \begin{align*}
-           & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{bmatrix}
+           & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{pmatrix}
                                                            \pdv{g_i}{y_1}f(a) & \pdv{g_i}{y_2}f(a) & \cdots & \pdv{g_i}{y_m}f(a)
-                                                         \end{bmatrix} \begin{bmatrix}
+                                                         \end{pmatrix} \begin{pmatrix}
                                                                          \pdv{f_1}{x_j}\left( a \right) \\
                                                                          \pdv{f_2}{x_j}\left( a \right) \\
                                                                          \vdots                         \\
                                                                          \pdv{f_m}{x_j}\left( a \right)
-                                                                       \end{bmatrix}  \\
+                                                                       \end{pmatrix}  \\
   \implies & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right)
 \end{align*}
 

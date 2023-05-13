@@ -17,9 +17,8 @@ We now introduce another extension of one-dimensional derivative, called the Dir
   the rate of change of $ f $ at $ a $ in the direction of $ u $, provided the limit exists.
 \end{Def}
 
-\begin{noteBox}
-  $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $, i.e., the partial derivatives are directional derivatives along the standard basis vectors.
-\end{noteBox}
+Note that $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $, i.e., the partial derivatives are directional derivatives along the standard basis vectors.
+\smallskip
 
 \begin{wrapfigure}[12]{r}{0.50\textwidth}
   \centering
@@ -40,10 +39,10 @@ Take, $ \eta : \left( -\veps, \veps \right) \to \R $ as $ \eta(t) := f(a+tu) $. 
 \begin{align*}
   \eta'(0) & = \left( D_uf \right)\left( a \right)                                 \\
            & = Df(\phi(0))\cdot \underbrace{(D\phi)(0)}_{u}                        \\
-           & = \begin{bmatrix}
+           & = \begin{pmatrix}
                  \pdv{f}{x_i}\left( a \right) & \cdots & \pdv{f}{x_n}\left( a \right)
-               \end{bmatrix}\begin{bmatrix}
-                              u_1 \\ \vdots \\ u_n \end{bmatrix}
+               \end{pmatrix}\begin{pmatrix}
+                              u_1 \\ \vdots \\ u_n \end{pmatrix}
 \end{align*}
 So,
 \[
@@ -61,13 +60,6 @@ So,
   \]
   the dual of the total derivative, i.e., $ Df(x)^t $, provided that all the partials $ f_{x_i} $ exists at $ x $.
 \end{Def}
-
-\begin{noteBox}
-  Let, $ f:\Op{n}\to\R $ be differentiable at $ a $ and $ u\in\R^n $ then,
-  \[
-    \left( D_uf \right)(a) = \left( \grad f\right)\left( a \right)\cdot u  = \left\langle \left( \grad f \right)\left( a \right), u \right\rangle  \tag{Standard inner product}
-  \]
-\end{noteBox}
 
 Observe that, for a differentiable function $ f: \Op{n} \to \R $ at $ a $
 \begin{align*}
@@ -91,8 +83,8 @@ Hence, we get the following theorem,
   \begin{align*}
     \left( D_uf \right)\left( a \right)
      & = \left( \grad f\right)\left( a \right)\cdot u                                                                                       \\
-     & = \begin{bmatrix} 2xyz & x^2z & x^2y \end{bmatrix}
-    \begin{bmatrix} \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}} \end{bmatrix} \\
+     & = \begin{pmatrix} 2xyz & x^2z & x^2y \end{pmatrix}
+    \begin{pmatrix} \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}} \end{pmatrix} \\
   \end{align*}
   Therefore, $ \left( D_uf \right)(1,1,0) = -\frac{1}{\sqrt{3}} $ and hence maximum value of $ \left( D_uf \right)(1,1,0) $ is $ \norm{\left( \grad f\right)(1,1,0)} $ along the unit vector $ \langle 0,0,1 \rangle $.
 \end{Eg}
@@ -110,7 +102,7 @@ Hence, we get the following theorem,
      & =\lim_{t\to 0} \frac{1}{t}\cdot\frac{tu_1^2u_2}{1}        \\
      & = u_1^2u_2 \not= 0 \tag{Because, $ u $ is an unit vector}
   \end{align*}
-  If we assume $ f $ to be differentiable then $ \left( \grad f \right)(0,0) \cdot \begin{bmatrix} u_1 \\ u_2  \end{bmatrix} = 0 \not= u_1^2u_2 $ which is a contradiction!
+  If we assume $ f $ to be differentiable then $ \left( \grad f \right)(0,0) \cdot \begin{pmatrix} u_1 \\ u_2  \end{pmatrix} = 0 \not= u_1^2u_2 $ which is a contradiction!
 \end{Eg}
 
 Example \ref{eg:cts:pde:ndiff} shows that, the existence of all partial and directional derivatives at a point fails to imply differentiability at that point.

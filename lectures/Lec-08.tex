@@ -24,9 +24,9 @@ As we have seen in previous lecture, the differentiability of a function gives a
   \
   
   Let's do some back calculation: We already ``know",
-  \[ L = J_f(a) = \begin{bmatrix}
+  \[ L = J_f(a) = \begin{pmatrix}
       f_{x_1}(0) & \cdots & f_{x_n}(0)
-    \end{bmatrix} \text{ and } \boxed{Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n} \] which we use in the following claim,
+    \end{pmatrix} \text{ and } \boxed{Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n} \] which we use in the following claim,
   
   \
   
@@ -108,9 +108,9 @@ We conclude the lecture with some instructive examples.
     f_y(0,0) & = \lim_{t \to 0} \frac{f(0,t) - f(0,0)}{t} = 0
   \end{align*}
   Also, \begin{align*}
-    \frac{1}{\sqrt{h^2+k^2}}\abs{f(h,k) - f(0,0) - \begin{bmatrix} 0 & 0 \end{bmatrix}\begin{bmatrix} h \\ k \end{bmatrix}} & = \sqrt{h^2+k^2}\abs{\sin{\left( \frac{1}{\sqrt{h^2+h^2}} \right)}} \leq \norm{(h,k)}
+    \frac{1}{\sqrt{h^2+k^2}}\abs{f(h,k) - f(0,0) - \begin{pmatrix} 0 & 0 \end{pmatrix}\begin{pmatrix} h \\ k \end{pmatrix}} & = \sqrt{h^2+k^2}\abs{\sin{\left( \frac{1}{\sqrt{h^2+h^2}} \right)}} \leq \norm{(h,k)}
   \end{align*}
-  which shows that, $ f $ is differentiable at $ (0,0) $ and $ Df(0,0) = \begin{bmatrix} 0 & 0 \end{bmatrix} $. But, $ f_x $ and $ f_y $ are not continuous at $ (0,0) $!
+  which shows that, $ f $ is differentiable at $ (0,0) $ and $ Df(0,0) = \begin{pmatrix} 0 & 0 \end{pmatrix} $. But, $ f_x $ and $ f_y $ are not continuous at $ (0,0) $!
 \end{Eg}
 
 So, even if a function is differentiable at some point, its partials may still not be continuous there!
@@ -135,12 +135,12 @@ So, even if a function is differentiable at some point, its partials may still n
 \begin{Eg}{}{}
   Let, $ f:\R^3 \to \R^4 $ be defined by, \[ f(x,y) = \left( x+2y+3z, xyz, \cos{x}, \sin{x} \right) \]
   Then, the jacobian at $ (x,y,z) $  \begin{align*}
-    J_{f}(x,y,z) = \begin{bmatrix}
+    J_{f}(x,y,z) = \begin{pmatrix}
                      1             & 2  & 3  \\
                      yz            & zx & xy \\
                      -\sin{x}      & 0  & 0  \\
                      \quad \cos{x} & 0  & 0
-                   \end{bmatrix}
+                   \end{pmatrix}
   \end{align*}
   which has every entry continuous, thus \[J_{f}(x,y,z) = Df(x,y,z)\]
 \end{Eg}
