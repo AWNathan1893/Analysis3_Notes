@@ -54,12 +54,11 @@ We will use the following notation in the context of multivariable Taylor expans
 \begin{proof}
   Define, $ \eta:[0,1] \to \R $ as $ \eta(t) = f(a+th) $
   \[\begin{tikzcd}
-      t &&& {a+th} &&& {f(a+th)}
-      \arrow[from=1-1, to=1-4]
-      \arrow[from=1-4, to=1-7]
-      \arrow["\eta"', curve={height=30pt}, from=1-1, to=1-7]
-    \end{tikzcd}\]
-
+    t & {a+th} & {f(a+th)}
+    \arrow[maps to, from=1-1, to=1-2]
+    \arrow[maps to, from=1-2, to=1-3]
+    \arrow["\eta"', curve={height=18pt}, shorten <=6pt, from=1-1, to=1-3]
+  \end{tikzcd}\]
   which implies $\eta$ is a $C^{k+1}$ function around $0$.
 
   \[  \therefore \eta'(t) = \grad f(a+th)\cdot h = (\div h)f(a+th)   \]
@@ -103,17 +102,17 @@ We will use the following notation in the context of multivariable Taylor expans
   \begin{equation}\label{eq:pj:n2:tp}
     f(a+h) = f(a) + \grad f(a)\cdot h + \frac{1}{2}h^t H_f(a+ch)h
   \end{equation} where,
-  \[ H_f(a) = \begin{bmatrix}
+  \[ H_f(a) = \begin{pmatrix}
       f_{xx}(a) & f_{xy}(a) \\
       f_{xy}(a) & f_{yy}(a)
-    \end{bmatrix} \]
+    \end{pmatrix} \]
 \end{noteBox}
 
 \begin{Thm}{Extremum}{}
-  Let $f : \Op{2} \to \R$ be a $C^2$ function such that $Df(a) = 0$. We write \[ H_f(a) =  \begin{bmatrix}
+  Let $f : \Op{2} \to \R$ be a $C^2$ function such that $Df(a) = 0$. We write \[ H_f(a) =  \begin{pmatrix}
       f_{xx}(a) & f_{xy}(a) \\
       f_{xy}(a) & f_{yy}(a)
-    \end{bmatrix} \]
+    \end{pmatrix} \]
   Then, \begin{enumerate}[label=(\roman*)]
     \item $f(a)$ is a local maximum if $f_{xx} (a) < 0$ and $\det (H_f(a)) > 0$
     \item $f(a)$ is a local minimum if $f_{xx} (a) > 0$ and $\det (H_f(a)) > 0$ \label{extremum:2}
