@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 11} %Set chapter name
@@ -15,25 +15,25 @@ We will begin with recalling some results from the previous lecture.
         \arrow["{g \circ f}", curve={height=-30pt}, from=1-1, to=1-7]
     \end{tikzcd}\]
 
-If we are given two differentiable function $f : \mathcal{O}_n \to \mathcal{O}_m$ and $g: \mathcal{O}_m \to \R^p$, then $g\circ f$ is also differentiable. We also derived how to compute $D_{g\circ f}$ by \textbf{chain Rule} as following,
+If we are given two differentiable function $f : \mathcal{O}_n \to \mathcal{O}_m$ and $g: \mathcal{O}_m \to \R^p$, then $g\circ f$ is also differentiable. We also derived how to compute $D_{g\circ f}$ by \textbf{chain rule} as following,
 
 \[ D_{g \circ f}(a) = D_{g}(f(a)). D_{f}(a)\]
 
 Now, comparing the $(i,j)^{\text{th}}$ element, we get,
+\[
+    \pdv{(g \circ f)_i(a)}{x_j}  = \sum_{k = 1}^{m} \pdv{g_i(b)}{y_k}(b) \cdot \pdv{f_k(a)}{x_j}(a)	\tag{where, $b = f(a)$}
+\]
+
+This can be rewritten in a slightly more suggestive sense; define
 \begin{align*}
-    \pdv{(g \circ f)_i}{x_j}(a) & = \sum_{k = 1}^{m} \pdv{g_i(b)}{y_k}(b) \cdot \pdv{f_k(a)}{x_j}(a)	\tag{where, $b = f(a)$}
+    y_k & = f_k(x_1, \dots, x_n) \\
+    z_i & = g_i(y_1, \dots, y_m)
 \end{align*}
-
-% This may be written in a slightly more suggestive sense:
-
-% \[\begin{tikzcd}
-% 	{\frac{\partial (g \circ f)_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \pdv{g_i}{y_k}. \frac{\partial y_{k}}{\partial x_j}} \\
-% 	{} \\
-% 	{y_k = f_k \left( x_1, x_2, \ldots, x_n \right) \\ z_k = g_k \left( y_1, y_2, \ldots, y_m \right)} && {} & {\boxed{\frac{\partial z_{i}}{\partial x_j} = \sum_{k = 1}^{m}   \frac{\partial z_{i}}{\partial y_k}. \frac{\partial y_{k}}{\partial x_j}}} \\
-% 	&&& {}
-% 	\arrow[shift right=5, curve={height=30pt}, from=3-1, to=1-1]
-% 	\arrow[from=3-1, to=3-4]
-% \end{tikzcd}\]
+Then, as \( (g \circ f)_i = g_i \circ f \), the equation above reads
+\[
+    \pdv{z_i}{x_j}  = \sum_{k=1}^{m}\pdv{z_i}{y_k} \pdv{y_k}{x_j}
+\]
+which is reminiscent of the one variable chain rule.
 
 \begin{Eg}{}{}
     Let, $f(x,y,z) = xy^{2}z$ and $x=t, y=e^t, z= 1+t$, we want to calculate $\dv{f}{t}$ in two ways. We can write $f$ as a function of $t$ as,
@@ -48,14 +48,14 @@ Now, comparing the $(i,j)^{\text{th}}$ element, we get,
                   & = (2t^2+4t+1)e^{2t}
     \end{align*}
 
- If we apply chain Rule we will get,
-    
+    If we apply chain rule we will get,
+
     \begin{align*}
         \dv{f}{t} & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
-              & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
-              & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
-              & = e^{2t}(1+t+2t+2t^2+t)                                              \\
-              & = (2t^2+4t+1)e^{2t}
+                  & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
+                  & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
+                  & = e^{2t}(1+t+2t+2t^2+t)                                              \\
+                  & = (2t^2+4t+1)e^{2t}
     \end{align*}
     Which is same as the previous answer.
 \end{Eg}
@@ -80,45 +80,45 @@ Hence Laplacian can be written as, $\Delta f = \div\grad f = \grad ^2 f$.
 Let, $f$ be a twice differentiable function $f: \R^2 \to \R$. We can always write $f(x,y)$ in polar coordinate as a function of $(r,\theta)$ by substituting, $x = r\cos{\theta}$ and $y= r\sin{\theta}$ . Now observe that,
 
 \begin{align*}
-        \pdv{x}{r} = \cos{\theta}, \hspace*{0.2cm} & \pdv{x}{\theta} = -r\sin{\theta} \\
-        \pdv{y}{r} = \sin{\theta}, \hspace*{0.2cm} & \pdv{y}{\theta} = r\cos{\theta}
+    \pdv{x}{r} = \cos{\theta}, \hspace*{0.2cm} & \pdv{x}{\theta} = -r\sin{\theta} \\
+    \pdv{y}{r} = \sin{\theta}, \hspace*{0.2cm} & \pdv{y}{\theta} = r\cos{\theta}
 \end{align*}
 
 Now we want to write $f_{XX}$ and $f_{YY}$ in terms of partial derivatives of $f$ in polar coordinate. Notice that,
 \begin{align*}
-    & \pdv{f}{r} = \pdv{f}{x} \pdv{x}{r} + \pdv{f}{y}\pdv{y}{r}                                                                                                                               \\
-    \implies   & \pdv{f}{r} = \pdv{f}{x} \cos{\theta} + \pdv{f}{y}\sin{\theta}                                                                                                                           \\
-    \implies   & \pdv[2]{f}{r} = \pdv{}{r} \left[\pdv{f}{x} \cos{\theta} + \pdv{f}{y} \sin{\theta} \right]                                                                                               \\
-    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv{}{r} \pdv{f}{x}\right] + \sin{\theta} \left[\pdv{}{r} \pdv{f}{y} \right]                                                                        \\
-    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \pdv{x}{r} + \pdv{f}{y}{x} \pdv{y}{r} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \pdv{x}{r} + \pdv[2]{f}{y} \pdv{y}{r} \right]         \\
-    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \cos{\theta} + \pdv{f}{y}{x} \sin{\theta} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \cos{\theta} + \pdv[2]{f}{y} \sin{\theta} \right] \\
-    \implies   & \pdv[2]{f}{r} = \cos{\theta} \left[\cos{\theta} f_{xx} + \sin{\theta} f_{xy} \right] + \sin{\theta} \left[\cos{\theta} f_{xy} + \sin{\theta} f_{y} \right]                              \\
-    \implies   & \boxed{\pdv[2]{f}{r} = \cos^2 \theta f_{xx} + \sin^2 \theta f_{y} + \sin 2 \theta f_{xy}}
+             & \pdv{f}{r} = \pdv{f}{x} \pdv{x}{r} + \pdv{f}{y}\pdv{y}{r}                                                                                                                               \\
+    \implies & \pdv{f}{r} = \pdv{f}{x} \cos{\theta} + \pdv{f}{y}\sin{\theta}                                                                                                                           \\
+    \implies & \pdv[2]{f}{r} = \pdv{}{r} \left[\pdv{f}{x} \cos{\theta} + \pdv{f}{y} \sin{\theta} \right]                                                                                               \\
+    \implies & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv{}{r} \pdv{f}{x}\right] + \sin{\theta} \left[\pdv{}{r} \pdv{f}{y} \right]                                                                        \\
+    \implies & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \pdv{x}{r} + \pdv{f}{y}{x} \pdv{y}{r} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \pdv{x}{r} + \pdv[2]{f}{y} \pdv{y}{r} \right]         \\
+    \implies & \pdv[2]{f}{r} = \cos{\theta} \left[\pdv[2]{f}{x} \cos{\theta} + \pdv{f}{y}{x} \sin{\theta} \right] + \sin{\theta} \left[\pdv{f}{x}{y} \cos{\theta} + \pdv[2]{f}{y} \sin{\theta} \right] \\
+    \implies & \pdv[2]{f}{r} = \cos{\theta} \left[\cos{\theta} f_{xx} + \sin{\theta} f_{xy} \right] + \sin{\theta} \left[\cos{\theta} f_{xy} + \sin{\theta} f_{y} \right]                              \\
+    \implies & \boxed{\pdv[2]{f}{r} = \cos^2 \theta f_{xx} + \sin^2 \theta f_{y} + \sin 2 \theta f_{xy}}
 \end{align*}
 
 
 Similarly, \[ \boxed{\pdv[2]{f}{\theta} = -r \left( \cos{\theta} f_x + \sin{\theta} f_y \right) + \left( r^2\sin^2 \theta f_{xx} + r^2\cos^2 \theta f_{y} - r^2\sin 2 \theta f_{xy} \right)} \]
 
-Combining the above two result we can write, 
+Combining the above two result we can write,
 
 \[ \boxed{\Delta f = f_{xx} + f_{yy} = \pdv[2]{f}{r} + \frac{1}{r}\cdot\pdv{f}{r} + \frac{1}{r^2}\cdot\pdv[2]{f}{\theta}} \]
 
 \begin{Eg}{Writing Laplacian in New coordinate}{}
     Let, $z = z(u,v)$ where, \[ u(x,y) = x^2y \text{ and } v(x,y) = 3x + 2y \]
     We will try to write down the laplacian with respext to $u,v$. We can start with observing, \begin{align*}
-            \pdv{u}{x} = 2xy, \hspace*{0.2cm}& \pdv{u}{y} = x^2    \\
-            \pdv{v}{x} = 3, \hspace*{0.2cm}   & \pdv{v}{y} = 2
-        \end{align*}
-So,
+        \pdv{u}{x} = 2xy, \hspace*{0.2cm} & \pdv{u}{y} = x^2 \\
+        \pdv{v}{x} = 3, \hspace*{0.2cm}   & \pdv{v}{y} = 2
+    \end{align*}
+    So,
     \begin{align*}
-        \hspace{1cm} & \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x}\\
-        \implies  & \pdv{z}{x} = 2xy \pdv{z}{u} + 3 \pdv{z}{v}   \\
-        \implies  & \pdv[2]{z}{x} = \pdv{}{x} \left[ 2xy \pdv{z}{u} + 3 \pdv{z}{v} \right]  \\
-        \implies & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                        \\
-        \implies & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv{}{u} \left[\pdv{z}{u}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{u}\right] \pdv{v}{x}\right)  + 3\left( \pdv{}{u} \left[\pdv{z}{v}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{v}\right] \pdv{v}{x} \right) \\
-        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv[2]{z}{u} \pdv{u}{x} + \pdv{z}{v}{u} \pdv{v}{x}\right)  + 3\left( \pdv{z}{u}{v} \pdv{u}{x} + \pdv[2]{z}{v} \pdv{v}{x}\right)                                                                                  \\
-        \implies                & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(2xy \pdv[2]{z}{u}  + 3 \pdv{z}{v}{u}\right)  + 3\left( \frac{1}{2xy}\cdot\pdv{z}{u}{v}  + 3\pdv[2]{z}{v}\right)                                                                                                   \\
-        \implies                & \boxed{\pdv[2]{z}{x} = 2y z_u + 4x^2y^2z_{uu}+ 6xy z_{uv} + 6xy z_{vu} + 9z_{vv}}
+        \hspace{1cm} & \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x}                                                                                                                                                                                                  \\
+        \implies     & \pdv{z}{x} = 2xy \pdv{z}{u} + 3 \pdv{z}{v}                                                                                                                                                                                                                  \\
+        \implies     & \pdv[2]{z}{x} = \pdv{}{x} \left[ 2xy \pdv{z}{u} + 3 \pdv{z}{v} \right]                                                                                                                                                                                      \\
+        \implies     & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \pdv{}{x} \left[\pdv{z}{u}\right]  + 3\pdv{}{x} \left[\pdv{z}{v}\right]                                                                                                                                                 \\
+        \implies     & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv{}{u} \left[\pdv{z}{u}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{u}\right] \pdv{v}{x}\right)  + 3\left( \pdv{}{u} \left[\pdv{z}{v}\right] \pdv{u}{x} + \pdv{}{v} \left[\pdv{z}{v}\right] \pdv{v}{x} \right) \\
+        \implies     & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(\pdv[2]{z}{u} \pdv{u}{x} + \pdv{z}{v}{u} \pdv{v}{x}\right)  + 3\left( \pdv{z}{u}{v} \pdv{u}{x} + \pdv[2]{z}{v} \pdv{v}{x}\right)                                                                                  \\
+        \implies     & \pdv[2]{z}{x} = 2y \pdv{z}{u} + 2xy \left(2xy \pdv[2]{z}{u}  + 3 \pdv{z}{v}{u}\right)  + 3\left( \frac{1}{2xy}\cdot\pdv{z}{u}{v}  + 3\pdv[2]{z}{v}\right)                                                                                                   \\
+        \implies     & \boxed{\pdv[2]{z}{x} = 2y z_u + 4x^2y^2z_{uu}+ 6xy z_{uv} + 6xy z_{vu} + 9z_{vv}}
     \end{align*}
 
 \end{Eg}
@@ -128,20 +128,20 @@ So,
 \section{Extrema of a function}
 
 \begin{Def}{Extrema}{}
-    Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function. 
+    Let, $a$ is an interior point of $S \subseteq \R^n$ and $f : S \to \R$ be a function.
 
     \begin{itemize}
         \item $f$ attains a \textbf{local maximum} at $a$ if there exists an open neighborhood $\Op{n}$ of $a$ such that, $f(a) \geq f(x)\ \forall\ x \in \Op{n}$.
         \item Similarly, $f$ attains a \textbf{local minimum} at $a$ if there exists an open neighborhood $\Op{n}$ of $a$ such that, $f(a) \leq f(x)\ \forall\ x \in \Op{n}$.
     \end{itemize}
-    
-  Any point at which $f$ attains a local(global) maxima (or minima)  is called extremum point of that function. In plural it is called \textbf{Extrema}.
+
+    Any point at which $f$ attains a local(global) maxima (or minima)  is called extremum point of that function. In plural it is called \textbf{Extrema}.
 \end{Def}
 
 \begin{Def}{Critical Point or Stationary Point}{}
     Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
     If \[ \left(\grad f\right)(a) = 0\]
-    Or, equvalently all the partial derivatives $\pdv{f}{x_i}$ are zero. 
+    Or, equvalently all the partial derivatives $\pdv{f}{x_i}$ are zero.
 \end{Def}
 
 \begin{Thm}{}{}
@@ -150,12 +150,12 @@ So,
 
 \begin{proof}
     Fix $i \in \{1,2, \ldots, n\}$. We want to show $\pdv{f}{x_i} = 0$. For this set, $\phi_i : (a_i - \epsilon, a_i + \epsilon) \to \R$ defined by $$ \phi_i(t) = f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_n)$$
-    
-  Notice that, $\dv{\phi_i}{t}(a_i) = f_{x_i}(a)$. Since $a$ is local extremum of $f$, we can say that $a_i$ is a local extremum of $\phi_i$. So, $\dv{\phi_i}{t}(a_i) = 0$, which means, $\pdv{f(a)}{x_i} = 0$. We can do this for all $i$ and hence, $(\grad f)(a) = 0$.
+
+    Notice that, $\dv{\phi_i}{t}(a_i) = f_{x_i}(a)$. Since $a$ is local extremum of $f$, we can say that $a_i$ is a local extremum of $\phi_i$. So, $\dv{\phi_i}{t}(a_i) = 0$, which means, $\pdv{f(a)}{x_i} = 0$. We can do this for all $i$ and hence, $(\grad f)(a) = 0$.
 \end{proof}
 
 
-\textbf{Question.} When we did calculation for local extremum for the functions $f$ with one variable, we used to evaluate the stationary points by calculating, $f'(x) =0$. Then we used to check the second derivative in order to know wheather the stationary point is local minima or maxima or saddle point. For multivariate case also, we need 2nd order derivative to know the behavior of the stationary point. Now what could be 2nd order total derivative? 
+\textbf{Question.} When we did calculation for local extremum for the functions $f$ with one variable, we used to evaluate the stationary points by calculating, $f'(x) =0$. Then we used to check the second derivative in order to know wheather the stationary point is local minima or maxima or saddle point. For multivariate case also, we need 2nd order derivative to know the behavior of the stationary point. Now what could be 2nd order total derivative?
 
 \vspace*{0.2cm}
 
