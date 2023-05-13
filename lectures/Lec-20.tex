@@ -26,28 +26,30 @@ In the previous lecture we had talked about elementary regions, in this lecture 
       when $\Omega$ is $x$-simple.
   \end{enumerate}
 \end{Thm}
-\textit{Proof.} There exists $c,d \in \R$ such that $\Omega \subseteq [a,b] \times [c,d] = B^2$. We know $\tilde{f} \in \mathscr{R}(B^2)$ where
-\[
-  \tilde{f}(x,y) = \begin{cases}
-    f(x,y) & \mbox{ if } (x,y) \in \Omega               \\
-    0      & \mbox{ if } (x,y) \in B^2 \setminus \Omega
-  \end{cases}
-\]
-Since $\tilde{f} \in \mathscr{R}(B^2)$, and since $\displaystyle{\int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y}$ exists for fixed $x$, hence
-\[
-  \tilde{f}(x,\cdot)\big\vert_{[\varphi_1(x),\varphi_2(x)]} \quad \mbox{ and } \quad \tilde{f}(x,\cdot)\big\vert_{[c,d]\setminus[\varphi_1(x),\varphi_2(x)]} \equiv 0
-\]
-are both Riemann integrable. Thus, we get that $\tilde{f}(x,\cdot)\vert_{[c,d]} \in \mathscr{R}([c,d])$ and hence $\displaystyle{\int_c^d \tilde{f}(x,y) \, \dd y}$ exists for all $x \in [a,b]$ and further we have
-\[
-  \int_c^d \tilde{f}(x,y) \, \dd y = \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y \quad \forall \, x \in [a,b]
-\]
-Then we get
-\begin{align*}
-   & \Longrightarrow \int_a^b \left( \int_c^d \tilde{f}(x,y) \, \dd y\right)\, \dd x = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x \\
-   & \overset{(1)}{\Longrightarrow} \int_{B^2} \tilde{f} \, \dd A = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x                    \\
-   & \Longrightarrow \int_{\Omega} f \, \dd A = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x
-\end{align*}
-where $(1)$ follows from Fubini's theorem, and one can do a similar argument for $x$-simple regions. $\hfill \blacksquare$
+\begin{proof}
+  There exists $c,d \in \R$ such that $\Omega \subseteq [a,b] \times [c,d] = B^2$. We know $\tilde{f} \in \mathscr{R}(B^2)$ where
+  \[
+    \tilde{f}(x,y) = \begin{cases}
+      f(x,y) & \mbox{ if } (x,y) \in \Omega               \\
+      0      & \mbox{ if } (x,y) \in B^2 \setminus \Omega
+    \end{cases}
+  \]
+  Since $\tilde{f} \in \mathscr{R}(B^2)$, and since $\displaystyle{\int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y}$ exists for fixed $x$, hence
+  \[
+    \tilde{f}(x,\cdot)\big\vert_{[\varphi_1(x),\varphi_2(x)]} \quad \mbox{ and } \quad \tilde{f}(x,\cdot)\big\vert_{[c,d]\setminus[\varphi_1(x),\varphi_2(x)]} \equiv 0
+  \]
+  are both Riemann integrable. Thus, we get that $\tilde{f}(x,\cdot)\vert_{[c,d]} \in \mathscr{R}([c,d])$ and hence $\displaystyle{\int_c^d \tilde{f}(x,y) \, \dd y}$ exists for all $x \in [a,b]$ and further we have
+  \[
+    \int_c^d \tilde{f}(x,y) \, \dd y = \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y \quad \forall \, x \in [a,b]
+  \]
+  Then we get
+  \begin{align*}
+     & \Longrightarrow \int_a^b \left( \int_c^d \tilde{f}(x,y) \, \dd y\right)\, \dd x = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x \\
+     & \overset{(*)}{\Longrightarrow} \int_{B^2} \tilde{f} \, \dd A = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x                    \\
+     & \Longrightarrow \int_{\Omega} f \, \dd A = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x
+  \end{align*}
+  where $(*)$ follows from Fubini's theorem, and one can do a similar argument for $x$-simple regions.
+\end{proof}
 
 \
 
@@ -64,7 +66,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
 \end{Eg}
 
 \begin{Eg}{}{}
-  Let $B^2 = [0,\pi] \times [-\frac{\pi}{2}, \frac{\pi}{2}]$, and we want to evaluate the integral $\int_{B^2} \sin (x+y) \, \dd A$.
+  Let $B^2 = [0,\pi] \times [-\frac{\pi}{2}, \frac{\pi}{2}]$, and we want to evaluate the integral $\displaystyle\int_{B^2} \sin (x+y) \, \dd A$.
   \begin{align*}
     \int_{B^2}\sin(x+y) \, \dd A & = \int_{B^2} \sin x \cos y \, \dd A + \int_{B^2} \sin y \cos x \, \dd A                                                                                                                                                             \\
                                  & = \left( \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos y \, \dd y\right)\left( \int_{0}^{\pi} \sin x \, \dd x\right) + \left( \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin y \, \dd y\right)\left( \int_{0}^{\pi} \cos x \, \dd x\right) \\
@@ -73,7 +75,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
 \end{Eg}
 
 \begin{Eg}{}{}
-  Let $\Omega$ be the region bounded by $y = 1$ and $y = x^2$, and we want to find $\int_{\Omega} x^2y \, \dd V$. We can write $\Omega$ as a $y$-simple region as follows:
+  Let $\Omega$ be the region bounded by $y = 1$ and $y = x^2$, and we want to find $\displaystyle\int_{\Omega} x^2y \, \dd V$. We can write $\Omega$ as a $y$-simple region as follows:
   \[
     \Omega = \{ (x,y) \mid -1 \leq x \leq 1, \mbox{ and } x^2 \leq y \leq 1 \}
   \]
@@ -88,7 +90,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
 \end{Eg}
 
 \begin{Eg}{}{}
-  Compute $\int_{[0,1]^2} f \, \dd A$ where $f : [0,1]^2 \to \R$ is given by
+  Compute $\displaystyle\int_{[0,1]^2} f \, \dd A$ where $f : [0,1]^2 \to \R$ is given by
   \[
     f(x,y) = \begin{cases}
       x & \mbox{ if } y \leq x^2 \\ y & \mbox{ if } y > x^2
@@ -104,7 +106,7 @@ where $(1)$ follows from Fubini's theorem, and one can do a similar argument for
   \]
   then using Theorem \ref{th:20:1} we get that
   \[
-    \int_{\Omega_1} f \, \dd A = \int_0^1 \left( \int_0^{x^2} x \, \dd y \right)\ \dd x = \frac{1}{4}
+    \int_{\Omega_1} f \, \dd A = \int_0^1 \left( \int_0^{x^2} x \, \dd y \right)\, \dd x = \frac{1}{4}
   \]
   and
   \[

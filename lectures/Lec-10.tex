@@ -6,13 +6,13 @@
 \setcounter{chapter}{10} %Set chapter counter
 
 
-\begin{Eg}{Homework}{}
+\begin{Eg}{Exercise}{}
   Take, \[ f(x,y) = \begin{cases}
       \frac{x^{3}y}{x^2 + y^2} & (x,y) \neq (0,0) \\
       0                        & (x,y) = (0,0)
     \end{cases}\]
   Then,
-  \begin{enumerate}
+  \begin{enumerate}[label=(\roman*)]
     \item Prove that, $f$ is continuous at $(0,0)$.
     \item Find $(D_{u}f)(0,0)\ \forall\ u$.
     \item Prove that, $f$ is not differentiable.
@@ -22,36 +22,27 @@
 \section{Extension of MVT to Several Variables}
 
 \begin{Thm}{}{}
-  Let $ \Op{n} \subseteq \R^n $ be open and convex. Let $f : \Op{n} \to \R$ be differentiable and $a,b \in \Op{n}$ with \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \] in $\Op{n}$. Then, $\exists c \in L_{a,b}$ such that, \[ f(b) - f(a) = (\grad f)(c)\cdot (b-a) = \left\langle f_{x_1}(c), \ldots, f_{x_n}(c) \right\rangle\cdot\left\langle (b_1 - a_1), \ldots, (b_n - a_n) \right\rangle  \]
+  Let $ \Op{n} \subseteq \R^n $ be open and convex and $f : \Op{n} \to \R$ be a differentiable function. For $a,b \in \Op{n}$ define \[L_{a,b} := \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
+  Then, $\exists\, c \in L_{a,b}$ such that, \[ f(b) - f(a) = (\grad f)(c)\cdot (b-a) = \left\langle f_{x_1}(c), \ldots, f_{x_n}(c) \right\rangle \cdot \left\langle (b_1 - a_1), \ldots, (b_n - a_n) \right\rangle  \]
 \end{Thm}
 
 \begin{proof}
-  We take \[L_{a,b} = \left\{ tb + (1-t)a : t \in [0,1]\right\} \]
-  Let, $\eta : [0,1] \to \Op{n}$ defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and \[ \eta'(t) = \begin{pmatrix}
-      b_1 - a_1 \\
-      \vdots    \\
-      b_n -a_n
-    \end{pmatrix} \]
-
-  % \[\begin{tikzcd}
-  %	I && {\mathcal{O}_n} && {\R}
-  %	\arrow["\eta", from=1-1, to=1-3]
-  %	\arrow["f", from=1-3, to=1-5]
-  %	\arrow["{\eta \circ f}"', curve={height=24pt}, from=1-1, to=1-5]
-  % \end{tikzcd}\]
+  We consider $\eta : [0,1] \to \Op{n}$
 
   \[\begin{tikzcd}
-      I &&& {\mathcal{O}_n} &&& {\R}
+      {[0,1]} &&& {\Op{n}} &&& {\R}
       \arrow["\eta", from=1-1, to=1-4]
       \arrow["f", from=1-4, to=1-7]
       \arrow["{f \circ \eta}"', curve={height=30pt}, from=1-1, to=1-7]
     \end{tikzcd}\]
 
-  % \begin{tikzcd}
-  %    I \ar[r,"\eta"]\ar[rr,out=-30,in=210,swap,"\eta \circ f"] & \mathcal{O}_n \ar[r,"f"] & \R
-  % \end{tikzcd} 
+  defined by $\eta (t) = (1-t)a + tb$. Then, $\eta$ is differentiable and it's derivative \[ \eta'(t) = \begin{pmatrix}
+      b_1 - a_1 \\
+      \vdots    \\
+      b_n -a_n
+    \end{pmatrix} \]
 
-  Hence, by standard MVT, $\exists\ t_{0} \in (0,1)$ such that,
+  So, by standard MVT, $\exists\ t_{0} \in (0,1)$ such that,
   \begin{align*}
              & (f \circ \eta)(1) - (f \circ \eta)(0) = (f \circ \eta)'(t_0)                                                                                        \\
     \implies & f(\eta(1)) - f(\eta(0)) = Df(\eta(t_0)). D\eta(t_0)                                                                                                 \\
@@ -67,57 +58,72 @@
     \implies & f(b) - f(a) = (\grad f)(\eta(t_0))\cdot(b-a)
   \end{align*}
 
-  So, $\exists\ c = \eta(t_0) \in L_{a,b}$ such that \[ f(b) - f(a) = (\grad f)(c)\cdot(b-a) \]
+  Hence, we get $c = \eta(t_0) \in L_{a,b}$ such that \[ f(b) - f(a) = (\grad f)(c)\cdot(b-a) \]
 \end{proof}
 
 \section{More Partials and Chain Rules}
 
-Assume that, $f$ is differentiable at $a$ and $g$ is differentiable at $b = f(a)$.
-
-\begin{notnBox}
-  \begin{enumerate}
-    \item $g \circ f = \left( (g \circ f)_1, (g \circ f)_2, \ldots, (g \circ f)_p \right)$
-    \item $g = \left( g_1, g_2, \ldots, g_p \right)$
-    \item $f = \left( f_1, f_2, \ldots, f_m \right)$
-  \end{enumerate}
-\end{notnBox}
+We consider $ f $ and $ g $ as following,
+\[\begin{tikzcd}
+    {\Op{n}} && {\Op{m}} && {\R^p}
+    \arrow["f", from=1-1, to=1-3]
+    \arrow["g", from=1-3, to=1-5]
+  \end{tikzcd}\]
+and we assume that $f$ is differentiable at $a \in \Op{n}$ and $g$ is differentiable at $b = f(a) \in \Op{m}$. Considering, $g \circ f = \left( (g \circ f)_1, (g \circ f)_2, \ldots, (g \circ f)_p \right)$, $g = \left( g_1, g_2, \ldots, g_p \right)$ and $f = \left( f_1, f_2, \ldots, f_m \right)$ chain rule gives,
 
 \begin{align*}
-  \therefore    \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p} & = (Dg)(f(a))\cdot (Df)(a)                                                        \\
-                                                             & = \underbrace{(Dg)(b)}_{\R^m \to \R^p}\cdot \underbrace{(Df)(a)}_{\R^n \to \R^m}
+  \underbrace{D(g \circ f)(a)}_{\R^n \to \R^p}
+   & = (Dg)(f(a))\cdot (Df)(a)                                                     \\
+   & = \underbrace{Dg(b)}_{\R^m \to \R^p} \cdot \underbrace{Df(a)}_{\R^n \to \R^m}
 \end{align*}
+i.e.,
+\[ {J_{g \circ f}(a)}_{p \times n} = {J_{g}(f(a))}_{p \times m}\cdot {J_{f}(a)}_{m \times n} \]
 
-\[\implies \underbrace{J_{g \circ f}(a)}_{p \times n} = \underbrace{J_{g}(f(a))}_{p \times m}\cdot \underbrace{J_{f}(a)}_{m \times n} \]
+Taking $(i,j)^{\text{th}}$ entry of both sides, we get,
+\[  \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{pmatrix}
+    \pdv{g_i}{y_1}\left( f(a) \right) & \pdv{g_i}{y_2}\left( f(a) \right) & \cdots & \pdv{g_i}{y_m}\left( f(a) \right)
+  \end{pmatrix} \begin{pmatrix}
+    \pdv{f_1}{x_j}\left( a \right) \\
+    \pdv{f_2}{x_j}\left( a \right) \\
+    \vdots                         \\
+    \pdv{f_m}{x_j}\left( a \right)
+  \end{pmatrix} \]
+i.e.,
+\[  \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}\left( f(a) \right)\cdot\pdv{f_k}{x_j}\left( a \right)  \]
 
-Taking $(i,j)^{th}$ entry of both sides, we get,
-\begin{align*}
-           & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \begin{pmatrix}
-                                                           \pdv{g_i}{y_1}f(a) & \pdv{g_i}{y_2}f(a) & \cdots & \pdv{g_i}{y_m}f(a)
-                                                         \end{pmatrix} \begin{pmatrix}
-                                                                         \pdv{f_1}{x_j}\left( a \right) \\
-                                                                         \pdv{f_2}{x_j}\left( a \right) \\
-                                                                         \vdots                         \\
-                                                                         \pdv{f_m}{x_j}\left( a \right)
-                                                                       \end{pmatrix}  \\
-  \implies & \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right)
-\end{align*}
-
-So, we have the chain rule for partial derivative for differentials functions,
-\[ \pdv{(g\circ f)_{i}}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}f(a)\cdot\pdv{f_k}{x_j}\left( a \right) \]
-
-\begin{notnBox}
-  \begin{enumerate}
-    \item $y_k = f_k \left( x_1, x_2, \ldots, x_n \right)$
-    \item $z_k = g_k \left( y_1, y_2, \ldots, y_m \right)$
-  \end{enumerate}
-\end{notnBox}
-
-\begin{align*}
-  \boxed{
+So, we have the chain rule for partial derivative of differentiable functions as,
+\[  \boxed{
     \pdv{\left( g\circ f \right)_i}{x_j}\left( a \right) = \sum_{k = 1}^{m} \pdv{g_i}{y_k}\left( b \right)\cdot\pdv{f_k}{x_j}\left( a \right)
-  } \tag{where, $b = f(a)$}
-\end{align*}
+  } \]
+where, $b = f(a)$. Taking $y_k = f_k \left( x_1, x_2, \ldots, x_n \right)$ and $z_i = g_i \left( y_1, y_2, \ldots, y_m \right)$ we may write,
+\[  \boxed{
+    \pdv{z_i}{x_j}\left( x \right) = \sum_{k=1}^{m} \pdv{z_i}{y_k}\left( y \right) \cdot \pdv{y_k}{x_j}\left( x \right)
+  } \]
 
-daffa
+% Missing explanation
+
+\textbf{Remark.}  For a composition map below, along with differentiability assumption,
+
+\[\begin{tikzcd}
+    {\Op{1}} && {\Op{n}} && \R \\
+    t && {\left( x_1(t), \ldots,x_n(t) \right)} && {f\left( x_1(t), \ldots,x_n(t) \right)}
+    \arrow["\eta", from=1-1, to=1-3]
+    \arrow["f", from=1-3, to=1-5]
+    \arrow["\eta", maps to, from=2-1, to=2-3]
+    \arrow["f", maps to, from=2-3, to=2-5]
+    \arrow["{z = f\circ \eta}"', curve={height=30pt}, maps to, from=2-1, to=2-5]
+  \end{tikzcd}\]
+
+the chain rule is,
+
+\[\boxed{
+    \dv{z}{t} = \sum_{k=1}^{n} \pdv{f}{x_k} \cdot \dv{x_k}{t}
+  }\]
+
+Treating $ f $ as a function of $ t $, we may also write,
+
+\[\boxed{
+    \dv{f}{t} = \sum_{k=1}^{n} \pdv{f}{x_k} \cdot \dv{x_k}{t}
+  }\]
 
 \end{document}

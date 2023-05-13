@@ -25,16 +25,16 @@ Let $\Omega \subseteq \R^n$, and $f \in \mathscr{B}(\Omega)$ and $\Omega$ bounde
 \end{Def}
 
 An immediate question that arises now is: If $B^n \supseteq \Omega$ and $\hat{B^n} \supseteq \Omega$ then will it be true that
-\begin{enumerate}
-  \item[(1)] $\tilde{f}_{B^n} \in \mathscr{R}(B^n)$
-  \item[(2)] And if $(1)$ holds, is it necessarily true that $\displaystyle{\int_{B^n} \tilde{f}_{B^n} = \int_{\hat{B^n}} \tilde{f}_{\hat{B^n}}}$.
+\begin{enumerate}[label=(\Roman*)]
+  \item $\tilde{f}_{B^n} \in \mathscr{R}(B^n)$   \label{19:st:1}
+  \item And if \ref{19:st:1} holds, is it necessarily true that $\displaystyle{\int_{B^n} \tilde{f}_{B^n} = \int_{\hat{B^n}} \tilde{f}_{\hat{B^n}}}$.  \label{19:st:2}
 \end{enumerate}
-It is in fact true that $(1) \implies (2)$, but we won't cover the proof here.
+It is in fact true that \ref{19:st:1} $\implies$ \ref{19:st:2}, but we won't cover the proof here.
 
 \
 
 \begin{Def}{}{}
-  Let $f \in \mathscr{B}(\Omega)$. We say that $f \in \mathscr{R}(\Omega)$ if $\int_{B^n} \tilde{f}_{B^n}$ exists for some $B^n \supseteq \Omega$, and in this case we define
+  Let $f \in \mathscr{B}(\Omega)$. We say that $f \in \mathscr{R}(\Omega)$ if $\displaystyle\int_{B^n} \tilde{f}_{B^n}$ exists for some $B^n \supseteq \Omega$, and in this case we define
   \[
     \int_{\Omega} f := \int_{B^n} \tilde{f}_{B^n}
   \]
@@ -43,7 +43,7 @@ It is in fact true that $(1) \implies (2)$, but we won't cover the proof here.
 \begin{Def}{Content Zero Sets}{content:zero}
   Let $S \subseteq \R^n$, we say that $S$ is of content zero if for all $\varepsilon > 0$, there exists boxes $\{ B_j^n \}_{j=1}^p$ (for some $p \in \N$) such that
   \[
-    S \subseteq \bigcup_{j=1}^p B_j^n \quad \mbox{ and } \quad \sum_{j=1}^n \operatorname{Vol}(B^n_j) < \varepsilon
+    S \subseteq \bigcup_{j=1}^p B_j^n \quad \mbox{ and } \quad \sum_{j=1}^n \Vol(B^n_j) < \varepsilon
   \]
 \end{Def}
 
@@ -51,17 +51,17 @@ For example a line segment in $\R^n$ is of content zero, provided $n > 1$. We th
 
 \begin{Thm}{}{19:1}
   \begin{enumerate}
-    \item Let $f \in \mathscr{B}(B^n)$ and let $\mathcal{D} = \{ x \in B^n \mid f \mbox{ is not continuous at } x \}$ be the set of discontinuities of $f$, if $\mathcal{D}$ is of content zero, then $f \in \mathscr{R}(B^n)$.
+    \item Let $f \in \mathscr{B}(B^n)$ and let $\mathcal{D} = \qty{ x \in B^n \mid f \mbox{ is not continuous at } x }$ be the set of discontinuities of $f$, if $\mathcal{D}$ is of content zero, then $f \in \mathscr{R}(B^n)$. \label{thm:19:1:1:1}
 
-    \item If $S$ is a content zero set then $\mathrm{int}\,(S) = \emptyset$.
+    \item If $S$ is a content zero set then $\mathrm{int}\,(S) = \emptyset$. \label{thm:19:1:1:2}
 
     \item Let $\Omega \subseteq \R^n$ and $\mathcal{O}_n \subseteq \Omega$ is bounded. Let $f \in \mathscr{B}(\Omega)$ and $f\vert_{\mathcal{O}_n} \in C(\mathcal{O}_n)$, if $\bar{\Omega}\setminus \mathcal{O}_n$ is content zero then $f \in \mathscr{R}(\Omega)$ and
           \[
             \int_{\Omega} f = \int_{\mathcal{O}_n} f
-          \]
+          \] \label{thm:19:1:1:3}
   \end{enumerate}
 \end{Thm}
-Particularly part $(1)$ and $(3)$ of Theorem $\ref{th:19:1}$ are very important.
+Particularly, \ref{thm:19:1:1:1} and \ref{thm:19:1:1:3} of Theorem \ref{th:19:1} are very important.
 
 \
 
@@ -72,11 +72,11 @@ Now that we know how to integrate on arbitrary domains, the next question that c
 \begin{Def}{Elementary Regions}{}
   A set $\Omega \subseteq \R^2$ is $y$-simple/type I if there exists functions $\varphi_1, \varphi_2 \in \mathscr{B}([a,b])$ such that
   \[
-    \Omega = \{ (x,y) \mid x \in [a,b], \, y \in [\varphi_1(x), \varphi_2(x)] \}
+    \Omega = \qty{ (x,y) \mid x \in [a,b], \, y \in [\varphi_1(x), \varphi_2(x)] }
   \]
   Similarly a set $\Omega \subseteq \R^2$ is $x$-simple/type II if there exists functions $\psi_1, \psi_2 \in \mathscr{B}([c,d])$ such that
   \[
-    \Omega = \{ (x,y) \mid y \in [c,d], \, x \in [ \psi_1(x), \psi_2(x) ] \}
+    \Omega = \qty{ (x,y) \mid y \in [c,d], \, x \in [ \psi_1(x), \psi_2(x) ] }
   \]
 \end{Def}
 
@@ -84,17 +84,16 @@ Now that we know how to integrate on arbitrary domains, the next question that c
   \centering
   \subincfig{ysimpleRegion}
   \caption{Example of a $y$-simple region.}
+  \label{fig1:19}
 \end{figure}
 
-\
 
-% \textit{Examples (of elementary regions).} 
 \begin{Eg}{Examples of elementary regions}{}
   The region $H$ given by
   \[
     H = \{ (x,y) \mid 0 \leq x \leq 1, \mbox{ and } x^2 \leq y \leq x \}
   \]
-  is a $y$-simple region. (see figure $\ref{fig1:19}$)
+  is a $y$-simple region. (see Figure \ref{fig1:19})
   \begin{figure}[H]
     \centering
     \subincfig{simpleRegion}
