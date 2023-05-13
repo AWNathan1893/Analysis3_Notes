@@ -1,4 +1,4 @@
-\documentclass[../Analysis-3.tex.tex]{subfiles}
+\documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
 \chapter*{Lecture 19} %Set chapter name
@@ -43,7 +43,7 @@ It is in fact true that $(1) \implies (2)$, but we won't cover the proof here.
 \begin{Def}{Content Zero Sets}{content:zero}
   Let $S \subseteq \R^n$, we say that $S$ is of content zero if for all $\varepsilon > 0$, there exists boxes $\{ B_j^n \}_{j=1}^p$ (for some $p \in \N$) such that
   \[
-    S \subseteq \bigcup_{j=1}^p B_j^n \quad \mbox{ and } \quad \sum_{j=1}^n \mathcal{V}(B^n_j) < \varepsilon
+    S \subseteq \bigcup_{j=1}^p B_j^n \quad \mbox{ and } \quad \sum_{j=1}^n \operatorname{Vol}(B^n_j) < \varepsilon
   \]
 \end{Def}
 
@@ -99,7 +99,7 @@ Now that we know how to integrate on arbitrary domains, the next question that c
     \centering
     \subincfig{simpleRegion}
     \caption{Plot of the region $H$.}
-    \label{fig1:19}
+    \label{fig1:S19}
   \end{figure}
 \end{Eg}
 \
