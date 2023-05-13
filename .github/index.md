@@ -23,6 +23,7 @@ header-includes: |
 - [Priyatosh Jana](https://github.com/iampjsrk)
 - [Bikram Halder](https://github.com/BikramHalder)
 - [Sarswata Sensarma](https://github.com/SaraswataSensarma)
+- [Deepta Basak](https://github.com/mindpalace01)
 
 B. Math (2021-'24) Students at [Indian Statistical Institute, Bangalore](https://www.isibang.ac.in)
 
