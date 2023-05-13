@@ -8,10 +8,10 @@
 \setcounter{section}{0}
 
 \section{Taylor's Theorem}
-Recall, Taylor's theorem for one variable.
+Recall, Taylor's theorem for one variable. 
 \begin{Def}{Taylor's Polynomial}{1:taylor:poly}
-  Let, $ f : \Op{n} \to \R $ be $C^k \ (k \in \N)$. Then
-  \[ p_{a,k}(a+h) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} h^{n} \ \forall\ a+h \in \Op{1} \]
+  Let, $ f : \Op{1} \to \R $ be $C^k \ (k \in \N)$. Then for all $h$ such that $a+h \in \Op{1}$, 
+  \[ p_{a,k}(a+h) = \sum_{n = 0}^{k} \frac{f^{(n)}(a)}{n!} h^{n}\]
   is called the \textbf{Taylor's Polynomial} of $f$ around $a$.
 \end{Def}
 
@@ -32,7 +32,7 @@ We will use the following notation in the context of multivariable Taylor expans
 \begin{notnBox}{}{}
   We take, $\alpha = (\alpha_1 , \alpha_2 , \cdots , \alpha_n) \in \Z_{\geq 0}^{n}$ and denote
   \begin{itemize}
-    \item $|\alpha| = \sum_{i = 1}^{n} \alpha_i = \alpha\bb{1}$
+    \item $|\alpha| = \sum_{i = 1}^{n} \alpha_i = \alpha$
     \item $\alpha ! = \alpha_1 ! \alpha_2 ! \cdots \alpha_n !$ (product of coordinate-wise factorials)
   \end{itemize}
   We will denote the $ \alpha^{\text{th}} $ derivative as, $\displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}$
@@ -115,37 +115,39 @@ We will use the following notation in the context of multivariable Taylor expans
       f_{xy}(a) & f_{yy}(a)
     \end{bmatrix} \]
   Then, \begin{enumerate}[label=(\roman*)]
-    \item $f(a)$ is a local maximum if $f_{xx} (a) < 0$ and $|H_f(a)| > 0$
-    \item $f(a)$ is a local minimum if $f_{xx} (a) > 0$ and $|H_f(a)| > 0$ \label{extremum:2}
-    \item $a$ is a saddle point if $|H_f(a)| < 0$
+    \item $f(a)$ is a local maximum if $f_{xx} (a) < 0$ and $\det (H_f(a)) > 0$
+    \item $f(a)$ is a local minimum if $f_{xx} (a) > 0$ and $\det (H_f(a)) > 0$ \label{extremum:2}
+    \item $a$ is a saddle point if $\det (H_f(a)) < 0$
   \end{enumerate}
 \end{Thm}
 
 \begin{proof}
   As $ a $ is an interior point of $ \Op{2} $ we can get an $ r > 0 $ such that $ a, a+h \in B_r(a) \subseteq \Op{2}$. By $\eqref{eq:pj:n2:tp}$, \[ f(a+h) - f(a) = \grad f(a) \cdot h + \frac{1}{2}h^t H_f(a+ch)h \]
 
-  \ref{extremum:2}: Our assumptions tell that $H_f(a)$ is positive definite. Hence, by the Lemma \ref{lem:hessian:nbd}, there exist $ \epsilon > 0 $ such that $H_f(x)$ is positive definite $\forall\ x \in B_{\epsilon}(a)$. So for every $ x \in B_{\epsilon}(a) $ the quadratic form $ h^t H_f(x) h > 0 $ with $ h \neq 0 $ which implies $ f(x) - f(a) > 0 $ in $ B_{\epsilon}(a) $ that means $a$ is a point of local minimum.
-
+  We will prove \ref{extremum:2} other statements can be proved similarly. Our assumptions tell that $H_f(a)$ is positive definite. Hence, by the Lemma \ref{lem:hessian:nbd}, there exist $ \epsilon > 0 $ such that $H_f(x)$ is positive definite $\forall\ x \in B_{\epsilon}(a)$. So for every $ x \in B_{\epsilon}(a) $ the quadratic form $ h^t H_f(x) h > 0 $ with $ h \neq 0 $ which implies $ f(x) - f(a) > 0 $ in $ B_{\epsilon}(a) $ that means $a$ is a point of local minimum.
 \end{proof}
 
-\begin{Eg}{}{}
-  Find the critical points and discuss the nature of the function \[ f(x,y) = x^3 - 6x^2 - 8y^2 \]
-  \textit{Solution.} Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations
+\begin{Eg}{Finding Critical points of a function and their nature}{}
+  \textbf{Find the critical points and discuss the nature of the function} 
+  
+  $$\mathbf{f(x,y) = x^3 - 6x^2 - 8y^2}$$
+
+  \textbf{\textit{Solution. }}  Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations
   \[ 3x^2 - 12x = 0 \text{  and  }  -16y = 0\]
   whose solution set is $ \qty{(0,0),(4,0)} $ implying that $(0,0), (4,0)$ are critical points.
 
   The 2nd derivatives are, \[ f_{xx}(x,y) = 6x - 12,\ f_{yy}(x,y) = -16 \text{ and } f_{xy}(x,y) = 0 \]
   Now, we compute the determinant of the hessian at these points to tell their nature. For $(0,0)$,
-  \[ |H_f(0,0)| =  \begin{vmatrix}
+  \[ \det(H_f(0,0)) =  \begin{vmatrix}
       -12   & \ \ 0 \\
       \ \ 0 & -16
     \end{vmatrix} > 0 \text{  and  } f_{xx}(0,0) = -12 < 0\]
   So, $f$ has a local maximum at $(0,0)$. And at $(4,0)$,
-  \[ |H_f(4,0)| =  \begin{vmatrix}
+  \[ \det(H_f(4,0)) =  \begin{vmatrix}
       12 & \ \ 0 \\
       0  & -16
     \end{vmatrix} < 0 \]
-  which shows that $(4,0)$ is a saddle point.
+  which shows that $(4,0)$ is a saddle point. $\hfill \blacksquare$
 \end{Eg}
 
 
