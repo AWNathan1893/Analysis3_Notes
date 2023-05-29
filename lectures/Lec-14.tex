@@ -1,6 +1,3 @@
-% \documentclass[a4paper]{article} 
-% \usepackage[utf8]{inputenc}%remove
-% \usepackage{../style}%remove
 \documentclass[../Analysis-3.tex]{subfiles}
 
 \begin{document}
@@ -9,16 +6,135 @@
 \setcounter{chapter}{14} %Set chapter counter
 \setcounter{section}{0}
 
-\section{Compact subsets of $\mathbb{R}^n$}
+\section{Compact subsets of $ \R^n $}
 
+We start with the definition of Compactness.
 \begin{Def}{Compact Subset}{}
-  A subset $K \subseteq \mathbb{R}^n$ is said to be compact if every sequence $\{x_n\} \subseteq K$ has a subsequence $\{x_{n_k}\}$ that is convergent to some $x \in K$.
+  A subset $ K \subseteq \R^n $ is said to be compact if every sequence $ \{x_n\} \subseteq K $ has a subsequence $ \{x_{n_k}\} $ that is convergent to some $ x \in K $.
 \end{Def}
 
 This is known as the Bolzano-Weierstrass Property.
 
-Observe that a compact subset of $\mathbb{R}^n$ is always closed. To see this, note that every sequence $\{x_n\} \subseteq K$, where $K$ is a compact subset of $\mathbb{R}^n$ that converges to some $x \in \mathbb{R}^n$ has a convergent subsequence $\{x_{n_k}\}$ that converges to the same $x$. Since $K$ is compact, we can say that $x \in K$. So, the convergent sequence $\{x_n\}$ converges to a point in $K$. Hence, $K$ is closed.
+\
+
+Observe that a compact subset of $ \R^n $ is always \textbf{closed}. To see this, note that every sequence $ \{x_n\} \subseteq K $, where $ K $ is a compact subset of $ \R^n $ that converges to some $ x \in \R^n $ has a convergent subsequence $ \{x_{n_k}\} $ that converges to the same $ x $. Since $ K $ is compact, we can say that $ x \in K $. So, the convergent sequence $ \{x_n\} $ converges to a point in $ K $. Hence, $ K $ is closed.
+
+\
+
+More is true. A compact subset of $ \R^n $ is \textbf{bounded} too. Assume that a compact subset $ K \subseteq \R^n $ is not bounded. Note that, a subset of $ \R^n $ is bounded iff it is contained inside an open ball. Since $ K $ is unbounded, we can get a sequence $ \left\{ x_m \right\} \subseteq K $ with $ \norm{x_m} > m $, which doesn't have a convergent subsequence. This shows that $ K $ is not compact that contradicts our assumption.
+
+\
+
+So we get that a compact subset of $ \R^n $ is closed and bounded. What about the converse?
+
+\begin{Thm}{}{clbox:cpct}
+  A closed and bounded box in $ \R^n $ is compact.
+\end{Thm}
+
+\begin{proof}
+  We take a closed and bounded box $ \displaystyle K := \prod_{i=1}^{n} [a_i, b_i] \subseteq \R^n $. Fix $ i \in [n] $. Consider a sequence $ \left\{ x_m \right\} \subseteq K $. We take its projection on the $ i^{\text{th}} $ coordinate, i.e., $ \left\{ \Pi_i(x_m) \right\} \subseteq [a_i, b_i] $. By Bolzano-Weierstrass Theorem, it has a convergent subsequence $ \left\{ \Pi_i(x_m)_t \right\} \subseteq [a_i, b_i] $ converging to $ \alpha_i \in [a_i, b_i] $. Consider the intersection of inverse images of all such convergent subsequences, $ \displaystyle \bigcap_{i=1}^n \Pi_i^{-1}\left\{ \Pi_i(x_m)_t \right\} $, which is a convergent subsequence of $ \left\{ x_m \right\} $ converging to $ \alpha = (\alpha_1, \ldots, \alpha_n) \in K $.
+\end{proof}
 
 
+
+\begin{Thm}{Heine-Borel Theorem}{heine:borel}
+  A subset $ K \subseteq \R^n $ is compact iff it is closed and bounded.
+\end{Thm}
+
+\begin{proof}
+  \begin{itemize}
+    \item[$ \Longrightarrow $] Done!
+    \item[$ \Longleftarrow $] Since, $ K $ is bounded, it is contained in a closed box, i.e., there exists $ r > 0 $ such that $ K \subseteq [-r, r]^n $. So, Theorem \ref{th:clbox:cpct} implies that all sequences in $ K $ has a convergent subsequence, which must converge in $ K $ because $ K $ is closed. Hence, $ K $ is compact.
+  \end{itemize}
+\end{proof}
+
+
+
+\begin{Thm}{}{cpct:cts:cpct}
+  Let $ f:\Op{n} \to \R^m $ be a continuous map. Then $ f $ sends compact sets to compact sets.
+\end{Thm}
+
+In other words, continuous image of a compact set is compact.
+
+\begin{proof}
+  Let $ K \in \Op{n} $ be compact. Take a sequence $ \left\{ x_k \right\} \subseteq K $ with a convergent subsequence $ \left\{ x_{k_t} \right\} \subseteq K $ converging to $ x \in K $. Then, $ \left\{ f(x_k) \right\} $ is sequence in $ f(K) $  with convergent subsequence $ \left\{ f(x_{m_t}) \right\} $  converging to $ f(x) $. The last statement about convergence follows from the continuity of $ f $. This shows that $ f(K) $ is compact.
+\end{proof}
+
+
+\begin{Thm}{Extreme Value Theorem}{ext:val}
+  Let $ K \subseteq \R^n $ be compact and $ f:K \to \R $ a continuous map. Then $\exists\ a,b \in K $ such that $ f(a) \leq f(x) \leq f(b) $ for all $ x \in K $.
+\end{Thm}
+
+\begin{proof}
+  By Theorem \ref{th:cpct:cts:cpct}, $ f(K) $ is compact. So $ f $ is bounded which implies $ \displaystyle \sup_K f, \inf_K f $ exist! Since $ f(K) $ is closed, they must exist inside $ f(K) $.
+\end{proof}
+
+\section{Inverse Function Theorem}
+
+\begin{Lem}{}{sup:diff}
+  Let $ \Op{n} \subseteq \R^n $ be open and convex. Suppose $ f:\Op{n} \to \R^n $ be a $ C^1 $ function. If $ \exists\ M > 0 $ such that
+  \[ \sup_{x \in \Op{n}} \abs{\pdv{f_i}{x_j}\left( x \right)} \leq M \text{ for all } i, j \]
+  Then $ \norm{f(x) - f(y)} \leq n^2 M\norm{x-y} $ for every $ x, y \in \Op{n} $.
+\end{Lem}
+
+\begin{proof}
+  Pick $ x, y \in \Op{n} $ and $ i \in [n] $. Then using Mean Value Theorem, we can get $ c_i \in L_{x, y} $ such that
+  \begin{align*}
+    f_i(x) - f_i(y)                & = \grad f_i (c_i) \cdot (x - y)                                                                     \\
+    \implies \abs{f_i(x) - f_i(y)} & = \abs{\sum_{j=1}^{n} \pdv{f_i}{x_j}\left( c_i \right) \cdot (x_i - y_i)}                           \\
+                                   & \leq \sum_{j=1}^{n} \abs{\pdv{f_i}{x_j}\left( c_i \right)}\abs{x_i - y_i} \tag{Triangle inequality} \\
+                                   & \leq M \sum_{j=1}^{n} \abs{x_i - y_i} \leq nM \norm{x-y}
+  \end{align*}
+  The last inequality follows from the inequality $ \abs{x_i-y_i} \leq \norm{x-y} $ which holds for all $ i $.
+
+  Using the above, \[ \norm{f(x) - f(y)} = \sqrt{\sum_{i=1}^{n} \abs{f_i(x) - f_i(y)}^2} \leq \sqrt{\sum_{i=1}^{n} n^2M^2\norm{x-y}^2 } = n^2 M\norm{x-y} \]
+  we obtain the result.
+\end{proof}
+
+
+\begin{Thm}{Inverse Function Theorem}{inv:fun}
+  Let $ f:\Op{n} \to \R^n $ be a $ C^1 $ function and $ a \in \Op{n} $. Suppose $ Df(a) $ is invertible. Then, there exist open sets $ V $ and $ W $ containing $ a $ and $ f(a) $ respectively, such that $ f: V \to W $ is invertible.
+
+  \;
+
+  Moreover, the local inverse $ f^{-1} \equiv \left( f\vert_V \right)^{-1} : W \to V $ is differentiable and for all $ y \in W $,
+  \[ Df^{-1}(y) = \left( \left( Df \right)\left( f^{-1}(y) \right) \right)^{-1} \]
+  i.e., locally, the derivative of the inverse is the matrix inverse of the derivative.
+\end{Thm}
+
+\begin{proof}
+  We call $ L = Df(a) $ which is given to be invertible and take $ g(x) := L^{-1}f(x) $. Then,
+
+  \[  Dg(a) = L^{-1}(f(a))\cdot (Df)(a) = \left[ L^{-1} \right]\cdot Df(a) = I  \]
+
+  As this transformation can be made, without loss of generality, we may assume that $ Df(a) = I_n $ which would imply that there exists a closed box $ U $ containing $ a $ such that for all $ x\in U\setminus\{a\}, f(a) \not= f(x) $. To see this, let $ f(a) = f(a+h) $ with arbitrarily small $ \norm{h} $. But then,
+
+  \[\frac{1}{\norm{h}}\left( f(a+h)-f(a)-Ih \right) = \frac{h}{\norm{h}} \not= 0\]
+  which contradicts the definition of derivative. Note that $ \det J_f(a) \not= 0 $. So, by continuity $ \det J_f(x) \not= 0 $ for all $ x \in U $ (we may shrink $ U $ if necessary). Hence, $ Df(x) $ is invertible for all $ x \in U $. Again by continuity, for all $ x \in U $ (we may shrink $ U $ if necessary),
+
+  \[  \Bigg\vert \pdv{f}{x_j}\left( x \right) - \underbrace{\pdv{f}{x_j}\left( a \right)}_{\delta_{ij}} \Bigg\vert \leq \frac{1}{2n^2}  \]
+
+  Now we claim the following,
+  \begin{clmBox}
+    For all $ x, y \in U $,
+    \[  \norm{f(x)-f(y)} \geq \frac{1}{2}\norm{x-y}  \]
+  \end{clmBox}
+
+  \begin{proof}
+    We take $ g(x) = f(x) - x $ for all $ x \in U $. Taking derivative, we get
+    \begin{align*}
+      Dg(x)    & = Df(x) - I  = Df(x) - Df(a)                                                                     \\
+      \implies & \pdv{g_i}{x_j}\left( x \right) = \pdv{f_i}{x_j}\left( x \right) - \pdv{f_i}{x_j}\left( a \right) \\
+      \implies & \abs{\pdv{g_i}{x_j}\left( x \right)} \leq \frac{1}{2n^2} \ \forall\ x \in U
+    \end{align*}
+    Then by Lemma \ref{lem:sup:diff}, for all $ x, y \in U $, \begin{align*}
+               & \norm{g(x)-g(y)} \leq n^2\cdot\frac{1}{2n^2}\norm{x-y} \\
+      \implies & \norm{(f(x)-f(y)) - (x-y)} \leq \frac{1}{2}\norm{x-y}  \\
+      \implies & \boxed{\norm{f(x)-f(y)} \geq \frac{1}{2}\norm{x-y}}
+    \end{align*}
+    The last line follows from the Triangle inequality. And we get the claim! It shows that $ f $ is injective.
+  \end{proof}
+  Next we look at the compact set $ \partial U \subseteq U $. Since $ a \not\in U $,
+\end{proof}
 
 \end{document}
