@@ -210,11 +210,11 @@
   colframe = white,
   arc = 0mm}
 
-\newenvironment{proofFig}[5][\proofname]{\par
+\newenvironment{proofFig}[6][\proofname]{\par
   \pushQED{\qed}%
   \normalfont \topsep6\p@\@plus6\p@\relax
   {\noindent\textit{#1}\@addpunct{.}\hspace{\the\labelsep}}%
-  \begin{wrapfigure}[{#5}]{r}{.5\textwidth}
+  \begin{wrapfigure}[{#5}]{r}{#6}
     \centering
     #2
     \caption{#3}

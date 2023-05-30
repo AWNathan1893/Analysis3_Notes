@@ -8,7 +8,7 @@
 
 \section{Compact subsets of $ \R^n $}
 
-We start with the definition of Compactness.
+We start with the definition of Compactness which refers to a property of sets that captures the notion of being finite or having no ``holes''.
 \begin{Def}{Compact Subset}{}
   A subset $ K \subseteq \R^n $ is said to be compact if every sequence $ \{x_n\} \subseteq K $ has a subsequence $ \{x_{n_k}\} $ that is convergent to some $ x \in K $.
 \end{Def}
@@ -17,7 +17,7 @@ This is known as the Bolzano-Weierstrass Property.
 
 \
 
-Observe that a compact subset of $ \R^n $ is always \textbf{closed}. To see this, note that every sequence $ \{x_n\} \subseteq K $, where $ K $ is a compact subset of $ \R^n $ that converges to some $ x \in \R^n $ has a convergent subsequence $ \{x_{n_k}\} $ that converges to the same $ x $. Since $ K $ is compact, we can say that $ x \in K $. So, the convergent sequence $ \{x_n\} $ converges to a point in $ K $. Hence, $ K $ is closed.
+Observe that a compact subset of $ \R^n $ is always \textbf{closed}. To see this, note that every sequence $ \{x_n\} \subseteq K $, where $ K $ is a compact subset of $ \R^n $ that converges to some $ x \in \R^n $ has a convergent subsequence $ \left\{x_{n_k}\right\} $ that converges to the same $ x $. Since $ K $ is compact, we can say that $ x \in K $. So, the convergent sequence $ \{x_n\} $ converges to a point in $ K $. Hence, $ K $ is closed.
 
 \
 
@@ -25,7 +25,7 @@ More is true. A compact subset of $ \R^n $ is \textbf{bounded} too. Assume that 
 
 \
 
-So we get that a compact subset of $ \R^n $ is closed and bounded. What about the converse?
+Therefore, a compact subset of $ \R^n $ is closed and bounded. What about the converse?
 
 \begin{Thm}{}{clbox:cpct}
   A closed and bounded box in $ \R^n $ is compact.
@@ -71,6 +71,8 @@ In other words, continuous image of a compact set is compact.
 
 \section{Inverse Function Theorem}
 
+We are now going to study Inverse Function Theorem which relates the differentiability of a function to the differentiability of its inverse, enabling the study of local behavior and solving equations in higher dimensions. But before that we prove a lemma that is essential to prove the theorem.
+
 \begin{Lem}{}{sup:diff}
   Let $ \Op{n} \subseteq \R^n $ be open and convex. Suppose $ f:\Op{n} \to \R^n $ be a $ C^1 $ function. If $ \exists\ M > 0 $ such that
   \[ \sup_{x \in \Op{n}} \abs{\pdv{f_i}{x_j}\left( x \right)} \leq M \text{ for all } i, j \]
@@ -80,14 +82,16 @@ In other words, continuous image of a compact set is compact.
 \begin{proof}
   Pick $ x, y \in \Op{n} $ and $ i \in [n] $. Then using Mean Value Theorem, we can get $ c_i \in L_{x, y} $ such that
   \begin{align*}
-    f_i(x) - f_i(y)                & = \grad f_i (c_i) \cdot (x - y)                                                                     \\
-    \implies \abs{f_i(x) - f_i(y)} & = \abs{\sum_{j=1}^{n} \pdv{f_i}{x_j}\left( c_i \right) \cdot (x_i - y_i)}                           \\
-                                   & \leq \sum_{j=1}^{n} \abs{\pdv{f_i}{x_j}\left( c_i \right)}\abs{x_i - y_i} \tag{Triangle inequality} \\
-                                   & \leq M \sum_{j=1}^{n} \abs{x_i - y_i} \leq nM \norm{x-y}
+    f_i(x) - f_i(y)
+     & = \grad f_i (c_i) \cdot (x - y)                                                                     \\
+    \implies \abs{f_i(x) - f_i(y)}
+     & = \abs{\sum_{j=1}^{n} \pdv{f_i}{x_j}\left( c_i \right) \cdot (x_i - y_i)}                           \\
+     & \leq \sum_{j=1}^{n} \abs{\pdv{f_i}{x_j}\left( c_i \right)}\abs{x_i - y_i} \tag{Triangle inequality} \\
+     & \leq M \sum_{j=1}^{n} \abs{x_i - y_i} \leq nM \norm{x-y}
   \end{align*}
   The last inequality follows from the inequality $ \abs{x_i-y_i} \leq \norm{x-y} $ which holds for all $ i $.
 
-  Using the above, \[ \norm{f(x) - f(y)} = \sqrt{\sum_{i=1}^{n} \abs{f_i(x) - f_i(y)}^2} \leq \sqrt{\sum_{i=1}^{n} n^2M^2\norm{x-y}^2 } = n^2 M\norm{x-y} \]
+  Using the above, \[ \norm{f(x) - f(y)} = \sqrt{\sum_{i=1}^{n} \abs{f_i(x) - f_i(y)}^2} \leq \sqrt{\sum_{i=1}^{n} n^2M^2\norm{x-y}^2 } \leq n^2 M\norm{x-y} \]
   we obtain the result.
 \end{proof}
 
@@ -97,21 +101,22 @@ In other words, continuous image of a compact set is compact.
 
   \;
 
-  Moreover, the local inverse $ f^{-1} \equiv \left( f\vert_V \right)^{-1} : W \to V $ is differentiable and for all $ y \in W $,
+  Moreover, the local inverse $ f^{-1} \equiv \left( f\vert_{{}_V} \right)^{-1} : W \to V $ is differentiable and for all $ y \in W $,
   \[ Df^{-1}(y) = \left( \left( Df \right)\left( f^{-1}(y) \right) \right)^{-1} \]
   i.e., locally, the derivative of the inverse is the matrix inverse of the derivative.
 \end{Thm}
 
-\begin{proof}
+\begin{proofFig}{\subincfig{inverseFunction}}{}{\label{fig:inf:fun}}{13}{.4\textwidth}
   We call $ L = Df(a) $ which is given to be invertible and take $ g(x) := L^{-1}f(x) $. Then,
-
-  \[  Dg(a) = L^{-1}(f(a))\cdot (Df)(a) = \left[ L^{-1} \right]\cdot Df(a) = I  \]
+  \begin{align*}
+    Dg(a)
+     & = L^{-1}(f(a))\cdot (Df)(a)            \\
+     & = \left[ L^{-1} \right]\cdot Df(a) = I
+  \end{align*}
 
   As this transformation can be made, without loss of generality, we may assume that $ Df(a) = I_n $ which would imply that there exists a closed box $ U $ containing $ a $ such that for all $ x\in U\setminus\{a\}, f(a) \not= f(x) $. To see this, let $ f(a) = f(a+h) $ with arbitrarily small $ \norm{h} $. But then,
-
-  \[\frac{1}{\norm{h}}\left( f(a+h)-f(a)-Ih \right) = \frac{h}{\norm{h}} \not= 0\]
+  \[  \frac{1}{\norm{h}}\left( f(a+h)-f(a)-Ih \right) = \frac{h}{\norm{h}} \not= 0  \]
   which contradicts the definition of derivative. Note that $ \det J_f(a) \not= 0 $. So, by continuity $ \det J_f(x) \not= 0 $ for all $ x \in U $ (we may shrink $ U $ if necessary). Hence, $ Df(x) $ is invertible for all $ x \in U $. Again by continuity, for all $ x \in U $ (we may shrink $ U $ if necessary),
-
   \[  \Bigg\vert \pdv{f}{x_j}\left( x \right) - \underbrace{\pdv{f}{x_j}\left( a \right)}_{\delta_{ij}} \Bigg\vert \leq \frac{1}{2n^2}  \]
 
   Now we claim the following,
@@ -127,14 +132,110 @@ In other words, continuous image of a compact set is compact.
       \implies & \pdv{g_i}{x_j}\left( x \right) = \pdv{f_i}{x_j}\left( x \right) - \pdv{f_i}{x_j}\left( a \right) \\
       \implies & \abs{\pdv{g_i}{x_j}\left( x \right)} \leq \frac{1}{2n^2} \ \forall\ x \in U
     \end{align*}
-    Then by Lemma \ref{lem:sup:diff}, for all $ x, y \in U $, \begin{align*}
-               & \norm{g(x)-g(y)} \leq n^2\cdot\frac{1}{2n^2}\norm{x-y} \\
-      \implies & \norm{(f(x)-f(y)) - (x-y)} \leq \frac{1}{2}\norm{x-y}  \\
-      \implies & \boxed{\norm{f(x)-f(y)} \geq \frac{1}{2}\norm{x-y}}
-    \end{align*}
-    The last line follows from the Triangle inequality. And we get the claim! It shows that $ f $ is injective.
+
+    Then by Lemma \ref{lem:sup:diff}, for all $ x, y \in U $,
+    \begin{align}
+               & \norm{g(x)-g(y)} \leq n^2\cdot\frac{1}{2n^2}\norm{x-y} \nonumber                          \\
+      \implies & \norm{(f(x)-f(y)) - (x-y)} \leq \frac{1}{2}\norm{x-y}  \nonumber                          \\
+      \implies & \boxed{\norm{f(x)-f(y)} \geq \frac{1}{2}\norm{x-y}} \label{eqn:clm:normdiff:ge:th:14.2.1}
+    \end{align}
+
+    The last line follows from the Triangle inequality. So, we get the claim! It shows that $ f $ is injective.
   \end{proof}
-  Next we look at the compact set $ \partial U \subseteq U $. Since $ a \not\in U $,
-\end{proof}
+
+  Next we look at the compact set $ \partial U \subseteq U $. Since $ a \not\in \partial U $, we can say $ f(x) \not= f(a) $ for all $ x \in \partial U $. So, by continuity of $ f $ and compactness of $ \partial U $,  we can find a $ d \in \R_{\geq 0} $ such that
+  \[  \norm{f(x)-f(a)} \geq d \quad \forall\ x \in \partial U \]
+
+  \begin{figure}[h]
+    \centering
+    \subincfig{boundaryU_invfun}
+    \caption{}
+    \label{fig:boundaryU_invfun}
+  \end{figure}
+
+  Now, we take $ W = B_{\frac{d}{2}}\left( f(a) \right) $. Then, for every $ y \in W $ and $ x \in \partial U $,
+  \begin{equation}\label{eqn:normdist:ytofa:ytofx:th:14.2.1}
+    \underbrace{\norm{y-f(a)}}_{\text{atmost } \frac{d}{2}} < \underbrace{\norm{y-f(x)}}_{\text{atleast } d}
+  \end{equation}
+
+
+  \begin{clmBox}
+    For a fixed $ y \in W, \exists$ a unique $ x_0 \in U^{\circ} $ such that $ f(x_0) = y $
+  \end{clmBox}
+
+  \begin{proof}
+    We define a continuous function $ g:U \to \R $ with \[ g(x) = \norm{y-f(x)}^2 = \sum_{i=1}^{n}\left( y_i - f_i(x) \right)^2 \]
+
+    Since, $ \inf_U g $ cannot occur at the boundary $ \partial U $, but must occur in $ U $, there exists $ x_0 \in U^{\circ} $ such that
+    \[\grad g(x_0) = 0 \text{ i.e., } \pdv{g}{x_j}\left( x_0 \right) = 0 \ \forall j \]
+    Now, the partials of $ g $,
+    \begin{align*}
+      \pdv{g}{x_j}\left( x \right)
+       & = \pdv{x_j} \sum_{i=1}^{n}\left( y_i - f_i(x) \right)^2                     \\
+       & = -2\sum_{i=1}^{n}\left( y_i - f_i(x) \right)\pdv{f_i}{x_j}\left( x \right)
+    \end{align*}
+    At $ x_0 $, we get,
+    \begin{align*}
+      \sum_{i=1}^{n}\left( y_i - f_i(x_0) \right)\pdv{f_i}{x_j}\left( x_0 \right) & = 0 \ \forall j          \\
+      \implies \underbrace{\begin{pmatrix}
+                               \pdv{f_i}{x_j}\left( x_0 \right)
+                             \end{pmatrix}^t}_{Df(x_0)^t} \left( y-f_i(x_0) \right)                      & = 0
+    \end{align*}
+    As $ Df $ is invertible in $ U $ and $ x_0 \in U^{\circ} $ we obtain $ y = f(x_0) $, which shows the existence of $ x_0 $. The uniqueness follows from (\ref{eqn:clm:normdiff:ge:th:14.2.1}).
+  \end{proof}
+
+  We now set $ V := U \cap f^{-1}(W) $. Since $ U $ is closed, $ V = U^{\circ} \cap f^{-1}(W) $. Hence, $ f\vert_{{}_V}: V \to W $ is invertible!
+
+
+  \begin{clmBox}
+    $ f^{-1} \equiv \left( f\vert_{{}_V} \right)^{-1}:W \to V $ is continuous.
+  \end{clmBox}
+
+  \begin{proof}
+    (\ref{eqn:clm:normdiff:ge:th:14.2.1}) gives,
+    \[  \norm{f(x_1) - f(x_2)} \geq \frac{1}{2}\norm{x_1 - x_2} \ \forall\ x_1,x_2 \in V \subseteq U  \]
+    equivalently,
+    \[  2\norm{y_1 - y_2} \geq \norm{f^{-1}(y_1) - f^{-1}(y_2)}   \tag{where, $ y_i = f(x_i) $}  \]
+    which shows that $ f^{-1} $ is Lipschitz, hence continuous.
+  \end{proof}
+
+
+  \begin{clmBox}
+    $ f^{-1} $ is differentiable.
+  \end{clmBox}
+
+  \begin{proof}
+    We fix $ y_0 = f(x_0) \in W $ for some $ x_0 \in V $ and take $ A = Df(x_0) $. As we know,
+    \begin{align}
+      \lim_{h \to 0}                       & \frac{1}{\norm{h}}\left( f^{-1}(y_0+h) - f^{-1}(y_0) - A^{-1}h \right)              = 0  \nonumber                  \\
+      \Longleftrightarrow \lim_{y \to y_0} & \frac{1}{\norm{y-y_0}}\left( f^{-1}(y) - f^{-1}(y_0) - A^{-1}(y-y_0) \right) = 0 \label{eqn:clm:lim:finv:th:14.2.1}
+    \end{align}
+
+    We set $ \phi(h) = f(x_0+h) - f(x_0) - Ah $ for $ h $ in a neighborhood of $ 0 $. Now,
+    \begin{align*}
+      A^{-1}\left( f(x_0+h) - f(x_0) \right)
+       & = h + A^{-1}\phi(h)                                          \\
+       & = ((x_0+h) - x_0) + A^{-1}\left( \phi((x_0+h) - x_0) \right)
+    \end{align*}
+
+    Also set $ y = f(x_0+h) $. Then,
+    \begin{align}
+               & A^{-1}(y-y_0) = f^{-1}(y) - f^{-1}(y_0) + A^{-1}\left( \phi\left(f^{-1}(y) - f^{-1}(y_0)\right) \right)  \nonumber                                              \\
+      \implies & -A^{-1}\left( \phi\left(f^{-1}(y) - f^{-1}(y_0)\right) \right) = f^{-1}(y) - f^{-1}(y_0) - A^{-1}(y-y_0)  \label{eqn:clm:limtermintermsofAinvphifinv:th:14.2.1}
+    \end{align}
+
+    So, it is now enough to prove that,
+    \begin{align*}
+      \lim_{h \to 0}                       & \frac{1}{\norm{h}}A^{-1}\left( \phi\left(f^{-1}(y) - f^{-1}(y_0)\right) \right)              = 0 \\
+      \Longleftrightarrow \lim_{y \to y_0} & \frac{1}{\norm{y-y_0}}\left( \phi\left(f^{-1}(y) - f^{-1}(y_0)\right) \right) = 0
+    \end{align*}
+
+    But,
+    \[  \frac{\norm{\phi\left(f^{-1}(y) - f^{-1}(y_0)\right)}}{\norm{y-y_0}} = \underbrace{\frac{\norm{\phi\left(f^{-1}(y) - f^{-1}(y_0)\right)}}{\norm{f^{-1}(y) - f^{-1}(y_0)}}}_{0} \cdot \underbrace{\frac{\norm{f^{-1}(y) - f^{-1}(y_0)}}{\norm{y-y_0}}}_{\leq 2} = 0  \]
+
+    Hence, the limit (\ref{eqn:clm:lim:finv:th:14.2.1}) is true!
+  \end{proof}
+  Also, $ f^{-1} $ is $ C^1 $, since all partials of $ f^{-1} $ are rational polynomial functions (with non-zero denominators) of those of $ f $. And that completes the proof.
+\end{proofFig}
 
 \end{document}

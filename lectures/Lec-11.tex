@@ -6,16 +6,18 @@
 \setcounter{chapter}{11} %Set chapter counter
 \setcounter{section}{0}
 
+\section{Chain Rule}
+
 We will begin with recalling some results from the previous lecture.
 
 \[\begin{tikzcd}
-        {\Op{n}} &&& {\mathcal{O}_m} &&& {\R^p}
+        {\Op{n}} &&& {\Op{m}} &&& {\R^p}
         \arrow["f"', from=1-1, to=1-4]
         \arrow["g"', from=1-4, to=1-7]
         \arrow["{g \circ f}", curve={height=-30pt}, from=1-1, to=1-7]
     \end{tikzcd}\]
 
-If we are given two differentiable function $f : \mathcal{O}_n \to \mathcal{O}_m$ and $g: \mathcal{O}_m \to \R^p$, then $g\circ f$ is also differentiable. We also derived how to compute $D_{g\circ f}$ by \textbf{chain rule} as following,
+If we are given two differentiable function $f : \Op{n} \to \Op{m}$ and $g: \Op{m} \to \R^p$, then $g\circ f$ is also differentiable. We also derived how to compute $D_{g\circ f}$ by \textbf{chain rule} as following,
 
 \[ D_{g \circ f}(a) = D_{g}(f(a)). D_{f}(a)\]
 
@@ -38,24 +40,27 @@ which is reminiscent of the one variable chain rule.
 \begin{Eg}{}{}
     Let, $f(x,y,z) = xy^{2}z$ and $x=t, y=e^t, z= 1+t$, we want to calculate $\dv{f}{t}$ in two ways. We can write $f$ as a function of $t$ as,
     \begin{align*}
-        f(x,y,z) & = t(e^t)^2(1+t) \\
-                 & = (t+t^2)e^{2t}
+        f(x,y,z)
+         & = t(e^t)^2(1+t) \\
+         & = (t+t^2)e^{2t}
     \end{align*}
 
     Hence, \begin{align*}
-        \dv{f}{t} & = \dv{t}(t+t^2)e^{2t}           \\
-                  & = (1+2t)e^{2t} + 2(t+t^2)e^{2t} \\
-                  & = (2t^2+4t+1)e^{2t}
+        \dv{f}{t}
+         & = \dv{t}(t+t^2)e^{2t}           \\
+         & = (1+2t)e^{2t} + 2(t+t^2)e^{2t} \\
+         & = (2t^2+4t+1)e^{2t}
     \end{align*}
 
     If we apply chain rule we will get,
 
     \begin{align*}
-        \dv{f}{t} & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
-                  & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
-                  & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
-                  & = e^{2t}(1+t+2t+2t^2+t)                                              \\
-                  & = (2t^2+4t+1)e^{2t}
+        \dv{f}{t}
+         & = \pdv{f}{x} \dv{x}{t} + \pdv{f}{y} \dv{y}{t} + \pdv{f}{z} \dv{z}{t} \\
+         & = y^2z\cdot 1 + 2xyz\cdot e^t + xy^2\cdot 1                          \\
+         & = e^{2t}(1+t) + 2t(1+t)e^t.e^t + te^{2t}                             \\
+         & = e^{2t}(1+t+2t+2t^2+t)                                              \\
+         & = (2t^2+4t+1)e^{2t}
     \end{align*}
     Which is same as the previous answer.
 \end{Eg}
@@ -68,23 +73,24 @@ which is reminiscent of the one variable chain rule.
 \end{Def}
 
 Observe that,  \begin{align*}
-    \Delta f & = \sum_{i=1}^{n} \pdv[2]{f}{x_i}                                                                                               \\
-             & = \left\langle \pdv{}{x_1}, \ldots, \pdv{}{x_n}  \right\rangle. \left\langle \pdv{f}{x_1}, \ldots, \pdv{f}{x_n}  \right\rangle \\
-             & = \div\grad f
+    \Delta f
+     & = \sum_{i=1}^{n} \pdv[2]{f}{x_i}                                                                                               \\
+     & = \left\langle \pdv{}{x_1}, \ldots, \pdv{}{x_n}  \right\rangle. \left\langle \pdv{f}{x_1}, \ldots, \pdv{f}{x_n}  \right\rangle \\
+     & = \div\grad f
 \end{align*}
 
-Hence Laplacian can be written as, $\Delta f = \div\grad f = \grad ^2 f$.
+Hence, Laplacian can be written as, $\Delta f = \div\grad f = \laplacian f$.
 
 \subsection*{Laplacian in Polar Coordinate}
 
 Let, $f$ be a twice differentiable function $f: \R^2 \to \R$. We can always write $f(x,y)$ in polar coordinate as a function of $(r,\theta)$ by substituting, $x = r\cos{\theta}$ and $y= r\sin{\theta}$ . Now observe that,
 
 \begin{align*}
-    \pdv{x}{r} = \cos{\theta}, \hspace*{0.2cm} & \pdv{x}{\theta} = -r\sin{\theta} \\
-    \pdv{y}{r} = \sin{\theta}, \hspace*{0.2cm} & \pdv{y}{\theta} = r\cos{\theta}
+    \pdv{x}{r} = \cos{\theta}, \quad & \pdv{x}{\theta} = -r\sin{\theta} \\
+    \pdv{y}{r} = \sin{\theta}, \quad & \pdv{y}{\theta} = r\cos{\theta}
 \end{align*}
 
-Now we want to write $f_{XX}$ and $f_{YY}$ in terms of partial derivatives of $f$ in polar coordinate. Notice that,
+Now we want to write $f_{xx}$ and $f_{yy}$ in terms of partial derivatives of $f$ in polar coordinate. Notice that,
 \begin{align*}
              & \pdv{f}{r} = \pdv{f}{x} \pdv{x}{r} + \pdv{f}{y}\pdv{y}{r}                                                                                                                               \\
     \implies & \pdv{f}{r} = \pdv{f}{x} \cos{\theta} + \pdv{f}{y}\sin{\theta}                                                                                                                           \\
@@ -105,7 +111,7 @@ Combining the above two result we can write,
 
 \begin{Eg}{Writing Laplacian in New coordinate}{}
     Let, $z = z(u,v)$ where, \[ u(x,y) = x^2y \text{ and } v(x,y) = 3x + 2y \]
-    We will try to write down the laplacian with respext to $u,v$. We can start with observing, \begin{align*}
+    We will try to write down the Laplacian with respect to $u,v$. We can start with observing, \begin{align*}
         \pdv{u}{x} = 2xy, \hspace*{0.2cm} & \pdv{u}{y} = x^2 \\
         \pdv{v}{x} = 3, \hspace*{0.2cm}   & \pdv{v}{y} = 2
     \end{align*}
@@ -135,13 +141,13 @@ Combining the above two result we can write,
         \item Similarly, $f$ attains a \textbf{local minimum} at $a$ if there exists an open neighborhood $\Op{n}$ of $a$ such that, $f(a) \leq f(x)\ \forall\ x \in \Op{n}$.
     \end{itemize}
 
-    Any point at which $f$ attains a local(global) maxima (or minima)  is called extremum point of that function. In plural it is called \textbf{Extrema}.
+    Any point at which $f$ attains a local(global) maxima (or minima)  is called extremum point of that function. In plural, it is called \textbf{Extrema}.
 \end{Def}
 
 \begin{Def}{Critical Point or Stationary Point}{}
     Let, $f : S (\subseteq \R^n) \to \R$ be a function and $a \in \Op{n} \subseteq S$. We say that $a$ is a \textbf{critical point} or \textbf{stationary point}.
     If \[ \left(\grad f\right)(a) = 0\]
-    Or, equvalently all the partial derivatives $\pdv{f}{x_i}$ are zero.
+    Or, equivalently all the partial derivatives $\pdv{f}{x_i}$ are zero.
 \end{Def}
 
 \begin{Thm}{}{}
@@ -154,14 +160,14 @@ Combining the above two result we can write,
     Notice that, $\dv{\phi_i}{t}(a_i) = f_{x_i}(a)$. Since $a$ is local extremum of $f$, we can say that $a_i$ is a local extremum of $\phi_i$. So, $\dv{\phi_i}{t}(a_i) = 0$, which means, $\pdv{f(a)}{x_i} = 0$. We can do this for all $i$ and hence, $(\grad f)(a) = 0$.
 \end{proof}
 
+\
 
 \textbf{Question.} When we did calculation for local extremum for the functions $f$ with one variable, we used to evaluate the stationary points by calculating, $f'(x) =0$. Then we used to check the second derivative in order to know wheather the stationary point is local minima or maxima or saddle point. For multivariate case also, we need 2nd order derivative to know the behavior of the stationary point. Now what could be 2nd order total derivative?
 
-\vspace*{0.2cm}
+\ssk
 
-\textit{Answer.} For this purpouse we will introduce \textbf{Hessian Matrix} in next class.
+\textit{Answer.} For this purpose we will introduce \textbf{Hessian Matrix} in next class.
 
 
 
 \end{document}
-

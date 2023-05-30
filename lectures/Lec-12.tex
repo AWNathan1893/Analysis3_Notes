@@ -8,7 +8,7 @@
 
 \section{Hessian Matrix}
 
-\begin{Def}{Hessian}{}
+\begin{Def}{Hessian}{hessian}
   Suppose $f : \Op{n} \to \R$ is $C^2$ at $a \in \Op{n} $. The $\textbf{Hessian of $f$ at $a$}$ is defined by, \[ H_f(a) = \left( \pdv{f}{x_i}{x_j}\left( a \right) \right)_{n \times n} \]
 \end{Def}
 
@@ -41,16 +41,17 @@ Note that for any $ f \in C^n $, its Hessian is a symmetric matrix, i.e., $H_f =
 \textbf{Now we will introduce some notation.} Given $A = \left( a_{ij} \right)_{n\times n} \in M_n(\R)$ and $ x \in \R^n $ we denote $ Q_A(x) $  by,
 
 \begin{align*}
-  Q_A(x) = x^tAx = {\left\langle Ax,x \right\rangle}_{\R^n} & = \begin{pmatrix}
-                                                                  x_1 & x_2 & \ldots & x_n
-                                                                \end{pmatrix} \begin{pmatrix}
-                                                                                 &   & \\
-                                                                                 & A & \\
-                                                                                 &   &
-                                                                              \end{pmatrix} \begin{pmatrix}
-                                                                                              x_1 & x_2 & \ldots & x_n
-                                                                                            \end{pmatrix} ^t \\
-  Q_A(x)                                                    & = \sum_{i,j = 1}^{n} a_{ij} x_i x_j
+  Q_A(x) = x^tAx = {\left\langle Ax,x \right\rangle}_{\R^n}
+         & = \begin{pmatrix}
+               x_1 & x_2 & \ldots & x_n
+             \end{pmatrix} \begin{pmatrix}
+                              &   & \\
+                              & A & \\
+                              &   &
+                           \end{pmatrix} \begin{pmatrix}
+                                           x_1 & x_2 & \ldots & x_n
+                                         \end{pmatrix} ^t \\
+  Q_A(x) & = \sum_{i,j = 1}^{n} a_{ij} x_i x_j
 \end{align*}
 
 
@@ -80,9 +81,10 @@ is a bivariate homogeneous polynomial of degree 2 then taking, $A = \begin{pmatr
     \item  $I_n$ is positive definite as $\left\langle I_nx, x \right\rangle = {\|x \|}^2 > 0 \quad \forall\ x \in \R^n \backslash \{0\}$
     \item $A = B^tB$ for some $B \in M_n{\R}$
           \begin{align*}
-            \left\langle Ax,x \right\rangle & = \left\langle B^tBx,x \right\rangle                                    \\
-                                            & = x^tB^tBx                                                              \\
-                                            & = {(Bx)}^t Bx = {\| Bx \|}^2 \quad \forall\ x \in \R^n \backslash \{0\}
+            \left\langle Ax,x \right\rangle
+             & = \left\langle B^tBx,x \right\rangle                                    \\
+             & = x^tB^tBx                                                              \\
+             & = {(Bx)}^t Bx = {\| Bx \|}^2 \quad \forall\ x \in \R^n \backslash \{0\}
           \end{align*}
           Hence, \[ \left\langle Ax,x \right\rangle \geq 0 \]
 
@@ -125,14 +127,14 @@ In general, it is difficult to classify positive definite $n \times n$ matrices.
 \end{Thm}
 
 \begin{proof}
-  We have, \[ \left\langle A, h \right\rangle = h^tAh \]
+  We have, \[ \inp{A}{h} = h^tAh \]
   Now, scaling $h$ is okay as sign would not be changed. So, pick ${\bf x} = (x_1, x_2) \in \R^2 \backslash \{(0,0)\} $ with $x_2 \neq 0$.
   Without loss of generality, take ${\bf x} = (x,1) \ x \in \R$ (Scaling) \\
-  \[ \therefore \left\langle A\bf{x}, \bf{x} \right\rangle = ax^2 + 2bx + c > 0 \ \forall\ x \in \R \]
+  \[ \therefore \inp{A\bf{x}}{\bf{x}} = ax^2 + 2bx + c > 0 \ \forall\ x \in \R \]
   Now, if $x_2 = 0$ again, Without loss of generality assume ${\bf x} = \begin{pmatrix}
       1 \\
       0
-    \end{pmatrix}$ (Scaling). Then, \[ \left\langle A\bf{x}, \bf{x} \right\rangle = a \]
+    \end{pmatrix}$ (Scaling). Then, \[ \inp{A\bf{x}}{\bf{x}} = a \]
   So,
   \begin{align*}
                         & \ A \text{ is Positive Definite}                         \\
