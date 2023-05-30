@@ -41,7 +41,7 @@ Considering the maps $h_i : \R \to \R^n$ such that $h_i(t) = a + te_i$, we have 
 The partial derivative measures the change of a function at a point due to a particular variable, keeping all others constant. The geometry of partial derivatives is best visualized in 3 dimensions. Taking $f: \mathcal{O}_2 \to \R$, we consider the surface $\mathcal{S} \subset \R^3$ defined by $z = f(x,y)$. Let $P_0 = (x_0, y_0, f(x_0, y_0))$ be a point on $\mathcal{S}$. Then the value $f_x(x_0, y_0)$ (if it exists) is the slope of the tangent to $\mathcal{S}$ at $(x_0, y_0, f(x_0, y_0))$ pointing in the positive x direction.\\
 Another interpretation is to consider the plane \\
 $\mathcal{P} = \{(x,y,z) \mid y = y_0\}$, and the curve $\mathcal{C}$ on surface $\mathcal{S}$ given by $\mathcal{C} = \mathcal{S} \cap \mathcal{P}$. Then, $f_x(x_0, y_0)$ is the slope of the tangent to the curve $\mathcal{C}$, in the direction of increasing x co-ordinate.\\
-For $f: \mathcal{O}_n \to \R$ with $n > 2$, athough it becomes harder to visulaize, the interpretation remains the same.
+For $f: \mathcal{O}_n \to \R$ with $n > 2$, athough it becomes harder to visualize, the interpretation remains the same.
 
 \newpage
 
@@ -62,12 +62,12 @@ We now lay out some interesting and instructive examples, which would illustrate
 \end{Eg}
 
 \begin{Def}{}{}
-  A function $f: \mathcal{O} \to \R$ is called $C^k(\mathcal{0})$ is all the k-th order partial derivatives exist and are continuous.
+  A function $f: \mathcal{O} \to \R$ is called $C^k(\mathcal{0})$ is all the \( {k}^{\text{th}} \) order partial derivatives exist and are continuous.
 \end{Def}
 
 \section{Higher Order Partial Derivatives}
 
-Assume that partial derivatives of $f: \mathcal{O}_n \to \R$ exist in a neighbourhood of $a \in \mathcal{O}_n $. Then we can talk about the partial derivatives of $\pdv{f}{x_i}: \mathcal{O}_n \to \R$ at a. We denote:
+Assume that partial derivatives of $f: \mathcal{O}_n \to \R$ exist in a neighbourhood of $a \in \mathcal{O}_n $. Then we can talk about the partial derivatives of $\pdv{f}{x_i}: \mathcal{O}_n \to \R$ at $a$. We denote:
 \[f_{x_i x_j}(a) \equiv \pdv{f}{x_j} \mathrel{\mathop:}= \frac{\partial}{\partial x_j} \pdv{f}{x_i} = \lim_{h \to 0} \frac{1}{h} \left( \pdv{f}{x_i}\/(a+h e_i)- \pdv{f}{x_i}\/ (a) \right)
 \]
 We can define higher order partial derivatives in a similar manner. Please note that the order of differentiation matters in general. For starters, of  $f_{x_i x_j}$ and $f_{x_j x_i}$, one may exist while the other may not. Also, even if both exist, they may not necessarily be equal over the entire domain. We leave it to the reader to find an example of the former case, and provide an example for the latter.
@@ -81,7 +81,7 @@ We can define higher order partial derivatives in a similar manner. Please note 
       0                               & (x,y) = (0,0)
     \end{cases}
   \]
-  In this case, it is easy to show (Excercise!) that both $f_{xy}$ and $f_{yx}$ exist, but
+  In this case, it is easy to show (Exercise!) that both $f_{xy}$ and $f_{yx}$ exist, but
   \[f_{xy}(0,0) = 1 \neq -1 = f_{yx}(0,0)\]
 \end{Eg}
 

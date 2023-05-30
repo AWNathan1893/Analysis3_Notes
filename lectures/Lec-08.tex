@@ -9,7 +9,7 @@
 
 \section{A kind of converse of Theorem \ref{th:7:2}}
 
-As we have seen in previous lecture, the differentiability of a function gives an explicit expression for derivative with the existence of partials. In this lecture, we will prove a sufficient condition for differentiability based on it's partials, which will be our final reduction for derivatives.
+As we have seen in previous lecture, the differentiability of a function gives an explicit expression for derivative with the existence of partials. In this lecture, we will prove a sufficient condition for differentiability based on its partials, which will be our final reduction for derivatives.
 
 \begin{Thm}{Final Reduction}{finalred}
   Let $ f :\Op{n} \to \R^m $ and $ a \in \Op{n} $. Suppose, all partial derivatives $ \pdv{f_i}{x_j} $ exists on $ \Op{n} $ and continuous at $ a \in \Op{n} $. Then,
@@ -20,20 +20,20 @@ As we have seen in previous lecture, the differentiability of a function gives a
 
 \begin{proof}
   Without loss of generality, we take $ a = (0,\ldots,0) \in \Op{n} $ and $ m = 1 $.
-
+  
   \
-
+  
   Let's do some back calculation: We already ``know",
   \[ L = J_f(a) = \begin{pmatrix}
       f_{x_1}(0) & \cdots & f_{x_n}(0)
     \end{pmatrix} \text{ and } \boxed{Lh = \sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right)\ \forall\ h \in \R^n} \] which we use in the following claim,
-
+  
   \
-
+  
   \begin{clmBox}
     \[ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| \to 0 \text{ as } h \to 0 \]
   \end{clmBox}
-
+  
   \begin{proof}
     Simply calculating,
     \[ \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right| = \frac{1}{\norm{h}}\left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right|\ \]
@@ -46,10 +46,10 @@ As we have seen in previous lecture, the differentiability of a function gives a
     which implies,
     \begin{align*}
       \left| f(h)-f(0)-\sum_{i=1}^{n}h_i\pdv{f}{x_i}\left( 0 \right) \right|
-       & = \left| \sum_{i=1}^{n} \left( f(\hat{h}_{i}) - f(\hat{h}_{i-1}) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                                        \\
+       & = \left| \sum_{i=1}^{n} \left( f(\hat{h}_{i}) - f(\hat{h}_{i-1}) - h_i\pdv{f}{x_i}\left( 0 \right) \right) \right|                                                         \\
        & = \left| \sum_{i=1}^{n} \underbrace{h_i\pdv{f}{x_i}\left( \hat{h}_{i-1} + c_ie_i \right)}_{\text{By MVT, as explained below}} - \ h_i\pdv{f}{x_i}\left( 0 \right) \right|
     \end{align*}
-
+    
     For a fixed $ h $, we fix $ i \in [n] $. And we consider the map, $\eta_i: (h_i-\epsilon, h_i+\epsilon) \to \R$
     \[\begin{tikzcd}
         t &&& {\hat{h}_{i-1} + te_i} &&& {f( \hat{h}_{i-1} + te_i )}
@@ -62,7 +62,7 @@ As we have seen in previous lecture, the differentiability of a function gives a
     \begin{align*}
       \underbrace{\eta_i(h_i)}_{f(\hat{h}_i)} - \underbrace{\eta_i(0)}_{f(\hat{h}_{i-1})} = \eta_i'(c_i)h_i = f_{x_i}(\hat{h}_{i-1} + c_ie_i)h_i  \tag{for some $ c_i\in (0,h_i) $}
     \end{align*}
-
+    
     Now, observe that, as $ h \to 0, \hat{h}_{i-1}+c_ie_i \to 0 $ which in turn implies, $ f_{x_i}( \hat{h}_{i-1}+c_ie_i ) \to f_{x_i}(0) $. Therefore,
     \begin{align*}
       \frac{1}{\norm{h}}\left| f(h)-f(0)-Lh \right|
@@ -93,7 +93,7 @@ We conclude the lecture with some instructive examples.
                0,                                                                   & (x,y) = 0
              \end{cases}
   \end{align*}
-
+  
   Then, \begin{align*}
     \abs{f(x,y) - f(0,0)}
      & = \abs{x^2+y^2}\abs{\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}} \\
@@ -104,7 +104,7 @@ We conclude the lecture with some instructive examples.
     f_y(x,y) & = 2y\sin{\left( \frac{1}{\sqrt{x^2+y^2}} \right)} - \frac{y}{\sqrt{x^2+y^2}}\cos{\left( \frac{1}{\sqrt{x^2+y^2}} \right)}
   \end{align*}
   And at $(0,0)$, \begin{align*}
-    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0 \\
+    f_x(0,0) & = \lim_{t \to 0} \frac{f(t,0) - f(0,0)}{t} = 0  \\
     f_y(0,0) & = \lim_{t \to 0} \frac{f(0,t) - f(0,0)}{t} = 0
   \end{align*}
   Also, \begin{align*}
@@ -134,7 +134,7 @@ So, even if a function is differentiable at some point, its partials may still n
 
 \begin{Eg}{}{}
   Let, $ f:\R^3 \to \R^4 $ be defined by, \[ f(x,y) = \left( x+2y+3z, xyz, \cos{x}, \sin{x} \right) \]
-  Then, the jacobian at $ (x,y,z) $  \begin{align*}
+  Then, the  at $ (x,y,z) $  \begin{align*}
     J_{f}(x,y,z) = \begin{pmatrix}
                      1             & 2  & 3  \\
                      yz            & zx & xy \\

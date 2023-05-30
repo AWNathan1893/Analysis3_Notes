@@ -18,8 +18,12 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
 \end{Thm}
 
 \begin{proof}
-  Just as before, we take $(a,b) = (0,0)$. From the proof of Clairaut's Theorem, we have $F(h,k) = f_{xy}(c_1, c_2)$ for some $0 < c_1< h$ and $0 < c_2 < k$. By continuity of $f_{xy}$ at $(0,0)$, for any $\varepsilon >0$ there exists $h_\varepsilon, k_\varepsilon > 0$, such that $\mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]$. \\
-  But then $\mid F(h,k) - f_{xy}(0,0) \mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]$, i.e., $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.\\
+  Just as before, we take $(a,b) = (0,0)$. From the proof of Clairaut's Theorem, we have $F(h,k) = f_{xy}(c_1, c_2)$ for some $0 < c_1< h$ and $0 < c_2 < k$. By continuity of $f_{xy}$ at $(0,0)$, for any $\varepsilon >0$ there exists $h_\varepsilon, k_\varepsilon > 0$, such that
+  \[
+    \mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]
+  \]
+  But then $\mid F(h,k) - f_{xy}(0,0) \mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]$, that is, $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.
+
   As $f_y(h,0)$ exists for $h$ sufficiently small, $\lim_{k \to 0} F(h,k)$ exists for $h$ sufficiently small. Thus, by continuity of $F$ at $(0,0)$,
   \[\lim_{h \to 0}\lim_{k \to 0} F(h,k) \text{  exists and is equal to  }\lim_{(h,k) \to (0,0)} F(h,k)\]
   Thus, $f_{yx}(0,0)$ exists and is equal to $f_{xy}(0,0)$
@@ -27,11 +31,10 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
 
 \vspace{.2 cm}
 
-This is a slightly more useful version of Clairaut's Theorem. However, in many application (say, partial differential equations), we work with $C^2$ or even $C^\infty$ functions, in which case both of these hold automatically.\\
-
+This is a slightly more useful version of Clairaut's Theorem. However, in many applications (say, partial differential equations), we work with $C^2$ or even $C^\infty$ functions, in which case both of these hold automatically.
 \vspace{.2 cm}
 
-\textbf{Excercise:} Formulate and prove a similar result for higher order derivatives. In particular, provide a sufficient condition for  for $f: \mathcal{O}_n \to \R$ so that
+\textbf{Exercise:} Formulate and prove a similar result for higher order derivatives. In particular, provide a sufficient condition for $f: \mathcal{O}_n \to \R$ so that
 \[\frac{\partial^n f}{\partial x_{i_1} \partial x_{i_2} \dots \partial x_{i_m}} = \frac{\partial^n f}{\partial x_{\sigma(i_1)} \partial x_{\sigma(i_2)} \dots \partial x_{\sigma(i_m)}}\]
 over $\mathcal{O}_n$ for any permutation $\sigma$ of the elements $\{i_1,i_2,\dots,i_n\}$.
 
@@ -45,14 +48,15 @@ We will now see that the partial derivatives provide an effective way of proving
 \end{Def}
 
 \begin{Thm}{}{7:2}
-  Consider a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$ differentiable at $a \in \mathcal{O}_n$. Then all the partial derivatives $\pdv{f_i}{x_j}$ exist at a. In particluar, for $f$ differentiable at $a$, we have:
+  Consider a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$ differentiable at $a \in \mathcal{O}_n$. Then all the partial derivatives $\pdv{f_i}{x_j}$ exist at $a$. In particular, for $f$ differentiable at $a$, we have:
   \[(Df)(a) = J_f(a) = \left( \pdv{f_i}{x_j} \/ (a)\right)_{m \times n}\]
 \end{Thm}
 
 \begin{proof}
   Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by
   \[\eta_i(t) = (a_1, \dots, a_{i-1}, t, a_{t+1}, \dots, a_n) = a + (t-a_i)e_i \]
-  As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).\\
+  As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).
+
   Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and
   \begin{align*}
     D(f\circ\eta_i)(a_i) & = Df(\eta_i(a_i)) \cdot D\eta_i (a_i) \\
@@ -62,6 +66,6 @@ We will now see that the partial derivatives provide an effective way of proving
 
 \end{proof}
 
-This theorem proves that differentiability of a function implies the existence of its partial derivatives, and gives the form of the Derivative in the standard basis. But it is often quite elaborate and laborious to prove that a function is differentiable, whereas computation of the partial derivatives is much more straighforward. In the next lecture, we formulate a sufficient condition for differentiability of a function based on its partial derivatives.
+This theorem proves that differentiability of a function implies the existence of its partial derivatives, and gives the form of the derivative in the standard basis. But it is often quite elaborate and laborious to prove that a function is differentiable, whereas computation of the partial derivatives is much more straightforward. In the next lecture, we formulate a sufficient condition for differentiability of a function based on its partial derivatives.
 
 \end{document}
