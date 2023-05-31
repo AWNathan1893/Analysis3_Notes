@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="253.1743mm"
-   height="231.48781mm"
-   viewBox="0 0 253.17429 231.48779"
+   width="130.30579mm"
+   height="121.28817mm"
+   viewBox="0 0 130.30579 121.28816"
    version="1.1"
    id="svg5"
    sodipodi:docname="directional_derivative.svg"
@@ -14,7 +14,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:ns1="http://www.iki.fi/pav/software/textext/">
+   xmlns:ns2="http://www.iki.fi/pav/software/textext/">
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#505050"
@@ -28,8 +28,8 @@
      showgrid="false"
      showguides="false"
      inkscape:zoom="0.5946522"
-     inkscape:cx="406.96057"
-     inkscape:cy="435.54871"
+     inkscape:cx="126.96497"
+     inkscape:cy="317.83284"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -39,8 +39,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid3353"
-       originx="15.052639"
-       originy="17.897363" />
+       originx="-48.480728"
+       originy="-36.015559" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -139,7 +139,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(15.052639,17.897361)"
+     transform="translate(-48.480731,-36.015575)"
      style="display:inline">
     <path
        style="fill:url(#linearGradient4250);fill-opacity:1;stroke:#000000;stroke-width:0.752585;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
@@ -147,23 +147,23 @@
        id="path4373" />
     <path
        style="display:inline;fill:none;stroke:#000000;stroke-width:0.728827;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:2.18648, 2.18648;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow2-8)"
-       d="m 103.69052,112.32456 -38.32152,20.06436 0.190177,-0.071"
+       d="m 105.24986,111.10172 -38.321513,20.06436 0.190177,-0.071"
        id="path11727-9" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.762064;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2)"
-       d="m 104.05082,112.08831 38.71666,-21.712379 -0.19214,0.07686"
+       d="m 105.61016,110.86547 38.71666,-21.712381 -0.19214,0.07686"
        id="path11727" />
     <g
-       transform="matrix(0.78026367,0,0,0.78026367,102.77832,113.59213)"
-       ns1:version="1.8.1"
-       ns1:texconverter="pdflatex"
-       ns1:pdfconverter="inkscape"
-       ns1:text="$a$"
-       ns1:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
-       ns1:scale="3.091727230748457"
-       ns1:alignment="middle center"
-       ns1:stroke-to-path="0"
-       ns1:jacobian_sqrt="1.09069"
+       transform="matrix(1.6393961,0,0,1.5580962,103.00933,116.62573)"
+       ns2:version="1.8.1"
+       ns2:texconverter="pdflatex"
+       ns2:pdfconverter="inkscape"
+       ns2:text="$a$"
+       ns2:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
+       ns2:scale="3.091727230748457"
+       ns2:alignment="middle center"
+       ns2:stroke-to-path="0"
+       ns2:jacobian_sqrt="1.09069"
        id="g14930">
       <defs
          id="id-fdb2223e-420c-4313-9a58-0ed422556692">
@@ -194,16 +194,16 @@
       </g>
     </g>
     <g
-       transform="matrix(0.78026367,0,0,0.78026367,134.50599,81.906019)"
-       ns1:version="1.8.1"
-       ns1:texconverter="pdflatex"
-       ns1:pdfconverter="inkscape"
-       ns1:text="$a+tu$"
-       ns1:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
-       ns1:scale="3.091727230748457"
-       ns1:alignment="middle center"
-       ns1:stroke-to-path="0"
-       ns1:jacobian_sqrt="1.09069"
+       transform="matrix(1.6393961,0,0,1.5580962,129.64662,77.011168)"
+       ns2:version="1.8.1"
+       ns2:texconverter="pdflatex"
+       ns2:pdfconverter="inkscape"
+       ns2:text="$a+tu$"
+       ns2:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
+       ns2:scale="3.091727230748457"
+       ns2:alignment="middle center"
+       ns2:stroke-to-path="0"
+       ns2:jacobian_sqrt="1.09069"
        id="g17277">
       <defs
          id="id-316e6fd5-47d3-48d0-893e-19e658d3c169">
@@ -287,16 +287,16 @@
       </g>
     </g>
     <g
-       transform="matrix(0.78026367,0,0,0.78026367,84.401218,46.110934)"
-       ns1:version="1.8.1"
-       ns1:texconverter="pdflatex"
-       ns1:pdfconverter="inkscape"
-       ns1:text="$u$"
-       ns1:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
-       ns1:scale="3.091727230748457"
-       ns1:alignment="middle center"
-       ns1:stroke-to-path="0"
-       ns1:jacobian_sqrt="1.09069"
+       transform="matrix(1.6393961,0,0,1.5580962,77.284309,42.082944)"
+       ns2:version="1.8.1"
+       ns2:texconverter="pdflatex"
+       ns2:pdfconverter="inkscape"
+       ns2:text="$u$"
+       ns2:preamble="C:\Users\BIKRAM HALDER\AppData\Roaming\inkscape\extensions\textext\default_packages.tex"
+       ns2:scale="3.091727230748457"
+       ns2:alignment="middle center"
+       ns2:stroke-to-path="0"
+       ns2:jacobian_sqrt="1.09069"
        id="g24434">
       <defs
          id="id-6e93268d-21dc-42aa-95fe-f1356ad8d18b">
@@ -328,7 +328,7 @@
     </g>
     <path
        style="display:inline;fill:none;stroke:#000000;stroke-width:0.762064;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2-2)"
-       d="m 68.591447,62.671293 38.716663,-21.712381 -0.19214,0.07686"
+       d="M 69.071246,62.599361 107.78791,40.88698 107.59577,40.96384"
        id="path11727-6" />
   </g>
 </svg>

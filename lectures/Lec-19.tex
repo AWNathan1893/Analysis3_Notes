@@ -50,7 +50,7 @@ It is in fact true that \ref{19:st:1} $\implies$ \ref{19:st:2}, but we won't cov
 For example a line segment in $\R^n$ is of content zero, provided $n > 1$. We then have the following theorems:
 
 \begin{Thm}{}{19:1}
-  \begin{enumerate}
+  \begin{enumerate}[label=(\roman*)]
     \item Let $f \in \mathscr{B}(B^n)$ and let $\mathcal{D} = \qty{ x \in B^n \mid f \mbox{ is not continuous at } x }$ be the set of discontinuities of $f$, if $\mathcal{D}$ is of content zero, then $f \in \mathscr{R}(B^n)$. \label{thm:19:1:1:1}
 
     \item If $S$ is a content zero set then $\mathrm{int}\,(S) = \emptyset$. \label{thm:19:1:1:2}
@@ -82,7 +82,8 @@ Now that we know how to integrate on arbitrary domains, the next question that c
 
 \begin{figure}[H]
   \centering
-  \subincfig{ysimpleRegion}
+  \def\svgwidth{2.3in}
+  \subimport{../figures/ysimpleRegion}{ysimpleRegion.pdf_tex}
   \caption{Example of a $y$-simple region.}
   \label{fig1:19}
 \end{figure}
@@ -96,7 +97,8 @@ Now that we know how to integrate on arbitrary domains, the next question that c
   is a $y$-simple region. (see Figure \ref{fig1:19})
   \begin{figure}[H]
     \centering
-    \subincfig{simpleRegion}
+    \def\svgwidth{2.6in}
+    \subimport{../figures/simpleRegion}{simpleRegion.pdf_tex}
     \caption{Plot of the region $H$.}
     \label{fig1:S19}
   \end{figure}

@@ -20,9 +20,10 @@ We now introduce another extension of one-dimensional derivative, called the Dir
 Note that $ \left( D_{e_i}f \right)\left( a \right) = \pdv{f}{x_i}\left( a \right) $, i.e., the partial derivatives are directional derivatives along the standard basis vectors.
 \smallskip
 
-\begin{wrapfigure}[12]{r}{0.50\textwidth}
+\begin{wrapfigure}[7]{r}{.32\textwidth}
   \centering
-  \subincfig{directional_derivative}
+  \def\svgwidth{1in}
+  \subimport{../figures/directional_derivative}{directional_derivative.pdf_tex}
   \caption{$ t \mapsto a + tu $}
 \end{wrapfigure}
 
@@ -37,12 +38,13 @@ Now, consider the following
 
 Take, $ \eta : \left( -\veps, \veps \right) \to \R $ as $ \eta(t) := f(a+tu) $. If $ f $ is differentiable at $ a $ then $ \eta $ is differentiable at 0 (by chain rule) iff $f$ has directional derivative at $ a $ along $ u $ and,
 \begin{align*}
-  \eta'(0) & = \left( D_uf \right)\left( a \right)                                 \\
-           & = Df(\phi(0))\cdot \underbrace{(D\phi)(0)}_{u}                        \\
-           & = \begin{pmatrix}
-                 \pdv{f}{x_i}\left( a \right) & \cdots & \pdv{f}{x_n}\left( a \right)
-               \end{pmatrix}\begin{pmatrix}
-                              u_1 \\ \vdots \\ u_n \end{pmatrix}
+  \eta'(0)
+   & = \left( D_uf \right)\left( a \right)                                  \\
+   & = Df(\phi(0))\cdot \underbrace{(D\phi)(0)}_{u}                         \\
+   & = \begin{pmatrix}
+         \pdv{f}{x_i}\left( a \right) & \cdots & \pdv{f}{x_n}\left( a \right)
+       \end{pmatrix}\begin{pmatrix}
+                      u_1 \\ \vdots \\ u_n \end{pmatrix}
 \end{align*}
 So,
 \[
@@ -78,7 +80,7 @@ Hence, we get the following theorem,
 
 \begin{Eg}{}{}
   Find the directional derivative of $ f(x,y,z) = x^2yz $ along $ \langle 1,1,-1 \rangle $ at $ a = (1,1,0) $.
-  
+
   \textit{Solution.} We have the unit vector $ u = \frac{\langle 1,1,-1 \rangle}{\norm{\langle 1,1,-1 \rangle}} = \left\langle \frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}} \right\rangle $. So,
   \begin{align*}
     \left( D_uf \right)\left( a \right)
@@ -92,7 +94,7 @@ Hence, we get the following theorem,
 \begin{Eg}{}{cts:pde:ndiff}
   Take,
   \[ f(x,y) = \begin{cases}
-      \frac{x^2y}{x^2+y^2} & (x,y) = (0,0)      \\
+      \frac{x^2y}{x^2+y^2} & (x,y) = (0,0)     \\
       0                    & (x,y) \not= (0,0)
     \end{cases} \]
   then $ \left| f(x,y) - f(0,0) \right| = \left| \frac{x^2y}{x^2+y^2} \right| \leq |y| \leq \norm{(x,y)} $ implies that $ f $ is continuous at $ (0,0) $. Now, fix $ u = \langle u_1, u_2 \rangle $ with $ \norm{u} = 1 $. We get,

@@ -106,13 +106,22 @@ We are now going to study Inverse Function Theorem which relates the differentia
   i.e., locally, the derivative of the inverse is the matrix inverse of the derivative.
 \end{Thm}
 
-\begin{proofFig}{\subincfig{inverseFunction}}{}{\label{fig:inf:fun}}{13}{.4\textwidth}
+\begin{proofFig}{\def\svgwidth{1.4in}
+    \subimport{../figures/inverseFunction}{inverseFunction.pdf_tex}}{}{\label{fig:inf:fun}}{8}{.27\textwidth}
   We call $ L = Df(a) $ which is given to be invertible and take $ g(x) := L^{-1}f(x) $. Then,
   \begin{align*}
     Dg(a)
      & = L^{-1}(f(a))\cdot (Df)(a)            \\
      & = \left[ L^{-1} \right]\cdot Df(a) = I
   \end{align*}
+
+  % \begin{wrapfigure}[4]{r}{.24\textwidth}
+  %   \centering
+  %   \def\svgwidth{1.4in}
+  %   \subimport{../figures/inverseFunction}{inverseFunction.pdf_tex}
+  %   \caption{}
+  %   \label{fig:inf:fun}
+  % \end{wrapfigure}
 
   As this transformation can be made, without loss of generality, we may assume that $ Df(a) = I_n $ which would imply that there exists a closed box $ U $ containing $ a $ such that for all $ x\in U\setminus\{a\}, f(a) \not= f(x) $. To see this, let $ f(a) = f(a+h) $ with arbitrarily small $ \norm{h} $. But then,
   \[  \frac{1}{\norm{h}}\left( f(a+h)-f(a)-Ih \right) = \frac{h}{\norm{h}} \not= 0  \]
@@ -148,7 +157,8 @@ We are now going to study Inverse Function Theorem which relates the differentia
 
   \begin{figure}[h]
     \centering
-    \subincfig{boundaryU_invfun}
+    \def\svgwidth{5.4in}
+    \subimport{../figures/boundaryU_invfun}{boundaryU_invfun.pdf_tex}
     \caption{}
     \label{fig:boundaryU_invfun}
   \end{figure}
