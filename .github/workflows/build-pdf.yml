@@ -54,7 +54,6 @@ jobs:
           working_directory: ./lectures
           root_file: "*.tex"
           glob_root_file: true
-          compiler: pdflatex
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory
