@@ -1,4 +1,5 @@
 \documentclass[../Analysis-3.tex]{subfiles}
+\myexternaldocument{Lec-14}
 
 \begin{document}
 \chapter*{Lecture 15} %Set chapter name
@@ -12,38 +13,38 @@ Recall that the inverse function theorem (\ref{th:inv:fun}) states that if \( f:
 \smallskip
 
 Consider the polar coordinate transformation,
-\[ 
- x = r \cos \theta \quad y = r \sin \theta 
- \]
+\[
+  x = r \cos \theta \quad y = r \sin \theta
+\]
 We can rephrase this with the function,
 \begin{align*}
-   F: \R^2 \setminus \{0\} \times \R &\to \R^2 \\
-   F(r, \theta) &= (x,y)
+  F: \R_{> 0} \times \R & \to \R^2 \\
+  F(r, \theta)                    & = (x,y)
 \end{align*}
 
-\( F \) is defined on an open set and it is \( C^1 \) because we have,
+\( F \) is defined on an open set, and it is \( C^1 \) because we have,
 \begin{alignat*}{4}
-   \pdv{x}{r}      &= \cos \theta \quad    &\pdv{y}{r}      &= \sin \theta \\
-   \pdv{x}{\theta} &= -r \sin \theta \quad &\pdv{y}{\theta} &= r \cos \theta \\
-   \\
-   &\implies J_F(r, \theta) = 
-   \begin{pmatrix}
-     \cos \theta & -r \sin \theta \\ 
-     \sin \theta & r \cos \theta
-   \end{pmatrix}
-   &\implies \det J_F(r, \theta) = r 
+  \pdv{x}{r}      & = \cos \theta \quad              & \pdv{y}{r}      & = \sin \theta   \\
+  \pdv{x}{\theta} & = -r \sin \theta \quad           & \pdv{y}{\theta} & = r \cos \theta \\
+  \\
+                  & \implies J_F(r, \theta) =
+  \begin{pmatrix}
+    \cos \theta & -r \sin \theta \\
+    \sin \theta & r \cos \theta
+  \end{pmatrix}
+                  & \implies \det J_F(r, \theta) = r
 \end{alignat*}
 and hence, \( \det J_F(r, \theta) \) is non-zero in the domain we chose. The inverse function theorem then guarantees that we can express \( (r, \theta) \) as a \( C^1 \) function of \( (x, y) \), locally. Further, we also have
-\[ 
- DF^{-1}(x,y) = (DF(F^{-1}(x,y)))^{-1} = \frac 1r \begin{pmatrix}
-   r \cos \theta & r \sin \theta \\
-   -\sin \theta & \cos \theta 
- \end{pmatrix}
- \]
- In other words,
- \begin{alignat*}{4}
-   \pdv{r}{x}      &= \cos \theta \quad    &\pdv{r}{y}      &= \sin \theta \\
-   \pdv{\theta}{x} &= -\frac 1r \sin \theta \quad &\pdv{\theta}{y} &= \frac 1r \cos \theta \\ 
+\[
+  DF^{-1}(x,y) = \left( DF(F^{-1}(x,y)) \right)^{-1} = \frac 1r \begin{pmatrix}
+    r \cos \theta & r \sin \theta \\
+    -\sin \theta  & \cos \theta
+  \end{pmatrix}
+\]
+In other words,
+\begin{alignat*}{4}
+  \pdv{r}{x}      & = \cos \theta \quad           & \pdv{r}{y}      & = \sin \theta          \\
+  \pdv{\theta}{x} & = -\frac 1r \sin \theta \quad & \pdv{\theta}{y} & = \frac 1r \cos \theta \\
 \end{alignat*}
 which can also be verified directly.
 \pagebreak
@@ -53,132 +54,125 @@ which can also be verified directly.
 In one variable, we could differentiate functions given as \( y = f(x) \). We have developed several variable calculus far enough that we can now do the same for functions given as \( x_n = f(x_1, \dots, x_{n-1}) \). But what about functions that are given as \( f(x,y) = 0 \), that is, implicitly in both variables? We will now discuss an important theorem that will allow us to take derivatives of such functions as well without needing to solve the equation for the dependent variable.
 
 \begin{Eg}{}{}
- Let \( F(x,y) = ax+by+c \). We have,
- \[ 
-  F(x,y) = 0 \iff ax+by+c = 0 \iff y = -\frac ab x - \frac cb 
+  Let \( F(x,y) = ax+by+c \). We have,
+  \[
+    F(x,y) = 0 \iff ax+by+c = 0 \iff y = -\frac ab x - \frac cb
   \]
   for all \( b \neq 0 \). Hence, given that \( F(x,y) = 0 \), we get
-  \[ 
-   y = f(x) \text{ for a differentiable } f \iff b \neq 0 \iff \pdv{F}{y} \neq 0
-   \]
-In other words, \( \pdv{F}{y} \neq 0 \iff F(x,f(x)) = 0 \) for some differentiable \( f \).
- \end{Eg}
+  \[
+    y = f(x) \text{ for a differentiable } f \iff b \neq 0 \iff \pdv{F}{y} \neq 0
+  \]
+  In other words, \( \pdv{F}{y} \neq 0 \iff F(x,f(x)) = 0 \) for some differentiable \( f \).
+\end{Eg}
 
- \begin{Eg}{}{}
+\begin{Eg}{}{}
   Let \( F(x,y) = x^2 + y^2 - 1 \). We have,
-  \[ 
-   F(x,y) = 0 \iff x^2 + y^2 = 1 \iff y^2 = 1 - x^2 \iff y = \pm \sqrt{1-x^2} 
-   \]
-   but the last expression is not a function! More precisely,
-   \begin{align*}
-     y \geq 0 \implies y = f_1(x) &= \sqrt{1-x^2} \\
-     y \leq 0 \implies y = f_2(x) &= - \sqrt{1-x^2}
-   \end{align*}
-   Note that \( \pdv{F}{y} = 2y \neq 0 \) for all \( y \neq 0 \). Hence, for \( F(x_0,y_0) \neq 0, \pdv{F}{y}(x_0, y_0) \neq 0 \), there exists a \( C^1 f \) defined in a neighbourhood of \( x_0  \) such that \( F(x,f(x)) = 0 \) for all \( x \) in that neighbourhood.
-  \end{Eg}
+  \[
+    F(x,y) = 0 \iff x^2 + y^2 = 1 \iff y^2 = 1 - x^2 \iff y = \pm \sqrt{1-x^2}
+  \]
+  but the last expression is not a function! More precisely,
+  \begin{align*}
+    y \geq 0 \implies y = f_1(x) & = \sqrt{1-x^2}   \\
+    y \leq 0 \implies y = f_2(x) & = - \sqrt{1-x^2}
+  \end{align*}
+  Note that \( \pdv{F}{y} = 2y \neq 0 \) for all \( y \neq 0 \). Hence, for \( F(x_0,y_0) \neq 0, \pdv{F}{y}(x_0, y_0) \neq 0 \), there exists a \( C^1 f \) defined in a neighbourhood of \( x_0  \) such that \( F(x,f(x)) = 0 \) for all \( x \) in that neighbourhood.
+\end{Eg}
 
-  \begin{noteBox}{}{}
-   Consider \( F(x,y) = 0 \) and \( y = f(x) \) for some \( C^1 f \) such that \( F(x,f(x)) = 0 \).
-   We have,
-   \begin{align*}
-     F(x,f(x)) &= 0 \\
-     \implies \dv{F}{x} &= 0 \\
-     \implies \pdv{F}{x} + \pdv{F}{y}\dv{y}{x} &= 0 \tag{Chain rule} \\
-     \implies \dv{y}{x} &= - \frac{\pdv{F}{x}}{\pdv{F}{y}}
-   \end{align*}
-   Hence, the condition \( \pdv{F}{y} \neq 0 \) is necessary for differentiating functions defined implicity. Keeping the feeling of the above examples in mind, we now discuss the full theorem that shows that it is also sufficient.
-   \end{noteBox}
+\begin{noteBox}{}{}
+  Consider \( F(x,y) = 0 \) and \( y = f(x) \) for some \( C^1 f \) such that \( F(x,f(x)) = 0 \).
+  We have,
+  \begin{align*}
+    F(x,f(x))                                 & = 0                               \\
+    \implies \dv{F}{x}                        & = 0                               \\
+    \implies \pdv{F}{x} + \pdv{F}{y}\dv{y}{x} & = 0 \tag{Chain rule}              \\
+    \implies \dv{y}{x}                        & = - \frac{\pdv{F}{x}}{\pdv{F}{y}}
+  \end{align*}
+  Hence, the condition \( \pdv{F}{y} \neq 0 \) is necessary for differentiating functions defined implicitly. Keeping the feeling of the above examples in mind, we now discuss the full theorem that shows that it is also sufficient.
+\end{noteBox}
 
 \subsection{Proof of the theorem}
 
 We first introduce some notation. Throughout this section, \( X \in \R^n, Y \in \R^m \) so that \( (X,Y) \in \R^{n+m} \). The point \( (a,b) \in \R^{n+m} \) is defined with \( a \in \R^n, b \in \R^m \). \( \Op{} \) denotes an open set in \( \R^{n+m} \), and \( F: \Op{} \to \R^m \) has the coordinate functions \( f_i(X,Y) \). Assuming \( F \in C^1(\Op{}) \), its jacobian is
-\[ 
- DF = \begin{pmatrix}
-   \displaystyle\pdv{f_i}{x_j} & \bigg\vert & \displaystyle\pdv{f_i}{y_k} 
- \end{pmatrix} 
- \]
- where \( i,k \in \{1,\dots, m\} \) and \( j \in \{1,\dots, n\} \).
+\[
+  DF = \begin{pmatrix}
+    \displaystyle\pdv{f_i}{x_j} & \bigg\vert & \displaystyle\pdv{f_i}{y_k}
+  \end{pmatrix}
+\]
+where \( i,k \in \{1,\dots, m\} \) and \( j \in \{1,\dots, n\} \).
 
 \begin{Thm}{Implicit Function Theorem}{imp:fun}
- Let \( F \in C^1(\Op{}) \) and \( F(a,b) = 0 \). If \( \det \left( \pdv{f_i}{y_k}(a,b) \right)_{m \times m} \neq 0 \), then there exists an open \\neighbourhood \( U \subset \R^n \) of \( a \) and a \( C^1 \) function \( f : U \to \R^m \) such that \( f(a) = b \) and \( F(x,f(x)) = 0 \) for all \( x \in U \).
- \end{Thm}
-\begin{proof} 
+  Let \( F \in C^1(\Op{}) \) and \( F(a,b) = 0 \). If \( \det \left( \pdv{f_i}{y_k}(a,b) \right)_{m \times m} \neq 0 \), then there exists an open \\ neighbourhood \( U \subset \R^n \) of \( a \) and a \( C^1 \) function \( f : U \to \R^m \) such that \( f(a) = b \) and \( F(x,f(x)) = 0 \) for all \( x \in U \).
+\end{Thm}
+\begin{proof}
   We define the function \( \tilde{F} : \Op{} \to \R^n \times \R^m \) as
-  \[ 
-   \widetilde{F}(X,Y) = (X, F(X,Y)) 
-   \]
-   As \( F \) is \( C^1 \), so is \( \widetilde{F} \) and we have
-   \[ 
+  \[
+    \widetilde{F}(X,Y) = (X, F(X,Y))
+  \]
+  As \( F \) is \( C^1 \), so is \( \widetilde{F} \), and we have
+  \[
     J_{\widetilde{F}} = \begin{pmatrix}
-       I_n & 0 \\[5pt]
-       \displaystyle\pdv{f_i}{x_j} & \displaystyle\pdv{f_i}{y_k} 
+      I_n                         & 0                           \\[5pt]
+      \displaystyle\pdv{f_i}{x_j} & \displaystyle\pdv{f_i}{y_k}
     \end{pmatrix}
-    \]
-    Hence, \( \det J_{\widetilde{F}}(a,b) \neq 0 \) as \( \det \left( \pdv{f_i}{y_k}(a,b) \right) \neq 0 \) and so we can use the inverse function theorem!
+  \]
+  Hence, \( \det J_{\widetilde{F}}(a,b) \neq 0 \) as \( \det \left( \pdv{f_i}{y_k}(a,b) \right) \neq 0 \), and so we can use the inverse function theorem!
 
-    By \ref{th:inv:fun}, there exists a neighbourhood \( U_0 \subseteq \Op{} \) of \( (a,b) \) and a neighbourhood \( V_0 \subseteq \R^{n+m} \) of \( (a,0) \) such that \( \widetilde{F}: U_0 \to V_0 \) has a \( C^1 \) inverse.
-    \smallskip
+  By Inverse Function Theorem (\ref{th:inv:fun}), there exists a neighbourhood \( U_0 \subseteq \Op{} \) of \( (a,b) \) and a neighbourhood \( V_0 \subseteq \R^{n+m} \) of \( (a,0) \) such that \( \widetilde{F}: U_0 \to V_0 \) has a \( C^1 \) inverse.
+  \smallskip
 
-    We shrink \( U_0 \) (also shrinking \( V_0 \) accordingly) so that \( U_0 = A \times B \) where \( a \in U \subseteq \R^n \) and \( b \in U' \subseteq \R^m \), for open sets \( A,B \) . We also have, 
-    \[ 
-     \widetilde{F}^{-1}(X,Y) = (X, g(X,Y)) 
-     \]
-     for some \( C^1 \) function \( g \), from the definition of \( \widetilde{F} \). Now, consider the map
-     \begin{align*}
-       \Pi_2 : \R^n \times \R^m &\to \R^m \\
-       (X,Y) &\mapsto Y
-     \end{align*}
-     Then, \( \Pi_2 \circ \widetilde{F} = F \). So we get,
-     \begin{align*}
-       (X, g(X,Y)) &= \widetilde{F}^{-1}(X,Y) \\
-       \implies F(X,g(X,Y)) &= \Pi_2(X,Y) = Y 
-     \end{align*}
-     where \( (X,Y) \in V_0, (X,g(X,Y)) \in U_0 \). Hence, for \( Y = 0 \) and \( X \in U \),
-     \[ 
-      F(X, g(X,0)) = 0
-      \]
-      Therefore, \( f(X) = g(X, 0), X \in U, \) works.
-    \end{proof}
+  We shrink \( U_0 \) (also shrinking \( V_0 \) accordingly) so that \( U_0 = A \times B \) where \( a \in U \subseteq \R^n \) and \( b \in U' \subseteq \R^m \), for open sets \( A,B \). We also have,
+  \[
+    \widetilde{F}^{-1}(X,Y) = (X, g(X,Y))
+  \]
+  for some \( C^1 \) function \( g \), from the definition of \( \widetilde{F} \). Now, consider the map
+  \begin{align*}
+    \Pi_2 : \R^n \times \R^m & \to \R^m  \\
+    (X,Y)                    & \mapsto Y
+  \end{align*}
+  Then, \( \Pi_2 \circ \widetilde{F} = F \). So we get,
+  \begin{align*}
+    (X, g(X,Y))          & = \widetilde{F}^{-1}(X,Y) \\
+    \implies F(X,g(X,Y)) & = \Pi_2(X,Y) = Y
+  \end{align*}
+  where \( (X,Y) \in V_0, (X,g(X,Y)) \in U_0 \). Hence, for \( Y = 0 \) and \( X \in U \),
+  \[
+    F(X, g(X,0)) = 0
+  \]
+  Therefore, \( f(X) = g(X, 0), X \in U, \) works.
+\end{proof}
 \pagebreak
 
-\section{Solving systems of equations}      
+\section{Solving systems of equations}
 \begin{Eg}{}{}
   Consider the system of equations,
   \begin{align*}
-   x^2 + 2y^2 + z^2 + w &= 6 \\
-   2x^3 + 4y^2 + z + w^2 &= 9   
+    x^2 + 2y^2 + z^2 + w  & = 6 \\
+    2x^3 + 4y^2 + z + w^2 & = 9
   \end{align*}
   We wish to know whether \( (z,w) \) can be expressed as a function of \( (x,y) \) locally. Construct the function \( F: \R^4 \to R^2 \) as \( F = (f_1, f_2) \) where
   \begin{align*}
-     f_1(x,y,z,w) &= x^2 + 2y^2 + z^2 + w - 6 \\
-     f_2(x,y,z,w) &= 2x^3 + 4y^2 + z + w^2 - 9 \\
+    f_1(x,y,z,w) & = x^2 + 2y^2 + z^2 + w - 6  \\
+    f_2(x,y,z,w) & = 2x^3 + 4y^2 + z + w^2 - 9 \\
   \end{align*}
   Consider \( \alpha = (1,-1, -1, 2) \in \R^4 \). We have,
   \begin{align*}
-     J &= 
-     \begin{pmatrix}
-       \pdv{f_1}{z} & \pdv{f_1}{w} \\[4pt]
-       \pdv{f_2}{z} & \pdv{f_2}{w}
-     \end{pmatrix}
-     = 
-     \begin{pmatrix}
-       2z & 1 \\
-       1 & 2w 
-     \end{pmatrix} \\
-     \implies \det J(\alpha) &= -9 \neq 0
+    J                       & =
+    \begin{pmatrix}
+      \pdv{f_1}{z} & \pdv{f_1}{w} \\[4pt]
+      \pdv{f_2}{z} & \pdv{f_2}{w}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      2z & 1  \\
+      1  & 2w
+    \end{pmatrix}                        \\
+    \implies \det J(\alpha) & = -9 \neq 0
   \end{align*}
 
   Hence, by the implicit function theorem, there is a neighbourhood of \( (1,-1) \) such that on that neighbourhood, \( (z,w) = f(x,y) \) for some \( C^1 f \).
 
 \end{Eg}
-  
+
 
 
 \end{document}
-
-
-
-
-
-
-

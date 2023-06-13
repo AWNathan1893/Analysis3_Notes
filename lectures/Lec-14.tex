@@ -99,7 +99,7 @@ We are now going to study Inverse Function Theorem which relates the differentia
 \begin{Thm}{Inverse Function Theorem}{inv:fun}
   Let $ f:\Op{n} \to \R^n $ be a $ C^1 $ function and $ a \in \Op{n} $. Suppose $ Df(a) $ is invertible. Then, there exist open sets $ V $ and $ W $ containing $ a $ and $ f(a) $ respectively, such that $ f: V \to W $ is invertible.
 
-  \;
+  \ssk
 
   Moreover, the local inverse $ f^{-1} \equiv \left( f\vert_{{}_V} \right)^{-1} : W \to V $ is differentiable and for all $ y \in W $,
   \[ Df^{-1}(y) = \left( \left( Df \right)\left( f^{-1}(y) \right) \right)^{-1} \]
@@ -149,7 +149,7 @@ We are now going to study Inverse Function Theorem which relates the differentia
       \implies & \boxed{\norm{f(x)-f(y)} \geq \frac{1}{2}\norm{x-y}} \label{eqn:clm:normdiff:ge:th:14.2.1}
     \end{align}
 
-    The last line follows from the Triangle inequality. So, we get the claim! It shows that $ f $ is injective.
+    Where (\ref{eqn:clm:normdiff:ge:th:14.2.1}) follows from the Triangle inequality. So, we get the claim! It shows that $ f $ is injective.
   \end{proof}
 
   Next we look at the compact set $ \partial U \subseteq U $. Since $ a \not\in \partial U $, we can say $ f(x) \not= f(a) $ for all $ x \in \partial U $. So, by continuity of $ f $ and compactness of $ \partial U $,  we can find a $ d \in \R_{\geq 0} $ such that
@@ -243,9 +243,9 @@ We are now going to study Inverse Function Theorem which relates the differentia
     But,
     \[  \frac{\norm{\phi\left(f^{-1}(y) - f^{-1}(y_0)\right)}}{\norm{y-y_0}} = \underbrace{\frac{\norm{\phi\left(f^{-1}(y) - f^{-1}(y_0)\right)}}{\norm{f^{-1}(y) - f^{-1}(y_0)}}}_{0} \cdot \underbrace{\frac{\norm{f^{-1}(y) - f^{-1}(y_0)}}{\norm{y-y_0}}}_{\leq 2} = 0  \]
 
-    Hence, the limit (\ref{eqn:clm:lim:finv:th:14.2.1}) is true!
+    Hence, the limit (\ref{eqn:clm:lim:finv:th:14.2.1}) is true.
   \end{proof}
-  Also, $ f^{-1} $ is $ C^1 $, since all partials of $ f^{-1} $ are rational polynomial functions (with non-zero denominators) of those of $ f $. And that completes the proof.
+  To show that $ f^{-1} $ is $ C^1 $, observe that all the partials of $ f^{-1} $ are rational polynomial functions (with non-zero denominators) of those of $ f $. This completes the proof.
 \end{proofFig}
 
 \end{document}
