@@ -19,18 +19,16 @@
 
 \end{Def}
 
-\begin{notnBox}
-
-  Fix $i \in \{1,2, \dots, n\}$
-
-  $P_i: a_i = a_{i,0} < a_{i,1} < \dots < a_{i,n_i} = b_i$
-
-  $I_{i,t} = [x_{i,t-1}, x_{i,t}], \forall \ 1 \leq t \leq n_I$
-
-  Set $B_{(t_1,t_2,\dots ,t_n)}^n = B_\alpha = [x_{1,t_1-1}, x_{1,t_1}] \times \dots \times [x_{n,t_n-1}, x_{n,t_n}] = I_{1,t_1} \times \dots \times I_{n,t_n}$ where $\alpha$ is chosen from the indexing set $\Lambda (P) = \{\alpha = (t_1,\dots ,t_n) | 1 \leq t_i \leq n_i, i=1, \dots , n\}$.
-
-
-\end{notnBox}
+We now introduce some notation. Fix $i \in \{1,2, \dots, n\}$. We define
+\begin{align*}
+  P_i:\,  & a_i = a_{i,0} < a_{i,1} < \dots < a_{i,n_i} = b_i   \\
+  I_{i,t} & = [x_{i,t-1}, x_{i,t}], \forall \ 1 \leq t \leq n_I
+\end{align*}
+and set
+\[
+  B_{(t_1,t_2,\dots ,t_n)}^n = B_\alpha = [x_{1,t_1-1}, x_{1,t_1}] \times \dots \times [x_{n,t_n-1}, x_{n,t_n}] = I_{1,t_1} \times \dots \times I_{n,t_n}
+\]
+where $\alpha$ is chosen from the indexing set $\Lambda (P) = \{\alpha = (t_1,\dots ,t_n) | 1 \leq t_i \leq n_i, i=1, \dots , n\}$.
 
 \begin{noteBox}
 
@@ -72,10 +70,31 @@ We call $\mathcal{P}(B) = \{P_1 \times \dots \times P_n | P_i \in \mathcal{P}[a_
 
 We know that $L(f,P) \leq U(f, \widetilde{P})$ for any $P, \widetilde{P} \in \mathcal{P}[B^n]$. Thus, we get that $\underline{\int \limits _{B^n}} f \leq \overline{\int \limits _{B^n}} f$.
 
-\begin{Def}{Darboux Integral}
+\begin{Def}{Darboux Integral}{}
   Let $f \in \mathcal{B}(B^n)$. Then $f$ is said to be Riemann-Darboux Integrable or just Integrable if
   \[\underline{\int \limits _{B^n}} f = \overline{\int \limits _{B^n}} f\]
   In this case, we write $\int \limits_{B^n}f dV = \underline{\int \limits _{B^n}} f = \overline{\int \limits _{B^n}} f$.
 \end{Def}
+
+We have, for all \( P, P' \in \mathcal{P}[B^n] \),
+\[
+  L(f, P) \leq U(f, P')
+\]
+by taking the common refinement \( \widehat{P} = P \cup P' \). Hence,
+\[
+  \underline{\int \limits _{B^n}} f \leq \overline{\int \limits _{B^n}} f
+\]
+
+\begin{Def}{Darboux Integral}{}
+  Let \( f \in \mathcal{B}[B^n] \). \( f \) is said to be Riemann-Darboux integrable if
+  \[
+    \underline{\int \limits _{B^n}} f = \overline{\int \limits _{B^n}} f
+  \]
+  In this case we introduce the notation,
+  \[
+    \int_{B^n} f \dd V = \int_{B^n} f(x_1, \dots, x_n) \, \dd x_1 \cdots \dd x_n = \underline{\int \limits _{B^n}} f = \overline{\int \limits _{B^n}} f
+  \]
+\end{Def}
+At this point, the notation \( \int_{B^n} f(x_1, \dots, x_n) \, \dd x_1 \cdots \dd x_n \) \textbf{does not} indicate repeated integration, but we will see that it is so for ``nice'' functions.
 
 \end{document}
