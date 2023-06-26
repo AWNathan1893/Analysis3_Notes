@@ -7,4 +7,59 @@
 \setcounter{chapter}{17} %Set chapter counter
 \setcounter{section}{0}
 
+\section{Riemann Integration}
+
+\begin{Thm}{Classification}{}
+  Let $ f \in \mathscr{B}(B^n) $. Then $ f \in \mathscr{R}(B^n) $ if and only if for every $ \epsilon > 0 $ there exists a partition $ P \in \mathscr{P}(B^n) $ of $ B^n $ such that
+  \[  (0 \leq) \ U(f,P) - L(f,P) < \epsilon  \]
+\end{Thm}
+
+\begin{proof}
+  \begin{itemize}
+    \item[$ \Longleftarrow $] Given $ U(f,P) - L(f,P) < \epsilon $. Since,
+      \[ U(f,P) \geq \overline{\int} f \quad \text{and} \quad L(f,P) \geq \underline{\int} f \]
+      we get that for all $ \epsilon > 0 $,
+      \[  0 < \overline{\int}f - \underline{\int}f < \epsilon  \]
+      i.e.,
+      \[  \overline{\int}f = \underline{\int}f  \]
+      which shows that $ f \in \mathscr{R}(B^n) $.
+    \item[$ \Longrightarrow $] Since $ f \in \mathscr{R}(B^n) $ we have,
+      \begin{align*}
+        \overline{\int}f \ - \                                    & \underline{\int}f = 0                      \\
+        \text{i.e.,  } \inf_{P \in \mathscr{P}(B^n)} U(f,P)       & - \sup_{P \in \mathscr{P}(B^n)} L(f,P) = 0 \\
+        \text{i.e.,  } \inf_{P \in \mathscr{P}(B^n)} \Big( U(f, P & ) - L(f,P) \Big) = 0
+      \end{align*}
+      which means for all $ \epsilon > 0 $ there exists a partition $ P \in \mathscr{P}(B^n) $ of $ B^n $ such that $ U(f,P) - L(f,P) < \epsilon $.
+  \end{itemize}
+\end{proof}
+
+\textbf{Exercise.} Let $ f,g \in \mathscr{R}(B^n) $. Then show that,
+\begin{itemize}
+  \item $ \abs{f} \in \mathscr{R}(B^n) $ and $ \displaystyle \abs{\int_{B^n} f} \leq \int_{B^n} \abs{f} $
+  \item  $ \mathscr{R}(B^n) $ is a $\R-$algebra by showing the following, \begin{enumerate}[label = (\roman*)]
+          \item For any $ \alpha, \beta \in \R $,  $ \alpha f + \beta g \in \mathscr{R}(B^n) $
+          \item $ fg \in \mathscr{R}(B^n) $
+        \end{enumerate}
+\end{itemize}
+
+\begin{Thm}{Towards Example}{}
+  The set of all continuous functions over $ B^n $ are Riemann Integrable, i.e.,
+  \[  C(B^n) \subset \mathscr{R}(B^n)   \]
+\end{Thm}
+
+\begin{proof}
+  Fix $ f \in C(B^n) $. Then $ f $ is uniformly continuous. So, for an $ \epsilon > 0 $ we can get a $ \delta > 0 $ such that for all $ x, y \in B^n $ with $ \norm{x-y} < \delta $,
+  \[  \abs{f(x) - f(y)} < \frac{\epsilon}{2\Vol(B^n)}  \]
+\end{proof}
+
+\begin{Def}{Diameter of a set}{}
+  For a set $ A \subseteq \R^n $ we define its diameter $ d(A) := \sup\left\{ \norm{x-y} \mid x,y \in A \right\} $
+\end{Def}
+
+\textbf{Exercise.} Show that $ d(B^n) = \max\left\{ \norm{v_i-v_j} \mid v_i, v_j \text{ are vertices of } B^n \right\} $
+
+\begin{Def}{Mesh of a Partition}{}
+  For a partition $ P \in \mathscr{P}(B^n) $ we define its mesh $ \norm{P} := \max\left\{ d(B_{\alpha}^n) \mid \alpha \in \Lambda(P) \right\} $
+\end{Def}
+
 \end{document}
