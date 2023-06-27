@@ -7,29 +7,29 @@
 \setcounter{chapter}{17} %Set chapter counter
 \setcounter{section}{0}
 
-\section{Riemann Integration}
+\section{Properties of Riemann-Darboux Integration}
 
-\begin{Thm}{Classification}{}
-  Let $ f \in \mathscr{B}(B^n) $. Then $ f \in \mathscr{R}(B^n) $ if and only if for every $ \epsilon > 0 $ there exists a partition $ P \in \mathscr{P}(B^n) $ of $ B^n $ such that
+In the previous lecture, we introduced the Riemann-Darboux Integral. In this lecture, we will explore some important properties of this integral, starting with a characterization.
+
+\begin{Thm}{Classification of Riemann Integrable Functions}{}
+  Let $ f \in \mathscr{B}(B^n) $. Then $ f \in \mathscr{R}(B^n) $ if and only if for every $ \epsilon > 0 $, there exists a partition $ P \in \mathscr{P}(B^n) $ of $ B^n $ such that
   \[  (0 \leq) \ U(f,P) - L(f,P) < \epsilon  \]
 \end{Thm}
 
 \begin{proof}
   \begin{itemize}
-    \item[$ \Longleftarrow $] Given $ U(f,P) - L(f,P) < \epsilon $. Since,
-      \[ U(f,P) \geq \overline{\int} f \quad \text{and} \quad L(f,P) \geq \underline{\int} f \]
-      we get that for all $ \epsilon > 0 $,
-      \[  0 < \overline{\int}f - \underline{\int}f < \epsilon  \]
-      i.e.,
-      \[  \overline{\int}f = \underline{\int}f  \]
-      which shows that $ f \in \mathscr{R}(B^n) $.
-    \item[$ \Longrightarrow $] Since $ f \in \mathscr{R}(B^n) $ we have,
+    \item[$ \Longrightarrow $] Suppose $f \in \mathscr{R}(B^n)$. Then we have
+      \[  \overline{\int} f - \underline{\int} f = 0  \]
+      Thus,
       \begin{align*}
-        \overline{\int}f \ - \                                    & \underline{\int}f = 0                      \\
-        \text{i.e.,  } \inf_{P \in \mathscr{P}(B^n)} U(f,P)       & - \sup_{P \in \mathscr{P}(B^n)} L(f,P) = 0 \\
-        \text{i.e.,  } \inf_{P \in \mathscr{P}(B^n)} \Big( U(f, P & ) - L(f,P) \Big) = 0
+        0 = \overline{\int} f - \underline{\int} f
+         & = \inf_{P \in \mathscr{P}(B^n)} U(f,P) - \sup_{P \in \mathscr{P}(B^n)} L(f,P) \\
+         & = \inf_{P \in \mathscr{P}(B^n)} (U(f,P) - L(f,P))                             \\
       \end{align*}
-      which means for all $ \epsilon > 0 $ there exists a partition $ P \in \mathscr{P}(B^n) $ of $ B^n $ such that $ U(f,P) - L(f,P) < \epsilon $.
+      Hence for all $\epsilon > 0$, there exists a partition $P \in \mathscr{P}(B^n)$ such that $U(f,P) - L(f,P) < \epsilon$.
+    \item[$ \Longleftarrow $] Conversely, assume that for every $\epsilon > 0$, there exists a partition $P \in \mathscr{P}(B^n)$ such that $U(f,P) - L(f,P) < \epsilon$. We want to show that $\displaystyle\overline{\int} f = \underline{\int} f$. Since $\displaystyle U(f,P) \geq \overline{\int} f$ and $\displaystyle L(f,P) \leq \underline{\int} f$, it follows that for all $\epsilon > 0$,
+      \[  0 \leq \overline{\int}f - \underline{\int}f < \epsilon  \]
+      This implies $\displaystyle\overline{\int} f = \underline{\int} f$, showing that $f \in \mathscr{R}(B^n)$.
   \end{itemize}
 \end{proof}
 
@@ -42,24 +42,132 @@
         \end{enumerate}
 \end{itemize}
 
-\begin{Thm}{Towards Example}{}
-  The set of all continuous functions over $ B^n $ are Riemann Integrable, i.e.,
-  \[  C(B^n) \subset \mathscr{R}(B^n)   \]
-\end{Thm}
-
-\begin{proof}
-  Fix $ f \in C(B^n) $. Then $ f $ is uniformly continuous. So, for an $ \epsilon > 0 $ we can get a $ \delta > 0 $ such that for all $ x, y \in B^n $ with $ \norm{x-y} < \delta $,
-  \[  \abs{f(x) - f(y)} < \frac{\epsilon}{2\Vol(B^n)}  \]
-\end{proof}
+Next, we demonstrate the Riemann integrability of a class of ``nice'' functions (continuous). However, before proceeding, let's introduce the concepts of the diameter of a set and the mesh of a partition.
 
 \begin{Def}{Diameter of a set}{}
-  For a set $ A \subseteq \R^n $ we define its diameter $ d(A) := \sup\left\{ \norm{x-y} \mid x,y \in A \right\} $
+  For a set $A \subseteq \R^n$, the diameter $d(A)$ is defined as $d(A) = \sup\{ |x-y| \mid x,y \in A \}$.
 \end{Def}
 
 \textbf{Exercise.} Show that $ d(B^n) = \max\left\{ \norm{v_i-v_j} \mid v_i, v_j \text{ are vertices of } B^n \right\} $
 
 \begin{Def}{Mesh of a Partition}{}
-  For a partition $ P \in \mathscr{P}(B^n) $ we define its mesh $ \norm{P} := \max\left\{ d(B_{\alpha}^n) \mid \alpha \in \Lambda(P) \right\} $
+  For a partition $P \in \mathscr{P}(B^n)$, the mesh $\norm{P}$ is defined as $\norm{P} = \max\{ d(B_{\alpha}^n) \mid \alpha \in \Lambda(P) \}$.
 \end{Def}
+
+\begin{Thm}{Continuous Functions are Riemann Integrable}{}
+  The set of all continuous functions over $B^n$ is contained in $\mathscr{R}(B^n)$, i.e.,
+  \[  C(B^n) \subset \mathscr{R}(B^n)  \]
+\end{Thm}
+
+\begin{proof}
+  Let $f \in C(B^n)$. Since $f$ is uniformly continuous, for any $\epsilon > 0$, there exists $\delta > 0$ such that for all $x, y \in B^n$ with $\|x-y\| < \delta$, we have,
+  \begin{equation}\label{eq:toweg:uccond}
+    \abs{f(x) - f(y)} < \underbrace{\frac{\epsilon}{2\Vol(B^n)}}_{\text{Call it }\tilde{\epsilon}}
+  \end{equation}
+  Let $P \in \mathcal{P}(B^n)$ be a partition such that $\|P\| < \delta$. For each $\alpha \in \Lambda(P)$, let $a_{\alpha} \in B_{\alpha}^n$. Then $\|x-a_{\alpha}\| < \delta$ for all $x \in B_{\alpha}^n$. It follows from the uniform continuity condition (\ref{eq:toweg:uccond}) that,
+  \begin{align}
+    \abs{f(x) - f(a_{\alpha})}                         & < \tilde{\epsilon}  \nonumber                               \\
+    \implies f(a_{\alpha}) - \tilde{\epsilon} < f(x) < & \; f(a_{\alpha}) - \tilde{\epsilon} \label{eq:toweg:ucimpl}
+  \end{align}
+  Since, (\ref{eq:toweg:ucimpl}) holds for all $ \alpha \in \Lambda(P) $, $ a_{\alpha} \in B_{\alpha}^n $ and for all $ x \in B_{\alpha}^n $ we have,
+  \[  f(a_{\alpha}) - \tilde{\epsilon} \leq m_{\alpha} \leq M_{\alpha} \leq f(a_{\alpha}) + \tilde{\epsilon}  \]
+  Multiplying the volumes of $B_{\alpha}^n$ and summing over $\Lambda(P)$, we obtain,
+  \[
+    \sum_{\alpha \in \Lambda(P)} f(a_{\alpha})\Vol(B_{\alpha}^n) - \frac\epsilon2 \leq L(f,P) \leq U(f,P) \leq \sum_{\alpha \in \Lambda(P)} f(a_{\alpha})\Vol(B_{\alpha}^n) + \frac\epsilon2
+  \]
+  Thus, $U(f,P) - L(f,P) < \epsilon$, and since $\epsilon$ is arbitrary, we conclude that $f \in \mathscr{R}(B^n)$.
+\end{proof}
+
+\
+
+Now, let's consider an important question: Does an analogue of the Fundamental Theorem of Calculus exist in higher dimensions?
+
+In one dimension ($n=1$), we have the useful relationship $ \displaystyle\int_{[a,b]} \dd f = f\Big\vert_{\partial[a,b]} $, which aids in computation.
+
+However, this relationship becomes less practical in higher dimensions. For instance, in $n=1$, the continuous counterpart to a sum $ \displaystyle\sum a_n $ is the one-dimensional integral $ \displaystyle\int_{B^1} f $. Similarly, in $n=2$, the continuous analogue to a double sum $ \displaystyle\sum a_{mn} $ is the two-dimensional integral $ \displaystyle\int_{B^2} f $.
+
+\section{Iterated Integrals}
+
+Before delving deeper into the concept of integrability, let's take a brief detour to discuss the idea of a double sum.
+
+\begin{Def}{Convergence of Double Sequence}{conv:double:seq}
+  A double sequence $ \{a_{mn}\} $ converges to $ a $ if for every $ \epsilon > 0 $ there exists a $ \delta > 0 $ such that $ \abs{a_{mn} - a} < \epsilon $ for all $ m,n \geq N $
+\end{Def}
+
+Consider the following examples,
+\begin{Eg}{}{}
+  \begin{itemize}
+    \item Let's take the sequence $ \{a_{mn}\} $ defined by $ a_{mn} = \frac 1{m+n} $ for all $ m,n \in \N $. This sequence is bounded, and for $ N > \frac 1{2\epsilon} $, we have $ \abs{a_{mn} - 0} = a_{mn} < \epsilon $ for all $ m,n \geq N $.
+    \item Now consider the sequence $ {a_{mn}} $ defined as follows,
+          \[  a_{mn} = \begin{cases}
+              n            & \text{if } m=1   \\
+              \frac 1{m+n} & \text{otherwise}
+            \end{cases}  \]
+          This sequence is also convergent but not bounded.
+  \end{itemize}
+\end{Eg}
+
+Recall the relation between total limit and iterated limits in double sequence,
+\begin{ThmN}{}{}
+  For a double sequence $ \{a_{mn}\} $ if $ \lim_{m,n \to \infty} a_{mn} $ exists and $ \lim_{m \to \infty} a_{mn} $ exists for all $ n $, then
+  \[  \lim_{n \to \infty}\left( \lim_{m \to \infty} a_{mn} \right) = \lim_{m,n \to \infty} a_{mn}  \]
+\end{ThmN}
+An important analogue of the above result is Fubini's Theorem. Computation of the Darboux integral is typically a challenging task. However, Fubini's Theorem offers a valuable approach that simplifies the computation by utilizing iterated integrals.
+
+\subsection*{Visualization}
+
+We look at slice functions along each axis, which enables us to simplify computations and apply Fubini's Theorem for efficient evaluation of multivariable integrals.
+
+\ssk
+
+Consider a function $ f: B^2 \to \R $. For each $ x \in [a_1, b_1] $ we define a slice function $ f_{x}:[a_2, b_2] \to \R $ given by $ f_{x}(y) = f(x,y) $ for all $ y \in [a_2, b_2] $. This function is obtained by fixing $ x $ and slicing along the $ y $-axis at that $ x $-coordinate. Then an iterated integral becomes
+\[  \int_{[a_1, b_1]}\left( \int_{[a_2, b_2]} f_x(y) \; \dd y \right)\dd x  \]
+The question arise whether this quantity is invariant under the interchange of $ x $ and $ y $, i.e., we may slice $ f $ along $x-$axis at $ y $ to obtain $ f_y:[a_1, b_1] \to \R $ given by $ f_{y}(x) = f(x,y) $ for every $ x \in [a_1, b_1] $ and want to investigate the equality of
+\begin{equation}
+  \int_{[a_1, b_1]}\left( \int_{[a_2, b_2]} f_x(y) \; \dd y \right)\dd x \overset{?}{=} \int_{[a_2, b_2]}\left( \int_{[a_1, b_1]} f_y(x) \; \dd x \right)\dd y \overset{?}{=} \int_{B^2} f \label{eq:fubini:cond:check}
+\end{equation}
+In this context, we observe that a partition $P \in \mathscr{P}(B^2)$ can be decomposed into the partitions of the individual coordinates. Specifically, we have $P = P_1 \times P_2$ for the two coordinate intervals $[a_1, b_1]$ and $[a_2, b_2]$, and the corresponding indexing sets satisfy $\Lambda(P) = \Lambda(P_1) \times \Lambda(P_2)$.
+
+\ssk
+
+Consider the example,
+
+\begin{Eg}{A discrepancy: Function integrable, slices not}{}
+  Let $ I = [0,1] $ and $ B^2 = I \times I $. Consider the function $ f:B^2 \to \R $ given by,
+  \[  f(x,y) = \begin{cases}
+      1 & \text{if } x = \frac 12, y \in \Q \cap [0,1] \\
+      0 & \text{otherwise}
+    \end{cases}  \]
+  So the $x-$slice becomes,
+  \[  f_x \equiv 0 \text{ for all } x \neq \frac 12 \qquad \text{and} \qquad f_{\frac 12}(y) = \underset{\text{Dirichlet Function}}{\begin{cases}
+        1 & \text{if } y \in \Q^c \cap [0,1] \\
+        0 & \text{if } y \in \Q \cap [0,1]
+      \end{cases}} \]
+  and $y-$slice,
+  \begin{align*}
+     & \text{For } y \in \Q \cap [0,1], \ f_y(x) = \begin{cases}
+                                                     1 & \text{if } x = \frac 12 \\
+                                                     0 & \text{otherwise}
+                                                   \end{cases} \\
+     & \text{For } y \in \Q^c \cap [0,1], \ f_y \equiv 0
+  \end{align*}
+  Clearly, $ f_x \in \mathscr{R}(I) $ for all $ x \in \frac 12 $ but $ f_{\frac 12} \not\in \mathscr{R}(I) $ and $ f_y \in \mathscr{R}(I) $ for every $ y $. So,
+  \[  \int_I f_y = 0 \implies \int_I \left( \int_I f_y(x) \dd x \right) \dd y = 0 \]
+  But, $ \displaystyle\int_I f_x $ doesn't exist for $ x = \frac 12 $ which means $ \displaystyle x \longmapsto \int_I f_x $ is not a well-defined function on $ [0,1] $. Hence $ \displaystyle\int_I \left( \int_I f_x(y) \dd y \right) \dd x $ doesn't exist. Yet $ f \in \mathscr{R}(B^2) $. To see this, we fix $ \epsilon > 0 $ and consider the partition $ P = P_1 \times P_2 $ where,
+  \begin{align*}
+    \begin{cases}
+      P_1: 0 < \frac 12 - \epsilon < \frac 12 + \epsilon < 1 \\
+      P_2: 0 < 1
+    \end{cases}
+  \end{align*}
+  So, $ P = \Bigg\{ \underbrace{\left[ 0, \frac 12 - \epsilon \right] \times I}_{B_{\alpha_1}}, \underbrace{\left[\frac 12 - \epsilon, \frac 12 + \epsilon \right] \times I}_{B_{\alpha_2}}, \underbrace{\left[\frac 12 - \epsilon, 1 \right] \times I}_{B_{\alpha_3}} \Bigg\} $.
+
+  Then $ m_{\alpha_1} = m_{\alpha_{2}} = m_{\alpha_3} = 0 $, $ M_{\alpha_1} = M_{\alpha_3} = 0 $ and $ M_{\alpha_2} = 1 $, which implies $ U(f,P) - L(f,P) = 2\epsilon < 3\epsilon $. This shows that $ f \in \mathscr{R}(B^2) $. Again $ L(f,P) = 0 $ for all $ P \in \mathscr{P}(B^2) $ and hence,
+  \[  \int_{B^2} f = 0  \]
+\end{Eg}
+
+\textbf{Question.} Under which conditions does (\ref{eq:fubini:cond:check}) hold?
+
+\textit{Answer.} Fubini's Theorem. The conditions for (\ref{eq:fubini:cond:check}) to hold will be discussed in the next lecture.
 
 \end{document}
