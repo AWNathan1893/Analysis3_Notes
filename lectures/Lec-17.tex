@@ -122,15 +122,17 @@ We look at slice functions along each axis, which enables us to simplify computa
 
 Consider a function $ f: B^2 \to \R $. For each $ x \in [a_1, b_1] $ we define a slice function $ f_{x}:[a_2, b_2] \to \R $ given by $ f_{x}(y) = f(x,y) $ for all $ y \in [a_2, b_2] $. This function is obtained by fixing $ x $ and slicing along the $ y $-axis at that $ x $-coordinate. Then an iterated integral becomes
 \[  \int_{[a_1, b_1]}\left( \int_{[a_2, b_2]} f_x(y) \; \dd y \right)\dd x  \]
+
 The question arise whether this quantity is invariant under the interchange of $ x $ and $ y $, i.e., we may slice $ f $ along $x-$axis at $ y $ to obtain $ f_y:[a_1, b_1] \to \R $ given by $ f_{y}(x) = f(x,y) $ for every $ x \in [a_1, b_1] $ and want to investigate the equality of
 \begin{equation}
   \int_{[a_1, b_1]}\left( \int_{[a_2, b_2]} f_x(y) \; \dd y \right)\dd x \overset{?}{=} \int_{[a_2, b_2]}\left( \int_{[a_1, b_1]} f_y(x) \; \dd x \right)\dd y \overset{?}{=} \int_{B^2} f \label{eq:fubini:cond:check}
 \end{equation}
+
 In this context, we observe that a partition $P \in \mathscr{P}(B^2)$ can be decomposed into the partitions of the individual coordinates. Specifically, we have $P = P_1 \times P_2$ for the two coordinate intervals $[a_1, b_1]$ and $[a_2, b_2]$, and the corresponding indexing sets satisfy $\Lambda(P) = \Lambda(P_1) \times \Lambda(P_2)$.
 
-\ssk
+\
 
-Consider the example,
+Now consider the following example,
 
 \begin{Eg}{A discrepancy: Function integrable, slices not}{}
   Let $ I = [0,1] $ and $ B^2 = I \times I $. Consider the function $ f:B^2 \to \R $ given by,
@@ -138,6 +140,7 @@ Consider the example,
       1 & \text{if } x = \frac 12, y \in \Q \cap [0,1] \\
       0 & \text{otherwise}
     \end{cases}  \]
+
   So the $x-$slice becomes,
   \[  f_x \equiv 0 \text{ for all } x \neq \frac 12 \qquad \text{and} \qquad f_{\frac 12}(y) = \underset{\text{Dirichlet Function}}{\begin{cases}
         1 & \text{if } y \in \Q^c \cap [0,1] \\
@@ -151,20 +154,25 @@ Consider the example,
                                                    \end{cases} \\
      & \text{For } y \in \Q^c \cap [0,1], \ f_y \equiv 0
   \end{align*}
+
   Clearly, $ f_x \in \mathscr{R}(I) $ for all $ x \in \frac 12 $ but $ f_{\frac 12} \not\in \mathscr{R}(I) $ and $ f_y \in \mathscr{R}(I) $ for every $ y $. So,
-  \[  \int_I f_y = 0 \implies \int_I \left( \int_I f_y(x) \dd x \right) \dd y = 0 \]
-  But, $ \displaystyle\int_I f_x $ doesn't exist for $ x = \frac 12 $ which means $ \displaystyle x \longmapsto \int_I f_x $ is not a well-defined function on $ [0,1] $. Hence $ \displaystyle\int_I \left( \int_I f_x(y) \dd y \right) \dd x $ doesn't exist. Yet $ f \in \mathscr{R}(B^2) $. To see this, we fix $ \epsilon > 0 $ and consider the partition $ P = P_1 \times P_2 $ where,
+  \[  \int_I f_y = 0 \implies \int_I \left( \int_I f_y(x) \; \dd x \right) \dd y = 0 \]
+
+  But, $ \displaystyle\int_I f_x $ doesn't exist for $ x = \frac 12 $ which means $ \displaystyle x \longmapsto \int_I f_x $ is not a well-defined function on $ [0,1] $. Hence, $ \displaystyle\int_I \left( \int_I f_x(y) \; \dd y \right) \dd x $ doesn't exist. Yet $ f \in \mathscr{R}(B^2) $. To see this, we fix $ \epsilon > 0 $ and consider the partition $ P = P_1 \times P_2 $ where,
   \begin{align*}
     \begin{cases}
       P_1: 0 < \frac 12 - \epsilon < \frac 12 + \epsilon < 1 \\
       P_2: 0 < 1
     \end{cases}
   \end{align*}
+
   So, $ P = \Bigg\{ \underbrace{\left[ 0, \frac 12 - \epsilon \right] \times I}_{B_{\alpha_1}}, \underbrace{\left[\frac 12 - \epsilon, \frac 12 + \epsilon \right] \times I}_{B_{\alpha_2}}, \underbrace{\left[\frac 12 - \epsilon, 1 \right] \times I}_{B_{\alpha_3}} \Bigg\} $.
 
   Then $ m_{\alpha_1} = m_{\alpha_{2}} = m_{\alpha_3} = 0 $, $ M_{\alpha_1} = M_{\alpha_3} = 0 $ and $ M_{\alpha_2} = 1 $, which implies $ U(f,P) - L(f,P) = 2\epsilon < 3\epsilon $. This shows that $ f \in \mathscr{R}(B^2) $. Again $ L(f,P) = 0 $ for all $ P \in \mathscr{P}(B^2) $ and hence,
   \[  \int_{B^2} f = 0  \]
 \end{Eg}
+
+\
 
 \textbf{Question.} Under which conditions does (\ref{eq:fubini:cond:check}) hold?
 

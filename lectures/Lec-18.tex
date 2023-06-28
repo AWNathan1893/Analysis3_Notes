@@ -1,10 +1,98 @@
 \documentclass[../Analysis-3.tex]{subfiles}
-% \myexternaldocument{Lec-14}
+\myexternaldocument{Lec-17}
 
 \begin{document}
 \chapter*{Lecture 18} %Set chapter name
 \addcontentsline{toc}{chapter}{Lecture 18} %Set chapter title
 \setcounter{chapter}{18} %Set chapter counter
 \setcounter{section}{0}
+
+\section{Fubini's Theorem}
+
+In this lecture, we explore Fubini's Theorem. Let's begin by setting up the necessary framework.
+
+\ssk
+
+Consider the $(m+n)$-dimensional space, where $m$ and $n$ are positive integers. We can decompose a box $B^{m+n} \subseteq \R^{m+n}$ as the Cartesian product of two boxes, $B^{m+n} = B^m \times B^n$. Here, $B^m$ represents a box in $\R^m$, and $B^n$ represents a box in $\R^n$.
+
+\ssk
+
+Now, suppose we have a partition $P \in \mathscr{P}(\R^{m+n})$. We can express this partition as the Cartesian product of two partitions, $P = P^m \times P^n$, where $P^m \in \mathscr{P}(\R^m)$ and $P^n \in \mathscr{P}(\R^n)$. The corresponding indexing set for this partition becomes $\Lambda(P) = \Lambda(P^m) \times \Lambda(P^n)$. Consequently, the elements of $\Lambda(P)$ can be written as $\alpha(P) = (\alpha(P^m), \alpha(P^n))$.
+
+\ssk
+
+By extending this decomposition, we can also break down the elements of the boxes, $B_{\alpha(P)} = B_{\alpha(P^m)} \times B_{\alpha(P^n)}$.
+
+\
+
+Throughout this section, we take $x \in B^m$ and $y \in B^n$ to represent the point $(x,y) \in B^{m+n}$. For a bounded function $f \in \mathscr{B}(B^{m+n})$, we define the slice function $f_x: B^n \to \R$ as follows,
+\begin{align*}
+  \text{For all } x \in B^m, \ f_x : & B^n \to \R           \\
+                                     & y \longmapsto f(x,y)
+\end{align*}
+
+It is worth noting that $f_x \in \mathscr{B}(B^n)$. For a fixed $x \in B^m$, we can compute the lower and upper integrals of $f_x$ over $B^n$, denoted as $\underline{f}(x)$ and $\overline{f}(x)$ respectively. Similarly, we can compute the lower and upper integrals of $f_y$ over $B^m$ for fixed $y \in B^m$. These are given by,
+\[  \underline{f}(x) = \underline{\int}_{B^n} f_x(y) \; \dd{V(y)} \quad \text{and} \quad \overline{f}(x) = \overline{\int}_{B^n} f_x(y) \; \dd{V(y)}  \]
+with similar expressions for $y$. Now, let's state Fubini's Theorem.
+
+\begin{Thm}{Fubini's Theorem}{fubini}
+  Let $ f \in \mathscr{R}(B^{m+n}) $. Then $ \underline{f}, \overline{f} \in \mathscr{R}(B^n) $ and,
+  \[  \int_{B^m} \underline{f} = \int_{B^m} \overline{f} = \int_{B^{m+n}} f \]
+\end{Thm}
+
+Consequently, we have the following corollaries,
+
+\begin{Cor}{}{}
+  For any $f \in \mathscr{R}(B^{m+n}) $, the following equalities hold,
+  \begin{align*}
+    \int_{B^m} \left( \underline{\int}_{B^n} f(x,y) \; \dd{V(y)} \right)\dd{V(x)}
+     & = \int_{B^m} \left( \overline{\int}_{B^n} f(x,y) \; \dd{V(x)} \right) \dd{V(y)} \\
+     & = \int_{B^{m+n}} f(x,y) \; \dd{V(x,y)}
+  \end{align*}
+  Furthermore, if $ f_x \in \mathscr{R}(B^n) $ for all $ x $, then $ \underline{f} = \overline{f} $ and
+  \[  \int_{B^m} \left( \int_{B^n} f(x,y) \; \dd{V(y)} \right) \dd{V(x)} = \int_{B^{m+n}} f(x,y) \; \dd{V(x,y)}  \]
+\end{Cor}
+
+\begin{Cor}{}{}
+  If $ f \in C(B^n) $, then all possible slice functions are continuous and hence Riemann Integrable. Thus, multidimensional integral becomes the iterated one-dimensional integrals,
+  \[  \int_{B^n} f = \int \left( \int \dots \int \left( \int f \; \dd{x_1} \right) \dd{x_2} \cdots \dd{x_{n-1}} \right) \dd{x_n}  \]
+  where, $x_i$'s can be in any order.
+
+  \
+
+  ($n=2$) Hence, if $ f \in C(B^2) $, then (\ref{eq:fubini:cond:check}) holds,
+  \[ \int_{B^2} f = \int_{a_1}^{b_1} \left( \int_{a_2}^{b_2} f(x,y) \; \dd y \right)\dd x = \int_{a_2}^{b_2}\left( \int_{a_1}^{b_1}  f(x,y) \; \dd x \right)\dd y \]
+\end{Cor}
+
+\begin{proof}[Proof of the Fubini's Theorem]
+  Let $P = P^m \times P^n$ be a partition of $B^{m+n}$. Then, we can express the lower sum $L(f,P)$ as follows,
+  \begin{align*}
+    L(f,P) & = \sum_{\alpha(P) \in \Lambda(P)} m_{\alpha(P)} \Vol\left( B_{\alpha(P)}^{m+n} \right)                                                                                                                        \\
+           & = \sum_{\alpha(P^m) \in \Lambda(P^m)} \underbrace{\sum_{\alpha(P^n) \in \Lambda(P^n)} m_{(\alpha(P^m), \alpha(P^n))} \Vol\left( B_{\alpha(P^n)}^{n} \right)}_{l_{P^m}} \Vol\left( B_{\alpha(P)^m}^{m} \right)
+  \end{align*}
+
+  For each $x \in B^m$ and $\alpha(P^n) \in \Lambda(P^n)$, let $m_{\alpha(P^n)}(x) = \inf_{y \in B_{\alpha(P^n)}^n} f_x(y)$. It follows that $m_{\alpha(P^n)}(x) \geq m_{(\alpha(P^m), \alpha(P^n))}$ for every $x \in B_{\alpha(P^m)}^m$. Consequently, we have,
+  \begin{align*}
+    l_{P^m}
+     & \leq \sum_{\alpha(P^n) \in \Lambda(P^n)} m_{\alpha(P^n)} \Vol\left( B_{\alpha(P^n)}^n \right) \\
+     & = L(f_x, P^n) \leq \underline{\int}_{B^n} f_x                                                 \\
+  \end{align*}
+
+  Taking infimum over all $ x \in B_{\alpha(P^m)}^m $, we obtain,
+  \begin{align*}
+    l_{P^m}
+     & \leq \inf_{x \in B_{\alpha(P^m)}^m} \underline{\int}_{B^n} f_x                  \\
+     & = \inf_{x \in B_{\alpha(P^m)}^m} \underline{f}(x) = \underline{m}_{\alpha(P^m)}
+  \end{align*}
+
+  Thus, the lower sum becomes,
+  \[  L(f,P) \leq \sum_{\alpha(P^m) \in \Lambda(P^m)} \underline{m}_{\alpha(P^m)} \Vol\left( B_{\alpha(P^m)}^m \right) = L(\underline{f},P^m)  \]
+
+  Similarly, we can show that $U(f,P) \geq U(\underline{f},P^m)$. Consequently, $\underline{f} \in \mathscr{R}(B^m)$, and we have,
+  \[  \int_{B^m} \underline{f} \; \dd{V(x)} = \int_{B^{m+n}} f  \]
+
+  By following analogous arguments, we can show that $\overline{f} \in \mathscr{R}(B^m)$ and,
+  \[  \int_{B^m} \overline{f} \; \dd{V(x)} = \int_{B^{m+n}} f = \int_{B^m} \underline{f} \; \dd{V(x)}  \]
+\end{proof}
 
 \end{document}
