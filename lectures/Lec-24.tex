@@ -6,37 +6,36 @@
 \addcontentsline{toc}{chapter}{Lecture 24} %Set chapter title
 \setcounter{chapter}{24} %Set chapter counter
 \setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
 
 \begin{Thm}{}{24:1}
   Let, $f: \Op{n} \to \R$ be a $C^1$ function and $\gamma$ be a piecewise smooth $C^1$ curve on $\Op{n}$, joining two points $A$ and $B$. Then
-  \[\int_c \grad f\cdot d\vec{r} = f(B)-f(A)\]
+  \[\int_c \grad f\cdot \dd\vec{r} = f(B)-f(A)\]
   Which means the above line integral is ``independent of parametrization''.
 \end{Thm}
 
-\begin{proof}
-  Let, $r$ be a parametrization of the curve $\gamma$ and $r :[a,b] \to \Op{n}$ such that $r(a)=A$ and $r(b)=B$.
 
-  \begin{wrapfigure}[3]{r}{0.25\textwidth}
-    \centering
-    \includegraphics[width=.78\linewidth]{../figures/lec-24.1.png}
-    \caption{Paths from A to B}
-  \end{wrapfigure}
+\begin{proofFig}{\includegraphics[width=.78\linewidth]{../figures/lec-24.1.png}}{Paths from A to B}{\label{path:AtoB}}{6}{0.25\textwidth}
+  Let, $r$ be a parametrization of the curve $\gamma$ and $r :[a,b] \to \Op{n}$ such that $r(a)=A$ and $r(b)=B$.
 
   Evaluating the LHS gives,
   \begin{align*}
-    \int_c \grad f\cdot d\vec{r}
-     & \overset{(\ref{eq:3})}{=} \int_a^b \grad f(r(t)) \cdot r'(t) dt       \\
-     & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) dt \\
-     & =\int_a^b \dv{t}(f(r(t))) dt                                          \\
-     & = f(r(b)) - f(r(a))                                                   \\
+    \int_c \grad f\cdot \dd\vec{r}
+     & \overset{(\ref{eq:3})}{=} \int_a^b \grad f(r(t)) \cdot r'(t) \; \dd t    \\
+     & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) \dd t \\
+     & =\int_a^b \dv{t}(f(r(t))) \; \dd t                                       \\
+     & = f(r(b)) - f(r(a))                                                      \\
      & = f(B) - f(A)
   \end{align*}
-\end{proof}
+\end{proofFig}
 
 This result has an important consequence that we often use in Physics.
 
-``Work done by a conservative force always depends on the \textcolor{violet}{starting point} and the \textcolor{violet}{end point}, not on the path followed by the particle.''
-\
+\begin{quotation}
+  ``Work done by a conservative force always depends on the \textcolor{violet}{starting point} and the \textcolor{violet}{end point}, not on the path followed by the particle.''
+\end{quotation}
 
 We know if the force is conservative then we can define potential energy $U$ as $ \vec{F} = -\grad U$. Work done by the force is simply the change of potential.
 
@@ -79,7 +78,7 @@ So, $\qty{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} \mid r_1,r_2 \in \R }$ descr
   We will call range of $r$ as a \textbf{Surface}, $ \mathcal{S} = \ran(r)$.
 \end{Def}
 
-Let, $\eta$ be a map defined on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\eta}{\mapsto} r(u_o=0 + t,v_0)$. Clearly, $\eta$ defines smooth curve on $\mathcal{S}$. Similarly, we can define $\tilde{\eta}$ on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\tilde{\eta}}{\mapsto} r(u_0,v_0+t)$.
+Let, $\eta$ be a map defined on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\eta}{\longmapsto} r(u_o=0 + t,v_0)$. Clearly, $\eta$ defines smooth curve on $\mathcal{S}$. Similarly, we can define $\tilde{\eta}$ on $(-\varepsilon,\varepsilon)$ that maps $t \overset{\tilde{\eta}}{\longmapsto} r(u_0,v_0+t)$.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
   \centering
@@ -135,9 +134,11 @@ We will go through some examples.
 \end{Eg}
 
 \begin{Eg}{Surface of Revolution}{}
-  Let $f,g$ be $C^1$ functions on $[0,b]$. Consider the curve $t \mapsto (0,f(t),g(t))$ is a $C^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by,
+  Let $f,g$ be $C^1$ functions on $[0,b]$. Consider the curve $t \longmapsto (0,f(t),g(t))$ is a $C^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by,
   \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \hspace{0.2cm}; u \in [0,b], v \in [0,2\pi] \]
 \end{Eg}
 
 \textbf{Exercise.} Find the Parametrization of a sphere of radius $R$.
+
+
 \end{document}

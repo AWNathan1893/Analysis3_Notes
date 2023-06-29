@@ -6,6 +6,9 @@
 \addcontentsline{toc}{chapter}{Lecture 18} %Set chapter title
 \setcounter{chapter}{18} %Set chapter counter
 \setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
 
 \section{Fubini's Theorem}
 
@@ -67,8 +70,9 @@ Consequently, we have the following corollaries,
 \begin{proof}[Proof of the Fubini's Theorem]
   Let $P = P^m \times P^n$ be a partition of $B^{m+n}$. Then, we can express the lower sum $L(f,P)$ as follows,
   \begin{align*}
-    L(f,P) & = \sum_{\alpha(P) \in \Lambda(P)} m_{\alpha(P)} \Vol\left( B_{\alpha(P)}^{m+n} \right)                                                                                                                        \\
-           & = \sum_{\alpha(P^m) \in \Lambda(P^m)} \underbrace{\sum_{\alpha(P^n) \in \Lambda(P^n)} m_{(\alpha(P^m), \alpha(P^n))} \Vol\left( B_{\alpha(P^n)}^{n} \right)}_{l_{P^m}} \Vol\left( B_{\alpha(P)^m}^{m} \right)
+    L(f,P)
+     & = \sum_{\alpha(P) \in \Lambda(P)} m_{\alpha(P)} \Vol\left( B_{\alpha(P)}^{m+n} \right)                                                                                                                        \\
+     & = \sum_{\alpha(P^m) \in \Lambda(P^m)} \underbrace{\sum_{\alpha(P^n) \in \Lambda(P^n)} m_{(\alpha(P^m), \alpha(P^n))} \Vol\left( B_{\alpha(P^n)}^{n} \right)}_{l_{P^m}} \Vol\left( B_{\alpha(P)^m}^{m} \right)
   \end{align*}
 
   For each $x \in B^m$ and $\alpha(P^n) \in \Lambda(P^n)$, let $m_{\alpha(P^n)}(x) = \inf_{y \in B_{\alpha(P^n)}^n} f_x(y)$. It follows that $m_{\alpha(P^n)}(x) \geq m_{(\alpha(P^m), \alpha(P^n))}$ for every $x \in B_{\alpha(P^m)}^m$. Consequently, we have,
@@ -94,5 +98,24 @@ Consequently, we have the following corollaries,
   By following analogous arguments, we can show that $\overline{f} \in \mathscr{R}(B^m)$ and,
   \[  \int_{B^m} \overline{f} \; \dd{V(x)} = \int_{B^{m+n}} f = \int_{B^m} \underline{f} \; \dd{V(x)}  \]
 \end{proof}
+
+\
+
+\textbf{Question:} Will the function be Riemann integrable if all the slices are Riemann integrable?
+
+We will address this question later. In the meantime, let's conclude this lecture with an example.
+
+\begin{Eg}{}{}
+  Consider the integral
+  \[ \int_{[0,1]^2} xy \; \underbrace{\dd x \; \dd y}_{\dd v}. \]
+  We can evaluate this integral by iterated integration as follows,
+  \begin{align*}
+    \int_{0}^{1} \left( \int_{0}^{1} xy \; \dd x \right) \dd y
+     & = \int_{0}^{1} y \left( \int_{0}^{1} x \; \dd x \right) \dd y \\
+     & = \int_{0}^{1} \frac{y}{2} \; \dd y = \frac{1}{4}
+  \end{align*}
+  Alternatively, we can also express it as, $ \displaystyle \int_{0}^{1} y \left( \int_{0}^{1} x \; \dd x \right) \dd y = \left( \int_{0}^{1} x \; \dd x \right) \left( \int_{0}^{1} y \; \dd y \right) $, which yields the same result.
+\end{Eg}
+
 
 \end{document}

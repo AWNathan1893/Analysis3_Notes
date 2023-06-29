@@ -5,9 +5,9 @@
 \addcontentsline{toc}{chapter}{Lecture 7} %Set chapter title
 \setcounter{chapter}{7} %Set chapter counter
 \setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
 
-
-%The content
 
 \section{Schwarz Theorem}
 
@@ -22,6 +22,7 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
   \[
     \mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]
   \]
+  
   But then $\mid F(h,k) - f_{xy}(0,0) \mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]$, that is, $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.
 
   As $f_y(h,0)$ exists for $h$ sufficiently small, $\lim_{k \to 0} F(h,k)$ exists for $h$ sufficiently small. Thus, by continuity of $F$ at $(0,0)$,
@@ -29,10 +30,11 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
   Thus, $f_{yx}(0,0)$ exists and is equal to $f_{xy}(0,0)$
 \end{proof}
 
-\vspace{.2 cm}
+\msk
 
 This is a slightly more useful version of Clairaut's Theorem. However, in many applications (say, partial differential equations), we work with $C^2$ or even $C^\infty$ functions, in which case both of these hold automatically.
-\vspace{.2 cm}
+
+\msk
 
 \textbf{Exercise:} Formulate and prove a similar result for higher order derivatives. In particular, provide a sufficient condition for $f: \mathcal{O}_n \to \R$ so that
 \[\frac{\partial^n f}{\partial x_{i_1} \partial x_{i_2} \dots \partial x_{i_m}} = \frac{\partial^n f}{\partial x_{\sigma(i_1)} \partial x_{\sigma(i_2)} \dots \partial x_{\sigma(i_m)}}\]
@@ -43,18 +45,19 @@ over $\mathcal{O}_n$ for any permutation $\sigma$ of the elements $\{i_1,i_2,\do
 We will now see that the partial derivatives provide an effective way of proving the existence and computing the total derivatives of a function $f: \mathcal{O}_n \to \R^m$. In this lecture and the next, we will develop the relations between partial and total derivatives by a series of results.
 
 \begin{Def}{Jacobian Matrix}{}
-  For a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$, if all the partial derivatives $\pdv{f_i}{x_j}$ at $a \in \mathcal{O}_n$, we define the Jacobian of the function at $a$ by the $m \times n$ matrix:
+  For a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$, if all the partial derivatives $\pdv{f_i}{x_j}$ at $a \in \mathcal{O}_n$, we define the Jacobian of the function at $a$ by the $m \times n$ matrix,
   \[J_f(a) = \left( \pdv{f_i}{x_j}\/(a) \right)_{m \times n}\]
 \end{Def}
 
 \begin{Thm}{}{7:2}
-  Consider a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$ differentiable at $a \in \mathcal{O}_n$. Then all the partial derivatives $\pdv{f_i}{x_j}$ exist at $a$. In particular, for $f$ differentiable at $a$, we have:
+  Consider a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$ differentiable at $a \in \mathcal{O}_n$. Then all the partial derivatives $\pdv{f_i}{x_j}$ exist at $a$. In particular, for $f$ differentiable at $a$, we have,
   \[(Df)(a) = J_f(a) = \left( \pdv{f_i}{x_j} \/ (a)\right)_{m \times n}\]
 \end{Thm}
 
 \begin{proof}
   Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by
   \[\eta_i(t) = (a_1, \dots, a_{i-1}, t, a_{t+1}, \dots, a_n) = a + (t-a_i)e_i \]
+
   As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).
 
   Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and
@@ -62,10 +65,11 @@ We will now see that the partial derivatives provide an effective way of proving
     D(f\circ\eta_i)(a_i) & = Df(\eta_i(a_i)) \cdot D\eta_i (a_i) \\
     \implies f_{x_i} (a) & = Df(a) \cdot e_i^t = [Df(a)]_i
   \end{align*}
-  As the index $i$ was arbitrary to begin with, this completes the proof.
 
+  As the index $i$ was arbitrary to begin with, this completes the proof.
 \end{proof}
 
 This theorem proves that differentiability of a function implies the existence of its partial derivatives, and gives the form of the derivative in the standard basis. But it is often quite elaborate and laborious to prove that a function is differentiable, whereas computation of the partial derivatives is much more straightforward. In the next lecture, we formulate a sufficient condition for differentiability of a function based on its partial derivatives.
+
 
 \end{document}

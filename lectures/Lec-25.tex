@@ -6,7 +6,10 @@
 \addcontentsline{toc}{chapter}{Lecture 25} %Set chapter title
 \setcounter{chapter}{25} %Set chapter counter
 \setcounter{section}{0}
-%The content
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
+
 \section{Tangent Plane Of $\mathcal{G}(f)$}
 
 Let, $f : \mathcal{O}_2 \to \R$ be a $C^1$ function and $r(u,v) = (u,v,f(u,v))$. Here $\ran(r)$ defines a surface $\mathcal{G}(f)$ as we have showed in Example (\ref{eg:groffn}). We also have calculated $r_v\times r_u = (-f_u,-f_v,1)$. Now using (\ref{eq:4}) we can write down the equation of \textbf{Tangent space} at a point $P = (a,b,f(a,b))$ on $\mathcal{G}(f)$. Equation of the tangent space $T_P \mathcal{S}$,
@@ -99,9 +102,10 @@ $$ = \norm{r_x \times r_y} \times \Area(B_{\alpha})^2$$
 Since $f$ is $C^1$ function so is $r$. So the total area of the surface $\mathcal{S}$ is given by,
 
 \begin{align*}
-  \Area (\mathcal{S}) & = \lim_{\norm{\mathcal{P}} \to 0} \norm{r_x \times r_y} \times \Area(B_{\alpha})^2 \\
-                      & = \int_{B^2} \norm{r_x \times r_y} dA                                              \\
-                      & = \int_{B^2} \sqrt{1 + f_x^2 +f_y^2} \dd A \hspace{0.2cm}(\text{In this case})
+  \Area (\mathcal{S})
+   & = \lim_{\norm{\mathcal{P}} \to 0} \norm{r_x \times r_y} \times \Area(B_{\alpha})^2 \\
+   & = \int_{B^2} \norm{r_x \times r_y} dA                                              \\
+   & = \int_{B^2} \sqrt{1 + f_x^2 +f_y^2} \dd A \hspace{0.2cm}(\text{In this case})
 \end{align*}
 
 Will will do the above integration over any bounded set $\Omega$ as we have done in \text{Riemann} integration chapter. Over a bounded set $\Omega$ area of $\mathcal{S}$ is given by,
@@ -117,5 +121,6 @@ The General method for finding surface area is described by the following theore
 
   \[\Area(\mathcal{S}) = \int_{\mathcal{R}} \norm{r_u \times r_v} \dd A\]
 \end{Thm}
+
 
 \end{document}
