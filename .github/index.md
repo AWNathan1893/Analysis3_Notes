@@ -2,7 +2,7 @@
 title: Analysis of Several Variables
 author: Jaydeb Sarkar
 lang: en
-description: "Analysis of Several Variables: A Second Year,Multivariable Analysis course at Indian Statistical Institute, Bangalore by Professor Jaydeb Sarkar"
+description: "Analysis of Several Variables: A Second Year, Multivariable Analysis course at Indian Statistical Institute, Bangalore by Professor Jaydeb Sarkar"
 colorlinks: yes
 header-includes: |
   <style>
@@ -61,6 +61,8 @@ Get full [Analysis of Several Variables notes](./pdfs/Analysis-3.pdf) by [Jaydeb
 - [Lecture 26](./pdfs/Lec-26.pdf)
 - [Lecture 27](./pdfs/Lec-27.pdf)
 - [Lecture 28](./pdfs/Lec-28.pdf)
+
+[Download all the PDFs as zip](./Analysis-3_all_pdfs.zip)
 
 ---
 
