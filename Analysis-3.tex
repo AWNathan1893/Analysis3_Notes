@@ -1,41 +1,45 @@
-\documentclass{report}
+\documentclass[twoside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage{./style}
 \usepackage{subfiles}
 
+\makeindex
+
 \title{\Huge\sffamily Analysis of Several Variables}
-\author{{\LARGE\sffamily \href{https://www.isibang.ac.in/~jay/}{Jaydeb Sarkar}} \\[0.5cm]
+\author{\sffamily {\LARGE \href{https://www.isibang.ac.in/~jay/}{Jaydeb Sarkar}} \\[0.5cm]
   \href{https://www.isibang.ac.in/~statmath}{Statistics and Mathematics Unit} \\
   \href{https://www.isibang.ac.in}{Indian Statistical Institute, Bangalore}}
 \date{}
 
 \begin{document}
-\includepdf{cover2.pdf}
+
+\pagestyle{empty}
+\includepdf[pages=-]{cover2.pdf}
 
 
+
+\frontmatter
+
+\pagestyle{plain}
 \maketitle
+\subfile{cover/creditpage.tex}
 
-{\vspace*{\fill}\centering
-  {\LARGE \LaTeX ed by}
-  \vspace{0.5cm}
-  \begin{center}
-    \large
-    Trishan Mondal \\
-    Soumya Dasgupta \\
-    Aaratrick Basu \\
-    Priyatosh Jana \\
-    Bikram Halder \\
-    Saraswata Sensarma \\
-    Deepta Basak
-  \end{center}
-  \vspace{0.5cm}
-  \begin{center}
-    B. Math (Hons.) (2021-'24) \\
-    \href{https://www.isibang.ac.in}{Indian Statistical Institute, Bangalore}
-  \end{center}
-  \vspace*{\fill}}
-
+\cleardoublepage
 \tableofcontents
+\clearpage
+
+
+
+\mainmatter
+
+\pagestyle{fancy}
+\fancyhf{}
+% \renewcommand{\chaptermark}[1]{\nouppercase{\markboth{\chaptername\ \thechapter.\ #1}{}}}
+\fancyhead[RE]{\nouppercase Lecture \thechapter \leftmark }
+% \renewcommand{\sectionmark}[1]{\markleft{\thesection.\ #1}}
+\fancyhead[LO]{\nouppercase \rightmark }
+\fancyfoot[C]{\thepage}
+
 
 \subfile{lectures/Lec-01}
 \subfile{lectures/Lec-02}
@@ -65,4 +69,16 @@
 \subfile{lectures/Lec-26}
 \subfile{lectures/Lec-27}
 \subfile{lectures/Lec-28}
+
+
+
+\backmatter
+
+\pagestyle{plain}
+{\footnotesize
+  \cleardoublepage
+  \printindex\label{index}
+  \clearpage
+}
+
 \end{document}

@@ -69,8 +69,8 @@ Next, we demonstrate the Riemann integrability of a class of ``nice'' functions 
   \end{equation}
   Let $P \in \mathcal{P}(B^n)$ be a partition such that $\|P\| < \delta$. For each $\alpha \in \Lambda(P)$, let $a_{\alpha} \in B_{\alpha}^n$. Then $\|x-a_{\alpha}\| < \delta$ for all $x \in B_{\alpha}^n$. It follows from the uniform continuity condition (\ref{eq:toweg:uccond}) that,
   \begin{align}
-    \abs{f(x) - f(a_{\alpha})}                         & < \tilde{\epsilon}  \nonumber                               \\
-    \implies f(a_{\alpha}) - \tilde{\epsilon} < f(x) < & \; f(a_{\alpha}) - \tilde{\epsilon} \label{eq:toweg:ucimpl}
+    \abs{f(x) - f(a_{\alpha})}                              & < \tilde{\epsilon}  \nonumber                               \\
+    \text{i.e., } f(a_{\alpha}) - \tilde{\epsilon} < f(x) < & \; f(a_{\alpha}) + \tilde{\epsilon} \label{eq:toweg:ucimpl}
   \end{align}
   Since, (\ref{eq:toweg:ucimpl}) holds for all $ \alpha \in \Lambda(P) $, $ a_{\alpha} \in B_{\alpha}^n $ and for all $ x \in B_{\alpha}^n $ we have,
   \[  f(a_{\alpha}) - \tilde{\epsilon} \leq m_{\alpha} \leq M_{\alpha} \leq f(a_{\alpha}) + \tilde{\epsilon}  \]
@@ -101,7 +101,7 @@ Consider the following examples,
 \begin{Eg}{}{}
   \begin{itemize}
     \item Let's take the sequence $ \{a_{mn}\} $ defined by $ a_{mn} = \frac 1{m+n} $ for all $ m,n \in \N $. This sequence is bounded, and for $ N > \frac 1{2\epsilon} $, we have $ \abs{a_{mn} - 0} = a_{mn} < \epsilon $ for all $ m,n \geq N $.
-    \item Now consider the sequence $ {a_{mn}} $ defined as follows,
+    \item Now consider the sequence $ \{a_{mn}\} $ defined as follows,
           \[  a_{mn} = \begin{cases}
               n            & \text{if } m=1   \\
               \frac 1{m+n} & \text{otherwise}

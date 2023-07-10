@@ -28,13 +28,13 @@ By extending this decomposition, we can also break down the elements of the boxe
 
 \
 
-Throughout this section, we take $x \in B^m$ and $y \in B^n$ to represent the point $(x,y) \in B^{m+n}$. For a bounded function $f \in \mathscr{B}(B^{m+n})$, we define the slice function $f_x: B^n \to \R$ as follows,
-\begin{align*}
-  \text{For all } x \in B^m, \ f_x : & B^n \to \R           \\
-                                     & y \longmapsto f(x,y)
-\end{align*}
+Throughout this section, we take $x \in B^m$ and $y \in B^n$ to represent the point $(x,y) \in B^{m+n}$. For a bounded function $f \in \mathscr{B}(B^{m+n})$, we define the slice functions
+\begin{itemize}
+  \item $f_x: B^n \to \R$ as $ y \mapsto f(x,y) $ for all $ x \in B^m $.
+  \item $f_y: B^m \to \R$ as $ x \mapsto f(x,y) $ for all $ y \in B^n $.
+\end{itemize}
 
-It is worth noting that $f_x \in \mathscr{B}(B^n)$. For a fixed $x \in B^m$, we can compute the lower and upper integrals of $f_x$ over $B^n$, denoted as $\underline{f}(x)$ and $\overline{f}(x)$ respectively. Similarly, we can compute the lower and upper integrals of $f_y$ over $B^m$ for fixed $y \in B^m$. These are given by,
+It is worth noting that $f_x \in \mathscr{B}(B^n)$ and $f_y \in \mathscr{B}(B^m)$. For a fixed $x \in B^m$, we can compute the lower and upper integrals of $f_x$ over $B^n$, denoted as $\underline{f}(x)$ and $\overline{f}(x)$ respectively. Similarly, we can compute the lower and upper integrals of $f_y$ over $B^m$ for fixed $y \in B^m$. These are given by,
 \[  \underline{f}(x) = \underline{\int}_{B^n} f_x(y) \; \dd{V(y)} \quad \text{and} \quad \overline{f}(x) = \overline{\int}_{B^n} f_x(y) \; \dd{V(y)}  \]
 with similar expressions for $y$. Now, let's state Fubini's Theorem.
 
@@ -107,7 +107,8 @@ We will address this question later. In the meantime, let's conclude this lectur
 
 \begin{Eg}{}{}
   Consider the integral
-  \[ \int_{[0,1]^2} xy \; \underbrace{\dd x \; \dd y}_{\dd v}. \]
+  \[ \int_{[0,1]^2} xy \; \underbrace{\dd x \; \dd y}_{\dd v} \]
+
   We can evaluate this integral by iterated integration as follows,
   \begin{align*}
     \int_{0}^{1} \left( \int_{0}^{1} xy \; \dd x \right) \dd y

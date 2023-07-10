@@ -30,6 +30,8 @@
 \usepackage{xifthen}
 \usepackage{transparent}
 \usepackage{tocloft}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
 
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
 \pgfplotsset{compat=1.18}
@@ -63,6 +65,9 @@
 \renewcommand{\cftchapfont}{\normalfont\sffamily\bfseries}      % \chapter font in ToC
 \renewcommand{\cftsecfont}{\normalfont\sffamily}        % \section font in ToC
 \renewcommand{\cftsubsecfont}{\normalfont\sffamily}        % \section font in ToC
+\renewcommand{\cfttoctitlefont}{\normalfont\sffamily\Huge\bfseries}
+\renewcommand{\cftchappagefont}{\normalfont\sffamily}
+\renewcommand{\cftsecpagefont}{\normalfont\sffamily}
 
 % Custom environments
 \newtcbtheorem[number within=section]{Def}{Definition}{
