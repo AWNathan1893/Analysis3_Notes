@@ -14,7 +14,7 @@ Recall in previous lecture, we discussed how to find area of a surface over a bo
 
 \begin{Eg}{Truncated Cylinder}{}
 
-  \begin{wrapfigure}{r}{0.50\textwidth}
+  \begin{wrapfigure}{r}{0.40\textwidth}
     \centering
     \includegraphics[width=.78\linewidth]{../figures/lec-26.1.png}
     \caption{Truncated Cylinder}
@@ -34,7 +34,7 @@ Recall in previous lecture, we discussed how to find area of a surface over a bo
 
 \begin{Eg}{Hemisphere}{}
 
-  \begin{wrapfigure}{r}{0.50\textwidth}
+  \begin{wrapfigure}{r}{0.45\textwidth}
     \centering
     \includegraphics[width=.78\linewidth]{../figures/lec-26.2.png}
     \caption{Hemisphere}
@@ -60,8 +60,9 @@ Recall in previous lecture, we discussed how to find area of a surface over a bo
 Let, $\mathcal{R} \in \R^2$ be a region. $r:\mathcal{R} \to \R^3$ be parametrization of a surface $\mathcal{S}$. $f$ be a scalar function defined on the surface $\mathcal{S}$. Let $f \in C(\mathcal{S})$ then we can define integration of $f$ over the surface as following,
 
 \begin{align}
-  \int_{\mathcal{S}} f \hspace{0.1cm} \dd \mathcal{S} & := \lim_{\norm{\mathcal{P}} \to 0} \sum_{\alpha \in \Lambda (\mathcal{P})} f(r(x_{\alpha})) \norm{r_u(x_{\alpha}) \times r_v(x_{\alpha})} \Area(B_{\alpha}^2) \nonumber \\
-                                                      & = \int_{\mathcal{R}} (f \circ r)(u,v) \norm{r_u \times r_v} \hspace{0.1cm} \dd A \label{eq:siovf}
+  \int_{\mathcal{S}} f \, \dd \mathcal{S}
+   & := \lim_{\norm{\mathcal{P}} \to 0} \sum_{\alpha \in \Lambda (\mathcal{P})} f(r(x_{\alpha})) \norm{r_u(x_{\alpha}) \times r_v(x_{\alpha})} \Area(B_{\alpha}^2) \nonumber \\
+   & = \int_{\mathcal{R}} (f \circ r)(u,v) \norm{r_u \times r_v} \, \dd A \label{eq:siovf}
 \end{align}
 
 As we have noticed in the case of \textbf{Line Integral of over a scalar field} the integration do not depend on the parametrization of the path. In this case also if we have different two parametrization $r, \tilde{r}$ for the surface $\mathcal{S}$ then there exist a one-one continuous function $\varphi$ so that the following diagram commutes, (in other words $r = \tilde{r} \circ \tilde{\varphi}$)
@@ -74,7 +75,7 @@ As we have noticed in the case of \textbf{Line Integral of over a scalar field} 
     \arrow["\varphi"', from=2-1, to=2-3]
   \end{tikzcd}\]
 
-We can show that the integration in (\ref{eq:siovf}) is also same if we replace $r$ by $\tilde{r}$. In other words the surface Integral over a surface is independent of its parametrization\footnote{See Figure \ref{Examp:1}}.
+We can show that the integration in (\ref{eq:siovf}) is also same if we replace $r$ by $\tilde{r}$. In other words the surface Integral over a surface is independent of its parametrization (See Figure \ref{Examp:1}).
 
 \begin{Eg}{Surface Integral over a Cone}{surf:int:o:cone}
   We want to evaluate \[ \int_{\mathcal{S}}(x^2+y^2+z^2) \dd \mathcal{S}\]
@@ -89,7 +90,7 @@ We can show that the integration in (\ref{eq:siovf}) is also same if we replace 
      & = \int_{\mathcal{R}} (f\circ r) \cdot \norm{r_x \times r_y} \, \dd A                                                    \\
      & = \int_{\mathcal{R}} (f\circ r) \sqrt{1 + \frac{x^2}{x^2+y^2} + \frac{y^2}{x^2+y^2}} \, \dd A                           \\
      & = 2\sqrt{2} \int_{\mathcal{R}} (x^2+y^2) \, \dd A                                                                       \\
-     & = 2\sqrt{2} \int_{0}^{1} \int_{0}^{2\pi} r^3 \, \dd \theta \, \dd r \hspace{0.2cm} (\text{It's the polar substitution}) \\
+     & = 2\sqrt{2} \int_{0}^{1} \int_{0}^{2\pi} r^3 \, \dd \theta \, \dd r \quad (\text{It's the polar substitution}) \\
      & = \sqrt{2} \pi
   \end{align*}
 

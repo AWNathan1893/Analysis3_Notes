@@ -34,11 +34,12 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-% \renewcommand{\chaptermark}[1]{\nouppercase{\markboth{\chaptername\ \thechapter.\ #1}{}}}
-\fancyhead[RE]{\nouppercase Lecture \thechapter \leftmark }
-% \renewcommand{\sectionmark}[1]{\markleft{\thesection.\ #1}}
-\fancyhead[LO]{\nouppercase \rightmark }
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ #1}{}}
+\fancyhead[RE]{\nouppercase \rightmark \hfill Lecture \thechapter \leftmark}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ #1}}
+\fancyhead[LO]{\nouppercase Lecture \thechapter \leftmark \hfill \rightmark }
 \fancyfoot[C]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
 
 
 \subfile{lectures/Lec-01}

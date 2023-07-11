@@ -13,10 +13,10 @@
 We will begin this lecture with few examples.
 \begin{Eg}{Path Of a Projectile}{}
   \begin{align*}
-    \gamma(t)           & =(\alpha t, \beta t-16t^2)               \\
-    \implies \gamma'(t) & = (\alpha, \beta -32t)                   \\
-    \text{path length}  & = \int \norm{\gamma'(t)}\dd{t}           \\
-                        & = \int \sqrt{\alpha^2 +(\beta-32t)^2} dt
+    \gamma(t)           & =(\alpha t, \beta t-16t^2)                     \\
+    \implies \gamma'(t) & = (\alpha, \beta -32t)                         \\
+    \text{path length}  & = \int \norm{\gamma'(t)}\dd{t}                 \\
+                        & = \int \sqrt{\alpha^2 +(\beta-32t)^2} \, \dd t
   \end{align*}
 \end{Eg}
 
@@ -24,8 +24,8 @@ We will begin this lecture with few examples.
   Parametrization of a circle of radius $r$ is given by $\gamma(t) = (r\cos(t),r\sin(t)), t \in [0,2\pi)$.
   \begin{align*}
     \gamma'(t)    & = (-r\sin(t),r\cos(t))                    \\
-    \ell (\gamma) & = \int_{0}^{2\pi} \norm{\gamma'(t)}\dd{t} \\
-                  & = \int_{0}^{2\pi} r dt                    \\
+    \ell (\gamma) & = \int_{0}^{2\pi} \norm{\gamma'(t)} \dd t \\
+                  & = \int_{0}^{2\pi} r \, \dd t              \\
                   & = 2\pi r
   \end{align*}
 \end{Eg}
@@ -33,9 +33,9 @@ We will begin this lecture with few examples.
 \begin{Eg}{Arc Length of graph of functions}{}
   Let, $f : [a,b]\to \R$ be a $C^1$ function. Consider $\gamma(t)=(t, f(t))$. It is a smooth curve.
   \begin{align*}
-    \gamma'(t)    & = (1,f'(t))                            \\
-    \ell (\gamma) & = \int_{a}^{b} \norm{\gamma'(t)}\dd{t} \\
-                  & = \int_{a}^{b} \sqrt{1 + f'(t)^2} dt
+    \gamma'(t)    & = (1,f'(t))                                \\
+    \ell (\gamma) & = \int_{a}^{b} \norm{\gamma'(t)} \dd t     \\
+                  & = \int_{a}^{b} \sqrt{1 + f'(t)^2} \, \dd t
   \end{align*}
 \end{Eg}
 
@@ -74,20 +74,16 @@ We can now use all the theory we used for the standard Riemann Integrals. We say
 
 More over we will write the common value of the above equality as $\displaystyle\int_{\mathcal{C}} f$ and call this ``The Line Integral over curve $\mathcal{C}$''.
 
-\begin{notnBox}
-  $\mathscr{R}(\mathcal{C}) = $ set of all Riemann integrable functions over $\mathcal{C}$.
-\end{notnBox}
-
-Now we can invoke all theory we derived for 1 variable integration!
+Now we can invoke all theory we derived for 1 variable integration! We call $\mathscr{R}(\mathcal{C}) $ the set of all Riemann integrable functions over $\mathcal{C}$.
 
 \begin{Thm}{}{23:1}
   Let, $\gamma$ be a ``Rectifiable'' smooth(or piecewise smooth) and $\mathcal{C} = \ran(\gamma)$ and $f \in \mathscr{B}(\mathcal{C})$. Then,
   \begin{enumerate}
     \item $f \in C \implies f \in \mathscr{R}(\mathcal{C})$
-    \item \[ f \in \mathscr{R}(\mathcal{C}) \iff \lim_{||\mathcal{P}||\to 0} \sum_{i=1}^{m} f(\zeta_i)s_i \hspace{0.1cm} \text{exist and equal to}\int_{\mathcal{C}} f.\] Here, $\zeta_i$ is tag of the interval $I_i$.
+    \item \[ f \in \mathscr{R}(\mathcal{C}) \iff \lim_{||\mathcal{P}||\to 0} \sum_{i=1}^{m} f(\zeta_i)s_i \quad \text{exist and equal to}\int_{\mathcal{C}} f.\] Here, $\zeta_i$ is tag of the interval $I_i$.
 
     \item (This requires smoothness) If $\gamma$ is $C^1$ and smooth, $f \in \mathscr{R}(\mathcal{C})$, then
-          \[\int_{\mathcal{C}} f = \int_a^b f(\gamma(t))\norm{\gamma'(t)} \label{eq:1}\]
+          \[\int_{\mathcal{C}} f = \int_a^b f(\gamma(t))\norm{\gamma'(t)} \, \dd t \label{eq:23:1:rqsmth}\]
 
   \end{enumerate}
 \end{Thm}
@@ -96,7 +92,7 @@ Now we can invoke all theory we derived for 1 variable integration!
 
 \
 
-In the above theorem equation in \ref{eq:1} is also independent of choice of Parametrization of $\gamma$. Because any other smooth parametrized curve $\tilde{\gamma} = \gamma \circ \varphi$ where, $\varphi$ is an onto continuous function.
+In the above theorem equation in \ref{eq:23:1:rqsmth} is also independent of choice of Parametrization of $\gamma$. Because any other smooth parametrized curve $\tilde{\gamma} = \gamma \circ \varphi$ where, $\varphi$ is an onto continuous function.
 
 \
 
@@ -126,8 +122,8 @@ Suppose a particle moves a distance $d$ under a constant force $F$, then work do
 
 If the force was not constant throughout the path then how can we calculate work done by that force?
 Consider the case where $F$ is the vector field (Force in this case) defined over a curve (path)$\gamma$. Here, $\gamma : [a,b] \to \R^n$ and $\mathcal{C} = \ran(\gamma)$. So, work done throughout the whole path will be,
-\[\int_{\mathcal{C}} \vec{F}\cdot d\vec{r}\]
-Which is equal to, $\displaystyle\int_a^b \vec{F}(\gamma(t))\cdot \grad \gamma(t) dt$
+\[\int_{\mathcal{C}} \vec{F}\cdot \dd\vec{r}\]
+Which is equal to, $\displaystyle\int_a^b \vec{F}(\gamma(t))\cdot \grad \gamma(t)\, \dd t$
 
 Now we will look into some examples.
 
@@ -136,8 +132,8 @@ Now we will look into some examples.
 
   \textit{Answer.} \begin{align*}
     \gamma'(t)
-                              & = (2t,-3t^2,4t^3)                                 \\
-    \implies \text{Work done} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3) dt \\
+                              & = (2t,-3t^2,4t^3)                                      \\
+    \implies \text{Work done} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3)\, \dd t \\
                               & = -\frac{31}{88}
   \end{align*}
 \end{Eg}
@@ -149,12 +145,12 @@ $F:\Op{n} \to \R^n$ be a vector field and $\gamma:[a,b] \to \Op{n}$ be a curve. 
 \[R(F;\mathcal{P})= \sum_{i=1}^m F(\gamma_i)\cdot \Delta r_i\]
 
 \begin{align*}
-  \int_{\mathcal{C}} \vec{F}\cdot d\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \tag{if the limit exists}
+  \int_{\mathcal{C}} \vec{F}\cdot \dd\vec{r} = \lim_{\norm{\mathcal{P}}\to 0} R(F,\mathcal{P}) \tag{if the limit exists}
 \end{align*}
 
 Just like the scalar field, if $\gamma$ is $C^1$ and smooth, then
 \begin{equation}
-  \int_{\mathcal{C}} \vec{F}\cdot d\vec{r} = \int_a^b F(\gamma(t))\cdot \gamma'(t) \dd t \label{eq:3}
+  \int_{\mathcal{C}} \vec{F}\cdot \dd\vec{r} = \int_a^b F(\gamma(t))\cdot \gamma'(t) \, \dd t \label{eq:23:3:lint}
 \end{equation}
 
 

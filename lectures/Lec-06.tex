@@ -18,7 +18,7 @@
 
 Now, we discuss the notion of partial derivatives. This tries to treat differentiation of functions with multiple arguments in the 1-variable setting. This construction ends up being an indispensable tool in the computation of the Total derivative in the standard basis.\\[0.2 cm]
 
-Consider a function $f:\Op{n} \rightarrow\R$ and a point $a \in \Op{n}$, and fix $1 \leq i \leq n$. Now, we define functions $\eta_i : (-\varepsilon, \varepsilon) \rightarrow \R$ such that $\eta(t) = f(a + te_i)$ for all $t \in (-\varepsilon, \varepsilon)$.
+Consider a function $f:\Op{n} \rightarrow\R$ and a point $a \in \Op{n}$, and fix $1 \leq i \leq n$. Now, we define functions $\eta_i : (-\epsilon, \epsilon) \rightarrow \R$ such that $\eta(t) = f(a + te_i)$ for all $t \in (-\epsilon, \epsilon)$.
 
 \begin{Def}{Partial Derivatives}{}
   For the given function $f:\Op{n} \rightarrow\R$, the partial derivatives of $f$ with respect to the co-ordinate $x_i$ is given by:
@@ -71,7 +71,7 @@ We now lay out some interesting and instructive examples, which would illustrate
 \section{Higher Order Partial Derivatives}
 
 Assume that partial derivatives of $f: \Op{n} \to \R$ exist in a neighbourhood of $a \in \Op{n} $. Then we can talk about the partial derivatives of $\pdv{f}{x_i}: \Op{n} \to \R$ at $a$. We denote:
-\[f_{x_i x_j}(a) \equiv \pdv{f}{x_j} \mathrel{\mathop:}= \frac{\partial}{\partial x_j} \pdv{f}{x_i} = \lim_{h \to 0} \frac{1}{h} \left( \pdv{f}{x_i}\/(a+h e_i)- \pdv{f}{x_i}\/ (a) \right)
+\[f_{x_i x_j}(a) \equiv \pdv{f}{x_j} \mathrel{\mathop:}= \pdv{x_j} \pdv{f}{x_i} = \lim_{h \to 0} \frac{1}{h} \left( \pdv{f}{x_i}\/(a+h e_i)- \pdv{f}{x_i}\/ (a) \right)
 \]
 We can define higher order partial derivatives similarly. Please note that the order of differentiation matters in general. For starters, of  $f_{x_i x_j}$ and $f_{x_j x_i}$, one may exist while the other may not. Also, even if both exist, they may not necessarily be equal over the entire domain. We leave it to the reader to find an example of the former case, and provide an example for the latter.
 
@@ -89,8 +89,8 @@ We can define higher order partial derivatives similarly. Please note that the o
 \end{Eg}
 
 \begin{Eg}{}{}
-  However in many \emph{well-behaved} cases, we will find $f_{xy} = f_{yx}$.
-  For instance, consider $f: \R^2 \to \R$ given by $f(x,y) = sin(x) + e^y + xy$. Show that $f_{xx} = f_{yy} = 1$ over $\R^2$.
+  However, in many \emph{well-behaved} cases, we will find $f_{xy} = f_{yx}$.
+  For instance, consider $f: \R^2 \to \R$ given by $f(x,y) = \sin(x) + e^y + xy$. Show that $f_{xx} = f_{yy} = 1$ over $\R^2$.
 \end{Eg}
 
 Often, the dependence of the partial derivative on the order of differentiation is the exception rather than the rule. We now develop a sufficient condition for $f_{xy} = f_{yx}$ to hold.
@@ -123,9 +123,9 @@ Often, the dependence of the partial derivative on the order of differentiation 
   Repeating this entire construction, we can find $(c_1', c_2') \in [0,h]\times[0,k]$ such that $F(h,k) = f_{yx}(c_1', c_2')$.\\
   Thus, $f_{xy}(c_1, c_2) = f_{yx}(c_1', c_2')$. But, $0 < c_1, c_1' < h$ and $0 < c_2, c_2' < k$. Thus, as $(h,k)$ can be made arbitrarily small, taking  $(h,k) \to 0$, we have
   \[
-    \lim_{(c_1, c_2) to 0} f_{xy}(c_1, c_2) = \lim_{(c_1', c_2') to 0} f_{yx}(c_1', c_2')
+    \lim_{(c_1, c_2) \to 0} f_{xy}(c_1, c_2) = \lim_{(c_1', c_2') \to 0} f_{yx}(c_1', c_2')
   \]
-  By the continuity of $f_{xy}$ and $f_{yx}$, we have $\mathbf{f_{xy}(0,0) = f_{yx}(0,0)}$.
+  By the continuity of $f_{xy}$ and $f_{yx}$, we have $\boxed{f_{xy}(0,0) = f_{yx}(0,0)}$.
 
 \end{proof}
 

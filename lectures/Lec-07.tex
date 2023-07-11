@@ -18,12 +18,12 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
 \end{Thm}
 
 \begin{proof}
-  Just as before, we take $(a,b) = (0,0)$. From the proof of Clairaut's Theorem, we have $F(h,k) = f_{xy}(c_1, c_2)$ for some $0 < c_1< h$ and $0 < c_2 < k$. By continuity of $f_{xy}$ at $(0,0)$, for any $\varepsilon >0$ there exists $h_\varepsilon, k_\varepsilon > 0$, such that
+  Just as before, we take $(a,b) = (0,0)$. From the proof of Clairaut's Theorem, we have $F(h,k) = f_{xy}(c_1, c_2)$ for some $0 < c_1< h$ and $0 < c_2 < k$. By continuity of $f_{xy}$ at $(0,0)$, for any $\epsilon >0$ there exists $h_\epsilon, k_\epsilon > 0$, such that
   \[
-    \mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]
+    \mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \epsilon \;\;\forall \; (u,v) \in [0,h_\epsilon]\times[0,k_\epsilon]
   \]
   
-  But then $\mid F(h,k) - f_{xy}(0,0) \mid < \varepsilon \;\;\forall \; (u,v) \in [0,h_\varepsilon]\times[0,k_\varepsilon]$, that is, $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.
+  But then $\mid F(h,k) - f_{xy}(0,0) \mid < \epsilon \;\;\forall \; (u,v) \in [0,h_\epsilon]\times[0,k_\epsilon]$, that is, $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.
 
   As $f_y(h,0)$ exists for $h$ sufficiently small, $\lim_{k \to 0} F(h,k)$ exists for $h$ sufficiently small. Thus, by continuity of $F$ at $(0,0)$,
   \[\lim_{h \to 0}\lim_{k \to 0} F(h,k) \text{  exists and is equal to  }\lim_{(h,k) \to (0,0)} F(h,k)\]
@@ -55,10 +55,10 @@ We will now see that the partial derivatives provide an effective way of proving
 \end{Thm}
 
 \begin{proof}
-  Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \varepsilon,a_i + \varepsilon] \to \R^n$, defined by
+  Without loss of generality, we take $m = 1$, and let $a = (a_1, a_2, \dots, a_n)$. Fix an arbitrary index $i \in \{1,2,\dots,n \}$. We define $\eta_i : [a_i - \epsilon,a_i + \epsilon] \to \R^n$, defined by
   \[\eta_i(t) = (a_1, \dots, a_{i-1}, t, a_{t+1}, \dots, a_n) = a + (t-a_i)e_i \]
 
-  As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\varepsilon$ small such that $f([[a_i - \varepsilon,a_i + \varepsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \varepsilon,a_i + \varepsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).
+  As $\mathcal{O}_n$ is open and $\eta_i$ is continuous, we can find $\epsilon$ small such that $f([[a_i - \epsilon,a_i + \epsilon]]) \subseteq \mathcal{O}_n \subseteq \R^n$. Evidently, $\eta_i$ is differentiable and $(D\eta_i) = [0,\dots,1,\dots,0]^t = e_i^t$ over $[a_i - \epsilon,a_i + \epsilon]$. Now, by the definition of partial derivatives, \(D(f\circ\eta_i)(a_i) = f_{x_i} (a)\).
 
   Again, by chain rule, as $f$ is differentiable at $a$, $D(f\circ\eta_i)(a_i) = f_{x_i}(a)$ exists, and
   \begin{align*}

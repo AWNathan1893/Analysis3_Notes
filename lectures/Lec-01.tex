@@ -20,7 +20,7 @@ We will talk about $ n $-variable calculus, that is, calculus on $ \R^n $. Recal
 
 Extending the analytic ideas to $ \R^n $ exploiting the algebraic structure is the matter of this course, which further gives way to differential geometry.
 
-\section{Review: $ \R^n $ as a vector space}
+\section{Review: \texorpdfstring{$ \R^n $}{Rn} as a vector space}
 
 \begin{enumerate}[label = (\roman*)]
   \item The standard orthonormal basis of $ \R^n $ is $ \{e_i\}_{i=1}^n $.
@@ -71,7 +71,7 @@ Now consider the general case; let $ L: \R^n \to \R^m $ be a linear map. If we f
 and hence,
 \[ L \leftrightarrow (a_{ij})_{m \times n} \in M_{m,n}(\R) \]
 
-\section{Analytic ideas in $ \R^n $}
+\section{Analytic ideas in \texorpdfstring{$ \R^n $}{Rn}}
 
 We have the Euclidean norm on $ \R^n $ defined by,
 \[ \norm{x} = \left(\sum_{i=1}^{n}x_i^2\right)^{\frac 12} \quad \forall \, x \in \R^n \]
@@ -102,10 +102,12 @@ Recall the triangle inequality for $ \R $, for all $ x,y \in \R $
 \begin{proof}
   We have,
   \begin{align*}
-    \norm{x+y}^2 & = \inp{x+y}{x+y}                                                                 \\
-                 & = \norm{x}^2 + 2\inp xy + \norm{y}^2                                             \\
-                 & \leq \norm{x}^2 + \norm{y}^2 +2 \norm{x}\norm{y} \tag{Cauchy Schwarz inequality} \\
-    \implies \norm{x+y} \leq \norm{x} + \norm{y}
+    \norm{x+y}^2
+     & = \inp{x+y}{x+y}                                                                 \\
+     & = \norm{x}^2 + 2\inp xy + \norm{y}^2                                             \\
+     & \leq \norm{x}^2 + \norm{y}^2 +2 \norm{x}\norm{y} \tag{Cauchy Schwarz inequality} \\
+    \implies \norm{x+y}
+     & \leq \norm{x} + \norm{y}
   \end{align*}
   which is the desired inequality.
 \end{proof}

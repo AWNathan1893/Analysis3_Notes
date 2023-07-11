@@ -44,7 +44,7 @@ The last definition when iterated gives,
 \begin{Thm}{Taylor's Theorem in Multivariate Case}{taylor:multi}
   Let, $ f: \Op{n} \to \R $ be a $C^{k+1}$ function and assume $\Op{n}$ is convex. If $h, a + h \in \Op{n} $, then
   \[ f(a+h) = \sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a) h^{\alpha} + r_{a,k} (h) \]
-  where, \[ r_{a,k} (h) = \sum_{| \alpha | = k+1 } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a + c h) h^{\alpha} \hspace{5mm} \text{for some $c \in (0,1)$} \]
+  where, \[ r_{a,k} (h) = \sum_{| \alpha | = k+1 } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a + c h) h^{\alpha} \qquad \text{for some $c \in (0,1)$} \]
 \end{Thm}
 
 \begin{proof}
@@ -118,15 +118,14 @@ and \( c \in (0,1) \).
 \begin{proof}
   As $ a $ is an interior point of $ \Op{2} $ we can get an $ r > 0 $ such that $ a, a+h \in B_r(a) \subseteq \Op{2}$. By $\eqref{eq:pj:n2:tp}$, \[ f(a+h) - f(a) = \grad f(a) \cdot h + \frac{1}{2}h^t H_f(a+ch)h \]
 
-  We will prove \ref{extremum:2} other statements can be proved similarly. Our assumptions tell that $H_f(a)$ is positive definite. Hence, by the Lemma \ref{lem:hessian:nbd}, there exist $ \epsilon > 0 $ such that $H_f(x)$ is positive definite $\forall\ x \in B_{\epsilon}(a)$. So for every $ x \in B_{\epsilon}(a) $ the quadratic form $ h^t H_f(x) h > 0 $ with $ h \neq 0 $ which implies $ f(x) - f(a) > 0 $ in $ B_{\epsilon}(a) $ that means $a$ is a point of local minimum.
+  We will prove \ref{extremum:2}, other statements can be proved similarly. Our assumptions tell that $H_f(a)$ is positive definite. Hence, by the Lemma \ref{lem:hessian:nbd}, there exist $ \epsilon > 0 $ such that $H_f(x)$ is positive definite $\forall\ x \in B_{\epsilon}(a)$. So for every $ x \in B_{\epsilon}(a) $ the quadratic form $ h^t H_f(x) h > 0 $ with $ h \neq 0 $ which implies $ f(x) - f(a) > 0 $ in $ B_{\epsilon}(a) $ that means $a$ is a point of local minimum.
 \end{proof}
 
 \begin{Eg}{Finding Critical points of a function and their nature}{}
-  \textbf{Find the critical points and discuss the nature of the function}
+  Find the critical points and discuss the nature of the function
+  \[ f(x,y) = x^3 - 6x^2 - 8y^2 \]
 
-  $$\mathbf{f(x,y) = x^3 - 6x^2 - 8y^2}$$
-
-  \textbf{\textit{Solution. }}  Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations
+  \textit{Solution. } Setting $ \grad f(x,y) = 0 $, i.e., $ (f_x,f_y)(x,y) = 0 $, we get the system of equations
   \[ 3x^2 - 12x = 0 \text{  and  }  -16y = 0\]
   whose solution set is $ \qty{(0,0),(4,0)} $ implying that $(0,0), (4,0)$ are critical points.
 

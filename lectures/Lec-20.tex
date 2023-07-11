@@ -1,4 +1,5 @@
 \documentclass[../Analysis-3.tex]{subfiles}
+\myexternaldocument{Lec-18}
 
 \begin{document}
 \chapter*{Lecture 20} %Set chapter name
@@ -47,11 +48,11 @@ In the previous lecture we had talked about elementary regions, in this lecture 
   \]
   Then we get
   \begin{align*}
-     & \Longrightarrow \int_a^b \left( \int_c^d \tilde{f}(x,y) \, \dd y\right)\, \dd x = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x \\
-     & \overset{(*)}{\Longrightarrow} \int_{B^2} \tilde{f} \, \dd A = \int_a^b \left( \int_{varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x                    \\
+     & \Longrightarrow \int_a^b \left( \int_c^d \tilde{f}(x,y) \, \dd y\right)\, \dd x = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x \\
+     & \overset{(*)}{\Longrightarrow} \int_{B^2} \tilde{f} \, \dd A = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x                    \\
      & \Longrightarrow \int_{\Omega} f \, \dd A = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x
   \end{align*}
-  where $(*)$ follows from Fubini's theorem, and one can do a similar argument for $x$-simple regions.
+  where $(*)$ follows from Fubini's Theorem (\ref{th:fubini}), and one can do a similar argument for $x$-simple regions.
 \end{proof}
 
 \
@@ -138,7 +139,7 @@ In the previous lecture we had talked about elementary regions, in this lecture 
   \end{align*}
 \end{Eg}
 
-\section{Change of Variable}
+\section{Change of Variables}
 
 Let us revise the change of variable rule for real valued functions on the real line. Let $\varphi : \mathcal{O} \to \R$ be a $C^1$ function where $\mathcal{O} \subseteq \R$, assume $\varphi'(x) \neq 0$ for all $x \in \mathcal{O}$, and let $\mathcal{O} \supseteq [a,b]$, then for all $f \in C(\varphi[a,b])$, we have
 \[

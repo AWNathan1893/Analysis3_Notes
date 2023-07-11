@@ -23,10 +23,10 @@
   Evaluating the LHS gives,
   \begin{align*}
     \int_c \grad f\cdot \dd\vec{r}
-     & \overset{(\ref{eq:3})}{=} \int_a^b \grad f(r(t)) \cdot r'(t) \; \dd t    \\
-     & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) \dd t \\
-     & =\int_a^b \dv{t}(f(r(t))) \; \dd t                                       \\
-     & = f(r(b)) - f(r(a))                                                      \\
+     & \overset{(\ref{eq:23:3:lint})}{=} \int_a^b \grad f(r(t)) \cdot r'(t) \; \dd t \\
+     & = \int_a^b \left(\sum_{i=1}^{n} \pdv{f}{r_i}\times r_i'(t) \right) \dd t      \\
+     & =\int_a^b \dv{t}(f(r(t))) \; \dd t                                            \\
+     & = f(r(b)) - f(r(a))                                                           \\
      & = f(B) - f(A)
   \end{align*}
 \end{proofFig}
@@ -58,8 +58,8 @@ So, equation of the plane is
 \
 
 Let $\vec{Q_1},\vec{Q_2}$ be independent in $\R^3$ and also satisfying $\vec{Q_i} \cdot \vec{N} = 0$. Clearly, $\vec{Q_1}\times \vec{Q_2} \neq \vec{0}$. We can see $(\vec{Q_1}\times \vec{Q_2}) \cdot \vec{Q_i} = 0$, i.e., $\{\vec{Q_1},\vec{Q_2},\vec{Q_1}\times \vec{Q_2}\}$ form a basis of $\R^3$.
+\[  \therefore \quad \vec{Q_1}\times \vec{Q_2} = c \vec{N} \]
 
-$$\therefore \hspace{0.2cm}\vec{Q_1}\times \vec{Q_2} = c \vec{N}$$
 So, $\qty{\vec{P_0} + r_1 \vec{Q_1} + r_2 \vec{Q_2} \mid r_1,r_2 \in \R }$ describes the same plane as (\ref{eq:24:1:plane}).
 
 \section{Surface and Surface Integrals}
@@ -135,7 +135,7 @@ We will go through some examples.
 
 \begin{Eg}{Surface of Revolution}{}
   Let $f,g$ be $C^1$ functions on $[0,b]$. Consider the curve $t \longmapsto (0,f(t),g(t))$ is a $C^1$ curve. If we rotate the curve with respect to $z$ axis, we must get a surface. Parametrization  of the surface is given by,
-  \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \hspace{0.2cm}; u \in [0,b], v \in [0,2\pi] \]
+  \[r(u,v) = (f(u)\cos v,f(u)\sin v,g(u)) \quad; u \in [0,b], v \in [0,2\pi] \]
 \end{Eg}
 
 \textbf{Exercise.} Find the Parametrization of a sphere of radius $R$.
