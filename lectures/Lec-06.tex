@@ -65,13 +65,13 @@ We now lay out some interesting and instructive examples, which would illustrate
 \end{Eg}
 
 \begin{Def}{}{}
-  A function $f: \Op{} \to \R$ is called $C^k(\mathcal{0})$ is all the \( {k}^{\text{th}} \) order partial derivatives exist and are continuous.
+  A function $f: \Op{} \to \R$ is called $C^k(\Op{})$ if all the \( {k}^{\text{th}} \) order partial derivatives exist and are continuous.
 \end{Def}
 
 \section{Higher Order Partial Derivatives}
 
 Assume that partial derivatives of $f: \Op{n} \to \R$ exist in a neighbourhood of $a \in \Op{n} $. Then we can talk about the partial derivatives of $\pdv{f}{x_i}: \Op{n} \to \R$ at $a$. We denote:
-\[f_{x_i x_j}(a) \equiv \pdv{f}{x_j} \mathrel{\mathop:}= \pdv{x_j} \pdv{f}{x_i} = \lim_{h \to 0} \frac{1}{h} \left( \pdv{f}{x_i}\/(a+h e_i)- \pdv{f}{x_i}\/ (a) \right)
+\[f_{x_i x_j}(a) \equiv \pdv{f_{x_i}}{x_j} \mathrel{\mathop:}= \pdv{x_j} \pdv{f}{x_i} = \lim_{h \to 0} \frac{1}{h} \left( \pdv{f}{x_i}\/(a+h e_i)- \pdv{f}{x_i}\/ (a) \right)
 \]
 We can define higher order partial derivatives similarly. Please note that the order of differentiation matters in general. For starters, of  $f_{x_i x_j}$ and $f_{x_j x_i}$, one may exist while the other may not. Also, even if both exist, they may not necessarily be equal over the entire domain. We leave it to the reader to find an example of the former case, and provide an example for the latter.
 

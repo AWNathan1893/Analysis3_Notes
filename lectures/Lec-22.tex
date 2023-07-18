@@ -79,29 +79,29 @@ Let's try to look at more natural how equation (ii) in the previous definition g
 
 Let $\gamma : [a,b] \to \R^n$ and let $\mathcal{P} := a = t_0 < t_1 < \cdots < t_m = b $ be a partition of the interval $[a,b]$. Now define
 \[
-  l(\gamma,\mathcal{P}) = \sum_{i=1}^m \| \gamma(t_{i-1}) - \gamma(t_i) \|
+  \ell(\gamma,\mathcal{P}) = \sum_{i=1}^m \| \gamma(t_{i-1}) - \gamma(t_i) \|
 \]
 
 
 \begin{Def}{}{}
   A curve $\gamma : [a,b] \to \R^n$ is \textbf{rectifiable} or said to have arc length if
   \[
-    \lim_{\overset{\|\mathcal{P}\| \to 0}{\mathcal{P} \in \mathscr{P}[a,b]}} l(\gamma,\mathcal{P}) = l(\gamma) \mbox{ exists}
+    \lim_{\overset{\|\mathcal{P}\| \to 0}{\mathcal{P} \in \mathscr{P}[a,b]}} \ell(\gamma,\mathcal{P}) = \ell(\gamma) \mbox{ exists}
   \]
   which is equivalent to saying that for all $\varepsilon > 0$, there exists $\delta >0$, such that
   \[
-    \norm{l(\gamma,\mathcal{P}) - l(\gamma)} < \varepsilon \quad \forall \, \mathcal{P} \in \mathscr{P}([a,b]) \mbox{ such that } \norm{\mathcal{P}} < \delta
+    \norm{\ell(\gamma,\mathcal{P}) - \ell(\gamma)} < \varepsilon \quad \forall \, \mathcal{P} \in \mathscr{P}([a,b]) \mbox{ such that } \norm{\mathcal{P}} < \delta
   \]
 \end{Def}
 
 \begin{Thm}{}{22:1}
-  For a piecewise smooth curve $\gamma : [a,b] \to \R^n$ it is rectifiable and $l(\gamma) = \displaystyle\int_a^b \norm{\gamma'(t)} \dd t $.
+  For a piecewise smooth curve $\gamma : [a,b] \to \R^n$ it is rectifiable and $\ell(\gamma) = \displaystyle\int_a^b \norm{\gamma'(t)} \dd t $.
 \end{Thm}
 
 \textbf{Remark.} Rectifiable curve $\not\Rightarrow$ piecewise smooth, counter example: \href{https://en.wikipedia.org/wiki/Cantor_function}{Cantor's function} (popularly called the \href{https://mathweb.ucsd.edu/~bseward/140b_spring20/Devils-Staircase.pdf}{Devil's staircase}).
 
 \begin{Thm}{}{22:2}
-  Let $\gamma : [a,b] \to \R^n$ be a rectifiable parametrized curve and let $\tilde{\gamma} = \gamma \circ \varphi$, where $\varphi$ is a strictly increasing surjective and continuous function, then $\tilde{\gamma}$ is rectifiable and $l(\gamma) = l(\tilde{\gamma})$.
+  Let $\gamma : [a,b] \to \R^n$ be a rectifiable parametrized curve and let $\tilde{\gamma} = \gamma \circ \varphi$, where $\varphi$ is a strictly increasing surjective and continuous function, then $\tilde{\gamma}$ is rectifiable and $\ell(\gamma) = \ell(\tilde{\gamma})$.
 \end{Thm}
 
 \begin{Thm}{}{22:3}

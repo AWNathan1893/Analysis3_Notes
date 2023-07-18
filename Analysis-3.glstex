@@ -1,0 +1,238 @@
+\glsnoexpandfields
+\providecommand{\bibglshashchar}{\expandafter\@gobble\string\#}
+\providecommand{\bibglscircumchar}{\expandafter\@gobble\string\^}
+\providecommand{\bibglsdollarchar}{\expandafter\@gobble\string\$}
+\providecommand{\bibglsampersandchar}{\expandafter\@gobble\string\&}
+\providecommand{\bibglsunderscorechar}{\expandafter\@gobble\string\_}
+\providecommand{\bibglshrefchar}[2]{\glspercentchar #1}
+\providecommand{\bibglshexunicodechar}[1]{\csname ifHy@unicode\endcsname\texorpdfstring{\symbol{\string"#1}}{\unichar{\string"#1}}\else\symbol{\string"#1}\fi}
+\providecommand{\bibglsusesee}[1]{\glsxtrusesee{#1}}
+\providecommand{\bibglsusealias}[1]{%
+ \glsxtrifhasfield{alias}{#1}%
+ {\expandafter\glsseeformat\expandafter{\glscurrentfieldvalue}{}}%
+ {}%
+}
+\providecommand{\bibglsuseseealso}[1]{\glsxtruseseealso{#1}}
+\providecommand{\bibglsdelimN}{\delimN}
+\providecommand{\bibglslastDelimN}{,~}
+\providecommand{\bibglsrange}[1]{#1}
+\providecommand{\bibglsinterloper}[1]{#1\bibglsdelimN }
+\providecommand{\bibglspassimname}{passim}
+\providecommand{\bibglspassim}{ \bibglspassimname}
+\providecommand*{\bibglshyperlink}[2]{\glshyperlink[#1]{#2}}
+
+\providecommand{\bibglsuppercase}{\glsuppercase}
+\providecommand{\bibglslowercase}{\glslowercase}
+\providecommand{\bibglsfirstuc}{\makefirstuc}
+\providecommand{\bibglstitlecase}{\capitalisewords}
+
+\providecommand{\bibglsprimaryprefixlabel}[1]{}
+\providecommand{\bibglsdualprefixlabel}[1]{}
+\providecommand{\bibglstertiaryprefixlabel}[1]{}
+\providecommand{\bibglsexternalprefixlabel}[2]{}
+
+\bibglstertiaryprefixlabel{tertiary.}
+\bibglsdualprefixlabel{dual.}
+\bibglsprimaryprefixlabel{}
+\providecommand{\bibglsseesep}{, }
+
+\providecommand{\bibglsseealsosep}{, }
+
+\providecommand{\bibglsaliassep}{, }
+
+\providecommand*{\bibglsflattenedhomograph}[2]{#1}
+\providecommand{\bibglsnewsymbol}[4]{%
+ \longnewglossaryentry*{#1}{name={#3},sort={#1},category={symbol},#2}{#4}}
+
+\bibglsnewsymbol{ball}%
+{sort={ball|}}%
+{\ensuremath{B_r(a)}}%
+{Open ball centered at \ensuremath{a \in \mathbb{R}^n} of radius \ensuremath{r}}
+
+
+\bibglsnewsymbol{boundary}%
+{sort={boundary|}}%
+{\ensuremath{\partial S}}%
+{Boundary of a set \ensuremath{S \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{boundS}%
+{sort={boundS|}}%
+{\ensuremath{\mathscr{B}(S)}}%
+{Space of all bounded functions defined over \ensuremath{S}}
+
+
+\bibglsnewsymbol{cbox}%
+{sort={cbox|}}%
+{\ensuremath{B, \displaystyle B^n = \prod_{i=1}^n [a_i,b_i]}}%
+{Closed box in \ensuremath{\mathbb{R}^n} }
+
+
+\bibglsnewsymbol{classk}%
+{sort={classk|}}%
+{\ensuremath{C^k(S)}}%
+{Class of all functions defined on \ensuremath{S} for which all partial derivatives on \ensuremath{S} upto order \ensuremath{k} exist and are continuous}
+
+
+\bibglsnewsymbol{closure}%
+{sort={closure|}}%
+{\ensuremath{\overline{S}}}%
+{Closure of \ensuremath{S \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{delball}%
+{sort={delball|}}%
+{\ensuremath{D_r(a)}}%
+{Deleted ball of radius \ensuremath{r} around \ensuremath{a \in \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{dirderiv}%
+{sort={dirderiv|}}%
+{\ensuremath{(D_u f)(a)}}%
+{Directional derivative of \ensuremath{f} along \ensuremath{u} at \ensuremath{a}}
+
+
+\bibglsnewsymbol{exterior}%
+{sort={exterior|}}%
+{\ensuremath{\operatorname{Ext}(S)}}%
+{Exterior of a set \ensuremath{S \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{gradient}%
+{sort={gradient|}}%
+{\ensuremath{\grad f(x)}}%
+{Gradient of \ensuremath{f} at \ensuremath{x}}
+
+
+\bibglsnewsymbol{hessian}%
+{sort={hessian|}}%
+{\ensuremath{H_f(x)}}%
+{Hessian of \ensuremath{f} at \ensuremath{x}}
+
+
+\bibglsnewsymbol{hpartderiv}%
+{sort={hpartderiv|}}%
+{\ensuremath{f_{x_i x_j}(a), \pdv{x_j} \pdv{f}{x_i}(a), \pdv{f}{x_i}{x_j}(a)}}%
+{Partial derivative of \ensuremath{f} with respect to the \ensuremath{i^{\text{th}}} and \ensuremath{j^{\text{th}}} coordinates at \ensuremath{a}}
+
+
+\bibglsnewsymbol{indicator}%
+{sort={indicator|}}%
+{\ensuremath{\chi_S}}%
+{Indicator function of \ensuremath{S}}
+
+
+\bibglsnewsymbol{inp}%
+{sort={inp|}}%
+{\ensuremath{\langle x, y \rangle}}%
+{Euclidean inner product of \ensuremath{x} and \ensuremath{y}}
+
+
+\bibglsnewsymbol{integS}%
+{sort={integS|}}%
+{\ensuremath{\mathscr{R}(S)}}%
+{Space of all Riemann-Darboux integrable functions over \ensuremath{S}}
+
+
+\bibglsnewsymbol{interior}%
+{sort={interior|}}%
+{\ensuremath{\operatorname{Int}(S), S^{\circ}}}%
+{Interior of a set \ensuremath{S \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{jacobian}%
+{sort={jacobian|}}%
+{\ensuremath{J_f(a)}}%
+{Jacobian matrix of \ensuremath{f} at \ensuremath{a}}
+
+
+\bibglsnewsymbol{laplacian}%
+{sort={laplacian|}}%
+{\ensuremath{\Delta f(x)}}%
+{Laplacian of \ensuremath{f} at \ensuremath{x}}
+
+
+\bibglsnewsymbol{limf}%
+{sort={limf|}}%
+{\ensuremath{\displaystyle\lim_{x \to a}f}}%
+{Limit of \ensuremath{f} as \ensuremath{x} tends to \ensuremath{a}}
+
+
+\bibglsnewsymbol{limpts}%
+{sort={limpts|}}%
+{\ensuremath{S'}}%
+{Set of limit points of \ensuremath{S \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{lineint}%
+{sort={lineint|}}%
+{\ensuremath{\displaystyle \int_{\gamma}f, \int_{\mathcal{C}}f}}%
+{Line integral of \ensuremath{f} over \ensuremath{\mathcal{C} = \operatorname{ran}(\gamma)}}
+
+
+\bibglsnewsymbol{norm}%
+{sort={norm|}}%
+{\ensuremath{\norm{x}}}%
+{Euclidean norm of \ensuremath{x \in \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{open}%
+{sort={open|}}%
+{\ensuremath{\mathcal{O}_n}, \ensuremath{\mathcal{O}}}%
+{Open set in \ensuremath{\mathbb{R}^n}}
+
+
+\bibglsnewsymbol{partB}%
+{sort={partB|}}%
+{\ensuremath{\mathscr{P}(B^n)}}%
+{Set of all partitions of the box \ensuremath{B^n}}
+
+
+\bibglsnewsymbol{partderiv}%
+{sort={partderiv|}}%
+{\ensuremath{\pdv{f}{x_i}(a)}, \ensuremath{f_{x_i}(a)}}%
+{Partial derivative of \ensuremath{f} with respect to the \ensuremath{i^{\text{th}}} coordinate at \ensuremath{a}}
+
+
+\bibglsnewsymbol{poln}%
+{sort={poln|}}%
+{\ensuremath{\mathbb{R}[x_1, \dots, x_n]}}%
+{Space of polynomials with real coefficients in \ensuremath{n} variables}
+
+
+\bibglsnewsymbol{powerset}%
+{sort={powerset|}}%
+{\ensuremath{\mathcal{P}(S)}}%
+{Power set of the set \ensuremath{S}}
+
+
+\bibglsnewsymbol{proj}%
+{sort={proj|}}%
+{\ensuremath{\Pi_i}}%
+{Projection onto \ensuremath{i^{\text{th}}} coordinate}
+
+
+\bibglsnewsymbol{qform}%
+{sort={qform|}}%
+{\ensuremath{Q_A(x) = x^t A x}}%
+{Quadratic form associated to the matrix \ensuremath{A} evaluated at \ensuremath{x}}
+
+
+\bibglsnewsymbol{rrn}%
+{sort={rrn|}}%
+{\ensuremath{\mathbb{R}^n}}%
+{\ensuremath{n-}dimensional Euclidean space}
+
+
+\bibglsnewsymbol{totderiv}%
+{sort={totderiv|}}%
+{\ensuremath{Df(a)}}%
+{Derivative of \ensuremath{f} at \ensuremath{a}}
+
+
+\bibglsnewsymbol{volume}%
+{sort={volume|}}%
+{\ensuremath{\operatorname{Vol}(S)}}%
+{Volume of the (measurable) set \ensuremath{S}}
+
+

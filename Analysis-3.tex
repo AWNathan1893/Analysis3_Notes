@@ -11,6 +11,8 @@
   \href{https://www.isibang.ac.in}{Indian Statistical Institute, Bangalore}}
 \date{}
 
+\GlsXtrLoadResources[ src={symbols}, selection={all} ]
+
 \begin{document}
 
 \pagestyle{empty}
@@ -26,6 +28,10 @@
 
 \cleardoublepage
 \tableofcontents
+
+% \glsadd{pi}
+\printunsrtglossary[ title={List of Notation}, toctitle={Notation} ]
+
 \clearpage
 
 
@@ -35,11 +41,12 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ #1}{}}
-\fancyhead[RE]{\nouppercase \rightmark \hfill Lecture \thechapter \leftmark}
+\fancyhead[RE]{\nouppercase \rightmark}
 \renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ #1}}
-\fancyhead[LO]{\nouppercase Lecture \thechapter \leftmark \hfill \rightmark }
+\fancyhead[LO]{\nouppercase Lecture \thechapter \leftmark}
 \fancyfoot[C]{\thepage}
 \renewcommand{\footrulewidth}{0.4pt}
+
 
 
 \subfile{lectures/Lec-01}
