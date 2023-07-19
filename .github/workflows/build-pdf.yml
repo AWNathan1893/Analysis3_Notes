@@ -54,6 +54,7 @@ jobs:
           working_directory: ./lectures
           root_file: "*.tex"
           glob_root_file: true
+          latexmk_shell_escape: true
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory
@@ -63,7 +64,7 @@ jobs:
         run: bash ./.github/_site.sh
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./_site
 
@@ -76,4 +77,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2

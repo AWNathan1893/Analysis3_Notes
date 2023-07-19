@@ -3,7 +3,8 @@
 \usepackage{./style}
 \usepackage{subfiles}
 
-\makeindex
+\makeindex[columns=2, title=Index, intoc, options= -s index_style.ist]
+\GlsXtrLoadResources[ src={symbols}, selection={all} ]
 
 \title{\Huge\sffamily Analysis of Several Variables}
 \author{\sffamily {\LARGE \href{https://www.isibang.ac.in/~jay/}{Jaydeb Sarkar}} \\[0.5cm]
@@ -11,7 +12,6 @@
   \href{https://www.isibang.ac.in}{Indian Statistical Institute, Bangalore}}
 \date{}
 
-\GlsXtrLoadResources[ src={symbols}, selection={all} ]
 
 \begin{document}
 
@@ -41,12 +41,11 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ #1}{}}
-\fancyhead[RE]{\nouppercase \rightmark}
+\fancyhead[RO]{\nouppercase Lecture \thechapter \leftmark}
 \renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ #1}}
-\fancyhead[LO]{\nouppercase Lecture \thechapter \leftmark}
+\fancyhead[LE]{\nouppercase \rightmark}
 \fancyfoot[C]{\thepage}
 \renewcommand{\footrulewidth}{0.4pt}
-
 
 
 \subfile{lectures/Lec-01}

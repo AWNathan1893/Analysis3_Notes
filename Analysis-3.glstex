@@ -8,9 +8,9 @@
 \providecommand{\bibglshexunicodechar}[1]{\csname ifHy@unicode\endcsname\texorpdfstring{\symbol{\string"#1}}{\unichar{\string"#1}}\else\symbol{\string"#1}\fi}
 \providecommand{\bibglsusesee}[1]{\glsxtrusesee{#1}}
 \providecommand{\bibglsusealias}[1]{%
- \glsxtrifhasfield{alias}{#1}%
- {\expandafter\glsseeformat\expandafter{\glscurrentfieldvalue}{}}%
- {}%
+  \glsxtrifhasfield{alias}{#1}%
+  {\expandafter\glsseeformat\expandafter{\glscurrentfieldvalue}{}}%
+  {}%
 }
 \providecommand{\bibglsuseseealso}[1]{\glsxtruseseealso{#1}}
 \providecommand{\bibglsdelimN}{\delimN}
@@ -42,7 +42,7 @@
 
 \providecommand*{\bibglsflattenedhomograph}[2]{#1}
 \providecommand{\bibglsnewsymbol}[4]{%
- \longnewglossaryentry*{#1}{name={#3},sort={#1},category={symbol},#2}{#4}}
+  \longnewglossaryentry*{#1}{name={#3},sort={#1},category={symbol},#2}{#4}}
 
 \bibglsnewsymbol{ball}%
 {sort={ball|}}%

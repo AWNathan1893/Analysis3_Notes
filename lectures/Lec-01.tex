@@ -45,7 +45,7 @@ Two easy examples of such functions are:
           \forall \, x \in \R^n, f(x) & = a, \, a \in \R^m
         \end{align*}
 
-  \item Linear maps
+  \item Linear maps\index{Linear map}
 
         A function $ L: \R^n \to \R^m $ is linear if for all $ \alpha \in \R, x,y \in \R^n $, $ L(\alpha x + y) = \alpha L(x) + L(y) $.
 \end{enumerate}
@@ -113,7 +113,7 @@ Recall the triangle inequality for $ \R $, for all $ x,y \in \R $
 \end{proof}
 \msk
 
-The following is a technical result, which can be thought of as an analogue of the Lipschitz condition for linear maps on $ \R^n $. It hints towards continuity of linear maps, and we will see that it is indeed so later.
+The following is a technical result, which can be thought of as an analogue of the Lipschitz\index{Lipschitz} condition for linear maps on $ \R^n $. It hints towards continuity of linear maps, and we will see that it is indeed so later.
 \ssk
 
 \begin{Thm}{}{LinLip}
@@ -123,9 +123,11 @@ The following is a technical result, which can be thought of as an analogue of t
 \begin{proof}
   We have, for $ x = \sum_{i=1}^{n}x_ie_i $,
   \begin{align*}
-    \norm{Lx}          & = \norm{\sum_{i=1}^{n} x_i Le_i}                                                                  \\
-                       & \leq \sum_{i=1}^{n} |x_i| \norm{Le_i} \tag{Triangle inequality}                                   \\
-    \implies \norm{Lx} & \leq \norm{x} \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} \tag{Cauchy Schwarz inequality}
+    \norm{Lx}
+     & = \norm{\sum_{i=1}^{n} x_i Le_i}                                                                  \\
+     & \leq \sum_{i=1}^{n} |x_i| \norm{Le_i} \tag{Triangle inequality}                                   \\
+    \implies \norm{Lx}
+     & \leq \norm{x} \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} \tag{Cauchy Schwarz inequality}
   \end{align*}
   Taking $ M = \left(\sum_{i=1}^{n}\norm{Le_i}^2\right)^{\frac 12} $, we get the result.
 \end{proof}

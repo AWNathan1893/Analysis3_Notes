@@ -24,20 +24,27 @@
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{mathtools}
-\usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{transparent}
 \usepackage{tocloft}
-\usepackage{makeidx}
+\usepackage{tocbibind}
+\usepackage{imakeidx}
 \usepackage{fancyhdr}
 \usepackage{glossaries-extra} % Load this last
 
+
+\usepackage{hyperref}
 \hypersetup{colorlinks = true, linkcolor = blue, urlcolor = cyan}
+
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
+
+% Activate externalization!
+\usepgfplotslibrary{external}
+\tikzexternalize[prefix=tikz_figures/]
 
 
 % Colours (from https://latexcolor.com)
