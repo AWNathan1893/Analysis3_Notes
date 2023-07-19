@@ -46,6 +46,7 @@ jobs:
         with:
           working_directory: .
           root_file: ./Analysis-3.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode --extra-mem-bot=15000000
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile all pdfs
@@ -54,7 +55,7 @@ jobs:
           working_directory: ./lectures
           root_file: "*.tex"
           glob_root_file: true
-          latexmk_shell_escape: true
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode --extra-mem-bot=15000000
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory

@@ -9,7 +9,8 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
-        "-pdflatex=pdflatex -shell-escape %O %S",
+        // "-pdflatex=pdflatex -shell-escape %O %S",
+        "--extra-mem-bot=15000000",
         "-outdir=%OUTDIR%",
         "%DOC%"
       ],

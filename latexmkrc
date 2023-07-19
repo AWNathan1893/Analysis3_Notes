@@ -85,4 +85,4 @@ sub makeexternaldocument {
 }
 
 # Externalize to avoid making TeX's memory bigger.
-$pdflatex = 'pdflatex -shell-escape';
+# $pdflatex = 'pdflatex -shell-escape';
