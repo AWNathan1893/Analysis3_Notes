@@ -113,6 +113,31 @@
   description = {Laplacian of \ensuremath{f} at \ensuremath{x}}
 } 
 
+@symbol{mindexsum,
+  name        = {\ensuremath{\abs{\alpha} = \displaystyle\sum_{i=1}^n \alpha_i}},
+  description = {Modulus of \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
+} 
+
+@symbol{mindexfac,
+  name        = {\ensuremath{\alpha ! = \displaystyle\prod_{i=1}^n \alpha_i!}},
+  description = {Factorial of \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
+} 
+
+@symbol{mindexderiv,
+  name        = {\ensuremath{\displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}}},
+  description = {\ensuremath{\alpha^{\text{th}}} derivative, for \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
+} 
+
+@symbol{diffop,
+  name        = {\ensuremath{(\div h )^m = \displaystyle\sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}}},
+  description = {Differential order of order \ensuremath{m} and coefficients \ensuremath{h}}
+} 
+
+@symbol{taypol,
+  name        = {\ensuremath{p_{a,k}(f,h)=\displaystyle\sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a) h^{\alpha}}},
+  description = {Taylor polynomial of \ensuremath{f} at \ensuremath{a}, of order \ensuremath{k} and difference \ensuremath{h}}
+}
+
 @symbol{hessian,
   name        = {\ensuremath{H_f(x)}},
   description = {Hessian of \ensuremath{f} at \ensuremath{x}}
@@ -153,15 +178,90 @@
   description = {Indicator function of \ensuremath{S}}
 } 
 
-@symbol{lineint,
+@symbol{lineintsc,
   name        = {\ensuremath{\displaystyle \int_{\gamma}f, \int_{\mathcal{C}}f}},
   description = {Line integral of \ensuremath{f} over \ensuremath{\mathcal{C} = \operatorname{ran}(\gamma)}}
+}  
+
+@symbol{lowersum,
+  name        = {\ensuremath{L(f,P)}},
+  description = {Lower Riemann sum of \ensuremath{f} with respect to the partition \ensuremath{P}}
 } 
 
-%  @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
+@symbol{uppersum,
+  name        = {\ensuremath{U(f,P)}},
+  description = {Upper Riemann sum of \ensuremath{f} with respect to the partition \ensuremath{P}}
+} 
+
+@symbol{lowerint,
+  name        = {\ensuremath{\underline{\int}_{B}f}},
+  description = {Lower Riemann integral of \ensuremath{f} over \ensuremath{B}}
+} 
+
+@symbol{upperint,
+  name        = {\ensuremath{\overline{\int}_{B}f}},
+  description = {Upper Riemann integral of \ensuremath{f} over \ensuremath{B}}
+} 
+
+@symbol{intS,
+  name        = {\ensuremath{\int_S f \dd V}},
+  description = {Riemann-Darboux integral of \ensuremath{f} over \ensuremath{S}}
+} 
+
+@symbol{diameter,
+  name        = {\ensuremath{d(A)}},
+  description = {Diameter of the set \ensuremath{A \subseteq \mathbb{R}^n}}
+} 
+
+@symbol{mesh,
+  name        = {\ensuremath{\norm{P}}},
+  description = {Mesh of the partition \ensuremath{P}}
+} 
+
+@symbol{arclength,
+  name        = {\ensuremath{\ell(\gamma)}},
+  description = {Arclength of a rectifiable curve \ensuremath{\gamma}}
+} 
+
+@symbol{lineintvec,
+  name        = {\ensuremath{\displaystyle \int_{\gamma}\vec{F}\cdot \dd \vec{r}, \int_{\mathcal{C}}\vec{F}\cdot \dd \vec{r}}},
+  description = {Line integral of \ensuremath{\vec{F}} over \ensuremath{\mathcal{C} = \operatorname{ran}(\gamma)}}
+} 
+
+@symbol{tanplane,
+  name        = {\ensuremath{T_P\mathcal{S}}},
+  description = {Tangent plane of \ensuremath{\mathcal{S}} through \ensuremath{P}}
+}
+
+@symbol{graph,
+  name        = {\ensuremath{\mathcal{G}(f)}},
+  description = {Graph of a \ensuremath{f: \mathbb{R}^2 \to \mathbb{R}}}
+} 
+
+@symbol{surfintsc,
+  name        = {\ensuremath{\int_{\mathcal{S}} f \dd {S}}},
+  description = {Surface integral of \ensuremath{f} over \ensuremath{\mathcal{S}}}
+} 
+
+@symbol{surfintvec,
+  name        = {\ensuremath{\int_{\mathcal{S}} \vec{F} \cdot \dd \vec{S} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n}\, \dd S}},
+  description = {Surface integral of \ensuremath{\vec{F}} over \ensuremath{\mathcal{S}}}
+} 
+
+@symbol{grad,
+  name        = {\ensuremath{\grad f}},
+  description = {Gradient of \ensuremath{f}}
+}
+
+@symbol{div,
+  name        = {\ensuremath{\div \vec{F}}},
+  description = {Divergence of \ensuremath{\vec{F}}}
+} 
+
+@symbol{curl,
+  name        = {\ensuremath{\curl \vec{F}}},
+  description = {Curl of \ensuremath{\vec{F}}}
+} 
 
 % @symbol{,
 %   name        = {\ensuremath{}},
@@ -171,45 +271,24 @@
 % @symbol{,
 %   name        = {\ensuremath{}},
 %   description = {}
-% } 
+% }
 
 % @symbol{,
 %   name        = {\ensuremath{}},
 %   description = {}
 % } 
 
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
+% % @symbol{,
+% %   name        = {\ensuremath{}},
+% %   description = {}
+% % } 
 
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
+% % @symbol{,
+% %   name        = {\ensuremath{}},
+% %   description = {}
+% % } 
 
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
-
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
-
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
-
-%  @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
-
-% @symbol{,
-%   name        = {\ensuremath{}},
-%   description = {}
-% } 
-
+% % @symbol{,
+% %   name        = {\ensuremath{}},
+% %   description = {}
+% % }

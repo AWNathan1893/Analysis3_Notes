@@ -8,9 +8,9 @@
 \providecommand{\bibglshexunicodechar}[1]{\csname ifHy@unicode\endcsname\texorpdfstring{\symbol{\string"#1}}{\unichar{\string"#1}}\else\symbol{\string"#1}\fi}
 \providecommand{\bibglsusesee}[1]{\glsxtrusesee{#1}}
 \providecommand{\bibglsusealias}[1]{%
-  \glsxtrifhasfield{alias}{#1}%
-  {\expandafter\glsseeformat\expandafter{\glscurrentfieldvalue}{}}%
-  {}%
+ \glsxtrifhasfield{alias}{#1}%
+ {\expandafter\glsseeformat\expandafter{\glscurrentfieldvalue}{}}%
+ {}%
 }
 \providecommand{\bibglsuseseealso}[1]{\glsxtruseseealso{#1}}
 \providecommand{\bibglsdelimN}{\delimN}
@@ -42,7 +42,13 @@
 
 \providecommand*{\bibglsflattenedhomograph}[2]{#1}
 \providecommand{\bibglsnewsymbol}[4]{%
-  \longnewglossaryentry*{#1}{name={#3},sort={#1},category={symbol},#2}{#4}}
+ \longnewglossaryentry*{#1}{name={#3},sort={#1},category={symbol},#2}{#4}}
+
+\bibglsnewsymbol{arclength}%
+{sort={arclength|}}%
+{\ensuremath{\ell(\gamma)}}%
+{Arclength of a rectifiable curve \ensuremath{\gamma}}
+
 
 \bibglsnewsymbol{ball}%
 {sort={ball|}}%
@@ -80,10 +86,28 @@
 {Closure of \ensuremath{S \subseteq \mathbb{R}^n}}
 
 
+\bibglsnewsymbol{curl}%
+{sort={curl|}}%
+{\ensuremath{\curl \vec{F}}}%
+{Curl of \ensuremath{\vec{F}}}
+
+
 \bibglsnewsymbol{delball}%
 {sort={delball|}}%
 {\ensuremath{D_r(a)}}%
 {Deleted ball of radius \ensuremath{r} around \ensuremath{a \in \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{diameter}%
+{sort={diameter|}}%
+{\ensuremath{d(A)}}%
+{Diameter of the set \ensuremath{A \subseteq \mathbb{R}^n}}
+
+
+\bibglsnewsymbol{diffop}%
+{sort={diffop|}}%
+{\ensuremath{(\div h )^m = \displaystyle\sum_{| \alpha | = m } \frac{m!}{\alpha!} h^{\alpha} \partial^{\alpha}}}%
+{Differential order of order \ensuremath{m} and coefficients \ensuremath{h}}
 
 
 \bibglsnewsymbol{dirderiv}%
@@ -92,16 +116,34 @@
 {Directional derivative of \ensuremath{f} along \ensuremath{u} at \ensuremath{a}}
 
 
+\bibglsnewsymbol{div}%
+{sort={div|}}%
+{\ensuremath{\div \vec{F}}}%
+{Divergence of \ensuremath{\vec{F}}}
+
+
 \bibglsnewsymbol{exterior}%
 {sort={exterior|}}%
 {\ensuremath{\operatorname{Ext}(S)}}%
 {Exterior of a set \ensuremath{S \subseteq \mathbb{R}^n}}
 
 
+\bibglsnewsymbol{grad}%
+{sort={grad|}}%
+{\ensuremath{\grad f}}%
+{Gradient of \ensuremath{f}}
+
+
 \bibglsnewsymbol{gradient}%
 {sort={gradient|}}%
 {\ensuremath{\grad f(x)}}%
 {Gradient of \ensuremath{f} at \ensuremath{x}}
+
+
+\bibglsnewsymbol{graph}%
+{sort={graph|}}%
+{\ensuremath{\mathcal{G}(f)}}%
+{Graph of a \ensuremath{f: \mathbb{R}^2 \to \mathbb{R}}}
 
 
 \bibglsnewsymbol{hessian}%
@@ -140,6 +182,12 @@
 {Interior of a set \ensuremath{S \subseteq \mathbb{R}^n}}
 
 
+\bibglsnewsymbol{intS}%
+{sort={intS|}}%
+{\ensuremath{\int_S f \dd V}}%
+{Riemann-Darboux integral of \ensuremath{f} over \ensuremath{S}}
+
+
 \bibglsnewsymbol{jacobian}%
 {sort={jacobian|}}%
 {\ensuremath{J_f(a)}}%
@@ -164,10 +212,52 @@
 {Set of limit points of \ensuremath{S \subseteq \mathbb{R}^n}}
 
 
-\bibglsnewsymbol{lineint}%
-{sort={lineint|}}%
+\bibglsnewsymbol{lineintsc}%
+{sort={lineintsc|}}%
 {\ensuremath{\displaystyle \int_{\gamma}f, \int_{\mathcal{C}}f}}%
 {Line integral of \ensuremath{f} over \ensuremath{\mathcal{C} = \operatorname{ran}(\gamma)}}
+
+
+\bibglsnewsymbol{lineintvec}%
+{sort={lineintvec|}}%
+{\ensuremath{\displaystyle \int_{\gamma}\vec{F}\cdot \dd \vec{r}, \int_{\mathcal{C}}\vec{F}\cdot \dd \vec{r}}}%
+{Line integral of \ensuremath{\vec{F}} over \ensuremath{\mathcal{C} = \operatorname{ran}(\gamma)}}
+
+
+\bibglsnewsymbol{lowerint}%
+{sort={lowerint|}}%
+{\ensuremath{\underline{\int}_{B}f}}%
+{Lower Riemann integral of \ensuremath{f} over \ensuremath{B}}
+
+
+\bibglsnewsymbol{lowersum}%
+{sort={lowersum|}}%
+{\ensuremath{L(f,P)}}%
+{Lower Riemann sum of \ensuremath{f} with respect to the partition \ensuremath{P}}
+
+
+\bibglsnewsymbol{mesh}%
+{sort={mesh|}}%
+{\ensuremath{\norm{P}}}%
+{Mesh of the partition \ensuremath{P}}
+
+
+\bibglsnewsymbol{mindexderiv}%
+{sort={mindexderiv|}}%
+{\ensuremath{\displaystyle\partial^{\alpha} = \frac{\partial^{|\alpha|}}{\partial {x_1}^{\alpha_1} \cdots \partial {x_n}^{\alpha_n}}}}%
+{\ensuremath{\alpha^{\text{th}}} derivative, for \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
+
+
+\bibglsnewsymbol{mindexfac}%
+{sort={mindexfac|}}%
+{\ensuremath{\alpha ! = \displaystyle\prod_{i=1}^n \alpha_i!}}%
+{Factorial of \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
+
+
+\bibglsnewsymbol{mindexsum}%
+{sort={mindexsum|}}%
+{\ensuremath{\abs{\alpha} = \displaystyle\sum_{i=1}^n \alpha_i}}%
+{Modulus of \ensuremath{\alpha \in \mathbb{Z}^n_{\geq 0}}}
 
 
 \bibglsnewsymbol{norm}%
@@ -224,10 +314,46 @@
 {\ensuremath{n-}dimensional Euclidean space}
 
 
+\bibglsnewsymbol{surfintsc}%
+{sort={surfintsc|}}%
+{\ensuremath{\int_{\mathcal{S}} f \dd {S}}}%
+{Surface integral of \ensuremath{f} over \ensuremath{\mathcal{S}}}
+
+
+\bibglsnewsymbol{surfintvec}%
+{sort={surfintvec|}}%
+{\ensuremath{\int_{\mathcal{S}} \vec{F} \cdot \dd \vec{S} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n}\, \dd S}}%
+{Surface integral of \ensuremath{\vec{F}} over \ensuremath{\mathcal{S}}}
+
+
+\bibglsnewsymbol{tanplane}%
+{sort={tanplane|}}%
+{\ensuremath{T_P\mathcal{S}}}%
+{Tangent plane of \ensuremath{\mathcal{S}} through \ensuremath{P}}
+
+
+\bibglsnewsymbol{taypol}%
+{sort={taypol|}}%
+{\ensuremath{p_{a,k}(f,h)=\displaystyle\sum_{| \alpha | \leq k } \frac{1}{\alpha !} ({\partial}^\alpha f ) (a) h^{\alpha}}}%
+{Taylor polynomial of \ensuremath{f} at \ensuremath{a}, of order \ensuremath{k} and difference \ensuremath{h}}
+
+
 \bibglsnewsymbol{totderiv}%
 {sort={totderiv|}}%
 {\ensuremath{Df(a)}}%
 {Derivative of \ensuremath{f} at \ensuremath{a}}
+
+
+\bibglsnewsymbol{upperint}%
+{sort={upperint|}}%
+{\ensuremath{\overline{\int}_{B}f}}%
+{Upper Riemann integral of \ensuremath{f} over \ensuremath{B}}
+
+
+\bibglsnewsymbol{uppersum}%
+{sort={uppersum|}}%
+{\ensuremath{U(f,P)}}%
+{Upper Riemann sum of \ensuremath{f} with respect to the partition \ensuremath{P}}
 
 
 \bibglsnewsymbol{volume}%
