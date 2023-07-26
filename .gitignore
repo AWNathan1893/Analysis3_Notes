@@ -6,6 +6,7 @@
 *#*
 *~
 !.vscode/settings.json
+!.vscode/tasks.json
 _site/
 pdfs/
 

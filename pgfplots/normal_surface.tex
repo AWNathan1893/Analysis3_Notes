@@ -1,0 +1,31 @@
+% tikzpic.tex
+\documentclass[crop=true]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+      hide axis, axis equal, clip = false, width = 0.7\textwidth,
+    ]
+    \addplot3[
+      cyan, quiver, -stealth, samples=20,
+      domain=-1:2, y domain = -2:2,
+      quiver={
+          u={(2*x*y^2)/(x^2+y^2)^2},
+          v={-(2*x^2*y)/(x^2+y^2)^2},
+          w={1},
+          scale arrows=0.2,
+        }
+    ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
+    \addplot3[
+      surf, samples=50, colormap/cool, domain=-1:2, y domain=-2:2, opacity=0.5,
+    ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
+  \end{axis}
+\end{tikzpicture}
+\end{document}

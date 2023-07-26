@@ -1,5 +1,8 @@
 \documentclass[../Analysis-3.tex]{subfiles}
 
+% \usepgfplotslibrary{external}
+% \tikzexternalize[prefix=./tikz_figures/]
+
 \begin{document}
 \chapter*{Lecture 27} %Set chapter name
 \addcontentsline{toc}{chapter}{Lecture 27} %Set chapter title
@@ -16,41 +19,7 @@ In the previous lecture we introduced the notion of an oriented surface. For an 
 \begin{Eg}{}{}
   \begin{wrapfigure}[14]{r}{0.4\textwidth}
     \centering
-    \begin{tikzpicture}
-      \begin{axis}[
-          width=0.85\textwidth,
-          clip=false,
-          hide axis,
-          axis equal,
-        ]
-        \addplot3[
-          quiver, -stealth, cyan,
-          samples=15,
-          variable=\a,
-          variable y=\b,
-          domain=0:180,
-          y domain=0:360,
-          quiver={
-              u = {cos(a)*sin(b)},
-              v = {sin(a)*sin(b)},
-              w = {cos(b)},
-              scale arrows=0.2,
-            }
-        ]({cos(a)*sin(b)}, {sin(a)*sin(b)}, {cos(b)});
-
-        \addplot3[
-          z buffer=sort,
-          surf,
-          samples=50,
-          opacity=0.5,
-          colormap/cool,
-          variable=\u,
-          variable y=\v,
-          domain=0:180,
-          y domain=0:360,
-        ]({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
-      \end{axis}
-    \end{tikzpicture}
+    \includegraphics{../pgfplots/normal_sphere.pdf}
     \caption{Standard normal vector field on a sphere}\label{fig1:27}
   \end{wrapfigure}
   Take $\mathbb{S}^{n-1} := \{ x \in \R^n \mid \norm{x} = 1 \}$.
@@ -71,25 +40,7 @@ In the previous lecture we introduced the notion of an oriented surface. For an 
 
   \begin{wrapfigure}{r}{0.4\textwidth}
     \centering
-    \begin{tikzpicture}
-      \begin{axis}[
-          hide axis, axis equal, clip = false, width = 0.7\textwidth,
-        ]
-        \addplot3[
-          cyan, quiver, -stealth, samples=20,
-          domain=-1:2, y domain = -2:2,
-          quiver={
-              u={(2*x*y^2)/(x^2+y^2)^2},
-              v={-(2*x^2*y)/(x^2+y^2)^2},
-              w={1},
-              scale arrows=0.2,
-            }
-        ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
-        \addplot3[
-          surf, samples=50, colormap/cool, domain=-1:2, y domain=-2:2, opacity=0.5,
-        ]({x},{y},{(x^2-y^2)/(x^2+y^2)});
-      \end{axis}
-    \end{tikzpicture}
+    \includegraphics{../pgfplots/normal_surface.pdf}
     \caption{Normal vector fields on a graph surface}
     \label{fig2:27}
   \end{wrapfigure}

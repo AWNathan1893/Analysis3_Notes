@@ -7,3 +7,7 @@ $\LaTeX$ ed notes from the [Analysis of Several Variables](https://www.isibang.a
 ```bash
 git clone https://github.com/AWNathan1893/Analysis3_Notes
 ```
+
+## Instruction
+
+Please build all the pgfplots in the `/pgfplots` folder before building the pdfs!

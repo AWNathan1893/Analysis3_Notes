@@ -14,6 +14,7 @@ on:
       - "**.cls"
       - "**.pdf"
       - "**.sh"
+      - "latexmkrc"
 
 permissions:
   contents: read
@@ -35,34 +36,57 @@ jobs:
         uses: actions/cache@v3
         with:
           path: pdfs
-          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}
+          key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}-${{ hashFiles('./latexmkrc') }}
           restore-keys: |
             analysis-3-${{ hashFiles('style.sty') }}-
             analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-
 
+      - name: Cache the pgfplots
+        id: cache-pgfplots
+        uses: actions/cache@v3
+        with:
+          path: pgfplot_figures
+          key: pgfplot-figures-${{ hashFiles('pgfplots/**/*tex') }}
+          restore-keys: |
+            pgfplot-figures-
+
+      - if: ${{ steps.cache-pgfplots.outputs.cache-hit == 'true' }}
+        name: Retrive pgfplot_figures
+        run: bash ./github/scripts/_pgf_retrive.sh
+
+      - if: ${{ steps.cache-pgfplots.outputs.cache-hit != 'true' }}
+        name: Build pgfplots
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: ./pgfplots
+          root_file: "*.tex"
+          glob_root_file: true
+          latexmk_shell_escape: true
+          post_compile: bash ../github/scripts/_pgf_cache.sh
+
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
-        name: Compile pdf
+        name: Compile the Aanlysis-3.pdf
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: .
           root_file: ./Analysis-3.tex
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode --extra-mem-bot=15000000
+          latexmk_shell_escape: true
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
-        name: Compile all pdfs
+        name: Compile all the subfiles
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: ./lectures
           root_file: "*.tex"
           glob_root_file: true
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode --extra-mem-bot=15000000
+          latexmk_shell_escape: true
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Put pdfs in a single directory
-        run: bash _pdf.sh
+        run: bash ./.github/scripts/_pdf.sh
 
       - name: Create _site
-        run: bash ./.github/_site.sh
+        run: bash ./.github/scripts/_site.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

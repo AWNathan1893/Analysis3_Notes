@@ -1,0 +1,47 @@
+% tikzpic.tex
+\documentclass[crop=true]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+      width=0.85\textwidth,
+      clip=false,
+      hide axis,
+      axis equal,
+    ]
+    \addplot3[
+      quiver, -stealth, cyan,
+      samples=15,
+      variable=\a,
+      variable y=\b,
+      domain=0:180,
+      y domain=0:360,
+      quiver={
+          u = {cos(a)*sin(b)},
+          v = {sin(a)*sin(b)},
+          w = {cos(b)},
+          scale arrows=0.2,
+        }
+    ]({cos(a)*sin(b)}, {sin(a)*sin(b)}, {cos(b)});
+
+    \addplot3[
+      z buffer=sort,
+      surf,
+      samples=50,
+      opacity=0.5,
+      colormap/cool,
+      variable=\u,
+      variable y=\v,
+      domain=0:180,
+      y domain=0:360,
+    ]({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+  \end{axis}
+\end{tikzpicture}
+\end{document}
