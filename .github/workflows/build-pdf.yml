@@ -52,7 +52,7 @@ jobs:
 
       - if: ${{ steps.cache-pgfplots.outputs.cache-hit == 'true' }}
         name: Retrive pgfplot_figures
-        run: bash ./github/scripts/_pgf_retrive.sh
+        run: bash ./.github/scripts/_pgf_retrive.sh
 
       - if: ${{ steps.cache-pgfplots.outputs.cache-hit != 'true' }}
         name: Build pgfplots
@@ -62,7 +62,7 @@ jobs:
           root_file: "*.tex"
           glob_root_file: true
           latexmk_shell_escape: true
-          post_compile: bash ../github/scripts/_pgf_cache.sh
+          post_compile: bash ../.github/scripts/_pgf_cache.sh
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile the Aanlysis-3.pdf
