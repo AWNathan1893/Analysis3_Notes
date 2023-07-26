@@ -10,9 +10,13 @@
 \setcounter{figure}{0}
 
 
+
+
+In the previous lecture we extended integration over boxes to over what we called elementary regions. This lecture explores the extention of Fubini's theorem to integration over such sets, and talk about some applications thereof. Towards the end, we discuss the celebrated change of variables formula of multivariable calculus.
+
 \section{Fubini's Theorem on Elementary Regions}
 
-In the previous lecture we had talked about elementary regions, in this lecture we will see application of Fubini's theorem on elementary regions.
+For integration over elementary regions, Fubini's theorem takes the following form.\\[.1 cm]
 
 \begin{Thm}{}{20:1}
   Let $f \in \mathscr{R}(\Omega)$ where $\Omega \subseteq \R^2$ is a bounded elementary domain.
@@ -52,29 +56,25 @@ In the previous lecture we had talked about elementary regions, in this lecture 
      & \overset{(*)}{\Longrightarrow} \int_{B^2} \tilde{f} \, \dd A = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x                    \\
      & \Longrightarrow \int_{\Omega} f \, \dd A = \int_a^b \left( \int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y) \, \dd y\right) \dd x
   \end{align*}
-  where $(*)$ follows from Fubini's Theorem (\ref{th:fubini}), and one can do a similar argument for $x$-simple regions.
+  where $(*)$ follows from Theorem \ref{th:fubini}. An analogous argument works for the $x$-simple regions.
 \end{proof}
 
-\
-
 \begin{Eg}{}{}
-  Let $f \in C(\Omega)$ where $\Omega = \left\{ (x,y) \mid 0 \leq x \leq 1 - \frac{y}{2}, \mbox{ and } 0 \leq y \leq 2 \right\}$ then we can write $\Omega$ as a $y$-simple region as
+  Let $f \in C(\Omega)$ where $\Omega = \left\{ (x,y) \mid 0 \leq x \leq 1 - \frac{y}{2}, \mbox{ and } 0 \leq y \leq 2 \right\}$. Then we can write $\Omega$ as a $y$-simple region as follows:
   \[
-    \Omega = \left\{ (x,y) \mid 0 \leq x \leq 1, \mbox{ and } 0 \leq y \leq 2(1-x) \right\}
+    \Omega = \left\{ (x,y) \mid 0 \leq x \leq 1, \mbox{ and } 0 \leq y \leq 2(1-x) \right\}.
   \]
-  then using Theorem \ref{th:20:1} we get that
-  \begin{align*}
-    \int_{\Omega} f \, \dd A
-     & = \int_0^2 \left( \int_0^{1-\frac{y}{2}} f(x,y) \, \dd x\right) \dd y \\
-     & = \int_0^1 \left( \int_0^{2(1-x)} f(x,y) \, \dd y\right) \dd x
-  \end{align*}
+  Now, using Theorem \ref{th:20:1} we get the required result.
+  \[
+    \int_{\Omega} f \, \dd A = \int_0^2 \left( \int_0^{1-\frac{y}{2}} f(x,y) \, \dd x\right) \dd y  =  \int_0^1 \left( \int_0^{2(1-x)} f(x,y) \, \dd y\right) \dd x
+  \]
 \end{Eg}
 
 \begin{Eg}{}{}
   Let $B^2 = [0,\pi] \times [-\frac{\pi}{2}, \frac{\pi}{2}]$, and we want to evaluate the integral $\displaystyle\int_{B^2} \sin (x+y) \, \dd A$.
   \begin{align*}
     \int_{B^2}\sin(x+y) \, \dd A
-     & = \int_{B^2} \sin x \cos y \, \dd A + \int_{B^2} \sin y \cos x \, \dd A                                                                                                                                                             \\
+     & = \int_{B^2} \sin x \cos y \, \dd A + \int_{B^2} \sin y \cos x \, \dd A \\
      & = \left( \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos y \, \dd y\right)\left( \int_{0}^{\pi} \sin x \, \dd x\right) + \left( \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin y \, \dd y\right)\left( \int_{0}^{\pi} \cos x \, \dd x\right) \\
      & = 4
   \end{align*}
@@ -89,9 +89,7 @@ In the previous lecture we had talked about elementary regions, in this lecture 
   \begin{align*}
     \int_{\Omega} x^2y \, \dd A
      & = \int_{-1}^1 \left( \int_{x^2}^1 x^2y \, \dd y\right)\dd x               \\
-     & = \int_{-1}^1 x^2 \left( \frac{y^2}{2} \right)\bigg\vert_{x^2}^1 \, \dd x \\
-     & = \int_{-1}^1 \frac{1}{2} x^2(1-x^2) \, \dd x                             \\
-     & = \frac{2}{15}
+     & = \int_{-1}^1 x^2 \left( \frac{y^2}{2} \right)\bigg\vert_{x^2}^1 \, \dd x = \frac{2}{15}
   \end{align*}
 \end{Eg}
 
@@ -102,59 +100,63 @@ In the previous lecture we had talked about elementary regions, in this lecture 
       x & \mbox{ if } y \leq x^2 \\ y & \mbox{ if } y > x^2
     \end{cases} \quad \forall \, (x,y) \in [0,1]^2
   \]
-  and let
+  We define the regions
   \[
-    \Omega_1 = \{ (x,y) \mid 0 \leq x \leq 1, \, 0 \leq y \leq x^2 \} \quad \mbox{ and } \quad \Omega_2 = \{ (x,y) \mid 0 \leq x \leq 1, \, x^2 \leq y \leq 1 \}
+    \Omega_1 = \{ (x,y) \mid 0 \leq x \leq 1, \, 0 \leq y \leq x^2 \} \quad \mbox{ and } \quad \Omega_2 = \{ (x,y) \mid 0 \leq x \leq 1, \, x^2 \leq y \leq 1 \}.
   \]
-  Then $f\vert_{\Omega_1}$ and $f\vert_{\Omega_2}$ are Riemann integrable and $f\vert_{y=x^2}$ is not continuous but the set $\{ (x,x^2) \mid 0 \leq x \leq 1 \}$ is of content zero, and hence $f$ is integrable, and we can make sense of writing
+  Then $f\vert_{\Omega_1}$ and $f\vert_{\Omega_2}$ are both Riemann integrable, and while $f\vert_{y=x^2}$ is not continuous, the set $\{ (x,x^2) \mid 0 \leq x \leq 1 \}$ is of content zero. Hence $f$ is integrable, and we can make sense of writing the given integral as a sum
   \[
     \int_{[0,1]^2} f \, \dd A = \int_{\Omega_1} f \, \dd A + \int_{\Omega_2} f \, \dd A
   \]
-  then using Theorem \ref{th:20:1} we get that
+  Using Theorem \ref{th:20:1}, we can simplify each of these parts:
   \[
     \int_{\Omega_1} f \, \dd A = \int_0^1 \left( \int_0^{x^2} x \, \dd y \right)\, \dd x = \frac{1}{4}
   \]
-  and
   \[
     \int_{\Omega_2} f \, \dd A = \int_0^1 \left( \int_{x^2}^1 y \, \dd y\right)\dd x = \frac{2}{5}
   \]
-  and hence
+  Thus, we have the result
   \[
-    \int_{\Omega} f \, \dd A = \frac{13}{20}
+    \int_{[0,1]^2} f \, \dd A = \frac{13}{20}
   \]
 \end{Eg}
 
 \begin{Eg}{}{}
-  Compute $\displaystyle{ \int_0^{\frac{\pi}{2}} \int_x^{\frac{\pi}{2}}} \frac{\sin y}{y} \, \dd y \, \dd x$. Define $\Omega = \left\{ (x,y) \mid 0 \leq x \leq \frac{\pi}{2}, \, x \leq y \leq \frac{\pi}{2} \right\}$. Then we can write $\Omega$ as a $x$-simple region as follows
+  Compute $\displaystyle{ \int_0^{\frac{\pi}{2}} \int_x^{\frac{\pi}{2}}} \frac{\sin y}{y} \, \dd y \, \dd x$ using Fubini's theorem.\\[.1 cm]
+  We consider the region $\Omega = \left\{ (x,y) \mid 0 \leq x \leq \frac{\pi}{2}, \, x \leq y \leq \frac{\pi}{2} \right\} \subseteq \R^2$ can be written as a $x$-simple region as follows:
   \[
     \Omega = \left\{ (x,y) \mid 0 \leq y \leq \frac{\pi}{2}, \, 0 \leq x \leq y \right\}
   \]
-  and hence using Theorem \ref{th:20:1} we get
+  This shows that
   \begin{align*}
     \int_{\Omega} \frac{\sin y}{y} \, \dd A
      & = \int_{0}^{\frac{\pi}{2}} \int_x^{\frac{\pi}{2}} \frac{\sin y}{y} \, \dd y \, \dd x \\
      & = \int_0^{\frac{\pi}{2}} \int_0^y \frac{\sin y}{y} \, \dd x \, \dd y                 \\
-     & = \int_0^{\frac{\pi}{2}} \sin y \, \dd y                                             \\
+     & = \int_0^{\frac{\pi}{2}} \sin y \, \dd y\\
      & = 1
   \end{align*}
 \end{Eg}
 
 \section{Change of Variables}
 
-Let us revise the change of variable rule for real valued functions on the real line. Let $\varphi : \mathcal{O} \to \R$ be a $C^1$ function where $\mathcal{O} \subseteq \R$, assume $\varphi'(x) \neq 0$ for all $x \in \mathcal{O}$, and let $\mathcal{O} \supseteq [a,b]$, then for all $f \in C(\varphi[a,b])$, we have
-\[
-  \int_{\varphi(a)}^{\varphi(b)} f = \int_a^b (f \circ \varphi) \varphi'
-\]
+Before discussing the theorem in the multivariable case, we recall the change of variable rule for real valued functions on the real line. 
 
-Taking idea from this result we have the following theorem
+\begin{Thm}{Change of Variable on $\R$}{}
+  Let $\varphi : \mathcal{O}_1 \to \R$ be a $C^1$ function where $\varphi^\prime(x) \neq 0$ for all $x \in \mathcal{O}_1$. Then, for $[a,b] \subseteq \mathcal{O}_1$ and $f \in C(\varphi[a,b])$, we have
+  \[
+    \int_{\varphi(a)}^{\varphi(b)} f = \int_a^b (f \circ \varphi) \varphi^\prime.
+  \]
+\end{Thm}
 
-\begin{Thm}{Change of Variable}{chovar}
-  Let $\mathcal{O}_n \subseteq \R^n$ be an open set, and let $\varphi : \mathcal{O}_n \to \R^n$ be an injective and $C^1$ function and suppose $\det(J_{\varphi}(x)) \neq 0$ for all $x \in \mathcal{O}_n$. Let $\Omega \subseteq \mathcal{O}_n$, then for $f \in \mathscr{R}(\varphi(\Omega))$
+Here we effectively compensate for the change of variable by introducing the scale change factor of $\varphi^\prime$. As we have seen, the scale change factor at a point for a transformation on $\R^n$ is given by the detereminant of the Jacobian matrix at that point. Thus, this theorem has the following natural extension to $\R^n$:\\ 
+
+\begin{Thm}{Change of Variable on $\R^n$}{chovar}
+  Let $\varphi : \mathcal{O}_n \to \R^n$ be an injective and $C^1$ function, where $\det(J_{\varphi}(x)) \neq 0$ for all $x \in \mathcal{O}_n$. Let $\Omega \subseteq \mathcal{O}_n$, then for $f \in \mathscr{R}(\varphi(\Omega))$
   \[
     \int_{\varphi(\Omega)} f \, \dd V = \int_{\Omega} (f \circ \varphi) |\det J_{\varphi}|
   \]
 \end{Thm}
-We won't be going over the proof of Theorem \ref{th:chovar}, but for the proof you refer to page 67 of \textit{Calculus on Manifolds} by Michael Spivak.
 
+Although it is not too hard to get a feel for the theorem from its applications, the proof is quite long and technical, and thus omitted. We recommend the interested and daring readers to have a look at page 67 of \textit{Calculus on Manifolds} by Michael Spivak. In the next lecture, we will discuss some applications of this result.
 
 \end{document}
