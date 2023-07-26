@@ -65,7 +65,7 @@ jobs:
           post_compile: bash ../.github/scripts/_pgf_cache.sh
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
-        name: Compile the Aanlysis-3.pdf
+        name: Compile the Analysis-3.pdf
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: .

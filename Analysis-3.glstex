@@ -154,7 +154,7 @@
 
 \bibglsnewsymbol{hpartderiv}%
 {sort={hpartderiv|}}%
-{\ensuremath{f_{x_i x_j}(a), \pdv{x_j} \pdv{f}{x_i}(a), \pdv{f}{x_i}{x_j}(a)}}%
+{\ensuremath{\displaystyle f_{x_i x_j}(a), \pdv{x_j} \pdv{f}{x_i}(a), \pdv{f}{x_i}{x_j}(a)}}%
 {Partial derivative of \ensuremath{f} with respect to the \ensuremath{i^{\text{th}}} and \ensuremath{j^{\text{th}}} coordinates at \ensuremath{a}}
 
 
@@ -184,7 +184,7 @@
 
 \bibglsnewsymbol{intS}%
 {sort={intS|}}%
-{\ensuremath{\int_S f \dd V}}%
+{\ensuremath{\displaystyle \int_S f \dd V}}%
 {Riemann-Darboux integral of \ensuremath{f} over \ensuremath{S}}
 
 
@@ -226,7 +226,7 @@
 
 \bibglsnewsymbol{lowerint}%
 {sort={lowerint|}}%
-{\ensuremath{\underline{\int}_{B}f}}%
+{\ensuremath{\displaystyle \underline{\int}_{B}f}}%
 {Lower Riemann integral of \ensuremath{f} over \ensuremath{B}}
 
 
@@ -280,7 +280,7 @@
 
 \bibglsnewsymbol{partderiv}%
 {sort={partderiv|}}%
-{\ensuremath{\pdv{f}{x_i}(a)}, \ensuremath{f_{x_i}(a)}}%
+{\ensuremath{\displaystyle \pdv{f}{x_i}(a)}, \ensuremath{f_{x_i}(a)}}%
 {Partial derivative of \ensuremath{f} with respect to the \ensuremath{i^{\text{th}}} coordinate at \ensuremath{a}}
 
 
@@ -316,13 +316,13 @@
 
 \bibglsnewsymbol{surfintsc}%
 {sort={surfintsc|}}%
-{\ensuremath{\int_{\mathcal{S}} f \dd {S}}}%
+{\ensuremath{\displaystyle \int_{\mathcal{S}} f \dd {S}}}%
 {Surface integral of \ensuremath{f} over \ensuremath{\mathcal{S}}}
 
 
 \bibglsnewsymbol{surfintvec}%
 {sort={surfintvec|}}%
-{\ensuremath{\int_{\mathcal{S}} \vec{F} \cdot \dd \vec{S} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n}\, \dd S}}%
+{\ensuremath{\displaystyle \int_{\mathcal{S}} \vec{F} \cdot \dd \vec{S} = \int_{\mathcal{S}} \vec{F}\cdot\vec{n}\, \dd S}}%
 {Surface integral of \ensuremath{\vec{F}} over \ensuremath{\mathcal{S}}}
 
 
@@ -346,7 +346,7 @@
 
 \bibglsnewsymbol{upperint}%
 {sort={upperint|}}%
-{\ensuremath{\overline{\int}_{B}f}}%
+{\ensuremath{\displaystyle \overline{\int}_{B}f}}%
 {Upper Riemann integral of \ensuremath{f} over \ensuremath{B}}
 
 
