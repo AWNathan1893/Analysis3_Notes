@@ -11,7 +11,7 @@
 
 
 We will begin this lecture with few examples.
-\begin{Eg}{Path Of a Projectile}{}
+\begin{Eg}{Path of a Projectile}{}
   \begin{align*}
     \gamma(t)           & =(\alpha t, \beta t-16t^2)                     \\
     \implies \gamma'(t) & = (\alpha, \beta -32t)                         \\
@@ -39,7 +39,7 @@ We will begin this lecture with few examples.
   \end{align*}
 \end{Eg}
 
-\section{Line Integrals}
+\section{Line Integrals}\index{Line Integral}
 To integrate a function over a curve we use \textbf{Line integral}. The function we should integrate maybe a \textbf{Scalar Field} or a \textbf{Vector Field}.(A quick example of a Vector Field: $f : \Op{n} \to \R$ be a differentiable function, then $\grad f$ is a vector field.)
 
 \textbf{Question.} Given a scalar field $f : \Op{n} \to \R$ and $\gamma \equiv \mathcal{C}$ be a curve, we want to define $\displaystyle\int_{\mathcal{C}} f$. But exactly how we can do this?
@@ -105,7 +105,7 @@ In the above theorem equation in \ref{eq:23:1:rqsmth} is also independent of cho
         \[\int_{\mathcal{C}} f = \int_{\gamma_1}f + \int_{\gamma_2} f \]
 \end{itemize}
 
-We have resolved the problems for Scalar field. \textbf{What about vector fields?}
+We have resolved the problems for Scalar field. \textbf{What about vector fields?}\index{Vector Field}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../figures/lec-23.2.png}
@@ -131,14 +131,13 @@ Now we will look into some examples.
   Find work done by the field $F(x,y,z) = (xy,xz,yz)$ along the curve $\gamma(t) = (t^2,-t^3,t^4),t \in [0,1]$.
 
   \textit{Answer.} \begin{align*}
-    \gamma'(t)
-                              & = (2t,-3t^2,4t^3)                                      \\
-    \implies \text{Work done} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3)\, \dd t \\
-                              & = -\frac{31}{88}
+    \gamma'(t)                            & = (2t,-3t^2,4t^3)                                      \\
+    \implies \text{Work done\index{Work}} & = \int_0^1 (-t^5,t^6,-t^7)\cdot(2t,-3t^2,4t^3)\, \dd t \\
+                                          & = -\frac{31}{88}
   \end{align*}
 \end{Eg}
 
-\subsection{Line Integration of a Vector Field}
+\subsection{Line Integration of a Vector Field}\index{Line Integral}
 
 $F:\Op{n} \to \R^n$ be a vector field and $\gamma:[a,b] \to \Op{n}$ be a curve. We consider a partition $\mathcal{P}: a =t_0<t_1<\cdots < t_m=b$, Let $\mathcal{C}_i = \gamma|_{[t_{i-1},t_i]}$ and $\gamma_i = \gamma(t_i)$, $\Delta r_i = \gamma_{i} - \gamma_{i-1}$.
 

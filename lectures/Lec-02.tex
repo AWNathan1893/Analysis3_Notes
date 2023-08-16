@@ -17,7 +17,7 @@ Using the inner product on $ \R^n $, we get the Euclidean distance
 We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot}) $. We already know from Lecture 1 that the triangle inequality holds,
 \[ \norm{x+y} \leq \norm{x} + \norm{y} \]
 
-\begin{Def}{Open balls}{}
+\begin{Def}{Open balls}{}\index{Open balls}
   The open ball centered at $ a \in \R^n $ of radius $ r $ is,
   \[ B_r(a) = \{x \in \R^n \mid \norm{x-a} < r \} \]
 \end{Def}
@@ -25,7 +25,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
 \textbf{Exercise.} Show that open balls are convex sets.
 \msk
 
-\begin{Def}{Open sets}{}
+\begin{Def}{Open sets}{}\index{Open sets}
   A set $ \mathcal O \subseteq \R^n $ is open if $ \mathcal O = \phi $ or for all $ x \in \mathcal O $, there is $ r > 0 $ such that $ B_{r}(x) \subseteq \mathcal O $.
 \end{Def}
 
@@ -36,7 +36,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
   \end{enumerate}
 \end{Eg}
 
-\begin{Def}{Convergence of Sequences}{}
+\begin{Def}{Convergence of Sequences}{}\index{Convergence}
   Let $ \{x_m\}_{m \in \N} \subseteq \R^n $ and $ x \in \R^n $. We say $ x_m \longrightarrow x $ if for all $ \veps > 0, $ there is $ N \in \N $ such that
   \begin{alignat*}{2}
          & \norm{x_m - x}           < \veps \, &  & \forall \, m \geq N \\
@@ -47,11 +47,11 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
 
 \textbf{Exercise.} Show that the limit of a sequence in $ \R^n $ is unique whenever it exists.
 
-\begin{Def}{Limit points}{}
+\begin{Def}{Limit points}{}\index{Limit points}
   We define the deleted $ \veps $-neighbourhood of $ a \in \R^n $ to be $ D_\veps(a) = B_\veps(a) \setminus \{a\} $. The point $ a $ is a limit point of $ S \subseteq \R^n $ if for all $ \veps > 0, D_\veps(a) \cap S \neq \phi $. If we do not delete $ a $, we get isolated points.
 \end{Def}
 
-\begin{Def}{Projections}{}
+\begin{Def}{Projections}{}\index{Projections}
   For all $ i \in \{1,2, \dots, n\} $ we define the maps
   \begin{align*}
     \Pi_i : \R^n          & \to \R      \\
@@ -85,7 +85,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
   \end{align*}
 \end{proof}
 
-\begin{Def}{Closed sets}{}
+\begin{Def}{Closed sets}{}\index{Closed sets}
   A set $ C \subseteq \R^n $ is closed if $ \R^n \setminus C $ is open.
 \end{Def}
 
@@ -101,7 +101,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
   \item Any finite subset of $ \R^n $ is closed.
 \end{enumerate}
 
-\begin{Def}{Interior of a set}{}
+\begin{Def}{Interior of a set}{}\index{Interior}
   Let $ \phi \neq S \subseteq \R^n $. The interior of $ S $ is,
   \[ \operatorname{Int}(S) = \{a \in S \mid \exists \, r > 0, B_r(a) \subseteq S\} \]
 \end{Def}
@@ -112,7 +112,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
   \item A set $ S $ is open iff $ \operatorname{Int}(S) = S $.
 \end{enumerate}
 
-\begin{Def}{Exterior of a set}{}
+\begin{Def}{Exterior of a set}{}\index{Exterior}
   Let $ \phi \neq S \subseteq \R^n $. The exterior of $ S $ is,
   \[ \operatorname{Ext}(S) = \{a \in \R^n \mid \exists \, r > 0, B_r(a) \cap S = \phi \} \]
 \end{Def}
@@ -122,7 +122,7 @@ We wish to extend the notions of $ (\R, \abs{\cdot}) $ to $ (\R^n, \norm{\cdot})
   For $ S = [0,2] \setminus \{1\} = [0,1) \cup (1,2] $, $ 1 \notin \operatorname{Ext}(S) $.
 \end{Eg}
 
-\begin{Def}{Boundary of a set}{}
+\begin{Def}{Boundary of a set}{}\index{Boundary}
   Let $ \phi \neq S \subseteq \R^n $. The boundary of $ S $ is,
   \[ \partial S = \{a \in \R^n \mid \forall \, r > 0, B_r(a) \cap S \neq \phi \text{ and } B_r(a) \cap (\R^n \setminus S) \neq \phi \} \]
 \end{Def}
@@ -150,7 +150,7 @@ Suppose $ f: (a,b)\setminus \{c\} \to \R $ is a function. We say $ \displaystyle
 We now extend this to $ \R^n $.
 \msk
 
-\begin{Def}{Limits in $ \R^n $}{}
+\begin{Def}{Limits in $ \R^n $}{}\index{Limits}
   Let $ S \subseteq \R^n, a \in \{\text{Limit points of } S\} $ and, $ f: S \setminus \{a\} \to \R^m $. We say that $ \displaystyle \lim_{x \to a}f = b $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that $ f(x) \in B_\veps(b) $ for all $ x \in D_\delta(a) \cap S $.
 
   In other words, $ \displaystyle \lim_{x \to a}f = b $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that
@@ -158,7 +158,7 @@ We now extend this to $ \R^n $.
 \end{Def}
 \msk
 
-\begin{Def}{Continuity in $ \R^n $}{}
+\begin{Def}{Continuity in $ \R^n $}{}\index{Continuity}
   Let $ S \subseteq \R^n, a \in S $ and, $ f: S \to \R^m $. We say that $ f $ is continuous at $ a $ if for all $ \veps > 0 $, there is $ \delta > 0 $ such that $ f(x) \in B_\veps(f(a)) $ for all $ x \in B_\delta(a) \cap S $, that is, $ \norm{f(x) - f(a)} < \veps $ for all $ x \in S $ with $ \norm{x - a} < \delta $.
 \end{Def}
 

@@ -9,7 +9,7 @@
 \setcounter{figure}{0}
 
 
-\section{Riemann-Darboux Integration}
+\section{Riemann-Darboux Integration}\index{Riemann-Darboux Integration}
 
 
 \begin{Def}{Volume of a closed/open ball}{}
@@ -48,6 +48,8 @@ We call $\mathscr{P}(B) = \{P_1 \times \dots \times P_n \mid P_i \in \mathscr{P}
   Note that $L(f, \widetilde{P}) \leq U(f,\widetilde{P})$ follows directly from the fact that $m_\alpha (\widetilde{P}) \leq M_\alpha (\widetilde{P})\ \forall \widetilde{P} \in \mathscr{P}[a,b]$, where $m_\alpha = \inf_{B^n_\alpha} f$ and $M_\alpha = \sup_{B_\alpha ^n} f$.
 \end{proof}
 
+\index{Lower sum}\index{Upper Sum}
+
 \begin{Cor}{Inequality of upper and lower sums}{}
   For all $ P, \widetilde{P} \in \mathscr{P}(B^n) $, the following inequality holds.
   \[  m \times \Vol(B^n) \leq L(f,P) \leq U(f, \widetilde{P}) \leq M \times \Vol(B^n)  \]
@@ -55,7 +57,7 @@ We call $\mathscr{P}(B) = \{P_1 \times \dots \times P_n \mid P_i \in \mathscr{P}
 
 We denote $ \mathscr{B}(A) = \{f:A \to \R \mid \sup_A \abs{f} < \infty\} $ as the set of all bounded functions over $ A $ for any $ A \subseteq \R^n $.
 
-\begin{Def}{Upper and Lower Darboux Integrals}{}
+\begin{Def}{Upper\index{Upper Darboux Integral} and Lower\index{Lower Darboux Integral} Darboux Integrals}{}
   For $f \in \mathscr{B}(B^n)$, we define
   \[  \overline{\int}_{B^n} f = \inf_{P \in \mathscr{P}(B^n)} U(f,P) \text{  and  } \underline{\int}_{B^n} f = \sup_{P \in \mathscr{P}(B^n)} L(f,P)  \]
   as the Upper and Lower Darboux Integrals, respectively.
@@ -66,7 +68,7 @@ We have $L(f, P) \leq U(f, P')$ for all $P, P' \in \mathscr{P}(B^n)$ by taking t
   \underline{\int}_{B^n} f \leq \overline{\int}_{B^n} f
 \]
 
-\begin{Def}{Darboux Integral}{}
+\begin{Def}{Darboux Integral}{}\index{Darboux Integral}
   Let \( f \in \mathscr{B}(B^n) \). \( f \) is said to be Riemann-Darboux Integrable or Riemann Integrable or just Integrable if
   \[
     \underline{\int}_{B^n} f = \overline{\int}_{B^n} f

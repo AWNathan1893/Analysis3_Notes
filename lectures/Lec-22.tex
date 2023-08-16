@@ -9,11 +9,11 @@
 \setcounter{figure}{0}
 
 
-\section{Curves and Surfaces}
+\section{Curves and Surfaces}\index{Curves}
 
 We now study the basic concepts of curves and surfaces as subsets of $ \R^2 $ or $ \R^3 $ (mainly) with a given parametrization, but also as subsets defined by equations. The connection from equations to parametrization is drawn by means of the Implicit function theorem.
 
-\begin{Def}{Parametrized Curve}{}
+\begin{Def}{Parametrized Curve}{}\index{Parametrized Curve}
   A \textbf{parametrized curve} is a continuous function $\gamma : [a,b] \to \R^n$. We say that parametrized curve is $C^1$ if $t \mapsto \gamma_i(t)$ is $C^1$ for all $i = 1,\dots,n$. A parametrized curve $\gamma : I \to \R^n$ is \textbf{smooth} if $\gamma'(t) \neq \mathbf{0}$ for all $t \in I$. The \textbf{path} of a parametrized curve $\gamma$ is the set
   \[
     \qty{\gamma(t) \mid t \in [a,b]}
@@ -46,14 +46,14 @@ Let us consider some examples.
   \end{enumerate}
 \end{Eg}
 
-\begin{Def}{Piecewise Smooth Curve}{}
+\begin{Def}{Piecewise Smooth Curve}{}\index{Smooth Curve}
   A parametrized curve $\gamma : [a,b] \to \R^n$ is called piecewise smooth if there exists a partition $a = t_0 < t_1 < \cdots < t_m = b $ such that
   \[
     \gamma\vert_{[t_{i-1}, t_i]} \mbox{ is smooth } \forall \, i \in [m]
   \]
 \end{Def}
 
-\begin{Def}{Equivalent Curves}{}
+\begin{Def}{Equivalent Curves}{}\index{Equivalent Curves}
   Two parametrized curves $\gamma : [a,b] \to \R^n$ and $\tilde{\gamma} : [\tilde{a}, \tilde{b}] \to \R^n$ are equivalent, denoted by $\gamma \sim \tilde{\gamma}$ if there exists a strictly increasing surjective function which is differentiable (even $C^1$), $\varphi : [\tilde{a},\tilde{b}] \to [a,b]$ such that $\tilde{\gamma} = \gamma \circ \varphi$.
 
   \[\begin{tikzcd}
@@ -69,7 +69,7 @@ Let us consider some examples.
   Let $\gamma : [a,b] \to \R^n$ be a $C^1$ curve, then
   \begin{enumerate}
     \item[(i)] $\| \gamma'(t) \| :=$ speed of $\gamma$ at time $t$.
-    \item[(ii)] $\displaystyle\int_a^b \| \gamma'(t) \| \dd t :=$ arc length of $\gamma$.
+    \item[(ii)] $\displaystyle\int_a^b \| \gamma'(t) \| \dd t :=$ arc length of $\gamma$\index{Length of a curve}.
   \end{enumerate}
 \end{Def}
 
@@ -84,7 +84,7 @@ Let $\gamma : [a,b] \to \R^n$ and let $\mathcal{P} := a = t_0 < t_1 < \cdots < t
 
 
 \begin{Def}{}{}
-  A curve $\gamma : [a,b] \to \R^n$ is \textbf{rectifiable} or said to have arc length if
+  A curve $\gamma : [a,b] \to \R^n$ is \textbf{rectifiable}\index{Rectifiable} or said to have arc length if
   \[
     \lim_{\overset{\|\mathcal{P}\| \to 0}{\mathcal{P} \in \mathscr{P}[a,b]}} \ell(\gamma,\mathcal{P}) = \ell(\gamma) \mbox{ exists}
   \]
@@ -98,7 +98,7 @@ Let $\gamma : [a,b] \to \R^n$ and let $\mathcal{P} := a = t_0 < t_1 < \cdots < t
   For a piecewise smooth curve $\gamma : [a,b] \to \R^n$ it is rectifiable and $\ell(\gamma) = \displaystyle\int_a^b \norm{\gamma'(t)} \dd t $.
 \end{Thm}
 
-\textbf{Remark.} Rectifiable curve $\not\Rightarrow$ piecewise smooth, counter example: \href{https://en.wikipedia.org/wiki/Cantor_function}{Cantor's function} (popularly called the \href{https://mathweb.ucsd.edu/~bseward/140b_spring20/Devils-Staircase.pdf}{Devil's staircase}).
+\textbf{Remark.} Rectifiable curve $\not\Rightarrow$ piecewise smooth, counter example: \href{https://en.wikipedia.org/wiki/Cantor_function}{Cantor's function}\index{Cantor's function} (popularly called the \href{https://mathweb.ucsd.edu/~bseward/140b_spring20/Devils-Staircase.pdf}{Devil's staircase}\index{Devil's staircase}).
 
 \begin{Thm}{}{22:2}
   Let $\gamma : [a,b] \to \R^n$ be a rectifiable parametrized curve and let $\tilde{\gamma} = \gamma \circ \varphi$, where $\varphi$ is a strictly increasing surjective and continuous function, then $\tilde{\gamma}$ is rectifiable and $\ell(\gamma) = \ell(\tilde{\gamma})$.

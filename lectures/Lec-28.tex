@@ -10,7 +10,7 @@
 
 
 \section{Green's Theorem}
-\begin{Thm}{$\R^2$ version of Green's Theorem}{gtm}
+\begin{Thm}{$\R^2$ version of Green's Theorem}{gtm}\index{Green's Theorem}
   Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrization is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $C^1$ vector field on $\mathcal{R}$, then
   \[
     \int_{\mathcal{C}} \vec{F} \cdot \dd r := \int_{\mathcal{C}} P \, \dd x + Q \, \dd y = \int_{\mathcal{R}} \left( \pdv{Q}{x} - \pdv{P}{y}\right) \, \dd A
@@ -150,7 +150,7 @@
   \[\text{div}(F) = \sum_{i=1}^{n} \pdv{f_i}{x_i} \equiv \div \vec{F}\]
 \end{Def}
 
-\begin{Thm}{Gauss Divergence Theorem}{gdt}
+\begin{Thm}{Gauss Divergence Theorem}{gdt}\index{Gauss Divergence Theorem}
   Let $\mathcal{D} \subseteq \R^3$ a solid domain, $\partial{\mathcal{D}}$ be an oriented surface. Let $\vec{F} = \inp{P}{Q,R}$ be a $C^1$ vector field on an open surface containing $\mathcal{D} \cup \partial{\mathcal{D}}$. Then,
   \[
     \underbrace{\int_{\partial{\mathcal{D}} = \mathcal{S}} \vec{F}\cdot \dd{\vec{S}}}_\text{surface integral} = \underbrace{\int_{\mathcal{D}} \div \vec{F} \dd{V}}_\text{volume integral}
@@ -184,13 +184,13 @@ Just like FTC, the behavior over a volume is fully determined by the behavior at
   \begin{align*}
     \int_{S_1} \vec{F} \cdot \dd \vec{S}
      & = \int_{x^2+y^2 \leq 1} \inp{x+y}{z^2,x^2} \cdot \inp{0,0}{1} \dd{A} = \int_{x^2+y^2 \leq 1} x^2 \dd{A} \\
-     & = \int_{0}^{2\pi} \int_{0}^{1} r^3 \cos^2 \theta \, \dd r \, \dd\theta = \frac{\pi}{4}                         \\
+     & = \int_{0}^{2\pi} \int_{0}^{1} r^3 \cos^2 \theta \, \dd r \, \dd\theta = \frac{\pi}{4}                  \\
     \Rightarrow \int_{S} \vec{F} \cdot \dd \vec{S}
      & = \frac{11\pi}{12}
   \end{align*}
 \end{Eg}
 
-\section{Stokes' Theorem}
+\section{Stokes' Theorem}\index{Stokes' Theorem}
 \begin{Thm}{Stokes' Theorem}{st}
   Let $\mathcal{C}$ be a $C^1$ curve enclosing an oriented surface $\mathcal{S}$ in $\R^3$. Let,  $\vec{F} = \inp{P,Q}{R}$ be a $C^1$ vector field on an open set containing $\mathcal{S}$. Then,
 

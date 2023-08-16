@@ -9,7 +9,7 @@
 \setcounter{figure}{0}
 
 
-\section{Schwarz Theorem}
+\section{Schwarz Theorem}\index{Schwarz Theorem}
 
 In the previous lecture, we discussed the notion of partial derivatives. In general, the partial derivatives depend on the order of differentiation. However, using Clairaut's Theorem, we found a necessary when $f_{xy} = f_{yx}$. Now, we conclude that discussion by the following result.
 
@@ -22,7 +22,7 @@ In the previous lecture, we discussed the notion of partial derivatives. In gene
   \[
     \mid f_{xy}(u,v)- f_{xy}(0,0)\mid < \epsilon \;\;\forall \; (u,v) \in [0,h_\epsilon]\times[0,k_\epsilon]
   \]
-  
+
   But then $\mid F(h,k) - f_{xy}(0,0) \mid < \epsilon \;\;\forall \; (u,v) \in [0,h_\epsilon]\times[0,k_\epsilon]$, that is, $F$ is continuous at $(0,0)$ with limit $f_{xy}(0,0)$ at $(0,0)$.
 
   As $f_y(h,0)$ exists for $h$ sufficiently small, $\lim_{k \to 0} F(h,k)$ exists for $h$ sufficiently small. Thus, by continuity of $F$ at $(0,0)$,
@@ -40,11 +40,11 @@ This is a slightly more useful version of Clairaut's Theorem. However, in many a
 \[\frac{\partial^n f}{\partial x_{i_1} \partial x_{i_2} \dots \partial x_{i_m}} = \frac{\partial^n f}{\partial x_{\sigma(i_1)} \partial x_{\sigma(i_2)} \dots \partial x_{\sigma(i_m)}}\]
 over $\mathcal{O}_n$ for any permutation $\sigma$ of the elements $\{i_1,i_2,\dots,i_n\}$.
 
-\section{Partial and Total Derivatives}
+\section{Partial and Total Derivatives}\index{Total derivatives}
 
 We will now see that the partial derivatives provide an effective way of proving the existence and computing the total derivatives of a function $f: \mathcal{O}_n \to \R^m$. In this lecture and the next, we will develop the relations between partial and total derivatives by a series of results.
 
-\begin{Def}{Jacobian Matrix}{}
+\begin{Def}{Jacobian Matrix}{}\index{Jacobian}
   For a function $f = (f_1, f_2, \dots, f_m): \mathcal{O}_n \to \R^m$, if all the partial derivatives $\pdv{f_i}{x_j}$ at $a \in \mathcal{O}_n$, we define the Jacobian of the function at $a$ by the $m \times n$ matrix,
   \[J_f(a) = \left( \pdv{f_i}{x_j}\/(a) \right)_{m \times n}\]
 \end{Def}

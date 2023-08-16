@@ -10,7 +10,7 @@
 
 In the previous lecture, we extended our notion of Riemann integration over boxes to elementary regions. Additionally, we had discussed the change of variable formula for multivariable calculus (Theorem \ref{th:chovar}). We now try to motivate the use of the same with some rather important applications.
 
-\section{Change of Variables (Continued)}
+\section{Change of Variables (Continued)}\index{Change of Variable}
 
 We start off with a particularly useful example. When dealing with functions on $\R^2$, particularly if the situation is radially symmetric, it is often useful to work in polar coordinates. Here we analyse how that change of coordinates transforms the integrals over a given region.
 
@@ -57,7 +57,7 @@ We start off with a particularly useful example. When dealing with functions on 
   \end{align*}
 \end{Eg}
 
-\begin{Def}{Area or volume of a region}{}
+\begin{Def}{Area or volume of a region}{}\index{Area}
   For $\Omega \subseteq \R^n$, the volume of the region $\Omega$ is defined by the integral
   \[
     \int_{\R^n} \chi_{_\Omega}
@@ -69,7 +69,7 @@ We start off with a particularly useful example. When dealing with functions on 
       0 & \mbox{ otherwise}.
     \end{cases}
   \]
-  
+
 \end{Def}
 
 \begin{Eg}{}{}
@@ -85,15 +85,15 @@ We start off with a particularly useful example. When dealing with functions on 
   and thus $\det(J_{\varphi}(r,\theta)) = 0$ if $r = 0$ or $\theta \in \left\{ 0, \frac{\pi}{2}, \pi, \frac{3\pi}{2}, 2\pi \right\}$, but set of all such points are of content zero, hence we can safely ignore them while doing our integration. We get
   \begin{align*}
     \mbox{ Area of } \Omega
-     & = \mbox{ Area of } \varphi \left( [0,1] \times [0,2\pi] \right)              \\
-     & = \int_{\varphi([0,1] \times [0,2\pi])} 1 \, \dd A                           \\
+     & = \mbox{ Area of } \varphi \left( [0,1] \times [0,2\pi] \right)                               \\
+     & = \int_{\varphi([0,1] \times [0,2\pi])} 1 \, \dd A                                            \\
      & = \int_0^1 \int_0^{2\pi} \frac{3}{4} r \sin^2 2\theta \, \dd \theta \, \dd r = \frac{3\pi}{8}
   \end{align*}
 \end{Eg}
 
 Next up, consider a change of coordinates in $\R^3$, from Cartesian system to the spherical co-ordinate system. Just like the previous case, this comes in handy when dealing with functions and regions which are spherically symmetric. One canonical example may be its use in the theory of central forces in physics.
 
-\begin{Eg}{Spherical coordinates}{}
+\begin{Eg}{Spherical coordinates}{}\index{Spherical coordinates}
   \begin{wrapfigure}{l}{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{../figures/lec21.2.png}

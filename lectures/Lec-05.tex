@@ -15,7 +15,7 @@ We have figured out that the reasonable definition of the derivative of a map $ 
 We now proceed to perform a series of reductions that will actually answer the question of \\
 differentiability of functions and also provide techniques to compute the derivative.
 
-\section{Matrix representation of the derivative}
+\section{Matrix representation of the derivative}\index{Jacobian}
 
 \begin{Thm}{}{}
   Let $ f: \Op{n} \to \R^m $ and $ a \in \Op{n} $. Then, $ f $ is differentiable at $ a $ iff $ f_i $ is differentiable at $ a $ for all $ i $. In that case, we have
@@ -67,7 +67,7 @@ Note the following:
         This is the notion of velocity vector of a curve in $ \R^n $ from elementary calculus.
 \end{enumerate}
 
-\section{Further properties of differentiable functions}
+\section{Further properties of differentiable functions}\index{Differentiable functions}
 \begin{Thm}{Differentiability implies continuity}{}
   Let $ f: \Op{n} \to \R^m $. If $ f $ is differentiable at $ a \in \Op{n} $, $ f $ is continuous at $ a $.
 \end{Thm}
@@ -81,7 +81,7 @@ Note the following:
   which proves that $ f $ is continuous at $ a $.
 \end{proof}
 
-\begin{Thm}{Chain rule}{}
+\begin{Thm}{Chain rule}{chainRule}\index{Chain rule}
   Consider maps $ f,g $ such that
   \[\begin{tikzcd}
       {\Op{n}} &&& {\Op{m}} &&& {\R^p}

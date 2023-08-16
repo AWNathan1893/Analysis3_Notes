@@ -12,7 +12,7 @@
 \setcounter{figure}{0}
 
 
-\section{Conservative Vector Fields}
+\section{Conservative Vector Fields}\index{Conservative Vector Field}
 
 In the previous lecture we introduced the notion of an oriented surface. For an oriented surface $S \subseteq \R^3$, we call the orientation vector field $\vec{n} : S \to \R^3$ the \textbf{normal vector field}. Now we give an example of such a vector field.
 
@@ -45,7 +45,7 @@ In the previous lecture we introduced the notion of an oriented surface. For an 
     \label{fig2:27}
   \end{wrapfigure}
 
-  \textbf{Formula for Normal Vector Field.}
+  \textbf{Formula for Normal Vector Field\index{Normal Vector Field}.}
 
   Let $\mathcal{G}(f) = \qty{ (x,y,f(x,y)) \mid (x,y) \in \Op{2}}$ where $f: \Op{2} \to \R$ is a $C^1$ function. Then a parametrization of the surface $\mathcal{G}(f)$ is given by the function
   \begin{align*}
@@ -107,7 +107,7 @@ We will give a general picture for the most common case, when $n = 3$. Let $\vec
    & f_y \equiv \pdv{f}{y} = Q           \\
    & f_z \equiv \pdv{f}{z} = R \nonumber
 \end{align}
-Then we can define \textbf{curl} of a vector field
+Then we can define \textbf{curl}\index{Curl} of a vector field
 \[
   \curl \vec{F} := \begin{vmatrix}
     \hat{i}   & \hat{j}   & \hat{k}   \\
@@ -160,7 +160,7 @@ Then expanding this out and using the relations (\ref{eq1:27}) and others we get
 
 \section{Green's Theorem}
 
-\begin{Def}{Simply Connected Domain}{}
+\begin{Def}{Simply Connected Domain}{}\index{Simply Connected Domain}
   Let $\mathcal{D}$ be an open and connected set. Let $\mathcal{C}$ be a simple and closed curve if $\mathcal{C}$ can be shrunk continuously to a point inside $\mathcal{D}$, then we say $\mathcal{D}$ is \textbf{simply connected}.
 \end{Def}
 
@@ -171,7 +171,7 @@ Then expanding this out and using the relations (\ref{eq1:27}) and others we get
   \label{fig4:27}
 \end{figure}
 
-\begin{Thm}{Green's Theorem}{green}
+\begin{Thm}{Green's Theorem}{green}\index{Green's Theorem}
   Let $\mathcal{R} \subseteq \R^2 $ be a simply connected domain with boundary curve $\mathcal{C}$ where parametrization is taken in anti-clockwise direction. Let $\vec{F} = (P,Q)$ be a $C^1$ vector field on $\mathcal{R}$, then
   \[
     \int_{\mathcal{C}} \vec{F} \cdot \dd r := \int_{\mathcal{C}} P \, \dd x + Q \, \dd y = \int_{\mathcal{R}} \left( \pdv{Q}{x} - \pdv{P}{y}\right) \dd A

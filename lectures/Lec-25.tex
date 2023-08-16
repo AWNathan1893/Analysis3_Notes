@@ -10,7 +10,7 @@
 \setcounter{figure}{0}
 
 
-\section{Tangent Plane Of \texorpdfstring{$\mathcal{G}(f)$}{G(f)}}
+\section{Tangent Plane Of \texorpdfstring{$\mathcal{G}(f)$}{G(f)}}\index{Tangent Plane}
 
 Let, $f : \Op{2} \to \R$ be a $C^1$ function and $r(u,v) = (u,v,f(u,v))$. Here $\ran(r)$ defines a surface $\mathcal{G}(f)$ as we have showed in Example \ref{eg:groffn}. We also have calculated $r_v\times r_u = (-f_u,-f_v,1)$. Now using (\ref{eq:24:1:plane}) we can write down the equation of \textbf{Tangent space} at a point $P = (a,b,f(a,b))$ on $\mathcal{G}(f)$. Equation of the tangent space $T_P \mathcal{S}$,
 
@@ -41,7 +41,7 @@ Our next goal is to calculate area of different surfaces. We will start with ver
 
 \pagebreak
 
-\section{Surface Area} \label{marker}
+\section{Surface Area}\index{Surface Area}\index{Area} \label{marker}
 
 \begin{wrapfigure}{r}{0.45\textwidth}
   \centering
@@ -110,13 +110,13 @@ Since $f$ is $C^1$ function so is $r$. So the total area of the surface $\mathca
 
 Will will do the above integration over any bounded set $\Omega$ as we have done in \text{Riemann} integration chapter. Over a bounded set $\Omega$ area of $\mathcal{S}$ is given by,
 
-\begin{equation}
+\begin{equation}\index{Area}
   \Area (\mathcal{S}) =  \int_{\Omega} \sqrt{1 + f_x^2 +f_y^2} \, \dd A \label{eq:surfa}
 \end{equation}
 
 The General method for finding surface area is described by the following theorem.
 
-\begin{Thm}{}{}
+\begin{Thm}{}{}\index{Area}
   Let $\mathcal{R} \subseteq \R^2$ be a region. $r : \mathcal{R} \to \R^3$ be the parametrization of the surface $\mathcal{S}$. Then,
 
   \[\Area(\mathcal{S}) = \int_{\mathcal{R}} \norm{r_u \times r_v} \, \dd A\]

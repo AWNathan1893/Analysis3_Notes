@@ -20,7 +20,7 @@ We will talk about $ n $-variable calculus, that is, calculus on $ \R^n $. Recal
 
 Extending the analytic ideas to $ \R^n $ exploiting the algebraic structure is the matter of this course, which further gives way to differential geometry.
 
-\section{Review: \texorpdfstring{$ \R^n $}{Rn} as a vector space}
+\section{Review: \texorpdfstring{$ \R^n $}{Rn} as a vector space\index{Vector Space}}
 
 \begin{enumerate}[label = (\roman*)]
   \item The standard orthonormal basis of $ \R^n $ is $ \{e_i\}_{i=1}^n $.
@@ -73,18 +73,18 @@ and hence,
 
 \section{Analytic ideas in \texorpdfstring{$ \R^n $}{Rn}}
 
-We have the Euclidean norm on $ \R^n $ defined by,
+We have the Euclidean norm\index{Euclidean norm} on $ \R^n $ defined by,
 \[ \norm{x} = \left(\sum_{i=1}^{n}x_i^2\right)^{\frac 12} \quad \forall \, x \in \R^n \]
-This induces the metric given as,
+This induces the metric\index{Euclidean metric} given as,
 \[ d(x,y) = \norm{x-y} = \left(\sum_{i=1}^{n}(x_i-y_i)^2\right)^{\frac 12} \quad \forall \, x,y \in \R^n \]
 
-\begin{Thm}{Cauchy-Schwarz Inequality}{}
+\begin{Thm}{Cauchy-Schwarz Inequality}{}\index{Cauchy-Schwarz Inequality}
   For all $ x,y \in \R^n $, \[ \inp xy \leq \norm{x} \norm{y} \]
 \end{Thm}
 \begin{proof}
   Consider $ x,y \in \R^n $. We have,
   \[ \sum_{i=1}^{n}\sum_{j=1}^{n} (x_iy_j - x_jy_i)^2 \geq 0 \]
-  But the left hand side is, after expanding,
+  But the left-hand side is, after expanding,
   \[ \sum_{i,j = 1}^{n} x_i^2y_j^2 + \sum_{i,j = 1}^{n} x_j^2y_i^2 - 2 \sum_{i,j=1}^{n} x_ix_j y_iy_j = 2 \norm{x}^2\norm{y}^2 - 2\inp xy^2 \]
   which gives the desired inequality.
 \end{proof}
@@ -95,7 +95,7 @@ This induces the metric given as,
 Recall the triangle inequality for $ \R $, for all $ x,y \in \R $
 \[ \abs{x+y} \leq \abs{x} + \abs{y} \]
 
-\begin{Thm}{Triangle inequality for $ \R^n $}{}
+\begin{Thm}{Triangle inequality for $ \R^n $}{}\index{Triangle inequality}
   For all $ x,y \in \R^n $,
   \[ \norm{x+y} \leq \norm{x} + \norm{y} \]
 \end{Thm}
