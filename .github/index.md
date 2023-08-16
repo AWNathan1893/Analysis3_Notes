@@ -17,13 +17,13 @@ header-includes: |
 
 ## [$\LaTeX$ed by](https://github.com/AWNathan1893/Analysis3_Notes/graphs/contributors)
 
-- [Trishan Mondal](https://github.com/Trishan8)
-- [Soumya Dasgupta](https://github.com/OmegaSD18)
 - [Aaratrick Basu](https://github.com/AWNathan1893)
-- [Priyatosh Jana](https://github.com/iampjsrk)
 - [Bikram Halder](https://github.com/BikramHalder)
-- [Sarswata Sensarma](https://github.com/SaraswataSensarma)
 - [Deepta Basak](https://github.com/mindpalace01)
+- [Priyatosh Jana](https://github.com/iampjsrk)
+- [Sarswata Sensarma](https://github.com/SaraswataSensarma)
+- [Soumya Dasgupta](https://github.com/OmegaSD18)
+- [Trishan Mondal](https://github.com/Trishan8)
 
 B. Math (2021-'24) Students at [Indian Statistical Institute, Bangalore](https://www.isibang.ac.in)
 
