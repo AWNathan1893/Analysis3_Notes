@@ -13,6 +13,8 @@ header-includes: |
       margin: 0 0 4px 0;
     }
   </style>
+  <meta name="google-site-verification" content="wWQdQpbVzKtLIfrMaeDUFNYpQtuOYi2c6gm78n2HUE8" />
+  <meta name="msvalidate.01" content="0E5D93079FC99FB55A8DFF6DFA907C22" />
 ---
 
 ## [$\LaTeX$ed by](https://github.com/AWNathan1893/Analysis3_Notes/graphs/contributors)
