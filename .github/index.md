@@ -21,7 +21,7 @@ header-includes: |
 - [Bikram Halder](https://github.com/BikramHalder)
 - [Deepta Basak](https://github.com/mindpalace01)
 - [Priyatosh Jana](https://github.com/iampjsrk)
-- [Sarswata Sensarma](https://github.com/SaraswataSensarma)
+- [Saraswata Sensarma](https://github.com/SaraswataSensarma)
 - [Soumya Dasgupta](https://github.com/OmegaSD18)
 - [Trishan Mondal](https://github.com/Trishan8)
 
