@@ -9,6 +9,9 @@ echo -e "\n_Last updated: $(TZ='Asia/Kolkata' date +'%A, %b %d %Y, %I:%M %p') IS
 echo "Compiling .github/index.md to _site/index.html"
 pandoc --katex .github/index.md -s -o _site/index.html
 
+echo "Copying sitemap"
+cp .github/sitemap.xml _site/sitemap.xml
+
 echo "Zipping pdfs to Analysis-3_all_pdfs.zip"
 zip -r _site/Analysis-3_all_pdfs.zip pdfs/*
 
