@@ -35,7 +35,7 @@ Therefore, a compact subset of $ \R^n $ is closed and bounded. What about the co
 \end{Thm}
 
 \begin{proof}
-  We take a closed and bounded box $ \displaystyle K := \prod_{i=1}^{n} [a_i, b_i] \subseteq \R^n $. Fix $ i \in [n] $. Consider a sequence $ \left\{ x_m \right\} \subseteq K $. We take its projection on the $ i^{\text{th}} $ coordinate, i.e., $ \left\{ \Pi_i(x_m) \right\} \subseteq [a_i, b_i] $. By Bolzano-Weierstrass Theorem, it has a convergent subsequence $ \left\{ \Pi_i(x_m)_t \right\} \subseteq [a_i, b_i] $ converging to $ \alpha_i \in [a_i, b_i] $. Consider the intersection of inverse images of all such convergent subsequences, $ \displaystyle \bigcap_{i=1}^n \Pi_i^{-1}\left\{ \Pi_i(x_m)_t \right\} $, which is a convergent subsequence of $ \left\{ x_m \right\} $ converging to $ \alpha = (\alpha_1, \ldots, \alpha_n) \in K $.
+  We take a closed and bounded box $ \displaystyle K := \prod_{i=1}^{n} [a_i, b_i] \subseteq \R^n $. Fix $ i \in [n] $. Consider a sequence $ \left\{ x_m \right\} \subseteq K $. We take its projection on the $ i^{\text{th}} $ coordinate, i.e., $ \left\{ \pi_i(x_m) \right\} \subseteq [a_i, b_i] $. Consider $i = 1$, by Bolzano-Weierstrass Theorem, it has a convergent subsequence $ \left\{ \pi_1(x_{m_t}) \right\} \subseteq [a_1, b_1] $ converging to $ \alpha_1 \in [a_1, b_1] $. Now we take $ i = 2 $ and repeat the process to get a convergent subsequence $ \left\{ \pi_2(x_{m_{t_l}}) \right\} \subseteq [a_2, b_2] $ converging to $ \alpha_2 \in [a_2, b_2] $. Continuing this way, we get a convergent subsequence of $ \left\{ x_m \right\} $ converging to $ \alpha = (\alpha_1, \ldots, \alpha_n) \in K $. Hence, $ K $ is compact.
 \end{proof}
 
 

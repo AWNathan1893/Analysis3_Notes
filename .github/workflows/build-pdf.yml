@@ -26,14 +26,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup pandoc
         uses: r-lib/actions/setup-pandoc@v2
 
       - name: Cache the pdfs
         id: cache-ra-3
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: pdfs
           key: analysis-3-${{ hashFiles('style.sty') }}-${{ hashFiles('**/*tex') }}-${{ hashFiles('**/*pdf_tex') }}-${{ hashFiles('**/*pdf') }}-${{ hashFiles('./latexmkrc') }}
@@ -43,7 +43,7 @@ jobs:
 
       - name: Cache the pgfplots
         id: cache-pgfplots
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: pgfplot_figures
           key: pgfplot-figures-${{ hashFiles('pgfplots/**/*tex') }}
@@ -56,17 +56,16 @@ jobs:
 
       - if: ${{ steps.cache-pgfplots.outputs.cache-hit != 'true' }}
         name: Build pgfplots
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: ./pgfplots
           root_file: "*.tex"
-          glob_root_file: true
           latexmk_shell_escape: true
           post_compile: bash ../.github/scripts/_pgf_cache.sh
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile the Analysis-3.pdf
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: .
           root_file: ./Analysis-3.tex
@@ -74,11 +73,10 @@ jobs:
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
         name: Compile all the subfiles
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           working_directory: ./lectures
           root_file: "*.tex"
-          glob_root_file: true
           latexmk_shell_escape: true
 
       - if: ${{ steps.cache-ra-3.outputs.cache-hit != 'true' }}
@@ -89,7 +87,7 @@ jobs:
         run: bash ./.github/scripts/_site.sh
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
@@ -102,4 +100,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
